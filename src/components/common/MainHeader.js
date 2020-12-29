@@ -1,4 +1,4 @@
-import logo from '../assets/images/ic_sqoop.svg';
+import logo from '../../assets/images/ic_sqoop.svg';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.div`
@@ -16,7 +16,7 @@ const MenuBox = styled.div`
 const ListHome = styled.li`
   display: flex;
   list-style: none;
-  padding: 8px 20px;
+  padding: 8px 0px;
   font-weight: 400;
   &:hover {
     font-weight: 700;
@@ -34,7 +34,7 @@ const ListCollect = styled.li`
 const ListMypage = styled.li`
   display: flex;
   list-style: none;
-  padding: 8px 20px;
+  padding: 8px 0px;
   font-weight: 400;
   &:hover {
     font-weight: 700;
