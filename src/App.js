@@ -1,11 +1,35 @@
-import CreateActivity from './pages/createActivity/createActivity';
+// import CreateActivity from './pages/createActivity/createActivity';
+import StepCard from './pages/stepCard/StepCard';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Styled from 'styled-components';
+
+const FontWrap = Styled.div`
+  @font-face {
+    font-family: 'Noto Sans CJK KR';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./font/NotoSansKR-Regular.otf') format('otf');
+  }
+  @font-face {
+    font-family: 'Noto Sans CJK KR';
+    font-style: normal;
+    font-weight: bold;
+    src: url('./font/NotoSansKR-Bold.otf') format('otf');
+  }
+  * {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+  }
+`;
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>소희 민지 예지 주희 파이팅!</p>
-      </header>
-    </div>
+    <BrowserRouter>
+      <FontWrap>
+        <Route path="/steps/:id" component={StepCard} />
+      </FontWrap>
+    </BrowserRouter>
   );
 }
 
