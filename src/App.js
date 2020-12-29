@@ -2,6 +2,8 @@ import { HashRouter, Route } from 'react-router-dom';
 import Styled from 'styled-components';
 import StepCard from './pages/StepCard/StepCard';
 import SignIn from './pages/SignIn/SignIn';
+import Home from './pages/home/Home';
+import MainHeader from './components/common/MainHeader';
 
 const FontWrap = Styled.div`
   @font-face {
@@ -28,8 +30,10 @@ function App() {
     <div className="App">
       <HashRouter>
         <FontWrap>
+          <Route component={MainHeader} />
           <Route exact path="/signin" component={SignIn} />
           <Route path="/steps/:id" component={StepCard} />
+          <Route exact path="/" component={Home} />
         </FontWrap>
       </HashRouter>
     </div>
