@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter, Route } from 'react-router-dom';
-import SignIn from './pages/signIn/SignIn';
+import SignIn from './pages/SignIn/SignIn';
 
 function App() {
   return (
