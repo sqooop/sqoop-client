@@ -1,7 +1,7 @@
-// import CreateActivity from './pages/createActivity/createActivity';
-import StepCard from './pages/stepCard/StepCard';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import Styled from 'styled-components';
+import StepCard from './pages/stepCard/StepCard';
+import SignIn from './pages/SignIn/SignIn';
 
 const FontWrap = Styled.div`
   @font-face {
@@ -25,11 +25,14 @@ const FontWrap = Styled.div`
 
 function App() {
   return (
-    <BrowserRouter>
-      <FontWrap>
-        <Route path="/steps/:id" component={StepCard} />
-      </FontWrap>
-    </BrowserRouter>
+    <div className="App">
+      <HashRouter>
+        <FontWrap>
+          <Route exact path="/signin" component={SignIn} />
+          <Route path="/steps/:id" component={StepCard} />
+        </FontWrap>
+      </HashRouter>
+    </div>
   );
 }
 

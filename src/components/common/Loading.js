@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Hashtag = () => {
+const Loading = () => {
   return <div></div>;
 };
 
-export default Hashtag;
+export default Loading;
