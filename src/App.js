@@ -1,13 +1,13 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import SignIn from './pages/signin/SignIn';
+import { HashRouter, Route } from 'react-router-dom';
+import SignIn from './pages/signIn/SignIn';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <HashRouter>
         <Route exact path="/signin" component={SignIn} />
-      </header>
+      </HashRouter>
     </div>
   );
 }
