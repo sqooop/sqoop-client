@@ -1,7 +1,7 @@
 import React from 'react';
 import Styled from 'styled-components';
-import LeftButton from '../../assets/icons/LeftButton.svg';
-import RightButton from '../../assets/icons/RightButton.svg';
+import LeftButtonIcon from '../../assets/icons/LeftButtonIcon.svg';
+import RightButtonIcon from '../../assets/icons/RightButtonIcon.svg';
 
 const HeaderWrap = Styled.div`
   box-sizing: border-box;
@@ -10,6 +10,8 @@ const HeaderWrap = Styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 32px;
+    height: 48px;
 
     &--text {
       margin-left: 183px;
@@ -48,10 +50,10 @@ const StepHeader = ({ title }) => {
         <div className="header--empty"></div>
         <div className="header--button">
           <div className="header--button__left">
-            <img src={LeftButton} alt="left" />
+            <img src={LeftButtonIcon} alt="left" />
           </div>
           <div className="header--button__right">
-            <img src={RightButton} alt="right" />
+            <img src={RightButtonIcon} alt="right" />
           </div>
         </div>
       </div>
