@@ -1,6 +1,5 @@
 function Hashtag() {
-    return <div></div>;
-  }
-  
-  export default Hashtag;
-  
+  return <div></div>;
+}
+
+export default Hashtag;
