@@ -1,18 +1,12 @@
 import { Select, Tag, Divider, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { React, useState } from 'react';
-
 import 'antd/dist/antd.css';
 
 const tagRender = props => {
   const { label, closable, onClose } = props;
   return (
-    <Tag
-      color={'#195BFF'}
-      closable={closable}
-      onClose={onClose}
-      style={{ marginRight: 3 }}
-    >
+    <Tag color={'#195BFF'} closable={closable} onClose={onClose} style={{ marginRight: 3 }}>
       {label}
     </Tag>
   );
@@ -42,11 +36,7 @@ const SelectTag = () => {
           {menu}
           <Divider style={{ margin: '4px 0' }} />
           <div style={{ display: 'flex', flexWrap: 'nowrap', padding: 8 }}>
-            <Input
-              style={{ flex: 'auto' }}
-              value={name}
-              onChange={onNameChange}
-            />
+            <Input style={{ flex: 'auto' }} value={name} onChange={onNameChange} />
             <a
               style={{
                 flex: 'none',

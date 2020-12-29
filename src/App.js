@@ -1,10 +1,13 @@
-import CreateActivity from './pages/createActivity/createActivity';
+import React from 'react';
+import { HashRouter, Route } from 'react-router-dom';
+import SignIn from './pages/signIn/SignIn';
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>소희 민지 예지 주희 파이팅!</p>
-      </header>
+      <HashRouter>
+        <Route exact path="/signin" component={SignIn} />
+      </HashRouter>
     </div>
   );
 }
