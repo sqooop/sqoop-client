@@ -1,9 +1,9 @@
 import { HashRouter, Route } from 'react-router-dom';
 import Styled from 'styled-components';
-import StepCard from './pages/StepCard/StepCard';
+import StepCard from './pages/stepCard/StepCard';
 import SignIn from './pages/SignIn/SignIn';
 import ActivityOne from './pages/ActivityOne/ActivityOne';
-import Home from './pages/home/Home';
+import Home from './pages/Home/Home';
 import MainHeader from './components/common/MainHeader';
 
 const FontWrap = Styled.div`
