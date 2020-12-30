@@ -2,6 +2,7 @@ import { HashRouter, Route } from 'react-router-dom';
 import Styled from 'styled-components';
 import StepCard from './pages/StepCard/StepCard';
 import SignIn from './pages/SignIn/SignIn';
+import ActivityOne from './pages/ActivityOne/ActivityOne';
 import Home from './pages/home/Home';
 import MainHeader from './components/common/MainHeader';
 
@@ -31,9 +32,10 @@ function App() {
       <HashRouter>
         <FontWrap>
           <Route component={MainHeader} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={SignIn} />
           <Route path="/steps/:id" component={StepCard} />
-          <Route exact path="/" component={Home} />
+          <Route exact path="/one_activity" component={ActivityOne} />
         </FontWrap>
       </HashRouter>
     </div>
