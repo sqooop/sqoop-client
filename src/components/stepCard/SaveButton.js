@@ -1,6 +1,7 @@
 import React from 'react';
 import Styled from 'styled-components';
-import SaveIcon from '../../assets/icons/SaveIcon.svg';
+import SaveIconOff from '../../assets/icons/SaveIconOff.svg';
+import SaveIconOn from '../../assets/icons/SaveIconOn.svg';
 
 const SaveButtonWrap = Styled.div`
   button {
@@ -30,20 +31,30 @@ const SaveButtonWrap = Styled.div`
 `;
 
 const SaveButton = ({
-  color = '#A5A5A5',
+  backgroundColor,
+  color,
   onClick,
   onMouseEnter,
   onMouseLeave,
+  border,
 }) => {
   return (
     <SaveButtonWrap>
       <button
-        style={{ backgroundColor: color }}
+        style={{
+          backgroundColor: backgroundColor,
+          color: color,
+          border: border,
+        }}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
-        <img src={SaveIcon} alt="" />
+        {onClick ? (
+          <img src={SaveIconOn} alt="" />
+        ) : (
+          <img src={SaveIconOff} alt="" />
+        )}
         스쿱 저장
       </button>
     </SaveButtonWrap>
