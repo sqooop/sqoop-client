@@ -2,7 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { TextField, Typography } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { Avatar, Button, Container, createMuiTheme, Grid, makeStyles, MuiThemeProvider } from '@material-ui/core';
+import {
+  Avatar,
+  Button,
+  Container,
+  createMuiTheme,
+  Grid,
+  makeStyles,
+  MuiThemeProvider,
+} from '@material-ui/core';
 
 // 로그인 뷰 material ui 배경색 및 폰트 설정
 const backgroundTheme = createMuiTheme({
@@ -128,9 +136,38 @@ function LoginWrap() {
             Sign In
           </Typography>
           <form className={classes.form} noValidate onKeyUp={enterKey}>
-            <TextField variant="standard" margin="normal" required fullWidth id="email" label="Email" name="email" autoFocus type="email" autoComplete="email" onChange={changeInput} />
-            <TextField variant="standard" margin="normal" required fullWidth id="password" label="Password" name="password" type="password" autoComplete="password" onChange={changeInput} />
-            <Button variant="contained" fullWidth color="primary" className={classes.submit} onClick={LoginSubmit}>
+            <TextField
+              variant="standard"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email"
+              name="email"
+              autoFocus
+              type="email"
+              autoComplete="email"
+              onChange={changeInput}
+            />
+            <TextField
+              variant="standard"
+              margin="normal"
+              required
+              fullWidth
+              id="password"
+              label="Password"
+              name="password"
+              type="password"
+              autoComplete="password"
+              onChange={changeInput}
+            />
+            <Button
+              variant="contained"
+              fullWidth
+              color="primary"
+              className={classes.submit}
+              onClick={LoginSubmit}
+            >
               SIGN IN
             </Button>
             <Grid container>
