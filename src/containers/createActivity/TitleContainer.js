@@ -6,7 +6,9 @@ import Title from '../../components/createActivity/Title';
 const TitleContainer = () => {
   const dispatch = useDispatch();
   const saveTitle = data => dispatch(setTitle(data));
+
   const title = useSelector(state => state.activity.title);
+
   const onChangeInputs = evt => {
     const value = evt.target.value;
     saveTitle(value);

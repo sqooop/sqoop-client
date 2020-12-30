@@ -6,13 +6,13 @@ const TitleInput = styled.input`
   border: none;
   outline: none;
   font-size: 32px;
-  ::placeholder,
+  /* ::placeholder,
   ::-webkit-input-placeholder {
     color: #a5a5a5;
   }
   :-ms-input-placeholder {
     color: #a5a5a5;
-  }
+  } */
 `;
 
 const Title = props => {
