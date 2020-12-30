@@ -1,13 +1,20 @@
 const SET_DATE = 'activity/SET_DATE';
+const SET_TITLE = 'activity/SET_TITLE';
 
-export const setDate = activity => ({
+export const setDate = dateString => ({
   type: SET_DATE,
-  activity,
+  dateString,
+});
+
+export const setTitle = title => ({
+  type: SET_TITLE,
+  title,
 });
 
 const initialState = {
-  startDate: null,
-  endDate: null,
+  title: '',
+  startDate: '',
+  endDate: '',
   group: [],
   job: [],
   capability: [],
@@ -18,11 +25,16 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    case SET_TITLE:
+      return {
+        ...state,
+        title: action.title,
+      };
     case SET_DATE:
       return {
         ...state,
-        startDate: action.startDate,
-        endDate: action.endDate,
+        startDate: action.dateString[0],
+        endDate: action.dateString[1],
       };
     default:
       return state;

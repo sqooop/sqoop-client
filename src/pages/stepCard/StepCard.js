@@ -1,6 +1,6 @@
 import React from 'react';
-import StepHeader from '../../components/StepCard/StepHeader';
-import CurrentCard from '../../components/StepCard/CurrentCard';
+import StepHeader from '../../components/stepCard/StepHeader';
+import CurrentCard from '../../components/stepCard/CurrentCard';
 
 const StepCard = () => {
   // 나중에 서버에서 데이터 받아오기
