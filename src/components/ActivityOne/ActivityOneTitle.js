@@ -1,40 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Edit } from '../../assets/icons/edit.svg';
-import { ReactComponent as Star } from '../../assets/icons/star.svg';
-import { ReactComponent as Complete } from '../../assets/icons/complete.svg';
+import ActivityOneButton from './ActivityOneButton';
 
-const ActivityOneTitle = () => {
-  const [editClick, setEditClick] = useState('EditIcon');
-  const editStatus = editClick === 'EditIcon' ? true : false;
-  const userData = 'Complete' ? true : false;
+const ActivityOneTitle = ({ userData }) => {
+  // userData를 props로 받는 이유는 활동 돌아보기를 완료하지 않으면 즐겨찾기 버튼과 편집하기 버튼이 없기 때문
+  const userFlag = userData !== null ? true : false;
 
-  const EditClick = () => {
-    setEditClick('CompleteIcon');
-  };
-
-  const CompleteClick = () => {
-    setEditClick('EditIcon');
-  };
-
+  // userFlag로 userData의 여부를 확인해 버튼을 보여주거나 보여주지 않음
   return (
-    <>
-      <StyledActivityOneTitle>
-        <span>라오스 봉사 활동</span>
-        <StyledActivityOneButton>
-          <Star /> <span>즐겨찾기</span>
-          {editStatus ? (
-            <StyledActivityOneEdit onClick={EditClick}>
-              <Edit /> <span>편집하기</span>
-            </StyledActivityOneEdit>
-          ) : (
-            <StyledActivityOneEdit onClick={CompleteClick}>
-              <Complete /> <span>완료하기</span>
-            </StyledActivityOneEdit>
-          )}
-        </StyledActivityOneButton>
-      </StyledActivityOneTitle>
-    </>
+    <StyledActivityOneTitle>
+      <span>라오스 봉사 활동</span>
+      {userFlag ? <ActivityOneButton /> : ''}
+    </StyledActivityOneTitle>
   );
 };
 
@@ -47,26 +24,6 @@ const StyledActivityOneTitle = styled.div`
     font-size: 2rem;
     font-weight: 700;
     line-height: 3rem;
-  }
-`;
-
-const StyledActivityOneButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &:nth-child(2) > span {
-    font-weight: 400;
-  }
-`;
-
-const StyledActivityOneEdit = styled.div`
-  width: 92px;
-  text-align: right;
-
-  &:nth-child(2) > span {
-    font-weight: 400;
-    line-height: 1.315rem;
   }
 `;
 

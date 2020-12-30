@@ -4,11 +4,9 @@ import ActivityOneTitle from '../../components/ActivityOne/ActivityOneTitle';
 
 const ActivityOne = () => {
   return (
-    <div>
-      <StyledActivityOneWrap>
-        <ActivityOneTitle />
-      </StyledActivityOneWrap>
-    </div>
+    <StyledActivityOneWrap>
+      <ActivityOneTitle />
+    </StyledActivityOneWrap>
   );
 };
 
