@@ -20,7 +20,6 @@ const Title = props => {
   return (
     <TitleInput
       value={title}
-      name="title"
       onChange={onChangeInputs}
       placeholder="활동 이름"
     />
