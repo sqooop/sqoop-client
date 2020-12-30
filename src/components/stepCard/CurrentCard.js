@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { useState } from 'react';
 import SaveIconOn from '../../assets/icons/SaveIconOn.svg';
 import SaveIconOnHover from '../../assets/icons/SaveIconOnHover.svg';
+import SaveConfirm from './SaveConfirm';
 
 const CurrentCardWrap = Styled.div`
   .card {
@@ -57,6 +58,7 @@ const CurrentCard = ({ questions, answers, match, history }) => {
   const index = parseInt(match.params.id);
 
   const [textValue, setTextValue] = useState(answers[index]);
+  const [saved, setSaved] = useState(false);
 
   const onChangeFunc = event => {
     setTextValue(event.target.value);
@@ -64,6 +66,7 @@ const CurrentCard = ({ questions, answers, match, history }) => {
 
   const onClickFunc = event => {
     console.log('저장되었습니다');
+    setSaved(true);
     history.push(`/steps/${index + 1}`);
     setTextValue(answers[index + 1]);
   };
@@ -116,6 +119,7 @@ const CurrentCard = ({ questions, answers, match, history }) => {
         ) : (
           <SaveButton backgroundColor="#A5A5A5" color="white" border="none" />
         )}
+        {saved && <SaveConfirm setSaved={setSaved} />}
       </div>
     </CurrentCardWrap>
   );
