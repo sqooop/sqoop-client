@@ -1,5 +1,5 @@
 import React from 'react';
-import StepHeader from '../../components/StepCard/StepHeader';
+import StepHeader from '../../components/stepCard/StepHeader';
 
 const StepCard = () => {
   // 나중에 서버에서 데이터 받아오기
