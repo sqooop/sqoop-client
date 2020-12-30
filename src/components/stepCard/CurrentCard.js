@@ -3,6 +3,9 @@ import SaveButton from './SaveButton';
 import Styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import { useState } from 'react';
+import SaveIconOn from '../../assets/icons/SaveIconOn.svg';
+import SaveIconOnHover from '../../assets/icons/SaveIconOnHover.svg';
+import SaveConfirm from './SaveConfirm';
 
 const CurrentCardWrap = Styled.div`
   .card {
@@ -55,6 +58,7 @@ const CurrentCard = ({ questions, answers, match, history }) => {
   const index = parseInt(match.params.id);
 
   const [textValue, setTextValue] = useState(answers[index]);
+  const [saved, setSaved] = useState(false);
 
   const onChangeFunc = event => {
     setTextValue(event.target.value);
@@ -62,15 +66,14 @@ const CurrentCard = ({ questions, answers, match, history }) => {
 
   const onClickFunc = event => {
     console.log('저장되었습니다');
+    setSaved(true);
     history.push(`/steps/${index + 1}`);
     setTextValue(answers[index + 1]);
-    event.target.style.cssText = `
-      border: none;
-      color: white;
-    `;
   };
 
   const hovered = event => {
+    const image = event.target.querySelector('img');
+    image && (image.src = SaveIconOnHover);
     event.target.style.cssText = `
       border: 1px solid #195BFF; 
       background-color: white; 
@@ -80,6 +83,8 @@ const CurrentCard = ({ questions, answers, match, history }) => {
   };
 
   const unhovered = event => {
+    const image = event.target.querySelector('img');
+    image && (image.src = SaveIconOn);
     event.target.style.cssText = `
       border: none;
       background-color: #195BFF;
@@ -106,14 +111,15 @@ const CurrentCard = ({ questions, answers, match, history }) => {
         />
         {textValue ? (
           <SaveButton
-            color="#195BFF"
+            backgroundColor="#195BFF"
             onClick={onClickFunc}
             onMouseEnter={hovered}
             onMouseLeave={unhovered}
           />
         ) : (
-          <SaveButton />
+          <SaveButton backgroundColor="#A5A5A5" color="white" border="none" />
         )}
+        {saved && <SaveConfirm setSaved={setSaved} />}
       </div>
     </CurrentCardWrap>
   );
