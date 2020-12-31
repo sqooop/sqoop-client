@@ -2,6 +2,7 @@ import React from 'react';
 import Styled from 'styled-components';
 import LeftButtonIcon from '../../assets/icons/LeftButtonIcon.svg';
 import RightButtonIcon from '../../assets/icons/RightButtonIcon.svg';
+import { withRouter } from 'react-router-dom';
 
 const HeaderWrap = Styled.div`
   box-sizing: border-box;
@@ -11,6 +12,7 @@ const HeaderWrap = Styled.div`
     flex-direction: row;
     align-items: center;
     margin-bottom: 32px;
+    margin-top: 12px;
     height: 48px;
 
     &--text {
@@ -39,7 +41,14 @@ const HeaderWrap = Styled.div`
   }
 `;
 
-const StepHeader = ({ title }) => {
+const StepHeader = ({ title, answers, history, match }) => {
+  const index = parseInt(match.params.id);
+
+  const onClickFunc = event => {
+    event.stopPropagation();
+    console.log('clicked');
+  };
+
   return (
     <HeaderWrap>
       <div className="header">
@@ -49,11 +58,15 @@ const StepHeader = ({ title }) => {
         </div>
         <div className="header--empty"></div>
         <div className="header--button">
-          <div className="header--button__left">
-            <img src={LeftButtonIcon} alt="left" />
+          <div className="header--button__left" onClick={onClickFunc}>
+            <object type="image/svg+xml" data={LeftButtonIcon}>
+              L
+            </object>
           </div>
-          <div className="header--button__right">
-            <img src={RightButtonIcon} alt="right" />
+          <div className="header--button__right" onClick={onClickFunc}>
+            <object type="image/svg+xml" data={RightButtonIcon}>
+              R
+            </object>
           </div>
         </div>
       </div>
@@ -61,4 +74,4 @@ const StepHeader = ({ title }) => {
   );
 };
 
-export default StepHeader;
+export default withRouter(StepHeader);
