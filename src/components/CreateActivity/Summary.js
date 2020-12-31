@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TitleInput = styled.input`
-  font-weight: bold !important;
+const TextArea = styled.textarea`
+  font-size: 14px;
   border: none;
   outline: none;
-  font-size: 32px;
+  width: 258px;
+  height: 126px;
   ::placeholder,
   ::-webkit-input-placeholder {
     color: #a5a5a5;
@@ -15,15 +16,15 @@ const TitleInput = styled.input`
   }
 `;
 
-const Title = props => {
-  const { title, onChangeInputs } = props;
+const Summary = props => {
+  const { text, onChangeInputs } = props;
   return (
-    <TitleInput
-      value={title}
+    <TextArea
+      value={text}
       onChange={onChangeInputs}
-      placeholder="활동 이름"
+      placeholder="활동 내용 요약 입력(50자 이내)"
     />
   );
 };
 
-export default Title;
+export default Summary;
