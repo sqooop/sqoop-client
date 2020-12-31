@@ -16,7 +16,7 @@ const SaveConfirmWrap = Styled.div`
   align-items: center;
   font-weight: bold;
   animation-name: popup;
-  animation-duration: 1s;
+  animation-duration: 1.5s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 
@@ -37,7 +37,7 @@ const SaveConfirm = ({ setSaved }) => {
   useEffect(() => {
     setTimeout(() => {
       setSaved(false);
-    }, 1000);
+    }, 1500);
   });
 
   return <SaveConfirmWrap>저장 완료!</SaveConfirmWrap>;
