@@ -39,23 +39,19 @@ const ActivityOneButton = () => {
       {favoritesStatus ? (
         <StyledActivityFavoritesButton onClick={FavoritesClick}>
           <Star />
-          &nbsp;<span>즐겨찾기</span>
         </StyledActivityFavoritesButton>
       ) : (
         <StyledActivityFavoritesButton onClick={FillFavoritesClick}>
           <StarFill />
-          &nbsp;<span>즐겨찾기</span>
         </StyledActivityFavoritesButton>
       )}
       {editStatus ? (
         <StyledActivityOneEdit onClick={EditClick}>
           <Edit />
-          &nbsp;<span>편집하기</span>
         </StyledActivityOneEdit>
       ) : (
         <StyledActivityOneEdit onClick={CompleteClick}>
           <Complete />
-          &nbsp;<span>완료하기</span>
         </StyledActivityOneEdit>
       )}
     </StyledActivityOneButton>
@@ -69,6 +65,10 @@ const StyledActivityOneButton = styled.div`
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.315rem;
+
+  @media screen and (max-width: 680px) {
+    margin-top: 1rem;
+  }
 `;
 
 const StyledActivityFavoritesButton = styled.div`
@@ -81,8 +81,7 @@ const StyledActivityOneEdit = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 16px;
-  width: 90px;
+  margin-left: 0.784rem;
 `;
 
 export default ActivityOneButton;

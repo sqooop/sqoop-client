@@ -25,6 +25,11 @@ const StyledActivityOneTitle = styled.div`
     font-weight: 700;
     line-height: 3rem;
   }
+
+  @media screen and (max-width: 680px) {
+    display: block;
+    float: left;
+  }
 `;
 
 export default ActivityOneTitle;

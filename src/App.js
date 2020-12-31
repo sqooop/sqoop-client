@@ -35,7 +35,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={SignIn} />
           <Route path="/steps/:id" component={StepCard} />
-          <Route exact path="/one_activity" component={ActivityOne} />
+          <Route path="/activity_detail/:id" component={ActivityOne} />
         </FontWrap>
       </HashRouter>
     </div>
