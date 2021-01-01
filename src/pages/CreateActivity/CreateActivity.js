@@ -1,10 +1,34 @@
-import { React, useState } from 'react';
-import SelectTag from '../../containers/createActivity/selectTag';
+import { React } from 'react';
+import styled from 'styled-components';
+import Title from '../../containers/createActivity/Title.container';
+import Button from '../../containers/createActivity/Button.container';
+import DateSelector from '../../containers/createActivity/DateSelector.container';
+import Group from '../../containers/createActivity/Group.container';
+import JobTagSelector from '../../containers/common/JobTagSelector.container';
+import SkillTagSelector from '../../containers/common/SkillTagSelector.container';
+import Summary from '../../containers/createActivity/Summary.container';
+// import DefaultData from '../../components/common/DefaultData';
+import DefaultData from '../../components/createActivity/DefaultData';
 
-import 'antd/dist/antd.css';
-
+const CreateActivityWrap = styled.div`
+  padding-left: 18.3rem;
+  padding-right: 18.3rem;
+  /* background-color: red; */
+  position: relative;
+`;
 const CreateActivity = () => {
-  return <SelectTag />;
+  return (
+    <CreateActivityWrap>
+      <Title />
+      <DefaultData />
+      <DateSelector />
+      <Group />
+      <JobTagSelector />
+      <SkillTagSelector />
+      <Summary />
+      {/* <Button /> */}
+    </CreateActivityWrap>
+  );
 };
 
 export default CreateActivity;
