@@ -5,7 +5,7 @@ import TagRender from '../../components/createActivity/TagRender';
 import 'antd/dist/antd.css';
 
 const TagSelector = props => {
-  const { name, items, onNameChange, addItem } = props;
+  const { name, items, onNameChange, addItem, onChange } = props;
   return (
     <Select
       mode="multiple"
@@ -13,6 +13,7 @@ const TagSelector = props => {
       tagRender={TagRender}
       style={{ width: '30%' }}
       options={items}
+      onChange={onChange}
       dropdownRender={menu => (
         <div>
           {menu}

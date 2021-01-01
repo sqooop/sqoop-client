@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TitleInput = styled.input`
-  font-weight: bold !important;
+const TextInput = styled.input`
+  font-size: 14px;
   border: none;
   outline: none;
-  font-size: 32px;
   ::placeholder,
   ::-webkit-input-placeholder {
     color: #a5a5a5;
@@ -15,15 +14,15 @@ const TitleInput = styled.input`
   }
 `;
 
-const Title = props => {
-  const { title, onChangeInputs } = props;
+const Group = props => {
+  const { text, onChangeInputs } = props;
   return (
-    <TitleInput
-      value={title}
+    <TextInput
+      value={text}
       onChange={onChangeInputs}
-      placeholder="활동 이름"
+      placeholder="소속 단체명 입력"
     />
   );
 };
 
-export default Title;
+export default Group;

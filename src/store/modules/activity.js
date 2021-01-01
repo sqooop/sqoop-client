@@ -1,5 +1,9 @@
 const SET_DATE = 'activity/SET_DATE';
 const SET_TITLE = 'activity/SET_TITLE';
+const SET_GROUP = 'activity/SET_GROUP';
+const SET_SUMMARY = 'activity/SET_SUMMARY';
+const SET_JOB = 'activity/SET_JOB';
+const SET_SKILL = 'activity/SET_SKILL';
 
 export const setDate = dateString => ({
   type: SET_DATE,
@@ -11,14 +15,34 @@ export const setTitle = title => ({
   title,
 });
 
+export const setGroup = group => ({
+  type: SET_GROUP,
+  group,
+});
+
+export const setSummary = summary => ({
+  type: SET_SUMMARY,
+  summary,
+});
+
+export const setJob = job => ({
+  type: SET_JOB,
+  job,
+});
+
+export const setSkill = skill => ({
+  type: SET_SKILL,
+  skill,
+});
+
 const initialState = {
   title: '',
   startDate: '',
   endDate: '',
-  group: [],
-  job: [],
-  capability: [],
-  content: '',
+  group: '',
+  job: null,
+  skill: null,
+  summary: '',
   image: '',
   file: '',
 };
@@ -35,6 +59,26 @@ export default function reducer(state = initialState, action) {
         ...state,
         startDate: action.dateString[0],
         endDate: action.dateString[1],
+      };
+    case SET_GROUP:
+      return {
+        ...state,
+        group: action.group,
+      };
+    case SET_SUMMARY:
+      return {
+        ...state,
+        summary: action.summary,
+      };
+    case SET_JOB:
+      return {
+        ...state,
+        job: action.job,
+      };
+    case SET_SKILL:
+      return {
+        ...state,
+        skill: action.skill,
       };
     default:
       return state;

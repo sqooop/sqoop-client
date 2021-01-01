@@ -2,7 +2,10 @@ import React from 'react';
 import SaveButton from './SaveButton';
 import Styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import SaveIconOn from '../../assets/icons/SaveIconOn.svg';
+import SaveIconOnHover from '../../assets/icons/SaveIconOnHover.svg';
+import SaveConfirm from './SaveConfirm';
 
 const CurrentCardWrap = Styled.div`
   .card {
@@ -12,9 +15,10 @@ const CurrentCardWrap = Styled.div`
     border: 1px solid black;
 
     &--question {
-      font-size: 24px;
+      font-size: 22px;
+      height: 112px;
       font-weight: bold;
-      line-height: 160%;
+      line-height: 170%;
       word-break: keep-all;
       margin: 12px 16px;
       &__number {
@@ -33,7 +37,7 @@ const CurrentCardWrap = Styled.div`
     &--text {
       margin: 12px 16px;
       width: 326px;
-      height: 273px;
+      height: 277px;
       box-sizing: border-box;
       border: none;
       word-break: keep-all;
@@ -51,26 +55,31 @@ const CurrentCardWrap = Styled.div`
   }
 `;
 
-const CurrentCard = ({ questions, answers, match, history }) => {
+const CurrentCard = ({ questions, answers, setAnswers, match, history }) => {
   const index = parseInt(match.params.id);
 
   const [textValue, setTextValue] = useState(answers[index]);
+  const [saved, setSaved] = useState(false);
+
+  useEffect(() => {
+    setTextValue(answers[index]);
+  }, [answers, index]);
 
   const onChangeFunc = event => {
     setTextValue(event.target.value);
   };
 
   const onClickFunc = event => {
+    setAnswers({ ...answers, [index]: textValue });
     console.log('저장되었습니다');
+    setSaved(true);
     history.push(`/steps/${index + 1}`);
     setTextValue(answers[index + 1]);
-    event.target.style.cssText = `
-      border: none;
-      color: white;
-    `;
   };
 
   const hovered = event => {
+    const image = event.target.querySelector('img');
+    image && (image.src = SaveIconOnHover);
     event.target.style.cssText = `
       border: 1px solid #195BFF; 
       background-color: white; 
@@ -80,6 +89,8 @@ const CurrentCard = ({ questions, answers, match, history }) => {
   };
 
   const unhovered = event => {
+    const image = event.target.querySelector('img');
+    image && (image.src = SaveIconOn);
     event.target.style.cssText = `
       border: none;
       background-color: #195BFF;
@@ -106,14 +117,15 @@ const CurrentCard = ({ questions, answers, match, history }) => {
         />
         {textValue ? (
           <SaveButton
-            color="#195BFF"
+            backgroundColor="#195BFF"
             onClick={onClickFunc}
             onMouseEnter={hovered}
             onMouseLeave={unhovered}
           />
         ) : (
-          <SaveButton />
+          <SaveButton backgroundColor="#A5A5A5" color="white" border="none" />
         )}
+        {saved && <SaveConfirm setSaved={setSaved} />}
       </div>
     </CurrentCardWrap>
   );

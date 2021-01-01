@@ -1,10 +1,11 @@
 import { HashRouter, Route } from 'react-router-dom';
 import Styled from 'styled-components';
 import StepCard from './pages/stepCard/StepCard';
-import SignIn from './pages/SignIn/SignIn';
+import SignIn from './pages/signin/SignIn';
 import ActivityOne from './pages/ActivityOne/ActivityOne';
-import Home from './pages/Home/Home';
+import Home from './pages/home/home';
 import MainHeader from './components/common/MainHeader';
+import CreateActivity from './containers/createActivity/CreateActivity';
 
 const FontWrap = Styled.div`
   @font-face {
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/signin" component={SignIn} />
           <Route path="/steps/:id" component={StepCard} />
           <Route path="/activity_detail/:id" component={ActivityOne} />
+          <Route exact path="/createActivity" component={CreateActivity} />
         </FontWrap>
       </HashRouter>
     </div>
