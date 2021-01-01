@@ -20,10 +20,6 @@ const DefaultData = () => {
       title: '핵심 역량*',
     },
     {
-      index: 4,
-      title: '파일 첨부',
-    },
-    {
       index: 5,
       title: '한 줄 설명',
     },
@@ -31,9 +27,17 @@ const DefaultData = () => {
 
   return (
     <StyledDefaultData>
-      {DefaultTitleData.map((data, index) => (
-        <StyledDefaultTitle key={index}>{data.title}</StyledDefaultTitle>
-      ))}
+      <StyledDefaultTitle>
+        활동 기간<span style={{ color: '#00FF84' }}>*</span>
+      </StyledDefaultTitle>
+      <StyledDefaultTitle>소속 단체</StyledDefaultTitle>
+      <StyledDefaultTitle>
+        관련 직무<span style={{ color: '#00FF84' }}>*</span>
+      </StyledDefaultTitle>
+      <StyledDefaultTitle>
+        핵심 역량<span style={{ color: '#00FF84' }}>*</span>
+      </StyledDefaultTitle>
+      <StyledDefaultTitle>한 줄 설명</StyledDefaultTitle>
     </StyledDefaultData>
   );
 };
