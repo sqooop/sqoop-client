@@ -34,6 +34,7 @@ const NextCardWrap = Styled.div`
       justify-content: center;
       align-items: center;
       color: #A5A5A5;
+      font-size: 16px;
       &__icon {
         margin-right: 4px;
       }

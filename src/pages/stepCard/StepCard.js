@@ -2,6 +2,8 @@ import React from 'react';
 import StepHeader from '../../components/stepCard/StepHeader';
 import CurrentCard from '../../components/stepCard/CurrentCard';
 import NextCard from '../../components/stepCard/NextCard';
+import PreviousCard from '../../components/stepCard/PreviousCard';
+import EmptyCard from '../../components/stepCard/EmptyCard';
 import { withRouter } from 'react-router-dom';
 import { useState } from 'react';
 import Styled from 'styled-components';
@@ -9,6 +11,9 @@ import Styled from 'styled-components';
 const CardWrap = Styled.div`
   display: flex;
   flex-direction: row;
+  width: 1470px;
+  margin: 0 auto;
+  justify-content: center;
 `;
 
 const StepCard = ({ match }) => {
@@ -52,16 +57,38 @@ const StepCard = ({ match }) => {
     <>
       <StepHeader title={userData.title} answers={answers} />
       <CardWrap>
+        {questions[index - 2] ? (
+          <PreviousCard
+            questions={questions}
+            answers={answers}
+            index={index - 2}
+          />
+        ) : (
+          <EmptyCard marginRight={'12px'} />
+        )}
+        {questions[index - 1] ? (
+          <PreviousCard
+            questions={questions}
+            answers={answers}
+            index={index - 1}
+          />
+        ) : (
+          <EmptyCard marginRight={'12px'} />
+        )}
         <CurrentCard
           questions={questions}
           answers={answers}
           setAnswers={setAnswers}
         />
-        {questions[index + 1] && (
+        {questions[index + 1] ? (
           <NextCard questions={questions} index={index + 1} />
+        ) : (
+          <EmptyCard marginLeft={'12px'} />
         )}
-        {questions[index + 2] && (
+        {questions[index + 2] ? (
           <NextCard questions={questions} index={index + 2} />
+        ) : (
+          <EmptyCard marginLeft={'12px'} />
         )}
       </CardWrap>
     </>
