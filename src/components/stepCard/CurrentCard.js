@@ -40,7 +40,7 @@ const CurrentCardWrap = Styled.div`
       height: 277px;
       box-sizing: border-box;
       border: none;
-      word-break: keep-all;
+      word-break: normal;
       font-size: 12px;
       line-height: 170%;
       resize: none;
@@ -95,7 +95,7 @@ const CurrentCard = ({ questions, answers, setAnswers, match, history }) => {
       border: none;
       background-color: #195BFF;
       color: white;
-      cursor: normal;
+      cursor: default;
     `;
   };
 
@@ -121,9 +121,15 @@ const CurrentCard = ({ questions, answers, setAnswers, match, history }) => {
             onClick={onClickFunc}
             onMouseEnter={hovered}
             onMouseLeave={unhovered}
+            text={'스쿱 저장'}
           />
         ) : (
-          <SaveButton backgroundColor="#A5A5A5" color="white" border="none" />
+          <SaveButton
+            backgroundColor="#A5A5A5"
+            color="white"
+            border="none"
+            text={'스쿱 저장'}
+          />
         )}
         {saved && <SaveConfirm setSaved={setSaved} />}
       </div>
