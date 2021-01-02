@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Button from '../../components/createActivity/Button';
+import Button from '../../components/CreateActivity/Button';
 
 const ButtonContainer = () => {
   const activity = useSelector(state => state.activity);

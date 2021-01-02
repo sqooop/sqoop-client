@@ -1,9 +1,9 @@
 import { HashRouter, Route } from 'react-router-dom';
 import Styled from 'styled-components';
-import StepCard from './pages/stepCard/StepCard';
-import SignIn from './pages/signin/SignIn';
+import StepCard from './pages/StepCard/StepCard';
+import SignIn from './pages/signIn/signin';
 import ActivityOne from './pages/ActivityOne/ActivityOne';
-import Home from './pages/Home/home';
+import Home from './pages/Home/Home';
 import MainHeader from './components/common/MainHeader';
 import CreateActivity from './pages/createActivity/CreateActivity';
 
