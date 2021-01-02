@@ -7,6 +7,7 @@ import Group from '../../containers/createActivity/Group.container';
 import JobTagSelector from '../../containers/common/JobTagSelector.container';
 import SkillTagSelector from '../../containers/common/SkillTagSelector.container';
 import Summary from '../../containers/createActivity/Summary.container';
+import DefaultData from '../../components/createActivity/DefaultData';
 // import Image from '../../components/createActivity/Image';
 import Image from '../../containers/createActivity/Image.container';
 // import DefaultData from '../../components/common/DefaultData';

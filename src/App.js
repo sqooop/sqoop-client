@@ -36,7 +36,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={SignIn} />
           <Route path="/steps/:id" component={StepCard} />
-          <Route path="/activity_detail/:id" component={ActivityOne} />
+          <Route path="/detail/edit/:id" component={ActivityOne} />
           <Route exact path="/createActivity" component={CreateActivity} />
         </FontWrap>
       </HashRouter>
