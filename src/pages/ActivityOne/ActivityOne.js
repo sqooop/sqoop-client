@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ActivityOneTitle from '../../components/ActivityOne/ActivityOneTitle';
+import ActivityOneTitle from '../../components/activityOne/ActivityOneTitle';
 import PhotoUpload from '../../components/common/PhotoUpload';
 import DefaultData from '../../components/common/DefaultData';
 

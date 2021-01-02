@@ -15,10 +15,7 @@ const TextInput = styled.input`
   }
 `;
 
-const GroupWrap = styled.div`
-  margin-top: 14px;
-  margin-bottom: 10px;
-`;
+const GroupWrap = styled.div``;
 
 const Group = props => {
   const { text, onChangeInputs } = props;
