@@ -1,12 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-<<<<<<< HEAD
-import { setGoup } from '../../store/modules/activity';
-import Group from '../../components/CreateActivity/Group';
-=======
 import { setGroup } from '../../store/modules/activity';
-import Group from '../../components/createActivity/Group';
->>>>>>> d8196b0ff773fd3112689d5e1ece4810f86335fc
+import Group from '../../components/CreateActivity/Group';
 
 const TitleContainer = () => {
   const dispatch = useDispatch();
