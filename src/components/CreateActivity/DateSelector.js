@@ -16,7 +16,6 @@ const DateSelector = props => {
             height: '21px',
             width: '256px',
             border: 'none',
-            'margin-top': '20px',
           }}
         />
       </Space>

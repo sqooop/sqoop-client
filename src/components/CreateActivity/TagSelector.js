@@ -5,9 +5,7 @@ import TagRender from './TagRender';
 import 'antd/dist/antd.css';
 import styled from 'styled-components';
 
-const TagSelectorWrap = styled.div`
-  margin-top: 4px;
-`;
+const TagSelectorWrap = styled.div``;
 const StyledSelect = styled(Select)`
   .ant-select-selector {
     border: none !important;
