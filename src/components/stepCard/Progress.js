@@ -1,15 +1,37 @@
 import { React, useState, useEffect } from 'react';
 import AniEmpty from '../../assets/icons/AniEmpty.svg';
 import AniBall from '../../assets/icons/AniBall.svg';
+import TextBox from '../../assets/icons/TextBox.svg';
 import Styled from 'styled-components';
 
 const ProgressWrap = Styled.div`
   .progress {
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     position: absolute;
     right: 90px;
     bottom: 40px;
+    align-items: flex-end;
+
+    &--text {
+      width: 214px;
+      height: 40px;
+      margin-right: 32px;
+      margin-bottom: 40px;
+      &__box {
+        z-index: 1;
+      }
+      &__text {
+        z-index: 2;
+        font-size: 14px;
+        text-align: center;
+        margin-right: 18px;
+        position: relative;
+        top: -32px;
+      }
+    }
+
     &--animation {
       display: flex;
       flex-direction: column;
@@ -47,11 +69,30 @@ const ProgressWrap = Styled.div`
         font-size: 15px;
         margin-right: 14px;
       }
+      & > img {
+        animation-name: falling;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-fill-mode: backwards;
+      }
+    }
+  }
+  @keyframes falling {
+    from {
+      top: -10px;
+    } to {
+      top: 0px;
     }
   }
 `;
 
 const Progress = ({ answers }) => {
+  const textList = {
+    2: '경험을 한 스쿱씩 꺼내보자!',
+    4: '이번 스쿱은 무슨 맛일까?',
+    7: '한 스쿱만 더 푸자~!',
+  };
+
   const [index, setIndex] = useState(0);
   const percent = index * 10 + '%';
 
@@ -66,7 +107,14 @@ const Progress = ({ answers }) => {
   return (
     <ProgressWrap>
       <div className="progress">
-        <div className="progress--text"></div>
+        <div className="progress--text">
+          {textList[index] && (
+            <img className="progress--text__box" src={TextBox} alt="" />
+          )}
+          {textList[index] && (
+            <p className="progress--text__text">{textList[index]}</p>
+          )}
+        </div>
         <div className="progress--animation">
           {index === 10 && (
             <img className="progress--animation__fourth" src={AniBall} alt="" />
