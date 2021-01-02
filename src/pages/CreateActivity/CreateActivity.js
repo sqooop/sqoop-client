@@ -1,7 +1,7 @@
 import { React } from 'react';
 import styled from 'styled-components';
 import Title from '../../containers/createActivity/Title.container';
-import Button from '../../containers/createActivity/Button.container';
+//import Button from '../../containers/CreateActivity/Button.container';
 import DateSelector from '../../containers/createActivity/DateSelector.container';
 import Group from '../../containers/createActivity/Group.container';
 import JobTagSelector from '../../containers/common/JobTagSelector.container';
@@ -10,6 +10,7 @@ import Summary from '../../containers/createActivity/Summary.container';
 // import Image from '../../components/createActivity/Image';
 import Image from '../../containers/createActivity/Image.container';
 // import DefaultData from '../../components/common/DefaultData';
+import DefaultData from '../../components/reateActivity/DefaultData';
 import {
   DefaultData,
   DefaultTagData,
