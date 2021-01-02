@@ -1,16 +1,16 @@
 import React from 'react';
-import { setItems, setName } from '../../store/modules/hashtag';
+import { setSkillItems, setSkillName } from '../../store/modules/skillTag';
 import { setSkill } from '../../store/modules/activity';
 import { useDispatch, useSelector } from 'react-redux';
 import TagSelector from '../../components/CreateActivity/TagSelector';
 
 const JobTagSelectorContainer = () => {
   const dispatch = useDispatch();
-  const saveItems = data => dispatch(setItems(data));
-  const saveName = data => dispatch(setName(data));
+  const saveItems = data => dispatch(setSkillItems(data));
+  const saveName = data => dispatch(setSkillName(data));
   const saveSkill = data => dispatch(setSkill(data));
-  const name = useSelector(state => state.hashtags.name);
-  const items = useSelector(state => state.hashtags.items);
+  const name = useSelector(state => state.skillTag.name);
+  const items = useSelector(state => state.skillTag.items);
 
   const onNameChange = event => {
     saveName(event.target.value);
@@ -31,6 +31,7 @@ const JobTagSelectorContainer = () => {
       addItem={addItem}
       items={items}
       name={name}
+      placeholder="역량 태그 추가"
     />
   );
 };

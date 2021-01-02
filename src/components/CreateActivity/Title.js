@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const TitleWrap = styled.div`
+  margin-bottom: 34px;
+`;
 const TitleInput = styled.input`
   font-weight: bold !important;
+  display: flex;
   border: none;
   outline: none;
   font-size: 32px;
@@ -18,11 +22,13 @@ const TitleInput = styled.input`
 const Title = props => {
   const { title, onChangeInputs } = props;
   return (
-    <TitleInput
-      value={title}
-      onChange={onChangeInputs}
-      placeholder="활동 이름"
-    />
+    <TitleWrap>
+      <TitleInput
+        value={title}
+        onChange={onChangeInputs}
+        placeholder="활동 이름"
+      />
+    </TitleWrap>
   );
 };
 

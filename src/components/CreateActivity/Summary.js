@@ -14,6 +14,7 @@ const TextArea = styled.textarea`
   :-ms-input-placeholder {
     color: #a5a5a5;
   }
+  margin-top: 9px;
 `;
 
 const Summary = props => {
@@ -22,7 +23,7 @@ const Summary = props => {
     <TextArea
       value={text}
       onChange={onChangeInputs}
-      placeholder="활동 내용 요약 입력(50자 이내)"
+      placeholder="  활동 내용 요약 입력 (50자 이내)"
     />
   );
 };
