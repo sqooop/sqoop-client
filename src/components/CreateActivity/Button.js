@@ -4,6 +4,7 @@ import SaveIcon from '../../assets/icons/SaveIcon.svg';
 import SaveIconBlue from '../../assets/icons/SaveIconBlue.svg';
 
 const SaveButtonWrap = Styled.div`
+  /* margin-top: 100px; */
   button {
     box-sizing: border-box;
     width: 149px;

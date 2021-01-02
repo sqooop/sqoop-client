@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import activity from './modules/activity';
-import hashtags from './modules/hashtag';
+import jobTag from './modules/jobTag';
+import skillTag from './modules/skillTag';
 
 const rootReducer = combineReducers({
   activity,
-  hashtags,
+  jobTag,
+  skillTag,
 });
 
 export default rootReducer;

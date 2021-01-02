@@ -1,13 +1,13 @@
-const SET_ITEMS = 'activity/SET_ITEMS';
-const SET_NAME = 'activity/SET_NAME';
+const SET_JOB_ITEMS = 'activity/SET_JOB_ITEMS';
+const SET_JOB_NAME = 'activity/SET_JOB_NAME';
 
-export const setItems = items => ({
-  type: SET_ITEMS,
+export const setJobItems = items => ({
+  type: SET_JOB_ITEMS,
   items,
 });
 
-export const setName = name => ({
-  type: SET_NAME,
+export const setJobName = name => ({
+  type: SET_JOB_NAME,
   name,
 });
 
@@ -18,12 +18,12 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case SET_ITEMS:
+    case SET_JOB_ITEMS:
       return {
         ...state,
         items: action.items,
       };
-    case SET_NAME:
+    case SET_JOB_NAME:
       return {
         ...state,
         name: action.name,
