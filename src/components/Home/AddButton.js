@@ -3,53 +3,43 @@ import Styled from 'styled-components';
 import SqoopIcon from '../../assets/icons/Sqoop.svg';
 
 const AddButtonWrap = Styled.div`
-button {
-    box-sizing: border-box;
-    width: 144px;
-    height: 40px;
-    margin-right: 12px;
-    font-weight: bold;
-    font-size: 16px;
-    color: white;
-    float: right;
+  margin-left: 90px;
+  margin-top: 400px;
+  width: 200px;
+  button {
+    outline: none;
     border: none;
-    display: flex;
-    flex-direction: row;
+    background: #195BFF;
+    width: 170px;
+    height: 50px;
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    display: center;
     align-items: center;
-    &:focus {
-      outline: none;
+    padding-right: 0rem;
+    cursor: pointer;
+    &:hover{
+      background: #A5A5A5;
+
     }
   }
 
   img {
     width: 24px;
     height: 24px;
-    margin-left: 14px;
+    margin-left: 4px;
     margin-right: 4px;
   } 
 `;
-const AddButton = ({
-  backgroundColor,
-  color,
-  onClick,
-  onMouseEnter,
-  onMouseLeave,
-  border,
-}) => {
+const AddButton = () => {
   return (
     <AddButtonWrap>
-      <button
-        style={{
-          backgroundColor: backgroundColor,
-          color: color,
-          border: border,
-        }}
-        onClick={onClick}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
-        {onClick && <img src={SqoopIcon} alt="" />}새 활동 추가
-      </button>
+      <div className="button">
+        <button type="submit">
+          새 활동 추가{<img src={SqoopIcon} alt="" />}
+        </button>
+      </div>
     </AddButtonWrap>
   );
 };
