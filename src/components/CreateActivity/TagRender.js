@@ -12,7 +12,7 @@ const TagRender = props => {
       onClose={onClose}
       style={{ marginRight: 3 }}
     >
-      {label}
+      {label.length > 8 ? `${label.substring(0, 8)}...` : label}
     </Tag>
   );
 };
