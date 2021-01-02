@@ -1,57 +1,36 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const DefaultData = () => {
-  const DefaultTitleData = [
-    {
-      index: 0,
-      title: '활동 기간*',
-    },
-    {
-      index: 1,
-      title: '소속 단체',
-    },
-    {
-      index: 2,
-      title: '관련 직무*',
-    },
-    {
-      index: 3,
-      title: '핵심 역량*',
-    },
-    {
-      index: 5,
-      title: '한 줄 설명',
-    },
-  ];
-
+const DefaultData = props => {
+  const { text, isStar } = props;
   return (
-    <StyledDefaultData>
-      <StyledDefaultTitle>
-        활동 기간<span style={{ color: '#00FF84' }}>*</span>
-      </StyledDefaultTitle>
-      <StyledDefaultTitle>소속 단체</StyledDefaultTitle>
-      <StyledDefaultTitle>
-        관련 직무<span style={{ color: '#00FF84' }}>*</span>
-      </StyledDefaultTitle>
-      <StyledDefaultTitle>
-        핵심 역량<span style={{ color: '#00FF84' }}>*</span>
-      </StyledDefaultTitle>
-      <StyledDefaultTitle>한 줄 설명</StyledDefaultTitle>
-    </StyledDefaultData>
+    <StyleDiv>
+      {text}
+      {isStar ? <span style={{ color: '#00FF84' }}>*</span> : <></>}
+    </StyleDiv>
   );
 };
 
-const StyledDefaultData = styled.div`
+const DefaultTagData = props => {
+  const { text } = props;
+  return (
+    <TagStyleDiv>
+      {text}
+      <span style={{ color: '#00FF84' }}>*</span>
+    </TagStyleDiv>
+  );
+};
+
+const TagStyleDiv = styled.div`
   float: left;
-  margin-top: 0.438rem;
-`;
-
-const StyledDefaultTitle = styled.div`
   width: 5rem;
-  margin-top: 0.938rem;
   font-size: 0.875rem;
-  line-height: 150%;
+  margin-top: 4px;
 `;
 
-export default DefaultData;
+const StyleDiv = styled.div`
+  float: left;
+  width: 5rem;
+  font-size: 0.875rem;
+`;
+export { DefaultData, DefaultTagData };

@@ -14,7 +14,6 @@ const TextArea = styled.textarea`
   :-ms-input-placeholder {
     color: #a5a5a5;
   }
-  margin-top: 9px;
 `;
 
 const Summary = props => {

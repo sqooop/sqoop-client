@@ -4,6 +4,8 @@ import CurrentCard from '../../components/stepCard/CurrentCard';
 import NextCard from '../../components/stepCard/NextCard';
 import PreviousCard from '../../components/stepCard/PreviousCard';
 import EmptyCard from '../../components/stepCard/EmptyCard';
+import LastCard from '../../components/stepCard/LastCard';
+import Progress from '../../components/stepCard/Progress';
 import { withRouter } from 'react-router-dom';
 import { useState } from 'react';
 import Styled from 'styled-components';
@@ -34,6 +36,7 @@ const StepCard = ({ match }) => {
         '여덟 번째 활동을 시작할 당시의 상황은 어땠나요?',
         '아홉 번째 활동을 시작할 당시의 상황은 어땠나요?',
         '열 번째 활동을 시작할 당시의 상황은 어땠나요?',
+        '???',
       ],
       a: {
         0: '안녕하세용',
@@ -75,11 +78,15 @@ const StepCard = ({ match }) => {
         ) : (
           <EmptyCard marginRight={'12px'} />
         )}
-        <CurrentCard
-          questions={questions}
-          answers={answers}
-          setAnswers={setAnswers}
-        />
+        {index < 10 ? (
+          <CurrentCard
+            questions={questions}
+            answers={answers}
+            setAnswers={setAnswers}
+          />
+        ) : (
+          <LastCard />
+        )}
         {questions[index + 1] ? (
           <NextCard questions={questions} index={index + 1} />
         ) : (
@@ -91,6 +98,7 @@ const StepCard = ({ match }) => {
           <EmptyCard marginLeft={'12px'} />
         )}
       </CardWrap>
+      <Progress answers={answers} />
     </>
   );
 };
