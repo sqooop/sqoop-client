@@ -40,7 +40,7 @@ const CurrentCardWrap = Styled.div`
       height: 277px;
       box-sizing: border-box;
       border: none;
-      word-break: keep-all;
+      word-break: normal;
       font-size: 12px;
       line-height: 170%;
       resize: none;
@@ -95,7 +95,7 @@ const CurrentCard = ({ questions, answers, setAnswers, match, history }) => {
       border: none;
       background-color: #195BFF;
       color: white;
-      cursor: normal;
+      cursor: default;
     `;
   };
 

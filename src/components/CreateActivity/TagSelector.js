@@ -1,7 +1,7 @@
 import { Select, Divider, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import React from 'react';
-import TagRender from '../../components/createActivity/TagRender';
+import TagRender from './TagRender';
 import 'antd/dist/antd.css';
 
 const TagSelector = props => {
