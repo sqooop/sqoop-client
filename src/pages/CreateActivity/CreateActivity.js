@@ -7,7 +7,6 @@ import Group from '../../containers/createActivity/Group.container';
 import JobTagSelector from '../../containers/common/JobTagSelector.container';
 import SkillTagSelector from '../../containers/common/SkillTagSelector.container';
 import Summary from '../../containers/createActivity/Summary.container';
-// import DefaultData from '../../components/common/DefaultData';
 import DefaultData from '../../components/createActivity/DefaultData';
 
 const CreateActivityWrap = styled.div`
