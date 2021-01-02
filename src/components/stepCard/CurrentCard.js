@@ -121,9 +121,15 @@ const CurrentCard = ({ questions, answers, setAnswers, match, history }) => {
             onClick={onClickFunc}
             onMouseEnter={hovered}
             onMouseLeave={unhovered}
+            text={'스쿱 저장'}
           />
         ) : (
-          <SaveButton backgroundColor="#A5A5A5" color="white" border="none" />
+          <SaveButton
+            backgroundColor="#A5A5A5"
+            color="white"
+            border="none"
+            text={'스쿱 저장'}
+          />
         )}
         {saved && <SaveConfirm setSaved={setSaved} />}
       </div>

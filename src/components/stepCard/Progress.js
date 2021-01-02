@@ -91,6 +91,7 @@ const Progress = ({ answers }) => {
     2: '경험을 한 스쿱씩 꺼내보자!',
     4: '이번 스쿱은 무슨 맛일까?',
     7: '한 스쿱만 더 푸자~!',
+    10: '고생했어, 넌 최고야~!',
   };
 
   const [index, setIndex] = useState(0);
@@ -98,7 +99,7 @@ const Progress = ({ answers }) => {
 
   useEffect(() => {
     let userIndex = index;
-    while (answers[userIndex] !== '' && userIndex < 9) {
+    while (answers[userIndex] !== '' && userIndex < 10) {
       userIndex++;
     }
     setIndex(userIndex);
