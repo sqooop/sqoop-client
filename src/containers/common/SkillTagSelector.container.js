@@ -2,7 +2,7 @@ import React from 'react';
 import { setSkillItems, setSkillName } from '../../store/modules/skillTag';
 import { setSkill } from '../../store/modules/activity';
 import { useDispatch, useSelector } from 'react-redux';
-import TagSelector from '../../components/CreateActivity/TagSelector';
+import TagSelector from '../../components/createActivity/TagSelector';
 
 const JobTagSelectorContainer = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSummary } from '../../store/modules/activity';
-import Summary from '../../components/CreateActivity/Summary';
+import Summary from '../../components/createActivity/Summary';
 
 const TitleContainer = () => {
   const dispatch = useDispatch();
