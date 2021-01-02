@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PostImageIcon from '../../assets/icons/PostImageIcon.svg';
 
@@ -14,15 +14,15 @@ const PhotoUpload = props => {
         onChange={onChange}
       />
       <StyledPhotoPreview>
-        <label for="ImageUpload">
-          {!image ? (
-            <StyledNoPhoto>
-              <img src={PostImageIcon} alt="userImage"></img>
-            </StyledNoPhoto>
-          ) : (
-            <img src={image} alt="previewImage"></img>
-          )}
-        </label>
+        {/* <label for="ImageUpload"> */}
+        {!image ? (
+          <StyledNoPhoto>
+            <img src={PostImageIcon} alt="userImage"></img>
+          </StyledNoPhoto>
+        ) : (
+          <img src={image} alt="previewImage"></img>
+        )}
+        {/* </label> */}
       </StyledPhotoPreview>
     </>
   );

@@ -1,10 +1,11 @@
 import { Select, Divider, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import React from 'react';
+import React, { useState } from 'react';
 import TagRender from './TagRender';
 import 'antd/dist/antd.css';
 import styled from 'styled-components';
 
+const { Option } = Select;
 const TagSelectorWrap = styled.div``;
 const StyledSelect = styled(Select)`
   .ant-select-selector {
@@ -16,7 +17,16 @@ const StyledSelect = styled(Select)`
 `;
 
 const TagSelector = props => {
-  const { name, items, onNameChange, addItem, onChange, placeholder } = props;
+  const {
+    name,
+    items,
+    onNameChange,
+    addItem,
+    onChange,
+    placeholder,
+    selected,
+  } = props;
+
   return (
     <TagSelectorWrap>
       <StyledSelect
@@ -32,7 +42,7 @@ const TagSelector = props => {
           },
         }}
         placeholder={placeholder}
-        options={items}
+        // options={items}
         onChange={onChange}
         dropdownRender={menu => (
           <div>
@@ -58,7 +68,22 @@ const TagSelector = props => {
             </div>
           </div>
         )}
-      ></StyledSelect>
+      >
+        {items.map(item => (
+          <Option
+            key={item}
+            disabled={
+              selected.length > 2
+                ? selected.includes(item)
+                  ? false
+                  : true
+                : false
+            }
+          >
+            {item}
+          </Option>
+        ))}
+      </StyledSelect>
     </TagSelectorWrap>
   );
 };
