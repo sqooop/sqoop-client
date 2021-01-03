@@ -6,7 +6,7 @@ const TextInput = styled.input`
   border: none;
   outline: none;
   width: 266px;
-  height: 26px;
+  height: 30px;
   padding-left: 8px;
   &:hover {
     background-color: #eeeeee !important;

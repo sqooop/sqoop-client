@@ -9,6 +9,7 @@ const SaveButtonWrap = Styled.div`
     box-sizing: border-box;
     width: 149px;
     height: 48px;
+    margin-right: 12px;
     padding-left: 32px;
     font-weight: bold;
     font-size: 16px;

@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  setJobItems,
-  setJobName,
-  setJobArray,
-} from '../../store/modules/jobTag';
+import { setJobItems, setJobName } from '../../store/modules/jobTag';
 import { setJob } from '../../store/modules/activity';
 import { useDispatch, useSelector } from 'react-redux';
 import TagSelector from '../../components/createActivity/TagSelector';
