@@ -1,6 +1,6 @@
 import { Select, Divider, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import React, { useState } from 'react';
+import React from 'react';
 import TagRender from './TagRender';
 import 'antd/dist/antd.css';
 import styled from 'styled-components';
