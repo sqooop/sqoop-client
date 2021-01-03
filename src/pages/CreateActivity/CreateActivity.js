@@ -7,13 +7,8 @@ import Group from '../../containers/createActivity/Group.container';
 import JobTagSelector from '../../containers/common/JobTagSelector.container';
 import SkillTagSelector from '../../containers/common/SkillTagSelector.container';
 import Summary from '../../containers/createActivity/Summary.container';
-// import Image from '../../components/createActivity/Image';
 import Image from '../../containers/createActivity/Image.container';
-// import DefaultData from '../../components/common/DefaultData';
-import {
-  DefaultData,
-  DefaultTagData,
-} from '../../components/createActivity/DefaultData';
+import DefaultData from '../../components/createActivity/DefaultData';
 
 const CreateActivityWrap = styled.div`
   padding-left: 183px;
@@ -23,16 +18,14 @@ const CreateActivityWrap = styled.div`
 const ContentWrap = styled.div`
   margin-top: 15px;
 `;
-const TagContentWrap = styled.div`
-  margin-top: 8px;
-`;
 const LastWrap = styled.div`
   margin-top: 12px;
 `;
 const RightWrap = styled.div`
-  float: right;
+  float: left;
 `;
 const LeftWrap = styled.div`
+  width: 500px;
   float: left;
 `;
 const CreateActivity = () => {
@@ -48,14 +41,14 @@ const CreateActivity = () => {
           <DefaultData text="소속 단체" />
           <Group />
         </ContentWrap>
-        <TagContentWrap>
-          <DefaultTagData text="관련 직무" isStar={true} />
+        <ContentWrap>
+          <DefaultData text="관련 직무" isStar={true} />
           <JobTagSelector />
-        </TagContentWrap>
-        <TagContentWrap>
-          <DefaultTagData text="핵심 역량" isStar={true} />
+        </ContentWrap>
+        <ContentWrap>
+          <DefaultData text="핵심 역량" isStar={true} />
           <SkillTagSelector />
-        </TagContentWrap>
+        </ContentWrap>
         <LastWrap>
           <DefaultData text="한 줄 설명" />
           <Summary />

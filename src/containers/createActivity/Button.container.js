@@ -7,7 +7,6 @@ const ButtonContainer = () => {
   const { title, job, skill } = activity;
 
   const onClickFunc = event => {
-    // 서버 통신 저장
     console.log('저장되었습니다');
   };
 

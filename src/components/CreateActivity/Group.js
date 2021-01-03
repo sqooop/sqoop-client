@@ -5,7 +5,12 @@ const TextInput = styled.input`
   font-size: 14px;
   border: none;
   outline: none;
-  width: 256px;
+  width: 266px;
+  height: 26px;
+  padding-left: 8px;
+  &:hover {
+    background-color: #eeeeee !important;
+  }
   ::placeholder,
   ::-webkit-input-placeholder {
     color: #a5a5a5;
@@ -24,7 +29,7 @@ const Group = props => {
       <TextInput
         value={text}
         onChange={onChangeInputs}
-        placeholder="  소속 단체명 입력"
+        placeholder="소속 단체명 입력"
       />
     </GroupWrap>
   );

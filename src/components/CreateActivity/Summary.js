@@ -5,8 +5,12 @@ const TextArea = styled.textarea`
   font-size: 14px;
   border: none;
   outline: none;
-  width: 258px;
-  height: 126px;
+  width: 266px;
+  height: 132px;
+  padding-left: 8px;
+  &:hover {
+    background-color: #eeeeee !important;
+  }
   ::placeholder,
   ::-webkit-input-placeholder {
     color: #a5a5a5;
@@ -22,7 +26,7 @@ const Summary = props => {
     <TextArea
       value={text}
       onChange={onChangeInputs}
-      placeholder="  활동 내용 요약 입력 (50자 이내)"
+      placeholder="활동 내용 요약 입력 (50자 이내)"
     />
   );
 };

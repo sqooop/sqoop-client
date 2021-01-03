@@ -9,9 +9,19 @@ const { Option } = Select;
 const TagSelectorWrap = styled.div``;
 const StyledSelect = styled(Select)`
   .ant-select-selector {
+    padding-left: 5px;
     border: none !important;
+    width: 266px !important;
+    height: 26px !important;
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+    &:hover {
+      background-color: #eeeeee !important;
+    }
   }
   .ant-select-selection-placeholder {
+    right: 0px !important;
+    left: 7px !important;
     color: #a5a5a5;
   }
 `;
@@ -30,36 +40,39 @@ const TagSelector = props => {
   return (
     <TagSelectorWrap>
       <StyledSelect
-        className="custom"
+        suffixIcon=""
         mode="multiple"
         showArrow
         tagRender={TagRender}
         style={{
-          width: '256px',
-          '.antSelectSelector': {
-            border: 'none',
-            paddingLeft: '10px',
-          },
+          width: '266px',
+          padding: '0px',
         }}
         placeholder={placeholder}
-        // options={items}
         onChange={onChange}
         dropdownRender={menu => (
           <div>
             {menu}
             <Divider style={{ margin: '4px 0' }} />
-            <div style={{ display: 'flex', flexWrap: 'nowrap', padding: 8 }}>
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'nowrap',
+                padding: 8,
+                height: '35px',
+              }}
+            >
               <Input
-                style={{ flex: 'auto' }}
+                style={{ flex: 'auto', height: '24px' }}
                 value={name}
                 onChange={onNameChange}
               />
               <a
                 style={{
                   flex: 'none',
-                  padding: '8px',
                   display: 'block',
                   cursor: 'pointer',
+                  paddingLeft: '5px',
                 }}
                 onClick={addItem}
               >
@@ -79,6 +92,7 @@ const TagSelector = props => {
                   : true
                 : false
             }
+            style={{ fontSize: '14px' }}
           >
             {item}
           </Option>
