@@ -17,8 +17,9 @@ const ActivityOneTitle = ({ userData }) => {
 
 const StyledActivityOneTitle = styled.div`
   display: flex;
-  margin-top: 2.75rem;
+  margin-top: 2rem;
   justify-content: space-between;
+  font-weight: bold !important;
 
   & > span {
     font-size: 2rem;

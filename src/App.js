@@ -3,7 +3,7 @@ import Styled from 'styled-components';
 import StepCard from './pages/stepCard/StepCard';
 import SignIn from './pages/signin/SignIn';
 import ActivityOne from './pages/ActivityOne/ActivityOne';
-import Home from './pages/home/home';
+import Home from './pages/Home/home';
 import MainHeader from './components/common/MainHeader';
 import CreateActivity from './pages/createActivity/CreateActivity';
 
@@ -36,7 +36,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={SignIn} />
           <Route path="/steps/:id" component={StepCard} />
-          <Route path="/activity_detail/:id" component={ActivityOne} />
+          <Route path="/detail/edit/:id" component={ActivityOne} />
           <Route exact path="/createActivity" component={CreateActivity} />
         </FontWrap>
       </HashRouter>
