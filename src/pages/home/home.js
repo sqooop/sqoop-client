@@ -1,7 +1,7 @@
 import React from 'react';
-import Greeting from '../../components/Home/Greetings';
-import Question from '../../components/Home/Question';
-import AddButton from '../../components/Home/AddButton';
+import Greeting from '../../components/home/Greetings';
+import Question from '../../components/home/Question';
+import AddButton from '../../components/home/AddButton';
 const Home = () => {
   return (
     <div>
