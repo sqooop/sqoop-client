@@ -1,6 +1,6 @@
 import { setDate } from '../../store/modules/activity';
 import { useDispatch } from 'react-redux';
-import DateSelector from '../../components/CreateActivity/DateSelector';
+import DateSelector from '../../components/createActivity/DateSelector';
 
 const DateSelectorContainer = () => {
   const dispatch = useDispatch();
