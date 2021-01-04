@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setVisible } from '../../store/modules/modal';
-import Button from '../../components/CreateActivity/Button';
+import Button from '../../components/createActivity/Button';
 
 const ButtonContainer = () => {
   const dispatch = useDispatch();
