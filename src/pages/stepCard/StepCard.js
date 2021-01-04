@@ -1,9 +1,9 @@
 import React from 'react';
-import StepHeader from '../../components/StepCard/StepHeader';
-import CurrentCard from '../../components/StepCard/CurrentCard';
-import NextCard from '../../components/StepCard/NextCard';
-import PreviousCard from '../../components/StepCard/PreviousCard';
-import EmptyCard from '../../components/StepCard/EmptyCard';
+import StepHeader from '../../components/stepCard/StepHeader';
+import CurrentCard from '../../components/stepCard/CurrentCard';
+import NextCard from '../../components/stepCard/NextCard';
+import PreviousCard from '../../components/stepCard/PreviousCard';
+import EmptyCard from '../../components/stepCard/EmptyCard';
 import { withRouter } from 'react-router-dom';
 import { useState } from 'react';
 import Styled from 'styled-components';
