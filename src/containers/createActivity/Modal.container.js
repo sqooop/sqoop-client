@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setVisible } from '../../store/modules/modal';
-import Modal from '../../components/createActivity/Modal';
+import Modal from '../../components/CreateActivity/Modal';
 
 const ModalContainer = () => {
   const dispatch = useDispatch();

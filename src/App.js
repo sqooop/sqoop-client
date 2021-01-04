@@ -5,7 +5,7 @@ import SignIn from './pages/signin/SignIn';
 import ActivityOne from './pages/ActivityOne/ActivityOne';
 import Home from './pages/Home/home';
 import MainHeader from './components/common/MainHeader';
-import CreateActivity from './pages/createActivity/CreateActivity';
+import CreateActivity from './pages/CreateActivity/CreateActivity';
 
 const FontWrap = Styled.div`
   @font-face {
