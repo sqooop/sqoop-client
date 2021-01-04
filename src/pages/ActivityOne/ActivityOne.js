@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ActivityOneTitle from '../../components/ActivityOne/ActivityOneTitle';
+import ActivityOneTitle from '../../components/activityOne/ActivityOneTitle';
 import PhotoUpload from '../../components/common/PhotoUpload';
 import DefaultData from '../../components/common/DefaultData';
 import DateSelector from '../../containers/createActivity/DateSelector.container';
@@ -9,7 +9,7 @@ import JobTagSelector from '../../containers/common/JobTagSelector.container';
 import SkillTagSelector from '../../containers/common/SkillTagSelector.container';
 import Summary from '../../containers/createActivity/Summary.container';
 import FileUpload from '../../components/common/FileUpload';
-import ActivityOneUserData from '../../components/ActivityOne/ActivityOneUserData';
+import ActivityOneUserData from '../../components/activityOne/ActivityOneUserData';
 
 const ActivityOne = () => {
   return (
