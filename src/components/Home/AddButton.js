@@ -45,6 +45,7 @@ const AddButton = ({ background, color, onClick, border }) => {
     background: ${palette.white};
     cursor: pointer;
     color: ${palette.main}
+    fill: ${palette.main}
     `;
   };
 
