@@ -3,9 +3,10 @@ import Styled from 'styled-components';
 import StepCard from './pages/stepCard/StepCard';
 import SignIn from './pages/signin/SignIn';
 import ActivityOne from './pages/ActivityOne/ActivityOne';
-import Home from './pages/Home/home';
+import Home from './pages/home/home';
 import MainHeader from './components/common/MainHeader';
-import CreateActivity from './pages/createActivity/CreateActivity';
+import CreateActivity from './pages/CreateActivity/CreateActivity';
+import './App.css';
 
 const FontWrap = Styled.div`
   @font-face {
@@ -33,7 +34,7 @@ function App() {
       <HashRouter>
         <FontWrap>
           <Route component={MainHeader} />
-          <Route exact path="/" component={Home} />
+          <Route exact path="/:id" component={Home} />
           <Route exact path="/signin" component={SignIn} />
           <Route path="/steps/:id" component={StepCard} />
           <Route path="/detail/edit/:id" component={ActivityOne} />
