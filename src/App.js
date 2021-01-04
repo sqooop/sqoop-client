@@ -3,9 +3,10 @@ import Styled from 'styled-components';
 import StepCard from './pages/stepCard/StepCard';
 import SignIn from './pages/signin/SignIn';
 import ActivityOne from './pages/ActivityOne/ActivityOne';
-import Home from './pages/Home/home';
+import Home from './pages/home/home';
 import MainHeader from './components/common/MainHeader';
 import CreateActivity from './pages/createActivity/CreateActivity';
+import './App.css';
 
 const FontWrap = Styled.div`
   @font-face {

@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ModalBackgorundWrap = styled.div`
-  /* display: ${props => (props.visible ? 'block' : 'none')};
+  display: ${props => (props.visible ? 'block' : 'none')};
 
-  background: hsla(0, 0%, 0%, 0.4);
+  background: hsla(0, 0%, 0%, 0.5);
   width: 100%;
   height: 100%;
   position: fixed;
@@ -13,18 +13,18 @@ const ModalBackgorundWrap = styled.div`
   justify-content: center;
   align-items: center;
   overflow-y: hidden;
-  z-index: 1000; */
+  z-index: 1000;
 `;
 
 const ModalWrap = styled.div`
   display: ${props => (props.visible ? 'block' : 'none')};
-  width: 520px;
-  height: 270px;
+  width: 52rem;
+  height: 27rem;
   z-index: 100000;
   text-align: center;
   background: #ffffff;
-  border: 1px solid #000000;
-  padding: 60px 60px;
+  border: 0.1rem solid #000000;
+  padding: 6rem 6rem;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -33,9 +33,9 @@ const ModalWrap = styled.div`
 `;
 
 const ModalTtile = styled.div`
-  font-size: 24px;
-  line-height: 30px;
-  margin-top: 10px;
+  font-size: 2.4rem;
+  line-height: 3rem;
+  margin-top: 1rem;
   font-weight: 500 !important;
   .title {
     font-weight: 700 !important;
@@ -43,10 +43,10 @@ const ModalTtile = styled.div`
 `;
 
 const ModalButton = styled.button`
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 700 !important;
-  width: 170px;
-  height: 33px;
+  width: 17rem;
+  height: 3.3rem;
   border: none;
   outline: none;
   background-color: #ffffff;
@@ -54,8 +54,8 @@ const ModalButton = styled.button`
 
 const ModalButtonWrap = styled.div`
   display: flex;
-  margin-top: 50px;
-  margin-left: 20px;
+  margin-top: 5rem;
+  margin-left: 2rem;
   width: 100%;
   justify-content: space-between;
 `;
@@ -69,7 +69,7 @@ const Modal = props => {
         <ModalTtile>
           <span className="title">기본 정보가 저장되었습니다.</span>
           <br />
-          <span style={{ fontSize: '16px', marginTop: '0px' }}>
+          <span style={{ fontSize: '1.6rem', marginTop: '0rem' }}>
             활동을 자세히 돌아볼까요?
           </span>
         </ModalTtile>

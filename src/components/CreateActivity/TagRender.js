@@ -10,7 +10,7 @@ const TagRender = props => {
       color={'#195BFF'}
       closable={closable}
       onClose={onClose}
-      style={{ marginTop: '0px' }}
+      style={{ marginTop: 0 }}
     >
       {label.length > 6 ? `${label.substring(0, 6)}...` : label}
     </Tag>

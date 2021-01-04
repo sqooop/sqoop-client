@@ -6,8 +6,8 @@ const { RangePicker } = DatePicker;
 const DateSelectorWrap = styled.div``;
 
 const StyledRangePicker = styled(RangePicker)`
-  height: 30px;
-  width: 266px;
+  height: 3rem;
+  width: 26.6rem;
   border: none;
   &:hover {
     background-color: #eeeeee !important;
