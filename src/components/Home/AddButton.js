@@ -1,7 +1,7 @@
 import React from 'react';
 import Styled from 'styled-components';
-import SqoopIcon from '../../assets/icons/Sqoop.svg';
-
+import SaveIcon from '../../assets/icons/SaveIcon.svg';
+import SaveIconBlue from '../../assets/icons/SaveIconBlue.svg';
 const AddButtonWrap = Styled.div`
   margin-left: 90px;
   margin-top: 400px;

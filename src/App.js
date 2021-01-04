@@ -5,7 +5,7 @@ import SignIn from './pages/signin/SignIn';
 import ActivityOne from './pages/ActivityOne/ActivityOne';
 import Home from './pages/Home/home';
 import MainHeader from './components/common/MainHeader';
-import CreateActivity from './pages/CreateActivity/CreateActivity';
+import CreateActivity from './pages/createActivity/CreateActivity';
 
 const FontWrap = Styled.div`
   @font-face {
@@ -36,8 +36,8 @@ function App() {
           <Route exact path="/:id" component={Home} />
           <Route exact path="/signin" component={SignIn} />
           <Route path="/steps/:id" component={StepCard} />
-          <Route path="/activity_detail/:id" component={ActivityOne} />
-          <Route exact path="/createActivity" component={CreateActivity} />
+          <Route path="/detail/edit/:id" component={ActivityOne} />
+          <Route exact path="/create" component={CreateActivity} />
         </FontWrap>
       </HashRouter>
     </div>

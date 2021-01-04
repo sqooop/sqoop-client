@@ -1,19 +1,25 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import Button from '../../components/CreateActivity/Button';
+import { useSelector, useDispatch } from 'react-redux';
+import { setVisible } from '../../store/modules/modal';
+import Button from '../../components/createActivity/Button';
 
 const ButtonContainer = () => {
+  const dispatch = useDispatch();
+
   const activity = useSelector(state => state.activity);
   const { title, job, skill } = activity;
 
+  const saveVisible = data => dispatch(setVisible(data));
+  const isVisible = useSelector(state => state.modal.isVisible);
+
   const onClickFunc = event => {
-    // 서버 통신 저장
-    console.log('저장되었습니다');
+    saveVisible(!isVisible);
+    // 서버 통신
   };
 
   return (
     <>
-      {title && skill && job ? (
+      {title && skill.length > 0 && job.length > 0 ? (
         <Button backgroundColor="#195BFF" onClick={onClickFunc} isAble={true} />
       ) : (
         <Button

@@ -4,6 +4,7 @@ const SET_GROUP = 'activity/SET_GROUP';
 const SET_SUMMARY = 'activity/SET_SUMMARY';
 const SET_JOB = 'activity/SET_JOB';
 const SET_SKILL = 'activity/SET_SKILL';
+const SET_IMAGE = 'activity/SET_IMAGE';
 
 export const setDate = dateString => ({
   type: SET_DATE,
@@ -35,13 +36,18 @@ export const setSkill = skill => ({
   skill,
 });
 
+export const setImage = image => ({
+  type: SET_IMAGE,
+  image,
+});
+
 const initialState = {
   title: '',
   startDate: '',
   endDate: '',
   group: '',
-  job: null,
-  skill: null,
+  job: [],
+  skill: [],
   summary: '',
   image: '',
   file: '',
@@ -79,6 +85,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         skill: action.skill,
+      };
+    case SET_IMAGE:
+      return {
+        ...state,
+        image: action.image,
       };
     default:
       return state;

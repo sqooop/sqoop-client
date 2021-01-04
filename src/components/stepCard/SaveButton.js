@@ -6,8 +6,8 @@ import SaveIconOn from '../../assets/icons/SaveIconOn.svg';
 const SaveButtonWrap = Styled.div`
   button {
     box-sizing: border-box;
-    width: 144px;
     height: 40px;
+    width: 144px;
     margin-right: 12px;
     font-weight: bold;
     font-size: 16px;
@@ -37,6 +37,8 @@ const SaveButton = ({
   onMouseEnter,
   onMouseLeave,
   border,
+  text,
+  width,
 }) => {
   return (
     <SaveButtonWrap>
@@ -45,6 +47,7 @@ const SaveButton = ({
           backgroundColor: backgroundColor,
           color: color,
           border: border,
+          width: width,
         }}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
@@ -55,7 +58,7 @@ const SaveButton = ({
         ) : (
           <img src={SaveIconOff} alt="" />
         )}
-        스쿱 저장
+        {text}
       </button>
     </SaveButtonWrap>
   );
