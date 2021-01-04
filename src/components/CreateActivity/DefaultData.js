@@ -11,12 +11,6 @@ const DefaultData = props => {
   );
 };
 
-const TagStyleDiv = styled.div`
-  float: left;
-  width: 5rem;
-  font-size: 0.875rem;
-`;
-
 const StyleDiv = styled.div`
   float: left;
   width: 5rem;

@@ -12,7 +12,7 @@ const StyledSelect = styled(Select)`
     padding-left: 5px;
     border: none !important;
     width: 266px !important;
-    height: 26px !important;
+    /* height: 26px !important; */
     padding-top: 0px !important;
     margin-top: 0px !important;
     &:hover {
@@ -21,7 +21,7 @@ const StyledSelect = styled(Select)`
   }
   .ant-select-selection-placeholder {
     right: 0px !important;
-    left: 7px !important;
+    left: 8px !important;
     color: #a5a5a5;
   }
 `;
@@ -52,13 +52,22 @@ const TagSelector = props => {
         onChange={onChange}
         dropdownRender={menu => (
           <div>
+            <span
+              style={{
+                color: '#a5a5a5',
+                fontWeight: 400,
+                margin: '5px 10px',
+              }}
+            >
+              태그 생성 (최대 3개 선택)
+            </span>
             {menu}
             <Divider style={{ margin: '4px 0' }} />
             <div
               style={{
                 display: 'flex',
                 flexWrap: 'nowrap',
-                padding: 8,
+                padding: 6,
                 height: '35px',
               }}
             >

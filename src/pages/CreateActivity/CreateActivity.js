@@ -8,7 +8,9 @@ import JobTagSelector from '../../containers/common/JobTagSelector.container';
 import SkillTagSelector from '../../containers/common/SkillTagSelector.container';
 import Summary from '../../containers/createActivity/Summary.container';
 import Image from '../../containers/createActivity/Image.container';
+import Modal from '../../containers/createActivity/Modal.container';
 import DefaultData from '../../components/createActivity/DefaultData';
+import File from '../../components/createActivity/File';
 
 const CreateActivityWrap = styled.div`
   padding-left: 183px;
@@ -16,10 +18,7 @@ const CreateActivityWrap = styled.div`
 `;
 
 const ContentWrap = styled.div`
-  margin-top: 15px;
-`;
-const LastWrap = styled.div`
-  margin-top: 12px;
+  margin-top: 10px;
 `;
 const RightWrap = styled.div`
   float: left;
@@ -49,21 +48,21 @@ const CreateActivity = () => {
           <DefaultData text="핵심 역량" isStar={true} />
           <SkillTagSelector />
         </ContentWrap>
-        <LastWrap>
+        <ContentWrap>
           <DefaultData text="한 줄 설명" />
           <Summary />
-        </LastWrap>
+        </ContentWrap>
       </LeftWrap>
 
       <RightWrap>
         <Image />
         <ContentWrap>
           <DefaultData text="파일 첨부" />
+          <File />
         </ContentWrap>
         <Button />
       </RightWrap>
-
-      {/* <Button /> */}
+      <Modal />
     </CreateActivityWrap>
   );
 };

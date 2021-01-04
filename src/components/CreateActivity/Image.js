@@ -29,7 +29,7 @@ const PhotoUpload = props => {
 };
 
 const StyledPhotoInput = styled.input`
-  border-style: none;
+  border: 1px solid #000000;
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
