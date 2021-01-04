@@ -1,6 +1,6 @@
 import { Select, Divider, Input } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import React, { useState } from 'react';
+import React from 'react';
 import TagRender from './TagRender';
 import 'antd/dist/antd.css';
 import styled from 'styled-components';
@@ -9,9 +9,19 @@ const { Option } = Select;
 const TagSelectorWrap = styled.div``;
 const StyledSelect = styled(Select)`
   .ant-select-selector {
+    padding-left: 5px;
     border: none !important;
+    width: 266px !important;
+    /* height: 26px !important; */
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+    &:hover {
+      background-color: #eeeeee !important;
+    }
   }
   .ant-select-selection-placeholder {
+    right: 0px !important;
+    left: 8px !important;
     color: #a5a5a5;
   }
 `;
@@ -30,36 +40,48 @@ const TagSelector = props => {
   return (
     <TagSelectorWrap>
       <StyledSelect
-        className="custom"
+        suffixIcon=""
         mode="multiple"
         showArrow
         tagRender={TagRender}
         style={{
-          width: '256px',
-          '.antSelectSelector': {
-            border: 'none',
-            paddingLeft: '10px',
-          },
+          width: '266px',
+          padding: '0px',
         }}
         placeholder={placeholder}
-        // options={items}
         onChange={onChange}
         dropdownRender={menu => (
           <div>
+            <span
+              style={{
+                color: '#a5a5a5',
+                fontWeight: 400,
+                margin: '5px 10px',
+              }}
+            >
+              태그 생성 (최대 3개 선택)
+            </span>
             {menu}
             <Divider style={{ margin: '4px 0' }} />
-            <div style={{ display: 'flex', flexWrap: 'nowrap', padding: 8 }}>
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'nowrap',
+                padding: 6,
+                height: '35px',
+              }}
+            >
               <Input
-                style={{ flex: 'auto' }}
+                style={{ flex: 'auto', height: '24px' }}
                 value={name}
                 onChange={onNameChange}
               />
               <a
                 style={{
                   flex: 'none',
-                  padding: '8px',
                   display: 'block',
                   cursor: 'pointer',
+                  paddingLeft: '5px',
                 }}
                 onClick={addItem}
               >
@@ -79,6 +101,7 @@ const TagSelector = props => {
                   : true
                 : false
             }
+            style={{ fontSize: '14px' }}
           >
             {item}
           </Option>
