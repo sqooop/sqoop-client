@@ -11,10 +11,11 @@ const UserAnswerContainer = () => {
 
   const onChangeInputs = evt => {
     const value = evt.target.value;
-      saveUserAnswer(value);
-    }
+    saveUserAnswer(value);
   };
-  return <ActivityOneUserData onChangeInputs={onChangeInputs} text={useranswer} />;
+  return (
+    <ActivityOneUserData onChangeInputs={onChangeInputs} text={useranswer} />
+  );
 };
 
 export default UserAnswerContainer;
