@@ -5,14 +5,18 @@ import { createStore } from 'redux';
 import App from './App';
 import rootReducer from './store';
 import { composeWithDevTools } from 'redux-devtools-extension';
-
+import * as serviceWorker from './serviceWorker';
+import { HashRouter } from 'react-router-dom';
 const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
-  <React.StrictMode>
+  <HashRouter>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>,
+  </HashRouter>,
+
   document.getElementById('root'),
 );
+
+serviceWorker.unregister();
