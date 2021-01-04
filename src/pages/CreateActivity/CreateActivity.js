@@ -13,18 +13,18 @@ import DefaultData from '../../components/CreateActivity/DefaultData';
 import File from '../../components/CreateActivity/File';
 
 const CreateActivityWrap = styled.div`
-  padding-left: 183px;
-  padding-right: 183px;
+  padding-left: 18.3rem;
+  padding-right: 18.3rem;
 `;
 
 const ContentWrap = styled.div`
-  margin-top: 10px;
+  margin-top: 1rem;
 `;
 const RightWrap = styled.div`
   float: left;
 `;
 const LeftWrap = styled.div`
-  width: 500px;
+  width: 50rem;
   float: left;
 `;
 const CreateActivity = () => {
