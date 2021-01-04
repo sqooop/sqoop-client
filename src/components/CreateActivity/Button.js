@@ -6,18 +6,18 @@ import SaveIconBlue from '../../assets/icons/SaveIconBlue.svg';
 const SaveButtonWrap = Styled.div`
   button {
     position: absolute;
-    bottom: 52px;
-    right: 200px;
+    bottom: 5.2rem;
+    right: 20rem;
     box-sizing: border-box;
-    width: 149px;
-    height: 48px;
-    margin-right: 12px;
-    padding-left: 32px;
+    width: 14.9rem;
+    height: 4.8rem;
+    margin-right: 1.2rem;
+    padding-left: 3.2rem;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1.6rem;
     color: white;
     float: right;
-    border: 1px;
+    border: 0.1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -27,9 +27,9 @@ const SaveButtonWrap = Styled.div`
   }
 
   img {
-    margin-left: 6px;
-    width: 20px;
-    height: 18px;
+    margin-left: 0.6rem;
+    width: 2rem;
+    height: 1.8rem;
   }
 `;
 
@@ -38,7 +38,7 @@ const Button = ({ backgroundColor, color, onClick, border, isAble }) => {
     const image = event.target.querySelector('img');
     image && (image.src = SaveIconBlue);
     event.target.style.cssText = `
-        border: 1px solid #195BFF; 
+        border: 0.1rem solid #195BFF; 
         background-color: white; 
         color: #195BFF;
         cursor: pointer;

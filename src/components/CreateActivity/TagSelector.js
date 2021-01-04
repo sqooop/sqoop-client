@@ -14,22 +14,21 @@ ant-select-selector : padding-left가 태그랑 입력창 전체
 .ant-select-selection-placeholder : 얘는 placeholder, absolute라 padding이나 margin이 아니라 left로 지정
  */
   .ant-select-selector {
-    padding-left: 6px;
+    padding-left: 0.6rem;
     border: none !important;
-    width: 266px !important;
-    /* height: 26px !important; */
-    padding-top: 0px !important;
-    margin-top: 0px !important;
+    width: 26.6rem !important;
+    padding-top: 0rem !important;
+    margin-top: 0rem !important;
     &:hover {
       background-color: #eeeeee !important;
     }
   }
   .ant-select-selection-search {
-    margin-left: -3px !important;
+    margin-left: -0.3rem !important;
   }
   .ant-select-selection-placeholder {
-    right: 0px !important;
-    left: 8px !important;
+    right: 0rem !important;
+    left: 0.8rem !important;
     color: #a5a5a5;
   }
 `;
@@ -53,8 +52,8 @@ const TagSelector = props => {
         showArrow
         tagRender={TagRender}
         style={{
-          width: '266px',
-          padding: '0px',
+          width: '26.6rem',
+          padding: '0rem',
         }}
         placeholder={placeholder}
         onChange={onChange}
@@ -64,23 +63,23 @@ const TagSelector = props => {
               style={{
                 color: '#a5a5a5',
                 fontWeight: 400,
-                margin: '5px 10px',
+                margin: '0.5rem 1rem',
               }}
             >
               태그 생성 (최대 3개 선택)
             </span>
             {menu}
-            <Divider style={{ margin: '4px 0' }} />
+            <Divider style={{ margin: '0.4rem 0' }} />
             <div
               style={{
                 display: 'flex',
                 flexWrap: 'nowrap',
                 padding: 6,
-                height: '35px',
+                height: '3.5rem',
               }}
             >
               <Input
-                style={{ flex: 'auto', height: '24px' }}
+                style={{ flex: 'auto', height: '2.4rem' }}
                 value={name}
                 onChange={onNameChange}
               />
@@ -89,7 +88,7 @@ const TagSelector = props => {
                   flex: 'none',
                   display: 'block',
                   cursor: 'pointer',
-                  paddingLeft: '5px',
+                  paddingLeft: '0.5rem',
                 }}
                 onClick={addItem}
               >
@@ -109,7 +108,7 @@ const TagSelector = props => {
                   : true
                 : false
             }
-            style={{ fontSize: '14px' }}
+            style={{ fontSize: '1.4rem' }}
           >
             {item}
           </Option>
