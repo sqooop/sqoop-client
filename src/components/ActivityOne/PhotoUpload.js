@@ -47,7 +47,7 @@ const PhotoUpload = ({ userImage }) => {
         type="file"
         id="ImageUpload"
         name="ImageUpload"
-        accept="image/jpg,impge/png,image/jpeg,image/gif"
+        accept="image/*"
         onChange={handleFileOnChange}
       />
       <StyledPhotoPreview>
@@ -87,8 +87,18 @@ const StyledPhotoPreview = styled.div`
 
   img {
     border-style: 'none';
-    width: 22.438rem;
-    height: 12.375rem;
+    width: 35.8rem;
+    height: 20.2rem;
+  }
+
+  img.portrait {
+    width: 100%;
+    height: auto;
+  }
+
+  img.landscape {
+    width: auto;
+    height: 100%;
   }
 `;
 

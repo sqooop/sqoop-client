@@ -1,4 +1,4 @@
-import { HashRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Styled from 'styled-components';
 import StepCard from './pages/stepCard/StepCard';
 import SignIn from './pages/signin/SignIn';
@@ -31,16 +31,16 @@ const FontWrap = Styled.div`
 function App() {
   return (
     <div className="App">
-      <HashRouter>
+      <BrowserRouter>
         <FontWrap>
           <Route component={MainHeader} />
-          <Route exact path="/:id" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={SignIn} />
-          <Route path="/steps/:id" component={StepCard} />
-          <Route path="/detail/edit/:id" component={ActivityOne} />
+          <Route exact path="/steps/:id" component={StepCard} />
+          <Route exact path="/detail/edit/:id" component={ActivityOne} />
           <Route exact path="/create" component={CreateActivity} />
         </FontWrap>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }

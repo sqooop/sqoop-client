@@ -63,12 +63,6 @@ const StyledActivityOneButton = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.315rem;
-
-  @media screen and (max-width: 680px) {
-    margin-top: 1rem;
-  }
 `;
 
 const StyledActivityFavoritesButton = styled.div`
@@ -81,7 +75,7 @@ const StyledActivityOneEdit = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 0.784rem;
+  margin-left: 1.204rem;
 `;
 
 export default ActivityOneButton;

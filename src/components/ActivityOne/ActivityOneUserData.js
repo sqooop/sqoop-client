@@ -66,8 +66,19 @@ const ActivityOneUserData = props => {
         '어쩌구저쩌구저저구 저쩌구 어쩌구 저쩌구 너무 길면...어쩌구저쩌구저저구 저쩌구 어쩌구 저쩌구 너무 길면...어쩌구저쩌구저저구 저쩌구 어쩌구 저쩌구 너무 길면...어쩌구저쩌구저저구 저쩌구 어쩌구 저쩌구 너무 길면...어쩌구저쩌구저저구 저쩌구 어쩌구 저쩌구 너무 길면...어쩌구저쩌구저저구 저쩌구 어쩌구 저쩌구 너무 길면...어쩌구저쩌구저저구 저쩌구 어쩌구 저쩌구 너무 길면...',
     },
   ];
+
+  function InputResize() {
+    let inputSize = document.getElementById('UserData');
+    inputSize.style.width = window.innerWidth - 382 + 'px';
+  }
+
+  window.onload = function () {
+    InputResize();
+    window.addEventListener('resize', InputResize);
+  };
+
   return (
-    <StyledUserData>
+    <StyledUserData id="UserData">
       {UserData.map((data, index) => (
         <>
           <StyledQuestionData key={index}>{data.title}</StyledQuestionData>
@@ -85,33 +96,48 @@ const ActivityOneUserData = props => {
 };
 
 const StyledUserData = styled.div`
-  margin-top: 2rem;
   display: block;
-  min-width: 65%;
+  height: 50.4rem;
+  overflow-y: scroll;
+  position: relative;
+  width: 100%;
+
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #195bff;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #dce3fd;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
 `;
 
 const StyledQuestionData = styled.div`
-  margin-left: 1.5rem;
-  font-size: 0.875rem;
-  font-weight: 700;
-  line-height: 1.313rem;
+  margin-top: 3.2rem;
+  margin-left: 2.4rem;
+  font-size: 1.4rem;
+  font-weight: 700 !important;
+  line-height: 2.1rem;
   letter-spacing: 0em;
   text-align: left;
-  font-weight: bold !important;
 `;
 
 const StyledAnswerData = styled.input`
+  height: 5.25rem;
   margin-top: 7px;
-  margin-bottom: 2rem;
-  margin-left: 2rem;
-  font-size: 0.75rem;
-  font-weight: 400;
-  line-height: 1.125rem;
+  margin-left: 3.2rem;
+  font-size: 1.2rem;
+  font-weight: 400 !important;
+  line-height: 1.8rem;
   letter-spacing: 0em;
   border: none;
   outline: none;
-  height: 5.25rem;
-  min-width: 100%;
 
   :hover {
     background-color: #eeeeee;
