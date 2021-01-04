@@ -7,9 +7,9 @@ import Styled from 'styled-components';
 const PreviousCardWrap = Styled.div`
   .card {
     box-sizing: border-box;
-    width: 266px;
-    height: 355px;
-    margin-right: 12px;
+    width: 36.9vh;
+    height: 49.3vh;
+    margin-right: 1.6vh;
     border: 1px solid #A5A5A5;
     display: flex;
     flex-direction: column;
@@ -17,8 +17,8 @@ const PreviousCardWrap = Styled.div`
     overflow: hidden;
 
     &--question {
-      margin: 12px 16px;
-      font-size: 16px;
+      margin: 1.6vh 2.2vh;
+      font-size: 2.2vh;
       font-weight: bold;
       color: #A5A5A5;
       word-break: keep-all;
@@ -27,17 +27,17 @@ const PreviousCardWrap = Styled.div`
 
     &--hr {
       margin: 0 auto;
-      width: 234px;
+      width: 32.5vh;
       border: none;
       border-top: 1px solid #A5A5A5;
     }
 
     &--text {
-      width: 234px;
-      height: 178px;
-      padding-bottom: 8px;
-      margin: 12px 16px;
-      font-size: 12px;
+      width: 32.5vh;
+      height: 24.7vh;
+      padding-bottom: 1.1vh;
+      margin: 1.6vh 2.2vh;
+      font-size: 1.6vh;
       color: #A5A5A5;
       line-height: 150%;
       overflow: hidden;
@@ -51,15 +51,15 @@ const PreviousCardWrap = Styled.div`
 
     &--modify {
       box-sizing: border-box;
-      width: 124px;
-      height: 40px;
-      margin-left: 142px;
+      width: 17.2vh;
+      height: 5.5vh;
+      margin-left: 19.7vh;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
       color: #A5A5A5;
-      font-size: 16px;
+      font-size: 2.2vh;
     }
   }
 `;

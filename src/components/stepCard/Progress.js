@@ -10,8 +10,8 @@ const ProgressWrap = Styled.div`
     display: flex;
     flex-direction: row;
     position: absolute;
-    right: 90px;
-    bottom: 40px;
+    right: 12.5vh;
+    bottom: 5.5vh;
     align-items: flex-end;
 
     &--text {

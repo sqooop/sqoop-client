@@ -4,8 +4,8 @@ import Styled from 'styled-components';
 const EmptyCardWrap = Styled.div`
   .card {
     box-sizing: border-box;
-    width: 266px;
-    height: 355px;
+    width: 36.9vh;
+    height: 49.3vh;
     border: none;
     overflow: hidden;
   }

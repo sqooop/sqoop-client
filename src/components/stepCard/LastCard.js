@@ -9,26 +9,26 @@ import SaveButton from './SaveButton';
 const LastCardWrap = Styled.div`
   .card {
     box-sizing: border-box;
-    width: 358px;
-    height: 496px;
+    width: 49.7vh;
+    height: 68.8vh;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     &--title {
-      font-size: 20px;
+      font-size: 2.7vh;
       font-weight: bold;
-      margin-top: 119px;
+      margin-top: 16.5vh;
       color: #195BFF;
     }
 
     &--guide {
-      font-size: 12px;
+      font-size: 1.6vh;
     }
 
     &--icon {
-      margin: 48px 0px;
+      margin: 6.6vh 0vh;
     }
   }
 `;
@@ -46,7 +46,7 @@ const LastCard = ({ history }) => {
       background-color: white; 
       color: #195BFF;
       cursor: pointer;
-      width: 173px;
+      width: 24vh;
     `;
   };
 
@@ -58,7 +58,7 @@ const LastCard = ({ history }) => {
       background-color: #195BFF;
       color: white;
       cursor: default;
-      width: 173px;
+      width: 24vh;
     `;
   };
 
@@ -74,7 +74,7 @@ const LastCard = ({ history }) => {
           onMouseEnter={hovered}
           onMouseLeave={unhovered}
           text={'전체 돌아보기'}
-          width={'173px'}
+          width={'24vh'}
         />
       </div>
     </LastCardWrap>

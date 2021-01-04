@@ -13,13 +13,13 @@ const HeaderWrap = Styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 32px;
-    margin-top: 12px;
-    height: 48px;
+    margin-bottom: 4.4vh;
+    margin-top: 1.6vh;
+    height: 6.6vh;
 
     &--text {
-      margin-left: 183px;
-      font-size: 32px;
+      margin-left: 25.4vh;
+      font-size: 4.4vh;
       font-weight: bold;
       &__title {
         color: #195BFF;
@@ -36,8 +36,8 @@ const HeaderWrap = Styled.div`
       flex-direction: row;
       align-items: center;
       &__right {
-        margin-left: 36px;
-        margin-right: 183px;
+        margin-left: 5vh;
+        margin-right: 25.4vh;
       }
     }
   }

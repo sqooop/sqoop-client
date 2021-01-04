@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const HeaderBlock = styled.div`
   display: flex;
-  margin: 0px 80px;
-  padding: 8px 0px;
+  margin: 0vh 11.1vh;
+  padding: 1.1vh 0vh;
   justify-content: space-between;
 `;
 
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   align-items: center;
   .list {
     list-style: none;
-    padding: 16px 10px;
+    padding: 2.2vh 1.4vh;
     font-weight: 400;
     &:hover {
       font-weight: 700;

@@ -13,8 +13,6 @@ import Styled from 'styled-components';
 const CardWrap = Styled.div`
   display: flex;
   flex-direction: row;
-  width: 1470px;
-  margin: 0 auto;
   justify-content: center;
 `;
 

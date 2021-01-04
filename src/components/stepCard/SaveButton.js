@@ -6,11 +6,11 @@ import SaveIconOn from '../../assets/icons/SaveIconOn.svg';
 const SaveButtonWrap = Styled.div`
   button {
     box-sizing: border-box;
-    height: 40px;
-    width: 144px;
-    margin-right: 12px;
+    height: 5.5vh;
+    width: 20vh;
+    margin-right: 1.6vh;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 2.2vh;
     color: white;
     float: right;
     border: none;
@@ -23,10 +23,10 @@ const SaveButtonWrap = Styled.div`
   }
 
   img {
-    width: 24px;
-    height: 24px;
-    margin-left: 14px;
-    margin-right: 4px;
+    width: 3.3vh;
+    height: 3.3vh;
+    margin-left: 1.9vh;
+    margin-right: 0.5vh;
   }
 `;
 

@@ -10,17 +10,17 @@ import SaveConfirm from './SaveConfirm';
 const CurrentCardWrap = Styled.div`
   .card {
     box-sizing: border-box;
-    width: 358px;
-    height: 496px;
+    width: 49.7vh;
+    height: 68.8vh;
     border: 1px solid black;
 
     &--question {
-      font-size: 22px;
-      height: 112px;
+      font-size: 3vh;
+      height: 15.5vh;
       font-weight: bold;
       line-height: 170%;
       word-break: keep-all;
-      margin: 12px 16px;
+      margin: 1.6vh 2.2vh;
       &__number {
         font-weight: bold;
         color: #195BFF;
@@ -29,20 +29,20 @@ const CurrentCardWrap = Styled.div`
 
     &--hr {
       margin: 0 auto;
-      width: 326px;
+      width: 45.2vh;
       border: none;
       border-top: 1px solid #A5A5A5;
     }
 
     &--text {
-      margin: 12px 16px;
-      width: 326px;
-      height: 277px;
+      margin: 1.6vh 2.2vh;
+      width: 45.2vh;
+      height: 38.4vh;
       box-sizing: border-box;
       border: none;
       word-break: normal;
       white-space: normal;
-      font-size: 12px;
+      font-size: 1.6vh;
       line-height: 170%;
       resize: none;
     }

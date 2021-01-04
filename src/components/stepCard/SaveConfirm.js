@@ -4,10 +4,10 @@ import { useEffect } from 'react';
 
 const SaveConfirmWrap = Styled.div`
   box-sizing: border-box;
-  width: 144px;
-  height: 40px;
+  width: 20vh;
+  height: 5.5vh;
   position: relative;
-  left: 200px;
+  left: 27.7vh;
   z-index: 2;
   background-color: #00FF84;
   color: white;

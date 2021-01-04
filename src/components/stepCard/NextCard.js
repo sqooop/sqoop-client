@@ -5,17 +5,17 @@ import Styled from 'styled-components';
 const NextCardWrap = Styled.div`
   .card {
     box-sizing: border-box;
-    width: 266px;
-    height: 355px;
-    margin-left: 12px;
+    width: 36.9vh;
+    height: 49.3vh;
+    margin-left: 1.6vh;
     border: 1px solid #A5A5A5;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
     &--question {
-      margin: 12px 16px;
-      font-size: 22px;
+      margin: 1.6vh 2.2vh;
+      font-size: 3vh;
       font-weight: bold;
       color: #A5A5A5;
       word-break: keep-all;
@@ -26,17 +26,17 @@ const NextCardWrap = Styled.div`
     }
     &--locked {
       box-sizing: border-box;
-      width: 124px;
-      height: 40px;
-      margin-left: 142px;
+      width: 17.2vh;
+      height: 5.5vh;
+      margin-left: 19.7vh;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
       color: #A5A5A5;
-      font-size: 16px;
+      font-size: 2.2vh;
       &__icon {
-        margin-right: 4px;
+        margin-right: 0.5vh;
       }
     }
   }
