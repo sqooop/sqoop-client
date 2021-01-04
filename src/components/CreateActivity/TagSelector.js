@@ -8,8 +8,13 @@ import styled from 'styled-components';
 const { Option } = Select;
 const TagSelectorWrap = styled.div``;
 const StyledSelect = styled(Select)`
+  /* 
+ant-select-selector : padding-left가 태그랑 입력창 전체
+.ant-select-selection-search : margin-left 음수로 해야해
+.ant-select-selection-placeholder : 얘는 placeholder, absolute라 padding이나 margin이 아니라 left로 지정
+ */
   .ant-select-selector {
-    padding-left: 5px;
+    padding-left: 6px;
     border: none !important;
     width: 266px !important;
     /* height: 26px !important; */
@@ -18,6 +23,9 @@ const StyledSelect = styled(Select)`
     &:hover {
       background-color: #eeeeee !important;
     }
+  }
+  .ant-select-selection-search {
+    margin-left: -3px !important;
   }
   .ant-select-selection-placeholder {
     right: 0px !important;

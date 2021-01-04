@@ -2,10 +2,12 @@ import React from 'react';
 import Styled from 'styled-components';
 import SaveIcon from '../../assets/icons/SaveIcon.svg';
 import SaveIconBlue from '../../assets/icons/SaveIconBlue.svg';
-
+// 화면 전체 양옆 padding 확정되면 버튼 위치 조정해라
 const SaveButtonWrap = Styled.div`
-  /* margin-top: 100px; */
   button {
+    position: absolute;
+    bottom: 52px;
+    right: 200px;
     box-sizing: border-box;
     width: 149px;
     height: 48px;

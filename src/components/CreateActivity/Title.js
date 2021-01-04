@@ -9,7 +9,7 @@ const TitleInput = styled.input`
   display: flex;
   border: none;
   outline: none;
-  font-size: 32px;
+  font-size: 3.2rem;
   width: 100%;
   ::placeholder,
   ::-webkit-input-placeholder {

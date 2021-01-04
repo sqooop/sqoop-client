@@ -6,8 +6,11 @@ import ActivityOne from './pages/ActivityOne/ActivityOne';
 import Home from './pages/home/home';
 import MainHeader from './components/common/MainHeader';
 import CreateActivity from './pages/createActivity/CreateActivity';
+import './App.css';
 
 const FontWrap = Styled.div`
+  body{ font-size: 10px !important; }
+  /* font-size: 10px; */
   @font-face {
     font-family: 'Noto Sans CJK KR';
     font-style: normal;

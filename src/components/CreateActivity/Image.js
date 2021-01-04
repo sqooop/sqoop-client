@@ -60,6 +60,7 @@ const StyledNoPhoto = styled.div`
   border: 1px solid #000000;
   width: 450px;
   height: 253px;
+  cursor: pointer;
   img {
     border-style: 'none';
     width: 81px;

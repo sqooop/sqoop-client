@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Clip from '../../assets/icons/Clip.svg';
 
-import SaveIconBlue from '../../assets/icons/SaveIconBlue.svg';
-const FileUpload = () => {
-  // 파일 이름을 미리보기로 보여주기 위한 state
-  const [previewFile, setPreviewFile] = useState(null);
-  const [serverFile, setServerFile] = useState(null);
+const FileUpload = props => {
+  const { saveServerFile, savePreviewFile, previewFile } = props;
 
   const handleFileOnChange = e => {
     e.preventDefault();
@@ -16,13 +13,13 @@ const FileUpload = () => {
 
     if (file) {
       reader.readAsDataURL(file);
-      setPreviewFile(() => file.name);
+      savePreviewFile(file.name);
     } else {
-      setPreviewFile(() => previewFile);
+      savePreviewFile(previewFile);
     }
 
     reader.onloadend = () => {
-      setServerFile(() => reader.result);
+      saveServerFile(reader.result);
     };
   };
 
@@ -81,6 +78,7 @@ const StyledFilePreview = styled.div`
     position: absolute;
     top: 6px;
     right: 4px;
+    cursor: pointer;
   }
 `;
 
