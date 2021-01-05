@@ -83,7 +83,16 @@
 #### ➕ Code Convention
 - ESLint 및 Prettier
 ```
-코드를 여기에~ (행턴중이라 vsCode 못킴ㅜㅜ)
+// .prettierrc
+{
+  "singleQuote": true,
+  "semi": true,
+  "useTabs": false,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "printWidth": 80,
+  "arrowParens": "avoid"
+}
 ```
 -lowerCamelCase
 
