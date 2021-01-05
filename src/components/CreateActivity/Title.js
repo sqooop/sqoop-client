@@ -5,12 +5,14 @@ const TitleWrap = styled.div`
   margin-bottom: 3.4rem;
 `;
 const TitleInput = styled.input`
+  text-overflow: ellipsis;
+  overflow: scroll;
   font-weight: bold !important;
   display: flex;
   border: none;
   outline: none;
   font-size: 3.2rem;
-  width: 100%;
+  width: 200px;
   ::placeholder,
   ::-webkit-input-placeholder {
     color: #a5a5a5;

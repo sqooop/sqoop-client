@@ -5,7 +5,7 @@ const TextInput = styled.input`
   font-size: 1.4rem;
   border: none;
   outline: none;
-  width: 26.6rem;
+  width: 20.156vw;
   height: 3rem;
   padding-left: 0.8rem;
   &:hover {

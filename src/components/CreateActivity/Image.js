@@ -51,15 +51,17 @@ const StyledPhotoPreview = styled.div`
   }
   img {
     border-style: 'none';
-    width: 45rem;
-    height: 25.3rem;
+    width: 35.15625vw;
+    height: 19.765625vw;
   }
 `;
 
 const StyledNoPhoto = styled.div`
   border: 0.1rem solid #000000;
-  width: 45rem;
-  height: 25.3rem;
+  width: 35.15625vw;
+  height: 19.765625vw;
+  /* width: 450px;
+  height: 253px; */
   cursor: pointer;
   img {
     border-style: 'none';
