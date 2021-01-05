@@ -240,4 +240,4 @@
 
 ##### 🔵 sqoop의 Server Repository
 
-    sqoop [Server](https://github.com/sqooop/sqoop-server)
+   sqoop [Server](https://github.com/sqooop/sqoop-server)
