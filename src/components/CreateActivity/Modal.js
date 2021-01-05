@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ModalBackgorundWrap = styled.div`
   display: ${props => (props.visible ? 'block' : 'none')};
 
-  background: hsla(0, 0%, 0%, 0.5);
+  background: rgba(165, 165, 165, 0.8);
   width: 100%;
   height: 100%;
   position: fixed;

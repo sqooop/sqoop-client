@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import ActivityOneTitle from '../../components/ActivityOne/ActivityOneTitle';
-import PhotoUpload from '../../components/ActivityOne/PhotoUpload';
+import ActivityOneTitle from '../../components/activityOne/ActivityOneTitle';
+import PhotoUpload from '../../components/activityOne/PhotoUpload';
 import DefaultData from '../../components/createActivity/DefaultData';
 import DateSelector from '../../containers/createActivity/DateSelector.container';
 import Group from '../../containers/createActivity/Group.container';
 import JobTagSelector from '../../containers/common/JobTagSelector.container';
 import SkillTagSelector from '../../containers/common/SkillTagSelector.container';
 import Summary from '../../containers/createActivity/Summary.container';
-import FileUpload from '../../components/ActivityOne/FileUpload';
-import ActivityOneUserData from '../../components/ActivityOne/ActivityOneUserData';
+import FileUpload from '../../components/activityOne/FileUpload';
+import ActivityOneUserData from '../../components/activityOne/ActivityOneUserData';
 
 const ActivityOne = () => {
   return (
