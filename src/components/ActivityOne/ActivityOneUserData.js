@@ -69,20 +69,28 @@ const ActivityOneUserData = props => {
 
   function InputResize() {
     let inputSize = document.getElementById('UserData');
-    inputSize.style.width = window.innerWidth - 382 + 'px';
+    inputSize.style.width = window.innerWidth - 726 + 'px';
+  }
+
+  function AnswerResize() {
+    let answerSize = document.getElementsByClassName('AnswerData');
+    answerSize.style.width = window.innerWidth - 770 + 'px';
   }
 
   window.onload = function () {
     InputResize();
-    window.addEventListener('resize', InputResize);
+    AnswerResize();
+    window.addEventListener('Inputresize', InputResize);
+    window.addEventListener('Answerresize', AnswerResize);
   };
 
   return (
-    <StyledUserData id="UserData">
+    <StyledUserData className="UserData">
       {UserData.map((data, index) => (
         <>
-          <StyledQuestionData key={index}>{data.title}</StyledQuestionData>
+          <StyledQuestionData key={index - 1}>{data.title}</StyledQuestionData>
           <StyledAnswerData
+            className="AnswerData"
             data={UserData.content}
             placeholder={UserData.content}
             key={index}

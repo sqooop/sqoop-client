@@ -1,3 +1,18 @@
 html {
   font-size: 10px;
 }
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #195bff;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #dce3fd;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
+}
