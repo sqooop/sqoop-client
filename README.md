@@ -20,7 +20,7 @@
 
 |                                                            권소희                                                             |                                                            현주희                                                             |                                                            손예지                                                             |                                                            김민지                                                             |
 | :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: |
-| <img src="https://avatars3.githubusercontent.com/u/70877186?s=460&u=b80382a7a0abb0acbf147217eb41720a9d3e0a38&v=4" alt="profile" width="55" height="55"> | <img src="https://avatars1.githubusercontent.com/u/55863806?s=460&u=c65fa17d24b3d8c5603a24ea7c561879be7983ae&v=4" alt="profile" width="55" height="55"> | <img src="https://avatars3.githubusercontent.com/u/55784772?s=460&u=3b15b3f7c5ac71e8d20b5dbb6d34e00c89fc2f0a&v=4" alt="profile" width="55" height="55"> | <img src="https://avatars1.githubusercontent.com/u/48766355?s=460&u=0419d273d1a31539ee4f1151cdacb6fefd45dacc&v=4" alt="profile" width="55" height="55">
+| <img src="https://avatars3.githubusercontent.com/u/70877186?s=460&u=b80382a7a0abb0acbf147217eb41720a9d3e0a38&v=4" alt="profile" width="100" height="100"> | <img src="https://avatars1.githubusercontent.com/u/55863806?s=460&u=c65fa17d24b3d8c5603a24ea7c561879be7983ae&v=4" alt="profile" width="100" height="100"> | <img src="https://avatars3.githubusercontent.com/u/55784772?s=460&u=3b15b3f7c5ac71e8d20b5dbb6d34e00c89fc2f0a&v=4" alt="profile" width="100" height="100"> | <img src="https://avatars1.githubusercontent.com/u/48766355?s=460&u=0419d273d1a31539ee4f1151cdacb6fefd45dacc&v=4" alt="profile" width="100" height="100">
 |                                             [sohee-K](https://github.com/sohee-K)                                             |                                          [Hyun-juhee](https://github.com/Hyun-juhee)                                          |                                            [yezgoget](https://github.com/yezgoget)                                            |                                              [mnxmnz](https://github.com/mnxmnz)                                              |
 |                                                         활동 돌아보기                                                         |                                                         새 활동 추가                                                          |                                                            메인 홈                                                            |                                                        개별 활동 보기                                                         |
 |                        git branch [[step-card]](https://github.com/sqooop/sqoop-client/tree/step-card)                        |                   git branch [[createActivity]](https://github.com/sqooop/sqoop-client/tree/createActivity)                   |                             git branch [[home]](https://github.com/sqooop/sqoop-client/tree/home)                             |                     git branch [[activity-one]](https://github.com/sqooop/sqoop-client/tree/activity-one)                     |
@@ -195,49 +195,49 @@
 
 #### ➕ Git Branch 
 
-✔ main - 개발 완료하고 최종 코드 올리는 브랜치
+    ✔ main - 개발 완료하고 최종 코드 올리는 브랜치
 
 
-✔ develop - 각자 담당한 페이지 뷰 브랜치를 합쳐서 테스트 진행하는 브랜치
-    
-   - home (홈  view)
-    
-   - createActivity (새 활동 추가 view)
-    
-   - step-card (활동 돌아보기 view)
-    
-   - activity-one (개별 활동 보기 view)
+    ✔ develop - 각자 담당한 페이지 뷰 브랜치를 합쳐서 테스트 진행하는 브랜치
+
+       - home (홈  view)
+
+       - createActivity (새 활동 추가 view)
+
+       - step-card (활동 돌아보기 view)
+
+       - activity-one (개별 활동 보기 view)
 
 #### ➕ Code Convention
 
 - ESLint 및 Prettier
-```
-// .prettierrc
-{
-  "singleQuote": true,
-  "semi": true,
-  "useTabs": false,
-  "tabWidth": 2,
-  "trailingComma": "all",
-  "printWidth": 80,
-  "arrowParens": "avoid"
-}
-```
-- lowerCamelCase
+    ```
+    // .prettierrc
+    {
+      "singleQuote": true,
+      "semi": true,
+      "useTabs": false,
+      "tabWidth": 2,
+      "trailingComma": "all",
+      "printWidth": 80,
+      "arrowParens": "avoid"
+    }
+    ```
+    - lowerCamelCase
 
-- 화살표 함수형으로 컴포넌트 선언하기
-    - 화살표 함수형 컴포넌트 예시
+    - 화살표 함수형으로 컴포넌트 선언하기
+        - 화살표 함수형 컴포넌트 예시
 
-```jsx
-import React from 'react';
+    ```jsx
+    import React from 'react';
 
-const Hashtag = () => {
-  return <div></div>;
-};
+    const Hashtag = () => {
+      return <div></div>;
+    };
 
-export default Hashtag;
-```
+    export default Hashtag;
+    ```
 
 ##### 🔵 sqoop의 Server Repository
 
-sqoop [Server](https://github.com/sqooop/sqoop-server)
+    sqoop [Server](https://github.com/sqooop/sqoop-server)
