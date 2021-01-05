@@ -9,7 +9,7 @@ import JobTagSelector from '../../containers/common/JobTagSelector.container';
 import SkillTagSelector from '../../containers/common/SkillTagSelector.container';
 import Summary from '../../containers/createActivity/Summary.container';
 import FileUpload from '../../components/ActivityOne/FileUpload';
-import ActivityOneUserData from '../../components/ActivityOne/ActivityOneUserData';
+import ActivityOneUserData from '../../containers/ActivityOne/UserAnswer.container';
 
 const ActivityOne = () => {
   return (
