@@ -16,7 +16,7 @@ ant-select-selector : padding-left가 태그랑 입력창 전체
   .ant-select-selector {
     padding-left: 0.6rem;
     border: none !important;
-    width: 26.6rem !important;
+    width: 20.156vw !important;
     padding-top: 0rem !important;
     margin-top: 0rem !important;
     &:hover {
@@ -52,7 +52,7 @@ const TagSelector = props => {
         showArrow
         tagRender={TagRender}
         style={{
-          width: '26.6rem',
+          width: '20.156vw',
           padding: '0rem',
         }}
         placeholder={placeholder}
