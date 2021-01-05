@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TitleWrap = styled.div`
-  margin-bottom: 34px;
+  margin-bottom: 3.4rem;
 `;
 const TitleInput = styled.input`
   font-weight: bold !important;
   display: flex;
   border: none;
   outline: none;
-  font-size: 32px;
+  font-size: 3.2rem;
   width: 100%;
   ::placeholder,
   ::-webkit-input-placeholder {
