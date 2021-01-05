@@ -10,7 +10,7 @@ const PhotoUpload = props => {
         type="file"
         id="ImageUpload"
         name="ImageUpload"
-        accept="image/jpg,impge/png,image/jpeg,image/gif"
+        accept="image/*"
         onChange={onChange}
       />
       <StyledPhotoPreview>

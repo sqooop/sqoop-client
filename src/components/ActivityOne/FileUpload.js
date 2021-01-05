@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Clip from '../../assets/icons/Clip.svg';
 
 const FileUpload = ({ userFile }) => {
   // 파일 이름을 미리보기로 보여주기 위한 state
@@ -39,7 +40,7 @@ const FileUpload = ({ userFile }) => {
   };
 
   return (
-    <>
+    <div style={{ display: 'flex' }}>
       <StyledFileInput
         type="file"
         id="FileUpload"
@@ -49,13 +50,19 @@ const FileUpload = ({ userFile }) => {
       <StyledFilePreview>
         <label for="FileUpload">
           {previewFile === null ? (
-            <div>{userFile}</div>
+            <div>
+              {userFile}
+              <img src={Clip} alt="" />
+            </div>
           ) : (
-            <div>{previewFile}</div>
+            <div>
+              {previewFile}
+              <img src={Clip} alt="" />
+            </div>
           )}
         </label>
       </StyledFilePreview>
-    </>
+    </div>
   );
 };
 
@@ -78,8 +85,19 @@ const StyledFileInput = styled.input`
 `;
 
 const StyledFilePreview = styled.div`
+  height: 3rem;
+  width: 37rem;
+  position: relative;
+
   &:hover {
     background-color: #eeeeee, 90%;
+  }
+
+  img {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    cursor: pointer;
   }
 `;
 

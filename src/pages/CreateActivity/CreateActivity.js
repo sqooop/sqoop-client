@@ -9,8 +9,8 @@ import SkillTagSelector from '../../containers/common/SkillTagSelector.container
 import Summary from '../../containers/createActivity/Summary.container';
 import Image from '../../containers/createActivity/Image.container';
 import Modal from '../../containers/createActivity/Modal.container';
-import File from '../../containers/createActivity/File.container';
 import DefaultData from '../../components/createActivity/DefaultData';
+import File from '../../components/createActivity/File';
 
 const CreateActivityWrap = styled.div`
   padding-left: 14.297vw;
