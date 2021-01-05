@@ -41,6 +41,7 @@ const CurrentCardWrap = Styled.div`
       box-sizing: border-box;
       border: none;
       word-break: normal;
+      white-space: normal;
       font-size: 12px;
       line-height: 170%;
       resize: none;
