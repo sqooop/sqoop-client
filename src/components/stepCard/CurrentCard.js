@@ -67,7 +67,14 @@ const CurrentCard = ({ questions, answers, setAnswers, match, history }) => {
   }, [answers, index]);
 
   const onChangeFunc = event => {
-    setTextValue(event.target.value);
+    const text = event.target.value;
+    const lastChar = text[text.length - 1];
+    const lastText = textValue[textValue.length - 1];
+
+    if (lastChar === lastText && (lastChar === ' ' || lastChar === '\n')) {
+    } else {
+      setTextValue(text);
+    }
   };
 
   const onClickFunc = event => {
