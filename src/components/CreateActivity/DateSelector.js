@@ -4,19 +4,25 @@ import styled from 'styled-components';
 
 const { RangePicker } = DatePicker;
 const DateSelectorWrap = styled.div``;
+
+const StyledRangePicker = styled(RangePicker)`
+  height: 3rem;
+  width: 26.6rem;
+  border: none;
+  &:hover {
+    background-color: #eeeeee !important;
+  }
+`;
+
 const DateSelector = props => {
   const onChange = props.onChange;
   return (
     <DateSelectorWrap>
       <Space direction="vertical" size={12}>
-        <RangePicker
+        <StyledRangePicker
+          suffixIcon=""
           placeholder={['2021-01-01', '2021-02-01']}
           onChange={onChange}
-          style={{
-            height: '21px',
-            width: '256px',
-            border: 'none',
-          }}
         />
       </Space>
     </DateSelectorWrap>
