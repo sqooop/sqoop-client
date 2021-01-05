@@ -53,10 +53,6 @@
 │   └── CreateActivity
 │   └── stepCard
 │   └── common
-├── modules
-│   ├── index.js
-│   ├── loading.js
-│   └── user.js
 ├── stores
 │   ├── modules
 │   ├── index,js
