@@ -3,25 +3,7 @@ import styled from 'styled-components';
 import Clip from '../../assets/icons/Clip.svg';
 
 const FileUpload = props => {
-  const { saveServerFile, savePreviewFile, previewFile } = props;
-
-  const handleFileOnChange = e => {
-    e.preventDefault();
-
-    let reader = new FileReader();
-    let file = e.target.files[0];
-
-    if (file) {
-      reader.readAsDataURL(file);
-      savePreviewFile(file.name);
-    } else {
-      savePreviewFile(previewFile);
-    }
-
-    reader.onloadend = () => {
-      saveServerFile(reader.result);
-    };
-  };
+  const { onChange, previewFile } = props;
 
   return (
     <>
@@ -29,7 +11,7 @@ const FileUpload = props => {
         type="file"
         id="FileUpload"
         name="FileUpload"
-        onChange={handleFileOnChange}
+        onChange={onChange}
       />
       <StyledFilePreview>
         <label for="FileUpload">

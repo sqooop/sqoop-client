@@ -52,11 +52,11 @@ const initialState = {
   startDate: '',
   endDate: '',
   group: '',
-  job: [],
-  skill: [],
+  jobTag: [],
+  skillTag: [],
   summary: '',
-  image: '',
-  file: '',
+  imageUrl: '',
+  fileUrl: '',
 };
 
 export default function reducer(state = initialState, action) {
@@ -85,22 +85,22 @@ export default function reducer(state = initialState, action) {
     case SET_JOB:
       return {
         ...state,
-        job: action.job,
+        jobTag: action.job,
       };
     case SET_SKILL:
       return {
         ...state,
-        skill: action.skill,
+        skillTag: action.skill,
       };
     case SET_IMAGE:
       return {
         ...state,
-        image: action.image,
+        imageUrl: action.image,
       };
     case SET_FILE:
       return {
         ...state,
-        file: action.file,
+        fileUrl: action.file,
       };
     default:
       return state;

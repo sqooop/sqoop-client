@@ -42,7 +42,6 @@ const Button = ({ backgroundColor, color, onClick, border, isAble }) => {
         background-color: white; 
         color: #195BFF;
         cursor: pointer;
-        fill: #195BFF;
       `;
   };
 
