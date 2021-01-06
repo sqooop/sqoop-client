@@ -2,10 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setVisible } from '../../store/modules/modal';
 import Button from '../../components/createActivity/Button';
-<<<<<<< HEAD
-=======
 import { createActivity } from '../../lib/api/activity';
->>>>>>> c509226f72b642eb2d34d2ca6ed5a2e28ed82b3b
 
 const ButtonContainer = () => {
   const dispatch = useDispatch();

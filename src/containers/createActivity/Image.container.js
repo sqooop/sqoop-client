@@ -1,10 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setImage } from '../../store/modules/activity';
-<<<<<<< HEAD
-=======
 import { setPreviewImage } from '../../store/modules/preview';
->>>>>>> c509226f72b642eb2d34d2ca6ed5a2e28ed82b3b
 import Image from '../../components/createActivity/Image';
 
 const ImageContainer = () => {
