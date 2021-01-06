@@ -2,10 +2,11 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Styled from 'styled-components';
 import StepCard from './pages/stepCard/StepCard';
 import SignIn from './pages/signin/SignIn';
-import ActivityOne from './pages/ActivityOne/ActivityOne';
+import ActivityOne from './pages/activityOne/ActivityOne';
 import Home from './pages/home/home';
 import MainHeader from './components/common/MainHeader';
 import CreateActivity from './pages/createActivity/CreateActivity';
+import Card from './components/filterActivities/Card';
 import './App.css';
 
 const FontWrap = Styled.div`
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/steps/:id" component={StepCard} />
           <Route exact path="/detail/edit/:id" component={ActivityOne} />
           <Route exact path="/create" component={CreateActivity} />
+          <Route exact path="/activities" component={Card} />
         </FontWrap>
       </BrowserRouter>
     </div>
