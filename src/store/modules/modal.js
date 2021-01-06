@@ -1,4 +1,4 @@
-const SET_VISIBLE = 'activity/SET_VISIBLE';
+const SET_VISIBLE = 'MODAL/SET_VISIBLE';
 
 export const setVisible = isVisible => ({
   type: SET_VISIBLE,

@@ -13,11 +13,9 @@ const DefaultData = props => {
 
 const StyleDiv = styled.div`
   float: left;
-  width: 6.25vw;
+  width: 8rem;
   font-size: 1.4rem !important;
   margin-top: 0.3rem;
-  margin-right: 0.9375vw;
-  padding-left: 0.1vw;
 `;
 
 export default DefaultData;

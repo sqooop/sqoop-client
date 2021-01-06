@@ -2,15 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TitleWrap = styled.div`
-  margin-bottom: 34px;
+  margin-bottom: 3.4rem;
 `;
 const TitleInput = styled.input`
+  text-overflow: ellipsis;
+  overflow: scroll;
   font-weight: bold !important;
   display: flex;
   border: none;
   outline: none;
-  font-size: 32px;
-  width: 100%;
+  font-size: 3.2rem;
+  width: 414px;
   ::placeholder,
   ::-webkit-input-placeholder {
     color: #a5a5a5;

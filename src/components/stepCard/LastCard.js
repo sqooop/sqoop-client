@@ -35,7 +35,7 @@ const LastCardWrap = Styled.div`
 
 const LastCard = ({ history }) => {
   const onClickFunc = event => {
-    history.push(`/activity_detail/0`);
+    history.push(`/detail/edit/0`);
   };
 
   const hovered = event => {

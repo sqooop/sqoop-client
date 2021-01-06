@@ -19,8 +19,11 @@ const ProgressWrap = Styled.div`
       height: 40px;
       margin-right: 32px;
       margin-bottom: 40px;
+
       &__box {
         z-index: 1;
+        animation-name: appearing;
+        animation-duration: 2s;
       }
       &__text {
         z-index: 2;
@@ -29,6 +32,8 @@ const ProgressWrap = Styled.div`
         margin-right: 18px;
         position: relative;
         top: -32px;
+        animation-name: appearing;
+        animation-duration: 2s;
       }
     }
 
@@ -68,20 +73,63 @@ const ProgressWrap = Styled.div`
       & > p {
         font-size: 15px;
         margin-right: 14px;
-      }
-      & > img {
-        animation-name: falling;
-        animation-duration: 0.5s;
-        animation-timing-function: linear;
-        animation-fill-mode: backwards;
+        animation-name: emphasis;
+        animation-duration: 1s;
       }
     }
   }
+  .falling {
+    animation-name: falling;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in;
+  }
+
+  .bouncing {
+    animation-name: bouncing;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in;
+    animation-delay: 0.3s;
+  }
+
   @keyframes falling {
     from {
-      top: -10px;
+      top: -50px;
     } to {
       top: 0px;
+    }
+  }
+  @keyframes bouncing {
+    0% {
+      bottom: 0px;
+      transform-origin: 100%;
+      transform: rotate(360deg);
+    }
+    30% {
+      bottom: -15px;
+      transform-origin: 100%;
+      transform: rotate(345deg);
+    }
+    100% {
+      bottom: 0px;
+      transform-origin: 100%;
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes emphasis {
+    50% {
+      font-size: 150%;
+      font-weight: bold;
+    }
+  }
+  @keyframes appearing {
+    0% {
+      transform: scaleX(0) scaleY(0);
+    }
+    90% {
+      transform: scaleX(0) scaleY(0) translateX(100%);
+    }
+    100% {
+      transform: scaleX(1) scaleY(1) translateX(0%);
     }
   }
 `;
@@ -95,6 +143,7 @@ const Progress = ({ answers }) => {
   };
 
   const [index, setIndex] = useState(0);
+  const [startAni, setStartAni] = useState(false);
   const percent = index * 10 + '%';
 
   useEffect(() => {
@@ -103,6 +152,7 @@ const Progress = ({ answers }) => {
       userIndex++;
     }
     setIndex(userIndex);
+    index in textList ? setStartAni(true) : setStartAni(false);
   });
 
   return (
@@ -116,22 +166,95 @@ const Progress = ({ answers }) => {
             <p className="progress--text__text">{textList[index]}</p>
           )}
         </div>
-        <div className="progress--animation">
-          {index === 10 && (
-            <img className="progress--animation__fourth" src={AniBall} alt="" />
-          )}
-          {index >= 7 && (
-            <img className="progress--animation__third" src={AniBall} alt="" />
-          )}
-          {index >= 4 && (
-            <img className="progress--animation__second" src={AniBall} alt="" />
-          )}
-          {index >= 2 && (
-            <img className="progress--animation__first" src={AniBall} alt="" />
-          )}
-          <img className="progress--animation__empty" src={AniEmpty} alt="" />
-          <p>{percent}</p>
-        </div>
+        {startAni && (
+          <div className="progress--animation bouncing">
+            {index === 10 && (
+              <img
+                className="progress--animation__fourth falling"
+                src={AniBall}
+                alt=""
+              />
+            )}
+            {index === 7 && (
+              <img
+                className="progress--animation__third falling"
+                src={AniBall}
+                alt=""
+              />
+            )}
+            {index > 7 && (
+              <img
+                className="progress--animation__third"
+                src={AniBall}
+                alt=""
+              />
+            )}
+            {index === 4 && (
+              <img
+                className="progress--animation__second falling"
+                src={AniBall}
+                alt=""
+              />
+            )}
+            {index > 4 && (
+              <img
+                className="progress--animation__second"
+                src={AniBall}
+                alt=""
+              />
+            )}
+            {index === 2 && (
+              <img
+                className="progress--animation__first falling"
+                src={AniBall}
+                alt=""
+              />
+            )}
+            {index > 2 && (
+              <img
+                className="progress--animation__first"
+                src={AniBall}
+                alt=""
+              />
+            )}
+            <img className="progress--animation__empty" src={AniEmpty} alt="" />
+            <p>{percent}</p>
+          </div>
+        )}
+        {startAni || (
+          <div className="progress--animation">
+            {index === 10 && (
+              <img
+                className="progress--animation__fourth"
+                src={AniBall}
+                alt=""
+              />
+            )}
+            {index >= 7 && (
+              <img
+                className="progress--animation__third"
+                src={AniBall}
+                alt=""
+              />
+            )}
+            {index >= 4 && (
+              <img
+                className="progress--animation__second"
+                src={AniBall}
+                alt=""
+              />
+            )}
+            {index >= 2 && (
+              <img
+                className="progress--animation__first"
+                src={AniBall}
+                alt=""
+              />
+            )}
+            <img className="progress--animation__empty" src={AniEmpty} alt="" />
+            <p>{percent}</p>
+          </div>
+        )}
       </div>
     </ProgressWrap>
   );

@@ -12,14 +12,14 @@ const JobTagSelectorContainer = () => {
 
   const name = useSelector(state => state.jobTag.name);
   const items = useSelector(state => state.jobTag.items);
-  const job = useSelector(state => state.activity.job);
+  const job = useSelector(state => state.activity.jobTag);
 
   const onNameChange = event => {
     saveName(event.target.value);
   };
   const addItem = () => {
-    if (name != null && !items.includes(name)) {
-      saveItems([...items, name]);
+    if (name !== '' && !items.includes(`#${name}`)) {
+      saveItems([...items, `#${name}`]);
     }
     saveName('');
   };

@@ -10,7 +10,7 @@ const PhotoUpload = props => {
         type="file"
         id="ImageUpload"
         name="ImageUpload"
-        accept="image/jpg,impge/png,image/jpeg,image/gif"
+        accept="image/*"
         onChange={onChange}
       />
       <StyledPhotoPreview>
@@ -29,9 +29,9 @@ const PhotoUpload = props => {
 };
 
 const StyledPhotoInput = styled.input`
-  border: 1px solid #000000;
-  width: 0.1px;
-  height: 0.1px;
+  border: 0.1rem solid #000000;
+  width: 0.01rem;
+  height: 0.01rem;
   opacity: 0;
   z-index: -1;
 
@@ -51,19 +51,22 @@ const StyledPhotoPreview = styled.div`
   }
   img {
     border-style: 'none';
-    width: 450px;
-    height: 253px;
+    width: 35.15625vw;
+    height: 19.765625vw;
   }
 `;
 
 const StyledNoPhoto = styled.div`
-  border: 1px solid #000000;
-  width: 450px;
-  height: 253px;
+  border: 0.1rem solid #000000;
+  width: 35.15625vw;
+  height: 19.765625vw;
+  /* width: 450px;
+  height: 253px; */
+  cursor: pointer;
   img {
     border-style: 'none';
-    width: 81px;
-    height: 100px;
+    width: 8.1rem;
+    height: 10rem;
     margin: 17% 40%;
   }
 `;

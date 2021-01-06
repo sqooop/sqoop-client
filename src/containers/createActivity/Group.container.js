@@ -10,6 +10,7 @@ const TitleContainer = () => {
   const group = useSelector(state => state.activity.group);
 
   const onChangeInputs = evt => {
+    console.log(evt.target.value);
     const value = evt.target.value;
     saveGroup(value);
   };

@@ -17,19 +17,14 @@ const ActivityOneTitle = ({ userData }) => {
 
 const StyledActivityOneTitle = styled.div`
   display: flex;
-  margin-top: 2rem;
   justify-content: space-between;
   font-weight: bold !important;
+  margin-top: 3.2rem;
 
   & > span {
-    font-size: 2rem;
+    font-size: 3.2rem;
     font-weight: 700;
-    line-height: 3rem;
-  }
-
-  @media screen and (max-width: 680px) {
-    display: block;
-    float: left;
+    line-height: 4.8rem;
   }
 `;
 

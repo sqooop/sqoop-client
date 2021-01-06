@@ -5,6 +5,7 @@ const SET_SUMMARY = 'activity/SET_SUMMARY';
 const SET_JOB = 'activity/SET_JOB';
 const SET_SKILL = 'activity/SET_SKILL';
 const SET_IMAGE = 'activity/SET_IMAGE';
+const SET_FILE = 'activity/SET_FILE';
 
 export const setDate = dateString => ({
   type: SET_DATE,
@@ -41,16 +42,21 @@ export const setImage = image => ({
   image,
 });
 
+export const setFile = file => ({
+  type: SET_FILE,
+  file,
+});
+
 const initialState = {
   title: '',
   startDate: '',
   endDate: '',
   group: '',
-  job: [],
-  skill: [],
+  jobTag: [],
+  skillTag: [],
   summary: '',
-  image: '',
-  file: '',
+  imageUrl: '',
+  fileUrl: '',
 };
 
 export default function reducer(state = initialState, action) {
@@ -79,17 +85,22 @@ export default function reducer(state = initialState, action) {
     case SET_JOB:
       return {
         ...state,
-        job: action.job,
+        jobTag: action.job,
       };
     case SET_SKILL:
       return {
         ...state,
-        skill: action.skill,
+        skillTag: action.skill,
       };
     case SET_IMAGE:
       return {
         ...state,
-        image: action.image,
+        imageUrl: action.image,
+      };
+    case SET_FILE:
+      return {
+        ...state,
+        fileUrl: action.file,
       };
     default:
       return state;

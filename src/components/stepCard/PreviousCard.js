@@ -34,8 +34,8 @@ const PreviousCardWrap = Styled.div`
 
     &--text {
       width: 234px;
-      height: 180px;
-      padding-bottom: 6px;
+      height: 178px;
+      padding-bottom: 8px;
       margin: 12px 16px;
       font-size: 12px;
       color: #A5A5A5;
@@ -43,6 +43,7 @@ const PreviousCardWrap = Styled.div`
       overflow: hidden;
 	    text-overflow: ellipsis;
 	    word-wrap: break-word;
+      white-space: normal;
 	    display: -webkit-box;
 	    -webkit-line-clamp: 10;
 	    -webkit-box-orient: vertical;

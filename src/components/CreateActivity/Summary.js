@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TextArea = styled.textarea`
-  font-size: 14px;
+  font-size: 1.4rem;
   border: none;
   outline: none;
-  width: 266px;
-  height: 132px;
-  padding-left: 8px;
-  padding-top: 5px;
+  width: 20.156vw;
+  height: 13.2rem;
+  padding-left: 0.8rem;
+  padding-top: 0.5rem;
   &:hover {
     background-color: #eeeeee !important;
   }
