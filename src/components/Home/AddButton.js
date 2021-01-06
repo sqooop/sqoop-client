@@ -5,7 +5,7 @@ import SaveIcon from '../../assets/icons/SaveIcon.svg';
 import SaveIconBlue from '../../assets/icons/SaveIconBlue.svg';
 const AddButtonWrap = Styled.div`
   margin-left: 90px;
-  margin-top: 400px;
+  margin-top: 250px;
   width: 200px;
   button {
     outline: none;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUseranswer } from '../../store/modules/useranswer';
-import ActivityOneUserData from '../../components/ActivityOne/ActivityOneUserData';
+import ActivityOneUserData from '../../components/activityOne/ActivityOneUserData';
 
 const UserAnswerContainer = () => {
   const dispatch = useDispatch();

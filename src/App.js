@@ -2,10 +2,11 @@ import { HashRouter, Route } from 'react-router-dom';
 import Styled from 'styled-components';
 import StepCard from './pages/stepCard/StepCard';
 import SignIn from './pages/signin/SignIn';
-import ActivityOne from './pages/ActivityOne/ActivityOne';
-import Home from './pages/Home/home';
+import ActivityOne from './pages/activityOne/ActivityOne';
+import Home from './pages/home/Home';
+import PostList from './pages/home/PostList';
 import MainHeader from './components/common/MainHeader';
-import CreateActivity from './pages/CreateActivity/CreateActivity';
+import CreateActivity from './pages/createActivity/CreateActivity';
 
 const FontWrap = Styled.div`
   @font-face {
@@ -33,7 +34,8 @@ function App() {
       <HashRouter>
         <FontWrap>
           <Route component={MainHeader} />
-          <Route exact path="/:id" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/:id" component={PostList} />
           <Route exact path="/signin" component={SignIn} />
           <Route path="/steps/:id" component={StepCard} />
           <Route path="/detail/edit/:id" component={ActivityOne} />
