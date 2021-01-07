@@ -5,10 +5,11 @@ import Question from '../../components/home/Question';
 import AddButton from '../../components/home/AddButton';
 import ActivityTemplate from '../../components/home/ActivityTemplate';
 import Year from '../../components/home/Year';
-import MonthScroll from '../../components/home/MonthScroll';
-import Line from '../../components/home/Line';
+/* import MonthScroll from '../../components/home/MonthScroll';
+import Line from '../../components/home/Line'; */
+import Card from '../../components/home/Card';
 
-const ScrollWrapper = styled.div`
+/* const ScrollWrapper = styled.div`
   display: flex;
   width: 40px;
   overflow: auto;
@@ -24,7 +25,7 @@ const MonthWrapper = styled.div`
   background: lightgray;
   width: 47px;
   display: flex;
-`;
+`; */
 const Home = () => {
   return (
     <div>
@@ -33,12 +34,13 @@ const Home = () => {
       <AddButton />
       <ActivityTemplate>
         <Year />
-        <MonthWrapper>
+        {/*         <MonthWrapper>
           <ScrollWrapper>
             <MonthScroll />
           </ScrollWrapper>
           <Line />
-        </MonthWrapper>
+        </MonthWrapper> */}
+        <Card />
       </ActivityTemplate>
     </div>
   );
