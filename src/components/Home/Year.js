@@ -22,7 +22,7 @@ const Year = () => {
         <MdKeyboardArrowUp
           onClick={() => dispatch({ type: 'INCREMENT' })}
         ></MdKeyboardArrowUp>
-        {state.value}
+        <StateWrapper>{state.value}</StateWrapper>
         <MdKeyboardArrowDown
           onClick={() => dispatch({ type: 'DECREMENT' })}
         ></MdKeyboardArrowDown>
@@ -32,12 +32,20 @@ const Year = () => {
 };
 
 const YearTemplate = styled.div`
+  margin-left: 0;
+  clear: both;
+  display: flex;
   width: 40px;
   text-align: center;
 `;
 const YearWrapper = styled.div`
+  left: 0;
   width: 30px;
   margin: 0 auto;
+`;
+const StateWrapper = styled.div`
+  font-weight: 700;
+  font-size: 16px;
 `;
 
 export default Year;

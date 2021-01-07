@@ -5,7 +5,7 @@ import Question from '../../components/home/Question';
 import AddButton from '../../components/home/AddButton';
 import ActivityTemplate from '../../components/home/ActivityTemplate';
 import Year from '../../components/home/Year';
-/* import MonthScroll from '../../components/home/MonthScroll';
+import MonthScroll from '../../components/home/MonthScroll';
 import Line from '../../components/home/Line';
 
 const ScrollWrapper = styled.div`
@@ -19,11 +19,12 @@ const ScrollWrapper = styled.div`
   }
 `;
 const MonthWrapper = styled.div`
+  margin-left: 69px;
   height: 100%;
-  background: gray;
-  width: 100px;
+  background: lightgray;
+  width: 47px;
   display: flex;
-`; */
+`;
 const Home = () => {
   return (
     <div>
@@ -32,12 +33,12 @@ const Home = () => {
       <AddButton />
       <ActivityTemplate>
         <Year />
-        {/*         <MonthWrapper>
+        <MonthWrapper>
           <ScrollWrapper>
             <MonthScroll />
           </ScrollWrapper>
           <Line />
-        </MonthWrapper> */}
+        </MonthWrapper>
       </ActivityTemplate>
     </div>
   );

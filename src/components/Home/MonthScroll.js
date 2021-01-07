@@ -71,13 +71,11 @@ const MonthScrollWrapper = styled.div`
 
 const MonthData = styled.div`
   margin: 0 auto;
-  background: ivory;
   margin-top: 10px;
   font-size: 15px;
   width: 40px;
   font-size: 10px;
   font-weight: bold !important;
-  text-align: center;
   margin-bottom: 72px;
   :hover {
     font-size: 15px;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ActivityTemplateBlock = styled.div`
-  background: skyblue;
+  background: ivory;
   flex-direction: column;
   justify-content: center;
   right: 90px;
@@ -11,6 +11,7 @@ const ActivityTemplateBlock = styled.div`
   position: absolute;
   display: flex;
   width: 550px;
+  display: auto;
 `;
 
 const ActivityTemplate = ({ children }) => {
