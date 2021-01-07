@@ -4,7 +4,7 @@ import jobTag from './modules/jobTag';
 import skillTag from './modules/skillTag';
 import useranswer from './modules/useranswer';
 import modal from './modules/modal';
-import file from './modules/file';
+import preview from './modules/preview';
 
 const rootReducer = combineReducers({
   activity,
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   skillTag,
   useranswer,
   modal,
-  file,
+  preview,
 });
 
 export default rootReducer;
