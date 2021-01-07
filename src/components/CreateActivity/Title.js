@@ -12,7 +12,7 @@ const TitleInput = styled.input`
   border: none;
   outline: none;
   font-size: 3.2rem;
-  width: 200px;
+  width: 414px;
   ::placeholder,
   ::-webkit-input-placeholder {
     color: #a5a5a5;

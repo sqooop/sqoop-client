@@ -10,7 +10,7 @@ import Summary from '../../containers/createActivity/Summary.container';
 import Image from '../../containers/createActivity/Image.container';
 import Modal from '../../containers/createActivity/Modal.container';
 import DefaultData from '../../components/createActivity/DefaultData';
-import File from '../../components/createActivity/File';
+import File from '../../containers/createActivity/File.container';
 
 const CreateActivityWrap = styled.div`
   padding-left: 14.297vw;
