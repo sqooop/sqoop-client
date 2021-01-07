@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import ActivityOneButton from './ActivityOneButton';
+import EditButton from '../global/EditButton';
+import FavoritesButton from '../global/FavoritesButton';
 
 const ActivityOneTitle = ({ userData }) => {
   // userData를 props로 받는 이유는 활동 돌아보기를 완료하지 않으면 즐겨찾기 버튼과 편집하기 버튼이 없기 때문
@@ -10,7 +11,13 @@ const ActivityOneTitle = ({ userData }) => {
   return (
     <StyledActivityOneTitle>
       <span>라오스 봉사 활동</span>
-      {userFlag ? <ActivityOneButton /> : ''}
+      {userFlag ? (
+        <>
+          <EditButton /> <FavoritesButton />
+        </>
+      ) : (
+        ''
+      )}
     </StyledActivityOneTitle>
   );
 };

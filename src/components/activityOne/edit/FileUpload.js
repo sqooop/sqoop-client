@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Clip from '../../assets/icons/Clip.svg';
+import Clip from '../../../assets/icons/Clip.svg';
 
 const FileUpload = ({ userFile }) => {
   // 파일 이름을 미리보기로 보여주기 위한 state

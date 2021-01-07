@@ -1,17 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import ActivityOneTitle from '../../components/activityOne/ActivityOneTitle';
-import PhotoUpload from '../../components/activityOne/PhotoUpload';
+import ActivityOneTitle from '../../components/activityOne/edit/UserTitle';
+import PhotoUpload from '../../components/activityOne/edit/PhotoUpload';
 import DefaultData from '../../components/createActivity/DefaultData';
 import DateSelector from '../../containers/createActivity/DateSelector.container';
 import Group from '../../containers/createActivity/Group.container';
 import JobTagSelector from '../../containers/common/JobTagSelector.container';
 import SkillTagSelector from '../../containers/common/SkillTagSelector.container';
 import Summary from '../../containers/createActivity/Summary.container';
-import FileUpload from '../../components/activityOne/FileUpload';
-import ActivityOneUserData from '../../components/activityOne/ActivityOneUserData';
+import FileUpload from '../../components/activityOne/edit/FileUpload';
+import ActivityOneUserData from '../../components/activityOne/edit/UserEdit';
 
-const ActivityOne = () => {
+const ActivityOneEdit = () => {
   return (
     <StyledActivityOneWrap>
       <ActivityOneTitle />
@@ -60,6 +60,7 @@ const StyledActivityOneWrap = styled.div`
 const StyledActivityUserData = styled.div``;
 
 const ContentWrap = styled.div`
+  display: flex;
   margin-top: 15px;
 `;
 
@@ -74,4 +75,4 @@ const RightWrap = styled.div`
   position: relative;
 `;
 
-export default ActivityOne;
+export default ActivityOneEdit;
