@@ -5,18 +5,20 @@ import ActivityOne from './pages/activityOne/ActivityOne';
 import Home from './pages/home/Home';
 import MainHeader from './components/common/MainHeader';
 import CreateActivity from './pages/createActivity/CreateActivity';
+import Card from './components/filterActivities/Card';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route component={MainHeader} />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/signin" component={SignIn} />
-        <Route exact path="/steps/:id" component={StepCard} />
-        <Route exact path="/detail/edit/:id" component={ActivityOne} />
-        <Route exact path="/create" component={CreateActivity} />
+          <Route component={MainHeader} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/steps/:id" component={StepCard} />
+          <Route exact path="/detail/edit/:id" component={ActivityOne} />
+          <Route exact path="/create" component={CreateActivity} />
+          <Route exact path="/activities" component={Card} />
       </BrowserRouter>
     </div>
   );

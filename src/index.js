@@ -10,11 +10,11 @@ import { HashRouter } from 'react-router-dom';
 const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
-  <HashRouter>
-    <Provider store={store}>
+  <Provider store={store}>
+    <HashRouter>
       <App />
-    </Provider>
-  </HashRouter>,
+    </HashRouter>
+  </Provider>,
 
   document.getElementById('root'),
 );
