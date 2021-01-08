@@ -86,7 +86,7 @@ const StyledFileInput = styled.input`
 
 const StyledFilePreview = styled.div`
   height: 3rem;
-  width: 37rem;
+  width: 27rem;
   position: relative;
 
   &:hover {

@@ -1,78 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-import ActivityOneTitle from '../../components/activityOne/edit/UserTitle';
-import PhotoUpload from '../../components/activityOne/edit/PhotoUpload';
-import DefaultData from '../../components/createActivity/DefaultData';
-import DateSelector from '../../containers/createActivity/DateSelector.container';
-import Group from '../../containers/createActivity/Group.container';
-import JobTagSelector from '../../containers/common/JobTagSelector.container';
-import SkillTagSelector from '../../containers/common/SkillTagSelector.container';
-import Summary from '../../containers/createActivity/Summary.container';
-import FileUpload from '../../components/activityOne/edit/FileUpload';
-import ActivityOneUserData from '../../components/activityOne/edit/UserEdit';
+import Title from '../../components/activityOne/edit/UserTitle';
+import BasicData from '../../components/activityOne/edit/BasicData';
+import UserEdit from '../../components/activityOne/edit/UserEdit';
 
 const ActivityOneEdit = () => {
   return (
     <StyledActivityOneWrap>
-      <ActivityOneTitle />
-      <LeftWrap>
-        <PhotoUpload />
-        <StyledActivityUserData style={{ marginTop: '7px' }}>
-          <ContentWrap>
-            <DefaultData text="활동 기간" isStar={true} />
-            <DateSelector />
-          </ContentWrap>
-          <ContentWrap>
-            <DefaultData text="소속 단체" />
-            <Group />
-          </ContentWrap>
-          <ContentWrap>
-            <DefaultData text="관련 직무" isStar={true} />
-            <JobTagSelector />
-          </ContentWrap>
-          <ContentWrap>
-            <DefaultData text="핵심 역량" isStar={true} />
-            <SkillTagSelector />
-          </ContentWrap>
-          <ContentWrap>
-            <DefaultData text="파일 첨부" />
-            <FileUpload />
-          </ContentWrap>
-          <ContentWrap>
-            <DefaultData text="한 줄 설명" />
-            <Summary />
-          </ContentWrap>
-        </StyledActivityUserData>
-      </LeftWrap>
-
-      <RightWrap>
-        <ActivityOneUserData />
-      </RightWrap>
+      <Title />
+      <div style={{ display: 'flex' }}>
+        <BasicData />
+        <UserEdit />
+      </div>
     </StyledActivityOneWrap>
   );
 };
 
 const StyledActivityOneWrap = styled.div`
-  padding-left: 18.3rem;
-  padding-right: 18.3rem;
-`;
-
-const StyledActivityUserData = styled.div``;
-
-const ContentWrap = styled.div`
-  display: flex;
-  margin-top: 15px;
-`;
-
-const LeftWrap = styled.div`
-  float: left;
-  width: 35.8rem;
-`;
-
-const RightWrap = styled.div`
-  float: left;
-  width: 53.2rem;
-  position: relative;
+  padding-left: 14.3vw;
+  padding-right: 14.3vw;
 `;
 
 export default ActivityOneEdit;
