@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { ReactComponent as ImageIcon } from '../../../assets/icons/PostImageIcon.svg';
 
 const PhotoUpload = ({ userImage }) => {
   // 사진 미리보기로 보여주고 서버에 전송할 사진을 담는 state
@@ -50,27 +51,33 @@ const PhotoUpload = ({ userImage }) => {
         accept="image/*"
         onChange={handleFileOnChange}
       />
-      <StyledPhotoPreview>
-        <label for="ImageUpload">
-          {previewImage === null ? (
-            <img src={userImage} alt="userImage"></img>
-          ) : (
-            <img src={previewImage} alt="previewImage"></img>
-          )}
-        </label>
-      </StyledPhotoPreview>
+      <label for="ImageUpload">
+        {previewImage === null ? (
+          <StyledPhotoPreview>
+            <img src={userImage} alt="userImg"></img>
+            <div className="hoverImg"></div>
+          </StyledPhotoPreview>
+        ) : (
+          <StyledPhotoPreview>
+            <img src={previewImage} alt="previewImg"></img>
+            <div className="hoverImg">
+              <ImageIcon className="iconImg" />
+            </div>
+          </StyledPhotoPreview>
+        )}
+      </label>
     </>
   );
 };
 
 const StyledPhotoInput = styled.input`
   border-style: none;
-  width: 0.1px;
-  height: 0.1px;
+  width: 1px;
+  height: 1px;
   opacity: 0;
   z-index: -1;
 
-  &:focus {
+  :focus {
     outline: none;
     cursor: pointer;
   }
@@ -81,24 +88,35 @@ const StyledPhotoInput = styled.input`
 `;
 
 const StyledPhotoPreview = styled.div`
-  &:hover {
-    background-color: #eeeeee, 90%;
+  position: relative;
+
+  .iconImg {
+    width: 6.3vw;
+    height: 7.8vw;
   }
 
   img {
     border-style: 'none';
-    width: 35.8rem;
-    height: 20.2rem;
+    display: block;
+    opacity: 1;
+    width: 28vw;
+    height: 15.8vw;
   }
 
-  img.portrait {
-    width: 100%;
-    height: auto;
+  .hoverImg {
+    position: absolute;
+    opacity: 0;
+    top: 4vw;
+    left: 10.9vw;
+    background-color: #eeeeee 90%;
   }
 
-  img.landscape {
-    width: auto;
-    height: 100%;
+  :hover img {
+    opacity: 0.3;
+  }
+
+  :hover .hoverImg {
+    opacity: 1;
   }
 `;
 
