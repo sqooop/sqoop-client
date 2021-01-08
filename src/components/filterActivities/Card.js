@@ -33,7 +33,6 @@ const Date = styled.div`
 const Tag = styled.span`
   background-color: #195bff;
   color: white;
-  /* height: 20px; */
   font-size: 13px;
   padding: 1px 10px;
   margin-right: 12px;

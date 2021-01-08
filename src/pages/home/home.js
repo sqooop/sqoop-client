@@ -18,6 +18,7 @@ const ScrollWrapper = styled.div`
     display: none;
   }
 `;
+
 const MonthWrapper = styled.div`
   margin-left: 69px;
   height: 100%;
@@ -25,6 +26,7 @@ const MonthWrapper = styled.div`
   width: 47px;
   display: flex;
 `;
+
 const Home = () => {
   return (
     <div>

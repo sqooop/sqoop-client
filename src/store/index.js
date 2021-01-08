@@ -8,6 +8,7 @@ import modal from './modules/modal';
 import preview from './modules/preview';
 import currentCard from './modules/currentCard';
 import userCard from './modules/userCard';
+import filter from './modules/filter';
 
 const rootReducer = combineReducers({
   activity,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   preview,
   currentCard,
   userCard,
+  filter,
 });
 
 export default rootReducer;

@@ -11,7 +11,22 @@ const TitleContainer = () => {
 
   const onChangeInputs = evt => {
     const value = evt.target.value;
-    saveTitle(value);
+    let cnt = 0;
+    for (let i = 0; i < value.length; i++) {
+      if (cnt > 26) {
+        break;
+      }
+      if (value[i] === ' ') {
+        cnt += 1;
+      } else if (value[i] === value[i].toUpperCase()) {
+        cnt += 2;
+      } else {
+        cnt += 1;
+      }
+    }
+    if (cnt <= 25) {
+      saveTitle(value);
+    }
   };
   return <Title onChangeInputs={onChangeInputs} title={title} />;
 };

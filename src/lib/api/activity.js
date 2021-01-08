@@ -8,7 +8,13 @@ export const createActivity = async activity => {
   try {
     const formData = new FormData();
     for (var key in activity) {
-      formData.append(key, activity[key]);
+      if (key === 'jobTag' || key === 'skillTag') {
+        for (let i = 0; i < activity[key].length; i++) {
+          formData.append(`${key}[${i}]`, activity[key][i]);
+        }
+      } else {
+        formData.append(key, activity[key]);
+      }
     }
     const data = await axios.post(`${baseURL}activity/create`, formData, {
       headers: {
@@ -27,10 +33,20 @@ export const createActivity = async activity => {
 export const getActivities = async () => {
   try {
     const { data } = await instance.get(`${baseURL}activity/getAllActivity`);
-    console.log('[SUCCESS] CREATE ACTIVITY', data.data);
+    console.log('[SUCCESS] GET ACTIVITIES', data.data);
     return data.data;
   } catch (e) {
     console.log('[FAIL] GET ACTIVITIES', e);
+    throw e;
+  }
+};
+export const getLikeActivity = async () => {
+  try {
+    const { data } = await instance.get(`${baseURL}activity/getLikeActivity`);
+    console.log('[SUCCESS] GET LIKE ACTIVITIES', data.data);
+    return data.data;
+  } catch (e) {
+    console.log('[FAIL] GET LIKE ACTIVITIES', e);
     throw e;
   }
 };
