@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Star } from '../../../assets/icons/star.svg';
-import { ReactComponent as StarFill } from '../../../assets/icons/starFill.svg';
+import { ReactComponent as Star } from '../../../assets/icons/Star.svg';
+import { ReactComponent as StarFill } from '../../../assets/icons/StarFill.svg';
 
 const FavoritesButton = () => {
   // 즐겨찾기를 클릭하면 component를 변경하기 위한 state
@@ -19,31 +19,31 @@ const FavoritesButton = () => {
   };
 
   return (
-    <StyledActivityOneButton>
+    <StyledButton>
       {favoritesStatus ? (
-        <StyledActivityFavoritesButton onClick={FavoritesClick}>
+        <StyledFavorites onClick={FavoritesClick}>
           <Star />
-        </StyledActivityFavoritesButton>
+        </StyledFavorites>
       ) : (
-        <StyledActivityFavoritesButton onClick={FillFavoritesClick}>
+        <StyledFavorites onClick={FillFavoritesClick}>
           <StarFill />
-        </StyledActivityFavoritesButton>
+        </StyledFavorites>
       )}
-    </StyledActivityOneButton>
+    </StyledButton>
   );
 };
 
-const StyledActivityOneButton = styled.div`
+const StyledButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.875rem;
 `;
 
-const StyledActivityFavoritesButton = styled.div`
+const StyledFavorites = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 8px;
 `;
 
 export default FavoritesButton;
