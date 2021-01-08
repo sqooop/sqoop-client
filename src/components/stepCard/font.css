@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../../font/Quicksand-Bold.ttf') format('truetype');
+}
+
+.card--question__number {
+  font-family: 'Quicksand', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+}

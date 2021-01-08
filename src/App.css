@@ -1,3 +1,35 @@
+@font-face {
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./font/NotoSansKR-Regular.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: bold;
+  src: url('./font/NotoSansKR-Bold.otf') format('otf');
+}
+
 html {
   font-size: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #195bff;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
 }

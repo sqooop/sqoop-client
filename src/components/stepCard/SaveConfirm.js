@@ -4,31 +4,30 @@ import { useEffect } from 'react';
 
 const SaveConfirmWrap = Styled.div`
   box-sizing: border-box;
-  width: 144px;
-  height: 40px;
-  position: relative;
-  left: 200px;
   z-index: 2;
-  background-color: #00FF84;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
+  position: absolute;
+  margin-top: 473px;
+  margin-left: 12px;
+  color: #195BFF;
+  font-size: 10px;
+  line-height: 150%;
   animation-name: popup;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-out;
+  animation-duration: 2.5s;
   animation-fill-mode: forwards;
+  overflow: hidden;
 
   @keyframes popup {
     0% {
       opacity: 0;
+      transform: translateY(100%);
     }
     50% {
       opacity: 1;
+      transform: translateY(0%);
     }
     100% {
       opacity: 0;
+      transform: translateY(100%);
     }
   }
 `;
@@ -37,10 +36,10 @@ const SaveConfirm = ({ setSaved }) => {
   useEffect(() => {
     setTimeout(() => {
       setSaved(false);
-    }, 1500);
+    }, 2500);
   });
 
-  return <SaveConfirmWrap>저장 완료!</SaveConfirmWrap>;
+  return <SaveConfirmWrap>저장이 완료되었습니다!</SaveConfirmWrap>;
 };
 
 export default SaveConfirm;

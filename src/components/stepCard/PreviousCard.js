@@ -3,6 +3,7 @@ import ModifyIconOff from '../../assets/icons/ModifyIconOff.svg';
 import ModifyIconOn from '../../assets/icons/ModifyIconOn.svg';
 import { withRouter } from 'react-router-dom';
 import Styled from 'styled-components';
+import './font.css';
 
 const PreviousCardWrap = Styled.div`
   .card {
@@ -13,16 +14,22 @@ const PreviousCardWrap = Styled.div`
     border: 1px solid #A5A5A5;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     overflow: hidden;
 
     &--question {
-      margin: 12px 16px;
-      font-size: 16px;
+      margin: 12px;
+      height: 63px;
+      font-size: 13px;
       font-weight: bold;
       color: #A5A5A5;
       word-break: keep-all;
-      line-height: 170%;
+      line-height: 150%;
+      &__number {
+        font-size: 14px;
+      }
+      &__long {
+        font-size: 12.5px;
+      }
     }
 
     &--hr {
@@ -33,10 +40,11 @@ const PreviousCardWrap = Styled.div`
     }
 
     &--text {
-      width: 234px;
-      height: 178px;
-      padding-bottom: 8px;
-      margin: 12px 16px;
+      width: 242px;
+      height: 163px;
+      box-sizing: border-box;
+      margin: 12px;
+      margin-bottom: 50px;
       font-size: 12px;
       color: #A5A5A5;
       line-height: 150%;
@@ -45,7 +53,7 @@ const PreviousCardWrap = Styled.div`
 	    word-wrap: break-word;
       white-space: normal;
 	    display: -webkit-box;
-	    -webkit-line-clamp: 10;
+	    -webkit-line-clamp: 9;
 	    -webkit-box-orient: vertical;
     }
 
@@ -130,8 +138,15 @@ const PreviousCard = ({ questions, answers, index, history }) => {
           onMouseLeave={unhovered}
           onClick={onClickFunc}
         >
-          sqoop {index + 1}.<br />
-          {questions[index]}
+          <span className="card--question__number">
+            sqoop {index + 1}.<br />
+          </span>
+          {(index === 3 || index === 9) && (
+            <span className="card--question__long">{questions[index]}</span>
+          )}
+          {index === 3 || index === 9 || (
+            <span className="card--question__short">{questions[index]}</span>
+          )}
         </div>
         <hr className="card--hr" />
         <div
