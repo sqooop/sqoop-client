@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import Greeting from '../../components/home/Greetings';
+import Greeting from '../../components/home/Greeting';
 import Question from '../../components/home/Question';
 import AddButton from '../../components/home/AddButton';
 import ActivityTemplate from '../../components/home/ActivityTemplate';
 import Year from '../../components/home/Year';
-/* import MonthScroll from '../../components/home/MonthScroll';
-import Line from '../../components/home/Line'; */
-import Card from '../../components/home/Card';
+import MonthScroll from '../../components/home/MonthScroll';
+import Line from '../../components/home/Line';
+import CardList from '../../components/home/CardList';
 
-/* const ScrollWrapper = styled.div`
+const ScrollWrapper = styled.div`
   display: flex;
   width: 40px;
   overflow: auto;
@@ -25,7 +25,7 @@ const MonthWrapper = styled.div`
   background: lightgray;
   width: 47px;
   display: flex;
-`; */
+`;
 const Home = () => {
   return (
     <div>
@@ -34,13 +34,13 @@ const Home = () => {
       <AddButton />
       <ActivityTemplate>
         <Year />
-        {/*         <MonthWrapper>
+        <MonthWrapper>
           <ScrollWrapper>
             <MonthScroll />
           </ScrollWrapper>
           <Line />
-        </MonthWrapper> */}
-        <Card />
+        </MonthWrapper>
+        <CardList />
       </ActivityTemplate>
     </div>
   );
