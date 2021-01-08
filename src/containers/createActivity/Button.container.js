@@ -8,7 +8,7 @@ const ButtonContainer = () => {
   const dispatch = useDispatch();
 
   const activity = useSelector(state => state.activity);
-  const { title, jobTag, skillTag } = activity;
+  const { title, jobTag, skillTag, endDate, startDate } = activity;
 
   const saveVisible = data => dispatch(setVisible(data));
   const isVisible = useSelector(state => state.modal.isVisible);
@@ -19,7 +19,11 @@ const ButtonContainer = () => {
 
   return (
     <>
-      {title && skillTag.length > 0 && jobTag.length > 0 ? (
+      {title &&
+      endDate &&
+      startDate &&
+      skillTag.length > 0 &&
+      jobTag.length > 0 ? (
         <Button
           backgroundColor="#195BFF"
           onClick={toggleVisible}

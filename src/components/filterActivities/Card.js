@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import exImg from '../../assets/images/ic_sqoop.svg';
+import noImage from '../../assets/images/noImage.svg';
 
 const CardWrap = styled.div`
   height: 174px;
@@ -8,11 +8,11 @@ const CardWrap = styled.div`
   &:hover {
     background-color: #eeeeee;
   }
+  margin-bottom: 2px;
 `;
 
 const Img = styled.img`
   margin: 8px 8px;
-  background-color: red;
   float: left;
   height: 158px;
   width: 278px;
@@ -23,20 +23,49 @@ const Title = styled.div`
   font-style: normal;
   font-weight: 700 !important;
   line-height: 45px;
+  padding-top: 8px;
+`;
+const Date = styled.div`
+  font-size: 12px;
+  margin-left: 3px;
+  margin-top: 8px;
+`;
+const Tag = styled.span`
+  background-color: #195bff;
+  color: white;
+  font-size: 13px;
+  padding: 1px 10px;
+  margin-right: 12px;
+  margin-top: 12px;
+  display: inline-block;
 `;
 const Card = props => {
-  const activity = {
-    title: '홍익대 졸업 전시를 참여했나',
-    img: exImg,
-    startDate: '20201003',
-    endDate: '20201010',
-    jobTag: ['#디자인'],
-    skillTag: ['#디자인'],
-  };
+  const { activity } = props;
+  const startDate = `${activity.startDate.substr(
+    0,
+    4,
+  )}.${activity.startDate.substr(3, 2)}.${activity.startDate.substr(6, 2)}`;
+  const endDate = `${activity.endDate.substr(0, 4)}.${activity.endDate.substr(
+    3,
+    2,
+  )}.${activity.endDate.substr(6, 2)}`;
+  const date = `${startDate} - ${endDate}`;
   return (
     <CardWrap>
-      <Img src={activity.img} />
+      {activity.imageUrl ? (
+        <Img src={activity.imageUrl} />
+      ) : (
+        <Img src={noImage} />
+      )}
       <Title>{activity.title}</Title>
+      <Date>{date}</Date>
+      {activity.jobTag.map(tag => (
+        <Tag key={tag}>{tag}</Tag>
+      ))}
+      <br />
+      {activity.skillTag.map((tag, idx) => (
+        <Tag key={`tag${idx}`}>{tag}</Tag>
+      ))}
     </CardWrap>
   );
 };

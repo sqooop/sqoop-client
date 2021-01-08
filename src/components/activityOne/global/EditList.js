@@ -12,10 +12,12 @@ const DefaultData = props => {
 };
 
 const StyleDiv = styled.div`
-  float: left;
-  width: 8rem;
-  font-size: 1.4rem !important;
-  margin-top: 0.3rem;
+  display: flex;
+  width: 80px;
+  height: 21px;
+  margin-top: 15px;
+  font-size: 14px !important;
+  line-height: 150%;
 `;
 
 export default DefaultData;

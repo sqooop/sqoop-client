@@ -14,12 +14,18 @@ const NextCardWrap = Styled.div`
     justify-content: space-between;
     overflow: hidden;
     &--question {
-      margin: 12px 16px;
-      font-size: 22px;
+      margin: 12px;
+      font-size: 13px;
       font-weight: bold;
       color: #A5A5A5;
       word-break: keep-all;
-      line-height: 170%;
+      line-height: 150%;
+      &__number {
+        font-size: 14px;
+      }
+      &__long {
+        font-size: 12.5px;
+      }
     }
     &--empty {
       flex: 1;
@@ -47,8 +53,15 @@ const NextCard = ({ questions, index }) => {
     <NextCardWrap>
       <div className="card">
         <div className="card--question">
-          sqoop {index + 1}.<br />
-          {questions[index]}
+          <span className="card--question__number">
+            sqoop {index + 1}.<br />
+          </span>
+          {(index === 3 || index === 9) && (
+            <span className="card--question__long">{questions[index]}</span>
+          )}
+          {index === 3 || index === 9 || (
+            <span className="card--question__short">{questions[index]}</span>
+          )}
         </div>
         <div className="card--empty"></div>
         <div className="card--locked">

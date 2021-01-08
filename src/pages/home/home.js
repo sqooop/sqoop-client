@@ -19,6 +19,7 @@ const ScrollWrapper = styled.div`
     display: none;
   }
 `;
+
 const CardScroll = styled.div`
   overflow: auto;
   -ms-overflow-style: none;
@@ -27,12 +28,14 @@ const CardScroll = styled.div`
     display: none;
   }
 `;
+
 const MonthWrapper = styled.div`
   margin-left: 32px;
   height: 100%;
   width: 47px;
   display: flex;
 `;
+
 const Home = () => {
   return (
     <div>
