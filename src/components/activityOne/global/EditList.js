@@ -12,10 +12,11 @@ const DefaultData = props => {
 };
 
 const StyleDiv = styled.div`
+  display: flex;
   width: 80px;
   height: 21px;
   margin-top: 15px;
-  font-size: 1.4rem !important;
+  font-size: 14px !important;
   line-height: 150%;
 `;
 
