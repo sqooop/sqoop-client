@@ -1,8 +1,9 @@
+// 리덕스 적용완료
 import React from 'react';
 import SaveButton from './SaveButton';
 import Styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import SaveIconOn from '../../assets/icons/SaveIconOn.svg';
 import SaveIconOnHover from '../../assets/icons/SaveIconOnHover.svg';
 import SaveConfirm from './SaveConfirm';
@@ -54,15 +55,22 @@ const CurrentCardWrap = Styled.div`
   }
 `;
 
-const CurrentCard = ({ questions, answers, setAnswers, match, history }) => {
-  const index = parseInt(match.params.id);
-
-  const [textValue, setTextValue] = useState(answers[index]);
-  const [saved, setSaved] = useState(false);
-
+const CurrentCard = ({
+  index,
+  question,
+  answer,
+  saveAnswer,
+  textValue,
+  saveTextValue,
+  saved,
+  saveSaved,
+  saveNotSaved,
+  history,
+}) => {
   useEffect(() => {
-    setTextValue(answers[index]);
-  }, [answers, index]);
+    saveTextValue(answer);
+    saveNotSaved(false);
+  }, [answer]);
 
   const onChangeFunc = event => {
     const text = event.target.value;
@@ -71,18 +79,23 @@ const CurrentCard = ({ questions, answers, setAnswers, match, history }) => {
 
     if (lastChar === lastText && (lastChar === ' ' || lastChar === '\n')) {
     } else {
-      setTextValue(text);
+      saveTextValue(text);
+    }
+
+    if (answer !== textValue) {
+      saveNotSaved(true);
+    } else {
+      saveNotSaved(false);
     }
   };
 
   const onClickFunc = event => {
-    setAnswers({ ...answers, [index]: textValue });
+    saveAnswer(textValue, index);
     console.log('저장되었습니다');
-    setSaved(true);
+    saveSaved(true);
     setTimeout(() => {
       history.push(`/steps/${index + 1}`);
     }, 2500);
-    setTextValue(answers[index + 1]);
   };
 
   const hovered = event => {
@@ -114,7 +127,7 @@ const CurrentCard = ({ questions, answers, setAnswers, match, history }) => {
           <span className="card--question__number">
             sqoop {index + 1}.<br />
           </span>
-          {questions[index]}
+          {question}
         </div>
         <hr className="card--hr" />
         <textarea
@@ -139,7 +152,7 @@ const CurrentCard = ({ questions, answers, setAnswers, match, history }) => {
             text={'스쿱 저장'}
           />
         )}
-        {saved && <SaveConfirm setSaved={setSaved} />}
+        {saved && <SaveConfirm setSaved={saveSaved} />}
       </div>
     </CurrentCardWrap>
   );

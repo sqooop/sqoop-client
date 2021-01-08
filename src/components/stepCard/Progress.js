@@ -1,3 +1,4 @@
+// 리덕스 적용시 에러
 import { React, useState, useEffect } from 'react';
 import AniEmpty from '../../assets/icons/AniEmpty.svg';
 import AniBall from '../../assets/icons/AniBall.svg';
@@ -142,75 +143,75 @@ const Progress = ({ answers }) => {
     10: '고생했어, 넌 최고야~!',
   };
 
-  const [index, setIndex] = useState(0);
-  const [startAni, setStartAni] = useState(false);
-  const percent = index * 10 + '%';
+  const [writtenIndex, setWrittenIndex] = useState(0);
+  const [aniIndex, setAniIndex] = useState(false);
 
   useEffect(() => {
-    let userIndex = index;
-    while (answers[userIndex] !== '' && userIndex < 10) {
-      userIndex++;
+    let idx = 0;
+    while (answers[idx] !== '' && idx < 10) {
+      idx++;
     }
-    setIndex(userIndex);
-    index in textList ? setStartAni(true) : setStartAni(false);
+    setWrittenIndex(idx);
+    writtenIndex in textList ? setAniIndex(true) : setAniIndex(false);
   });
+
+  const chunk = textList[writtenIndex];
+  const percent = writtenIndex * 10 + '%';
 
   return (
     <ProgressWrap>
       <div className="progress">
         <div className="progress--text">
-          {textList[index] && (
+          {chunk && (
             <img className="progress--text__box" src={TextBox} alt="" />
           )}
-          {textList[index] && (
-            <p className="progress--text__text">{textList[index]}</p>
-          )}
+          {chunk && <p className="progress--text__text">{chunk}</p>}
         </div>
-        {startAni && (
+        {aniIndex && (
           <div className="progress--animation bouncing">
-            {index === 10 && (
+            {writtenIndex === 10 && (
               <img
                 className="progress--animation__fourth falling"
                 src={AniBall}
                 alt=""
               />
             )}
-            {index === 7 && (
+            {writtenIndex === 7 && (
               <img
                 className="progress--animation__third falling"
                 src={AniBall}
                 alt=""
               />
             )}
-            {index > 7 && (
+            {writtenIndex > 7 && (
               <img
                 className="progress--animation__third"
                 src={AniBall}
                 alt=""
               />
             )}
-            {index === 4 && (
+            {writtenIndex === 4 && (
               <img
                 className="progress--animation__second falling"
                 src={AniBall}
                 alt=""
               />
             )}
-            {index > 4 && (
+            {writtenIndex > 4 && (
               <img
                 className="progress--animation__second"
                 src={AniBall}
                 alt=""
               />
             )}
-            {index === 2 && (
+            {writtenIndex === 2 && (
               <img
                 className="progress--animation__first falling"
                 src={AniBall}
                 alt=""
               />
             )}
-            {index > 2 && (
+            {writtenIndex > 2 && (
               <img
                 className="progress--animation__first"
                 src={AniBall}
@@ -221,30 +222,30 @@ const Progress = ({ answers }) => {
             <p>{percent}</p>
           </div>
         )}
-        {startAni || (
+        {aniIndex || (
           <div className="progress--animation">
-            {index === 10 && (
+            {writtenIndex === 10 && (
               <img
                 className="progress--animation__fourth"
                 src={AniBall}
                 alt=""
               />
             )}
-            {index >= 7 && (
+            {writtenIndex >= 7 && (
               <img
                 className="progress--animation__third"
                 src={AniBall}
                 alt=""
               />
             )}
-            {index >= 4 && (
+            {writtenIndex >= 4 && (
               <img
                 className="progress--animation__second"
                 src={AniBall}
                 alt=""
               />
             )}
-            {index >= 2 && (
+            {writtenIndex >= 2 && (
               <img
                 className="progress--animation__first"
                 src={AniBall}

@@ -1,7 +1,9 @@
+// 리덕스 적용완료
 import React from 'react';
 import ModifyIconOff from '../../assets/icons/ModifyIconOff.svg';
 import ModifyIconOn from '../../assets/icons/ModifyIconOn.svg';
 import { withRouter } from 'react-router-dom';
+import SaveModal from './SaveModal';
 import Styled from 'styled-components';
 import './font.css';
 
@@ -49,9 +51,9 @@ const PreviousCardWrap = Styled.div`
       color: #A5A5A5;
       line-height: 150%;
       overflow: hidden;
+      white-space: normal;
 	    text-overflow: ellipsis;
 	    word-wrap: break-word;
-      white-space: normal;
 	    display: -webkit-box;
 	    -webkit-line-clamp: 9;
 	    -webkit-box-orient: vertical;
@@ -72,7 +74,15 @@ const PreviousCardWrap = Styled.div`
   }
 `;
 
-const PreviousCard = ({ questions, answers, index, history }) => {
+const PreviousCard = ({
+  index,
+  question,
+  answer,
+  notSaved,
+  modalActive,
+  saveModalActive,
+  history,
+}) => {
   const hovered = event => {
     let card = event.target;
     while (card.className !== 'card') {
@@ -116,11 +126,15 @@ const PreviousCard = ({ questions, answers, index, history }) => {
   };
 
   const onClickFunc = event => {
-    let card = event.target;
-    while (card.className !== 'card') {
-      card = card.parentNode;
+    if (notSaved) {
+      saveModalActive(true);
+    } else {
+      let card = event.target;
+      while (card.className !== 'card') {
+        card = card.parentNode;
+      }
+      history.push(`/steps/${card.id}`);
     }
-    history.push(`/steps/${card.id}`);
   };
 
   return (
@@ -142,10 +156,10 @@ const PreviousCard = ({ questions, answers, index, history }) => {
             sqoop {index + 1}.<br />
           </span>
           {(index === 3 || index === 9) && (
-            <span className="card--question__long">{questions[index]}</span>
+            <span className="card--question__long">{question}</span>
           )}
           {index === 3 || index === 9 || (
-            <span className="card--question__short">{questions[index]}</span>
+            <span className="card--question__short">{question}</span>
           )}
         </div>
         <hr className="card--hr" />
@@ -155,7 +169,7 @@ const PreviousCard = ({ questions, answers, index, history }) => {
           onMouseLeave={unhovered}
           onClick={onClickFunc}
         >
-          {answers[index]}
+          {answer}
         </div>
         <div
           className="card--modify"
@@ -174,6 +188,7 @@ const PreviousCard = ({ questions, answers, index, history }) => {
           스쿱 수정
         </div>
       </div>
+      {modalActive && <SaveModal setModalActive={saveModalActive} />}
     </PreviousCardWrap>
   );
 };

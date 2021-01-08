@@ -1,3 +1,4 @@
+// 리덕스 적용완료
 import React from 'react';
 import LockedIcon from '../../assets/icons/LockedIcon.svg';
 import Styled from 'styled-components';
