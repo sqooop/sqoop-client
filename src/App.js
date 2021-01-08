@@ -6,7 +6,7 @@ import ActivityOne from './pages/activityOne/ActivityOne';
 import Home from './pages/home/home';
 import MainHeader from './components/common/MainHeader';
 import CreateActivity from './pages/createActivity/CreateActivity';
-import Card from './components/filterActivities/Card';
+import FilterActivities from './pages/filterActivities/FilterActivities';
 import './App.css';
 
 const FontWrap = Styled.div`
@@ -40,7 +40,7 @@ function App() {
           <Route exact path="/steps/:id" component={StepCard} />
           <Route exact path="/detail/edit/:id" component={ActivityOne} />
           <Route exact path="/create" component={CreateActivity} />
-          <Route exact path="/activities" component={Card} />
+          <Route exact path="/activities" component={FilterActivities} />
         </FontWrap>
       </BrowserRouter>
     </div>
