@@ -67,7 +67,6 @@ const FileUpload = ({ userFile }) => {
 };
 
 const StyledFileInput = styled.input`
-  margin-top: 2rem;
   border-style: none;
   width: 0.1px;
   height: 0.1px;
@@ -80,25 +79,13 @@ const StyledFileInput = styled.input`
   }
 
   & + label {
+    width: 20.8vw;
     outline: none;
   }
 `;
 
 const StyledFilePreview = styled.div`
-  height: 3rem;
-  width: 27rem;
-  position: relative;
-
-  &:hover {
-    background-color: #eeeeee, 90%;
-  }
-
-  img {
-    position: absolute;
-    top: 0.6rem;
-    right: 0.6rem;
-    cursor: pointer;
-  }
+  width: 20.8vw;
 `;
 
 export default FileUpload;

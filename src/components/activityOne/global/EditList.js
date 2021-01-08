@@ -13,10 +13,10 @@ const DefaultData = props => {
 
 const StyleDiv = styled.div`
   display: flex;
-  width: 80px;
-  height: 21px;
-  margin-top: 15px;
-  font-size: 14px !important;
+  width: 6.3vw;
+  height: 1.6vw;
+  margin-top: 1.2vw;
+  font-size: 1.1vw !important;
   line-height: 150%;
 `;
 
