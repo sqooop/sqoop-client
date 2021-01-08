@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Greeting from '../../components/home/Greetings';
+import Greeting from '../../components/home/Greeting';
 import Question from '../../components/home/Question';
 import AddButton from '../../components/home/AddButton';
 import ActivityTemplate from '../../components/home/ActivityTemplate';
 import Year from '../../components/home/Year';
 import MonthScroll from '../../components/home/MonthScroll';
 import Line from '../../components/home/Line';
+import CardList from '../../components/home/CardList';
 
 const ScrollWrapper = styled.div`
   display: flex;
@@ -41,6 +42,7 @@ const Home = () => {
           </ScrollWrapper>
           <Line />
         </MonthWrapper>
+        <CardList />
       </ActivityTemplate>
     </div>
   );
