@@ -19,10 +19,17 @@ const ScrollWrapper = styled.div`
     display: none;
   }
 `;
+const CardScroll = styled.div`
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
 const MonthWrapper = styled.div`
-  margin-left: 69px;
+  margin-left: 32px;
   height: 100%;
-  background: lightgray;
   width: 47px;
   display: flex;
 `;
@@ -40,7 +47,9 @@ const Home = () => {
           </ScrollWrapper>
           <Line />
         </MonthWrapper>
-        <CardList />
+        <CardScroll>
+          <CardList />
+        </CardScroll>
       </ActivityTemplate>
     </div>
   );

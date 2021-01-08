@@ -2,9 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ActivityTemplateBlock = styled.div`
-  background: ivory;
-  flex-direction: column;
-  justify-content: center;
   right: 90px;
   top: 100px;
   height: 620px;

@@ -3,17 +3,21 @@ import styled from 'styled-components';
 import CardImg from '../../assets/images/CardImg.svg';
 
 //imgUrl, title, startDate, endDate, hashtag
-const CardItem = () => {
-  const StartDate = '2020. 10. 03';
-  const EndDate = '2021. 10. 10';
+const CardItem = ({ match }) => {
+  const CardData = {
+    imgUrl: CardImg,
+    title: '홍익대 2019 졸업 전시 참여',
+    startDate: '2020. 10. 03',
+    endDate: '2021. 10. 10',
+  };
   return (
     <CardTemplateBlock>
       <ImageTemplate>
-        <img src={CardImg} alt="cardImage"></img>
+        <img src={CardData.imgUrl} alt="cardImage"></img>
       </ImageTemplate>
-      <TitleTemplate>홍익대 2019 졸업 전시 참여</TitleTemplate>
+      <TitleTemplate>{CardData.title}</TitleTemplate>
       <DateTemplate>
-        {StartDate}~{EndDate}
+        {CardData.startDate}~{CardData.endDate}
       </DateTemplate>
       <HashTagTemplate />
     </CardTemplateBlock>
@@ -25,21 +29,16 @@ const CardList = () => {
       <CardItem />
       <CardItem />
       <CardItem />
+      <CardItem />
     </CardListBlock>
   );
 };
 
 const CardTemplateBlock = styled.div`
-  align-items: flex-end;
   background: white;
   width: 359px;
   height: 349px;
-  margin-left: 150px;
   display: inline;
-  scrollbar-width: none;
-  ::-webkit-scrollbar {
-    display: none;
-  }
 `;
 const ImageTemplate = styled.div`
   width: 343px;
@@ -69,7 +68,7 @@ const HashTagTemplate = styled.div`
 `;
 const CardListBlock = styled.div`
   width: 360px;
-  margin-left: 180px;
+  margin-left: 45px;
   background: white;
   scrollbar-width: none;
   ::-webkit-scrollbar {
