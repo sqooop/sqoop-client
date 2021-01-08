@@ -48,7 +48,7 @@ const StyledFileInput = styled.input`
 
 const StyledFilePreview = styled.div`
   height: 3rem;
-  width: 37rem;
+  width: 27.906vw;
   float: left;
   padding-top: 0.4rem;
   padding-left: 0.8rem;

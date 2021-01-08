@@ -14,7 +14,7 @@ const HeaderContainer = () => {
   const onChange = event => {
     saveStatus(event);
   };
-  if (status == 'like') {
+  if (status === 'like') {
     const data = getLikeActivity();
     saveActivities(data);
   }
