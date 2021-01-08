@@ -45,12 +45,18 @@ const SaveModalWrap = Styled.div`
   }
 `;
 
-const SaveModal = () => {
+const SaveModal = ({ setModalActive }) => {
   return (
     <SaveModalWrap>
       <div className="modal">
         <p>스쿱을 저장한 후, 이동해 주세요!</p>
-        <button>확인</button>
+        <button
+          onClick={() => {
+            setModalActive(false);
+          }}
+        >
+          확인
+        </button>
       </div>
     </SaveModalWrap>
   );

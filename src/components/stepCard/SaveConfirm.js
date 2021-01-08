@@ -1,3 +1,4 @@
+// 리덕스 적용없음
 import React from 'react';
 import Styled from 'styled-components';
 import { useEffect } from 'react';

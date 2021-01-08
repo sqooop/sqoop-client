@@ -1,5 +1,4 @@
 import { BrowserRouter, Route } from 'react-router-dom';
-import Styled from 'styled-components';
 import MainHeader from './components/common/MainHeader';
 import Home from './pages/home/Home';
 import SignIn from './pages/signIn/SignIn';
@@ -14,14 +13,14 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-          <Route component={MainHeader} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/signin" component={SignIn} />
-          <Route exact path="/create" component={CreateActivity} />
-          <Route exact path="/steps/:id" component={StepCard} />
-          <Route exact path="/activities" component={Card} />
-          <Route exact path="/detail/:id" component={ActivityOneDefault} />
-          <Route exact path="/detail/edit/:id" component={ActivityOneEdit} />
+        <Route component={MainHeader} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/create" component={CreateActivity} />
+        <Route exact path="/steps/:id" component={StepCard} />
+        <Route exact path="/activities" component={Card} />
+        <Route exact path="/detail/:id" component={ActivityOneDefault} />
+        <Route exact path="/detail/edit/:id" component={ActivityOneEdit} />
       </BrowserRouter>
     </div>
   );

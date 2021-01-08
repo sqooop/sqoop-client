@@ -1,3 +1,4 @@
+// 리덕스 적용완료
 import React from 'react';
 import Styled from 'styled-components';
 import LeftButtonIconOn from '../../assets/icons/LeftButtonIconOn.svg';
@@ -5,6 +6,7 @@ import LeftButtonIconOff from '../../assets/icons/LeftButtonIconOff.svg';
 import RightButtonIconOn from '../../assets/icons/RightButtonIconOn.svg';
 import RightButtonIconOff from '../../assets/icons/RightButtonIconOff.svg';
 import { withRouter } from 'react-router-dom';
+import SaveModal from './SaveModal';
 
 const HeaderWrap = Styled.div`
   box-sizing: border-box;
@@ -44,7 +46,15 @@ const HeaderWrap = Styled.div`
   }
 `;
 
-const StepHeader = ({ title, answers, history, match }) => {
+const StepHeader = ({
+  title,
+  answers,
+  notSaved,
+  modalActive,
+  saveModalActive,
+  history,
+  match,
+}) => {
   const index = parseInt(match.params.id);
 
   const leftHovered = event => {
@@ -62,15 +72,23 @@ const StepHeader = ({ title, answers, history, match }) => {
     }
   };
   const onClickLeft = event => {
-    event.stopPropagation();
-    if (answers[index - 1]) {
-      history.push(`/steps/${index - 1}`);
+    if (notSaved) {
+      saveModalActive(true);
+    } else {
+      event.stopPropagation();
+      if (answers[index - 1]) {
+        history.push(`/steps/${index - 1}`);
+      }
     }
   };
   const onClickRight = event => {
-    event.stopPropagation();
-    if (answers[index + 1]) {
-      history.push(`/steps/${index + 1}`);
+    if (notSaved) {
+      saveModalActive(true);
+    } else {
+      event.stopPropagation();
+      if (answers[index + 1]) {
+        history.push(`/steps/${index + 1}`);
+      }
     }
   };
 
@@ -117,6 +135,7 @@ const StepHeader = ({ title, answers, history, match }) => {
           )}
         </div>
       </div>
+      {modalActive && <SaveModal setModalActive={saveModalActive} />}
     </HeaderWrap>
   );
 };
