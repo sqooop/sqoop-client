@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ActivityTemplateBlock = styled.div`
-  background: pink;
+  margin-top: 100px;
   right: 9.8rem;
   top: 1rem;
   height: 620px;
