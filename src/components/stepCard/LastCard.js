@@ -19,11 +19,12 @@ const LastCardWrap = Styled.div`
     &--title {
       font-size: 20px;
       font-weight: bold;
-      margin-top: 119px;
+      margin-top: 113px;
       color: #195BFF;
     }
 
     &--guide {
+      margin-top: 6px;
       font-size: 12px;
     }
 
@@ -66,14 +67,16 @@ const LastCard = ({ history }) => {
     <LastCardWrap>
       <div className="card">
         <div className="card--title">어느새 맛있는 경험 완성!</div>
-        <div className="card--guide">모든 스쿱을 다 마쳤어요</div>
+        <div className="card--guide">
+          작성한 내용을 한 번에 확인·수정해 보아요.
+        </div>
         <img className="card--icon" src={LastCardIcon} alt="" />
         <SaveButton
           backgroundColor="#195BFF"
           onClick={onClickFunc}
           onMouseEnter={hovered}
           onMouseLeave={unhovered}
-          text={'전체 돌아보기'}
+          text={'최종 검토하기'}
           width={'173px'}
         />
       </div>

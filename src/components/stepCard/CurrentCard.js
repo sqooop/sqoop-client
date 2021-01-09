@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import SaveIconOn from '../../assets/icons/SaveIconOn.svg';
 import SaveIconOnHover from '../../assets/icons/SaveIconOnHover.svg';
 import SaveConfirm from './SaveConfirm';
+import './font.css';
 
 const CurrentCardWrap = Styled.div`
   .card {
@@ -13,18 +14,15 @@ const CurrentCardWrap = Styled.div`
     width: 358px;
     height: 496px;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
 
     &--question {
-      font-size: 22px;
-      height: 112px;
+      font-size: 16.5px;
       font-weight: bold;
-      line-height: 170%;
+      line-height: 150%;
       word-break: keep-all;
-      margin: 12px 16px;
-      &__number {
-        font-weight: bold;
-        color: #195BFF;
-      }
+      margin: 12px;
     }
 
     &--hr {
@@ -35,15 +33,15 @@ const CurrentCardWrap = Styled.div`
     }
 
     &--text {
-      margin: 12px 16px;
+      margin: 12px;
       width: 326px;
-      height: 277px;
+      flex: 1;
       box-sizing: border-box;
       border: none;
       word-break: normal;
       white-space: normal;
-      font-size: 12px;
-      line-height: 170%;
+      font-size: 14px;
+      line-height: 150%;
       resize: none;
     }
   }
@@ -67,14 +65,23 @@ const CurrentCard = ({ questions, answers, setAnswers, match, history }) => {
   }, [answers, index]);
 
   const onChangeFunc = event => {
-    setTextValue(event.target.value);
+    const text = event.target.value;
+    const lastChar = text[text.length - 1];
+    const lastText = textValue[textValue.length - 1];
+
+    if (lastChar === lastText && (lastChar === ' ' || lastChar === '\n')) {
+    } else {
+      setTextValue(text);
+    }
   };
 
   const onClickFunc = event => {
     setAnswers({ ...answers, [index]: textValue });
     console.log('저장되었습니다');
     setSaved(true);
-    history.push(`/steps/${index + 1}`);
+    setTimeout(() => {
+      history.push(`/steps/${index + 1}`);
+    }, 2500);
     setTextValue(answers[index + 1]);
   };
 

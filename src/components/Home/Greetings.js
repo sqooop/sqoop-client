@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const GreetingBlock = styled.div`
+  width: 264px;
+  height: 150px;
   display: flex;
   margin: 20px 90px;
   justify-content: space-between;
