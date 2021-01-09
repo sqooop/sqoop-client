@@ -45,6 +45,13 @@ const CurrentCardWrap = Styled.div`
       line-height: 150%;
       resize: none;
     }
+
+    &--textLimit {
+      font-size: 10px;
+      color: #A5A5A5;
+      margin-right: 12px;
+      text-align: right;
+    }
   }
 
   textarea:focus {
@@ -65,11 +72,14 @@ const CurrentCard = ({
   saved,
   saveSaved,
   saveNotSaved,
+  textLimit,
+  saveTextLimit,
   history,
 }) => {
   useEffect(() => {
     saveTextValue(answer);
     saveNotSaved(false);
+    saveTextLimit(answer.length);
   }, [answer]);
 
   const onChangeFunc = event => {
@@ -79,6 +89,8 @@ const CurrentCard = ({
 
     if (lastChar === lastText && (lastChar === ' ' || lastChar === '\n')) {
     } else {
+      saveTextLimit(text.length);
+      if (textLimit >= 1000) alert('글자수 제한을 초과했습니다');
       saveTextValue(text);
     }
 
@@ -136,6 +148,7 @@ const CurrentCard = ({
           value={textValue}
           onChange={onChangeFunc}
         />
+        <div className="card--textLimit">{textLimit}/1000</div>
         {textValue ? (
           <SaveButton
             backgroundColor="#195BFF"

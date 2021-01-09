@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setAnswer } from '../../store/modules/userCardInfo';
 import {
   setTextValue,
+  setTextLimit,
   setSaved,
   setNotSaved,
 } from '../../store/modules/currentCard';
@@ -13,13 +14,14 @@ const CurrentCardContainer = () => {
   const { questions, answers } = userCardInfo;
   const currentIndex = useSelector(state => state.cardIndex.currentIndex);
   const currentCard = useSelector(state => state.currentCard);
-  const { saved, notSaved, textValue } = currentCard;
+  const { saved, notSaved, textValue, textLimit } = currentCard;
 
   const dispatch = useDispatch();
   const saveAnswer = (answer, idx) => dispatch(setAnswer(answer, idx));
   const saveTextValue = text => dispatch(setTextValue(text));
   const saveSaved = data => dispatch(setSaved(data));
   const saveNotSaved = data => dispatch(setNotSaved(data));
+  const saveTextLimit = number => dispatch(setTextLimit(number));
 
   return (
     <CurrentCard
@@ -33,6 +35,8 @@ const CurrentCardContainer = () => {
       saveSaved={saveSaved}
       notSaved={notSaved}
       saveNotSaved={saveNotSaved}
+      textLimit={textLimit}
+      saveTextLimit={saveTextLimit}
     />
   );
 };
