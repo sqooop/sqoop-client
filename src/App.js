@@ -1,6 +1,6 @@
 import { BrowserRouter, Route } from 'react-router-dom';
 import MainHeader from './components/common/MainHeader';
-import Home from './pages/home/Home';
+import Home from './pages/home/home';
 import SignIn from './pages/signIn/SignIn';
 import CreateActivity from './pages/createActivity/CreateActivity';
 import StepCard from './pages/stepCard/StepCard';

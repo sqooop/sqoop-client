@@ -7,7 +7,7 @@ import useranswer from './modules/useranswer';
 import modal from './modules/modal';
 import preview from './modules/preview';
 import currentCard from './modules/currentCard';
-import userCard from './modules/userCard';
+import userCardInfo from './modules/userCardInfo';
 import filter from './modules/filter';
 
 const rootReducer = combineReducers({
@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
   modal,
   preview,
   currentCard,
-  userCard,
+  userCardInfo,
   filter,
 });
 
