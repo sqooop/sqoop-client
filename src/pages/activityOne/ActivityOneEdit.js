@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Title from '../../components/activityOne/edit/UserTitle';
+import Title from '../../components/activityOne/edit/Title';
 import BasicData from '../../components/activityOne/edit/BasicData';
 import UserEdit from '../../components/activityOne/edit/UserEdit';
 

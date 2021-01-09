@@ -101,6 +101,7 @@ const StyledPhotoPreview = styled.div`
     opacity: 1;
     width: 28vw;
     height: 15.8vw;
+    object-fit: cover;
   }
 
   .hoverImg {
