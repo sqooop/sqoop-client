@@ -32,19 +32,16 @@ const Year = () => {
 };
 
 const YearTemplate = styled.div`
-  margin-left: 0;
-  clear: both;
-  display: flex;
+  position: relative;
   width: 40px;
   text-align: center;
 `;
 const YearWrapper = styled.div`
   left: 0;
-  width: 30px;
   margin: 0 auto;
 `;
 const StateWrapper = styled.div`
-  font-weight: 700;
+  font-weight: bold !important;
   font-size: 16px;
 `;
 

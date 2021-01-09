@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setActivities } from '../../store/modules/activities';
 import Card from '../../components/filterActivities/Card';
 import { getActivities } from '../../lib/api/activity';
+import NoActivity from '../../components/filterActivities/NoActivity';
+
 const CardContainer = () => {
   const dispatch = useDispatch();
   const saveActivities = data => dispatch(setActivities(data));
@@ -16,9 +18,13 @@ const CardContainer = () => {
   const activities = useSelector(state => state.activities.activities);
   return (
     <>
-      {activities.map(activity => (
-        <Card key={activity.id} activity={activity} />
-      ))}
+      {activities.length > 0 ? (
+        activities.map(activity => (
+          <Card key={activity.id} activity={activity} />
+        ))
+      ) : (
+        <NoActivity />
+      )}
     </>
   );
 };

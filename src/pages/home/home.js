@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Greeting from '../../components/home/Greetings';
+import Greeting from '../../components/home/Greeting';
 import Question from '../../components/home/Question';
 import AddButton from '../../components/home/AddButton';
 import ActivityTemplate from '../../components/home/ActivityTemplate';
 import Year from '../../components/home/Year';
 import MonthScroll from '../../components/home/MonthScroll';
 import Line from '../../components/home/Line';
+import CardList from '../../components/home/CardList';
 
 const ScrollWrapper = styled.div`
   display: flex;
@@ -18,13 +19,23 @@ const ScrollWrapper = styled.div`
     display: none;
   }
 `;
+
+const CardScroll = styled.div`
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
 const MonthWrapper = styled.div`
-  margin-left: 69px;
+  margin-left: 32px;
   height: 100%;
-  background: lightgray;
   width: 47px;
   display: flex;
 `;
+
 const Home = () => {
   return (
     <div>
@@ -39,6 +50,9 @@ const Home = () => {
           </ScrollWrapper>
           <Line />
         </MonthWrapper>
+        <CardScroll>
+          <CardList />
+        </CardScroll>
       </ActivityTemplate>
     </div>
   );

@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import NoActivity from '../../components/filterActivities/NoActivity';
+import Header from '../../containers/filterActivities/Header.container';
 import Card from '../../containers/filterActivities/Card.container';
-
+const FilterActivitiesWrap = styled.div`
+  padding-left: 14.297vw;
+  padding-right: 14.297vw;
+`;
 const FilterActivities = () => {
   return (
-    <>
-      {/* {<Card /> ? <Card /> : <NoActivity />} */}
-      <NoActivity />
-    </>
+    <FilterActivitiesWrap>
+      <Header />
+      <Card />
+    </FilterActivitiesWrap>
   );
 };
 
