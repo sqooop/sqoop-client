@@ -1,5 +1,5 @@
-const SET_JOB_ITEMS = 'activity/SET_JOB_ITEMS';
-const SET_JOB_NAME = 'activity/SET_JOB_NAME';
+const SET_JOB_ITEMS = 'jobTag/SET_JOB_ITEMS';
+const SET_JOB_NAME = 'jobTag/SET_JOB_NAME';
 
 export const setJobItems = items => ({
   type: SET_JOB_ITEMS,

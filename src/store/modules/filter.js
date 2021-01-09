@@ -1,24 +1,77 @@
-const SET_STATUS = 'activity/SET_STATUS';
+const FILTER_SET_STATUS = 'filter/SET_STATUS';
+const FILTER_SET_JOB = 'filter/SET_JOB';
+const FILTER_SET_SKILL = 'filter/SET_SKILL';
+const FILTER_SET_DATE = 'filter/SET_DATE';
+const FILTER_SET_ALL_SKILL = 'filter/SET_ALL_SKILL';
+const FILTER_SET_ALL_JOB = 'filter/SET_ALL_JOB';
 
 export const setStatus = data => ({
-  type: SET_STATUS,
+  type: FILTER_SET_STATUS,
+  data,
+});
+export const setDate = dateString => ({
+  type: FILTER_SET_DATE,
+  dateString,
+});
+export const setJob = job => ({
+  type: FILTER_SET_JOB,
+  job,
+});
+export const setSkill = skill => ({
+  type: FILTER_SET_SKILL,
+  skill,
+});
+export const setAllJob = data => ({
+  type: FILTER_SET_ALL_JOB,
   data,
 });
 
+export const setAllSkill = data => ({
+  type: FILTER_SET_ALL_SKILL,
+  data,
+});
 const initialState = {
   status: 'all',
   startDate: '',
   endDate: '',
   jobTag: [],
   skillTag: [],
+  allJobTag: [],
+  allSkillTag: [],
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case SET_STATUS:
+    case FILTER_SET_STATUS:
       return {
         ...state,
         status: action.data,
+      };
+    case FILTER_SET_DATE:
+      return {
+        ...state,
+        startDate: action.dateString[0],
+        endDate: action.dateString[1],
+      };
+    case FILTER_SET_JOB:
+      return {
+        ...state,
+        jobTag: action.job,
+      };
+    case FILTER_SET_SKILL:
+      return {
+        ...state,
+        skillTag: action.skill,
+      };
+    case FILTER_SET_ALL_JOB:
+      return {
+        ...state,
+        allJobTag: action.data,
+      };
+    case FILTER_SET_ALL_SKILL:
+      return {
+        ...state,
+        allSkillTag: action.data,
       };
     default:
       return state;

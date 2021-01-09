@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setStatus } from '../../store/modules/filter';
 import { setActivities } from '../../store/modules/activities';
 import Header from '../../components/filterActivities/Header';
-import { getLikeActivity } from '../../lib/api/activity';
+import { getLikeActivity, getActivities } from '../../lib/api/activity';
 
 const HeaderContainer = () => {
   const dispatch = useDispatch();
@@ -14,10 +14,17 @@ const HeaderContainer = () => {
   const onChange = event => {
     saveStatus(event);
   };
-  if (status === 'like') {
-    const data = getLikeActivity();
-    saveActivities(data);
-  }
+  useEffect(() => {
+    (async () => {
+      if (status === 'like') {
+        const data = await getLikeActivity();
+        saveActivities(data);
+      } else if (status === 'all') {
+        const data = await getActivities();
+        saveActivities(data);
+      }
+    })();
+  }, [status]);
   return <Header handleChange={onChange} status={status} />;
 };
 

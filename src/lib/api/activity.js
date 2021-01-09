@@ -32,7 +32,7 @@ export const createActivity = async activity => {
 
 export const getActivities = async () => {
   try {
-    const { data } = await instance.get(`${baseURL}activity/getAllActivity`);
+    const { data } = await instance.get(`/activity/getAllActivity`);
     console.log('[SUCCESS] GET ACTIVITIES', data.data);
     return data.data;
   } catch (e) {
@@ -40,9 +40,10 @@ export const getActivities = async () => {
     throw e;
   }
 };
+
 export const getLikeActivity = async () => {
   try {
-    const { data } = await instance.get(`${baseURL}activity/getLikeActivity`);
+    const { data } = await instance.get(`/activity/getLikeActivity`);
     console.log('[SUCCESS] GET LIKE ACTIVITIES', data.data);
     return data.data;
   } catch (e) {

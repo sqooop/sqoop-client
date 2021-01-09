@@ -1,5 +1,5 @@
-const SET_SKILL_ITEMS = 'activity/SET_SKILL_ITEMS';
-const SET_SKILL_NAME = 'activity/SET_SKILL_NAME';
+const SET_SKILL_ITEMS = 'skillTag/SET_SKILL_ITEMS';
+const SET_SKILL_NAME = 'skillTag/SET_SKILL_NAME';
 
 export const setSkillItems = items => ({
   type: SET_SKILL_ITEMS,
