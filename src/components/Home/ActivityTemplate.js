@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ActivityTemplateBlock = styled.div`
-  right: 90px;
-  top: 100px;
+  background: pink;
+  right: 9.8rem;
+  top: 1rem;
   height: 620px;
   position: absolute;
   display: flex;
