@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
-import line from '../../assets/icons/Line 1.svg';
 const MonthScroll = () => {
   const MonthArray = [
     {
@@ -65,7 +64,7 @@ const MonthScroll = () => {
 };
 const MonthScrollWrapper = styled.div`
   display: block;
-  width: 40px;
+  width: 50px;
   height: 100%;
 `;
 
@@ -73,7 +72,7 @@ const MonthData = styled.div`
   margin: 0 auto;
   margin-top: 10px;
   font-size: 15px;
-  width: 40px;
+  width: 45px;
   font-size: 10px;
   font-weight: bold !important;
   margin-bottom: 72px;

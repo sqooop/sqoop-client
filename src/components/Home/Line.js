@@ -5,7 +5,7 @@ const LineBlock = styled.div`
   width: 0;
   top: 0
   display: flex;
-  margin-left: 20px;
+  margin-left: 10px;
 `;
 const Line = () => {
   return (
