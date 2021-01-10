@@ -2,6 +2,7 @@ import { React } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { setAnswer } from '../../store/modules/userCardInfo';
+import { setModalActive } from '../../store/modules/currentCard';
 import {
   setTextValue,
   setTextLimit,
@@ -25,6 +26,7 @@ const CurrentCardContainer = ({ history }) => {
   const saveSaved = data => dispatch(setSaved(data));
   const saveNotSaved = data => dispatch(setNotSaved(data));
   const saveTextLimit = number => dispatch(setTextLimit(number));
+  const saveModalActive = data => dispatch(setModalActive(data));
 
   const onClickFunc = () => {
     saveAnswer(textValue, currentIndex);
@@ -50,6 +52,11 @@ const CurrentCardContainer = ({ history }) => {
       })();
     }
   };
+
+  // if (notSaved && ) {
+  //   history.goForward();
+  //   saveModalActive(true);
+  // }
 
   return (
     <CurrentCard
