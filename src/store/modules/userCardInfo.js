@@ -1,23 +1,35 @@
 const SET_ANSWER = 'USER_CARD_INFO/SET_ANSWER';
 const SET_QUESTION = 'USER_CARD_INFO/SET_QUESTION';
 const SET_TITLE = 'USER_CARD_INFO/SET_TITLE';
+const SET_ID = 'USER_CARD_INFO/SET_ID';
+const SET_GUIDE = 'USER_CARD_INFO/SET_GUIDE';
 
-export const setAnswer = (answer, idx) => ({
+export const setAnswer = (string, idx) => ({
   type: SET_ANSWER,
-  answer,
+  string,
   idx,
 });
-export const setQuestion = (question, idx) => ({
+export const setQuestion = (string, idx) => ({
   type: SET_QUESTION,
-  question,
+  string,
   idx,
 });
-export const setTitle = title => ({
+export const setGuide = (string, idx) => ({
+  type: SET_GUIDE,
+  string,
+  idx,
+});
+export const setTitle = string => ({
   type: SET_TITLE,
-  title,
+  string,
+});
+export const setID = number => ({
+  type: SET_ID,
+  number,
 });
 
 const initialState = {
+  id: 41,
   title: '활동 이름',
   questions: [
     '활동을 하게 된 이유는 무엇인가요?',
@@ -32,21 +44,30 @@ const initialState = {
     '활동을 통해 배운 점은 무엇인가요? 나의 관심 분야·직무에서 어떻게 도움이 될까요?',
     '???',
   ],
-  answers: ['하이하이', '안녕하세용', '', '', '', '', '', '', '', ''],
+  answers: ['', '', '', '', '', '', '', '', '', ''],
+  guide: ['', '', '', '', '', '', '', '', '', ''],
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_ANSWER:
-      state.answers[action.idx] = action.answer;
+      state.answers[action.idx] = action.string;
       return state;
     case SET_QUESTION:
-      state.questions[action.idx] = action.question;
+      state.questions[action.idx] = action.string;
+      return state;
+    case SET_GUIDE:
+      state.guide[action.idx] = action.string;
       return state;
     case SET_TITLE:
       return {
         ...state,
-        title: action.title,
+        title: action.string,
+      };
+    case SET_ID:
+      return {
+        ...state,
+        id: action.number,
       };
     default:
       return state;

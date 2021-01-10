@@ -65,7 +65,7 @@ const StepHeader = ({
     }
   };
   const rightHovered = event => {
-    if (answers[index + 1]) {
+    if (answers[index]) {
       event.target.style.cursor = 'pointer';
     } else {
       event.target.style.cursor = 'default';
@@ -86,7 +86,7 @@ const StepHeader = ({
       saveModalActive(true);
     } else {
       event.stopPropagation();
-      if (answers[index + 1]) {
+      if (answers[index]) {
         history.push(`/steps/${index + 1}`);
       }
     }
@@ -117,7 +117,7 @@ const StepHeader = ({
               onMouseEnter={leftHovered}
             />
           )}
-          {answers[index + 1] ? (
+          {answers[index] ? (
             <img
               className="header--button__right"
               src={RightButtonIconOn}

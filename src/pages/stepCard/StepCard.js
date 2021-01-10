@@ -2,7 +2,14 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import {
+  setTitle,
+  setQuestion,
+  setAnswer,
+  setGuide,
+} from '../../store/modules/userCardInfo';
 import { setCurrentIndex } from '../../store/modules/cardIndex';
+import { getActivityName, getCardInfo } from '../../lib/api/stepCard';
 import StepHeaderContainer from '../../containers/stepCard/StepHeader.container';
 import CurrentCardContainer from '../../containers/stepCard/CurrentCard.container';
 import NextCardContainer from '../../containers/stepCard/NextCard.container';
@@ -21,16 +28,41 @@ const CardWrap = Styled.div`
 `;
 
 const StepCard = ({ match }) => {
-  const questions = useSelector(state => state.userCardInfo.questions);
-  const currentIndex = useSelector(state => state.cardIndex.currentIndex);
-
   const dispatch = useDispatch();
   const saveCurrentIndex = idx => dispatch(setCurrentIndex(idx));
+  const saveTitle = string => dispatch(setTitle(string));
+  const saveQuestion = (string, idx) => dispatch(setQuestion(string, idx));
+  const saveAnswer = (string, idx) => dispatch(setAnswer(string, idx));
+  const saveGuide = (string, idx) => dispatch(setGuide(string, idx));
+
+  const id = useSelector(state => state.userCardInfo.id);
+  const index = parseInt(match.params.id);
+  useEffect(() => {
+    saveCurrentIndex(index);
+  }, [index]);
 
   useEffect(() => {
-    const index = parseInt(match.params.id);
-    saveCurrentIndex(index);
-  });
+    (async () => {
+      const data = await getActivityName(id);
+      saveTitle(data);
+    })();
+    (async () => {
+      const data = await getCardInfo(id);
+      data.questions.map((card, index) => {
+        saveQuestion(card.content, index);
+        saveGuide(card.guide, index);
+        return 0;
+      });
+      data.questionCards &&
+        data.questionCards.map(card => {
+          saveAnswer(card.content, card.number - 1);
+          return 0;
+        });
+    })();
+  }, [match.path]);
+
+  const questions = useSelector(state => state.userCardInfo.questions);
+  const currentIndex = useSelector(state => state.cardIndex.currentIndex);
 
   return (
     <>
