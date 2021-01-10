@@ -10,6 +10,7 @@ import currentCard from './modules/currentCard';
 import userCardInfo from './modules/userCardInfo';
 import cardIndex from './modules/cardIndex';
 import filter from './modules/filter';
+import home from './modules/home';
 
 const rootReducer = combineReducers({
   activity,
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   userCardInfo,
   cardIndex,
   filter,
+  home,
 });
 
 export default rootReducer;
