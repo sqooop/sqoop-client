@@ -10,6 +10,10 @@ const NotStarting = () => {
   );
 };
 
-const StyledNotStarting = styled.div``;
+const StyledNotStarting = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default NotStarting;
