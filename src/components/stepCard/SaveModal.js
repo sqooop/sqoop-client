@@ -13,6 +13,7 @@ const SaveModalWrap = Styled.div`
   justify-content: center;
 
   .modal {
+    position: relative;
     box-sizing: border-box;
     background-color: white;
     z-index: 99;
@@ -26,6 +27,8 @@ const SaveModalWrap = Styled.div`
     font-weight: bold;
     padding-top: 69px;
     padding-bottom: 65px;
+    animation-name: coming-down;
+    animation-duration: 1s;
 
     & > button {
       color: #195BFF;
@@ -39,10 +42,16 @@ const SaveModalWrap = Styled.div`
     }
   }
 
-  .hide {
-    display: none;
-    cursor: default;
+  @keyframes coming-down {
+    from {
+      top: -50px;
+      opacity: 0.3;
+    } to {
+      top: 0px;
+      opacity: 1;
+    }
   }
+
 `;
 
 const SaveModal = ({ setModalActive }) => {

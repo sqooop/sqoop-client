@@ -8,6 +8,7 @@ import modal from './modules/modal';
 import preview from './modules/preview';
 import currentCard from './modules/currentCard';
 import userCardInfo from './modules/userCardInfo';
+import cardIndex from './modules/cardIndex';
 import filter from './modules/filter';
 
 const rootReducer = combineReducers({
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   preview,
   currentCard,
   userCardInfo,
+  cardIndex,
   filter,
 });
 

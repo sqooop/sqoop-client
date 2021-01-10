@@ -1,5 +1,6 @@
 import logo from '../../assets/images/ic_sqoop.svg';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 const HeaderBlock = styled.div`
   display: flex;
@@ -17,6 +18,7 @@ const Wrapper = styled.div`
     font-weight: 400;
     &:hover {
       font-weight: 700;
+      cursor: pointer;
     }
   }
 `;
@@ -25,15 +27,36 @@ const Spacer = styled.div`
   height: 1rem;
 `;
 
-const MainHeader = () => {
+const MainHeader = ({ history }) => {
   return (
     <>
       <HeaderBlock>
         <img src={logo} alt="logo" style={{}} />
         <Wrapper>
-          <li className="list">홈</li>
-          <li className="list">모아보기</li>
-          <li className="list">마이페이지</li>
+          <li
+            className="list"
+            onClick={() => {
+              history.push('/');
+            }}
+          >
+            홈
+          </li>
+          <li
+            className="list"
+            onClick={() => {
+              history.push('/activities');
+            }}
+          >
+            모아보기
+          </li>
+          <li
+            className="list"
+            onClick={() => {
+              history.push('/');
+            }}
+          >
+            마이페이지
+          </li>
         </Wrapper>
       </HeaderBlock>
       <Spacer />

@@ -2,7 +2,6 @@
 import React from 'react';
 import SaveButton from './SaveButton';
 import Styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
 import { useEffect } from 'react';
 import SaveIconOn from '../../assets/icons/SaveIconOn.svg';
 import SaveIconOnHover from '../../assets/icons/SaveIconOnHover.svg';
@@ -59,6 +58,7 @@ const CurrentCardWrap = Styled.div`
   }
   textarea::placeholder {
     color: #A5A5A5;
+    word-break: keep-all;
   }
 `;
 
@@ -66,7 +66,6 @@ const CurrentCard = ({
   index,
   question,
   answer,
-  saveAnswer,
   textValue,
   saveTextValue,
   saved,
@@ -74,7 +73,8 @@ const CurrentCard = ({
   saveNotSaved,
   textLimit,
   saveTextLimit,
-  history,
+  guide,
+  onClickFunc,
 }) => {
   useEffect(() => {
     saveTextValue(answer);
@@ -90,8 +90,12 @@ const CurrentCard = ({
     if (lastChar === lastText && (lastChar === ' ' || lastChar === '\n')) {
     } else {
       saveTextLimit(text.length);
-      if (textLimit >= 1000) alert('글자수 제한을 초과했습니다');
-      saveTextValue(text);
+      if (textLimit > 1000) {
+        alert('글자수 제한을 초과했습니다');
+        saveTextValue(text.slice(0, 1000));
+      } else {
+        saveTextValue(text);
+      }
     }
 
     if (answer !== textValue) {
@@ -99,15 +103,6 @@ const CurrentCard = ({
     } else {
       saveNotSaved(false);
     }
-  };
-
-  const onClickFunc = event => {
-    saveAnswer(textValue, index);
-    console.log('저장되었습니다');
-    saveSaved(true);
-    setTimeout(() => {
-      history.push(`/steps/${index + 1}`);
-    }, 2500);
   };
 
   const hovered = event => {
@@ -144,7 +139,7 @@ const CurrentCard = ({
         <hr className="card--hr" />
         <textarea
           className="card--text"
-          placeholder="답변을 작성해 주세요."
+          placeholder={guide}
           value={textValue}
           onChange={onChangeFunc}
         />
@@ -171,4 +166,4 @@ const CurrentCard = ({
   );
 };
 
-export default withRouter(CurrentCard);
+export default CurrentCard;
