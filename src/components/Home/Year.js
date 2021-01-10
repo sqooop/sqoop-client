@@ -17,7 +17,7 @@ function reducer(state, action) {
 }
 
 const Year = ({ background, border, onClick }) => {
-  const [state, dispatch] = useReducer(reducer, { value: 2019 });
+  const [state, dispatch] = useReducer(reducer, { value: 2021 });
   const leftHovered = event => {
     const img = event.target.querySelector('img');
     img && (img.src = LeftButtonIconOn);

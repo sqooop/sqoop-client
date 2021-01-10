@@ -1,7 +1,8 @@
 import axios from 'axios';
+import client from './client';
 const url = 'http://localhost:8080/';
 
-const getCardAPI = async () => {
+const getCard = async () => {
   try {
     const { data } = await axios.get(`${url}`);
     console.log(`[SUCCESS] GET CARD ACTIVITIES`, data);
@@ -11,4 +12,5 @@ const getCardAPI = async () => {
   }
 };
 
-export { getCardAPI };
+export { getCard };
+export const readCard = id => client.get(`api/activity/getActivityDate`);
