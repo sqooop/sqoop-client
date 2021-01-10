@@ -16,7 +16,7 @@ const SkillTagContainer = () => {
     if (idx > -1) {
       skillTag.splice(idx, 1);
     }
-    saveTag(skillTag);
+    saveSkill(skillTag);
   };
   return (
     <>
