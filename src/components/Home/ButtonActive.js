@@ -10,6 +10,8 @@ const ButtonActiveWrap = Styled.div`
   font-size: 10px;
   font-weight: bold !important;
   margin-bottom: 72px;
+  border: 0;
+  outline: 0;
   :hover {
     font-size: 15px;
     color: ${palette.main};
