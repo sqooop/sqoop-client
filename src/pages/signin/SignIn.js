@@ -78,7 +78,5 @@ function LoginWrap() {
     }
   };
 
-  return;
-}
 
 export default LoginWrap;
