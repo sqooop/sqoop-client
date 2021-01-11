@@ -10,13 +10,15 @@ const ButtonWrap = Styled.div`
   font-size: 10px;
   font-weight: bold !important;
   margin-bottom: 72px;
+  border: 0;
+  outline: 0;
   color: ${palette.grey02};
 `;
 
 const Button = ({ index, month }) => {
   return (
     <ButtonWrap>
-      <button key={index}>{month}</button>
+      <button key={index}>{month}월</button>
     </ButtonWrap>
   );
 };
