@@ -8,6 +8,7 @@ import Year from '../../components/home/Year';
 import MonthScroll from '../../components/home/MonthScroll';
 import Line from '../../components/home/Line';
 import CardList from '../../components/home/CardList';
+//import CardItemContainer from '../../containers/home/CardList.container';
 
 const ScrollWrapper = styled.div`
   display: flex;

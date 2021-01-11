@@ -23,7 +23,7 @@ const initialState = {
   post: null,
   error: null,
 };
-const homeCard = handleActions(
+const cardList = handleActions(
   {
     [READ_CARD_SUCCESS]: (state, { payload: homeCard }) => ({
       ...state,
@@ -37,4 +37,4 @@ const homeCard = handleActions(
   },
   initialState,
 );
-export default homeCard;
+export default cardList;

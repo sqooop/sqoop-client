@@ -11,7 +11,7 @@ import userCardInfo from './modules/userCardInfo';
 import cardIndex from './modules/cardIndex';
 import filter from './modules/filter';
 import loading from './modules/loading';
-import homeCard, { CardSaga } from './modules/homeCard';
+import homeCard, { CardSaga } from './modules/cardList';
 
 const rootReducer = combineReducers({
   activity,
