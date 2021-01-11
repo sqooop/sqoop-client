@@ -1,109 +1,102 @@
-import React, { useReducer } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import LeftButtonIconOn from '../../assets/icons/LeftButtonIconOn.svg';
 import LeftButtonIconOff from '../../assets/icons/LeftButtonIconOff.svg';
 import RightButtonIconOn from '../../assets/icons/RightButtonIconOn.svg';
 import RightButtonIconOff from '../../assets/icons/RightButtonIconOff.svg';
-
-function reducer(state, action) {
-  switch (action.type) {
-    case 'INCREMENT':
-      return { value: state.value + 1 };
-    case 'DECREMENT':
-      return { value: state.value - 1 };
-    default:
-      return state;
-  }
-}
+import { setYear } from '../../store/modules/home';
 
 const Year = ({ background, border, onClick }) => {
-  const [state, dispatch] = useReducer(reducer, { value: 2021 });
+  const dispatch = useDispatch();
+  const saveYear = number => dispatch(setYear(number));
+  const year = useSelector(state => state.home.year);
+
   const leftHovered = event => {
     const img = event.target.querySelector('img');
     img && (img.src = LeftButtonIconOn);
     event.target.style.cssText = `
-    background: none;
-    border: none;
+    cursor: pointer;
     `;
   };
   const rightHovered = event => {
     const img = event.target.querySelector('img');
     img && (img.src = RightButtonIconOn);
+    event.target.style.cssText = `
+    cursor: pointer;
+  `;
   };
   const leftUnhovered = event => {
     const img = event.target.querySelector('img');
     img && (img.src = LeftButtonIconOff);
     event.target.style.cssText = `
-    background: none;
-    border: none;
+    cursor: default;
     `;
   };
   const rightUnhovered = event => {
     const img = event.target.querySelector('img');
     img && (img.src = RightButtonIconOff);
+    event.target.style.cssText = `
+    cursor: default;
+  `;
   };
   return (
     <YearTemplate>
-      <YearWrapper>
-        <LeftButtonWrapper>
-          <button
-            style={{ background: background, border: border }}
-            onClick={() => dispatch({ type: 'DECREMENT' })}
-            onMouseEnter={leftHovered}
-            onMouseLeave={leftUnhovered}
-          >
-            <img src={LeftButtonIconOff} alt="" />
-          </button>
-        </LeftButtonWrapper>
-        <StateWrapper>{state.value}</StateWrapper>
-        <RightButtonWrapper
-          onClick={() => dispatch({ type: 'INCREMENT' })}
+      <div className="button">
+        <button
+          className="button--left"
+          style={{ background: background, border: border }}
+          onClick={() => saveYear(year - 1)}
+          onMouseEnter={leftHovered}
+          onMouseLeave={leftUnhovered}
+        >
+          <img src={LeftButtonIconOff} alt="" />
+        </button>
+        <StateWrapper>{year}</StateWrapper>
+        <button
+          className="button--right"
+          style={{ background: background, border: border }}
+          onClick={() => saveYear(year + 1)}
           onMouseEnter={rightHovered}
           onMouseLeave={rightUnhovered}
         >
           <img src={RightButtonIconOff} alt="" />
-        </RightButtonWrapper>
-      </YearWrapper>
+        </button>
+      </div>
     </YearTemplate>
   );
 };
 
-const LeftButtonWrapper = styled.div`
-width: 24px;
-flex: 1;
-button {
-  background: none;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  $:hover {
-    const icon=${LeftButtonIconOn};
-    
-  }
-}
-`;
-const RightButtonWrapper = styled.div`
-width: 24px;
-flex: 1;
-button {
-  background: none;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  $:hover {
-    const icon=${RightButtonIconOn};
-    
-  }
-}
-`;
 const YearTemplate = styled.div`
   position: relative;
   width: 109px;
   display: flex;
-`;
-const YearWrapper = styled.div`
-  display: flex;
+
   margin: 0 auto;
+  .button {
+    display: flex;
+    margin: 0 auto;
+    &--left {
+      width: 24px;
+      height: 24px;
+      flex: 1;
+      background: none;
+      border: none;
+      &:focus {
+        outline: none;
+      }
+    }
+    &--right {
+      width: 24px;
+      height: 24px;
+      flex: 1;
+      background: none;
+      border: none;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
 `;
 const StateWrapper = styled.div`
   margin-left: 10px;

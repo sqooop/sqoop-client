@@ -11,7 +11,7 @@ import userCardInfo from './modules/userCardInfo';
 import cardIndex from './modules/cardIndex';
 import filter from './modules/filter';
 import loading from './modules/loading';
-import homeCard, { CardSaga } from './modules/cardList';
+import home from './modules/home';
 
 const rootReducer = combineReducers({
   activity,
@@ -26,9 +26,7 @@ const rootReducer = combineReducers({
   cardIndex,
   filter,
   loading,
-  homeCard,
+  home,
 });
-export function* rootSaga() {
-  yield [CardSaga()];
-}
+
 export default rootReducer;
