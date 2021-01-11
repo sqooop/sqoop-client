@@ -18,7 +18,7 @@ const ButtonWrap = Styled.div`
 const Button = ({ index, month }) => {
   return (
     <ButtonWrap>
-      <button key={index}>{month}월</button>
+      <div key={index}>{month}월</div>
     </ButtonWrap>
   );
 };

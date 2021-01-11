@@ -26,7 +26,6 @@ const Year = ({ background, border, onClick }) => {
     event.target.style.cssText = `
       cursor: pointer;
     `;
-
   };
   const leftUnhovered = event => {
     const img = event.target.querySelector('img');
@@ -43,7 +42,6 @@ const Year = ({ background, border, onClick }) => {
     event.target.style.cssText = `
     cursor: default;
   `;
-
   };
   return (
     <YearTemplate>
@@ -82,7 +80,6 @@ const YearTemplate = styled.div`
   .button {
     display: flex;
     margin: 0 auto;
-
 
     &--left {
       width: 24px;
