@@ -13,6 +13,5 @@ export const getCardAPI = async () => {
     return data.data;
   } catch (e) {
     console.log(`[FAIL] GET CARD ACTIVITIES`, e);
-    throw e;
   }
 };
