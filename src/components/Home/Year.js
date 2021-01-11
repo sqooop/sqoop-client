@@ -16,21 +16,25 @@ const Year = ({ background, border, onClick }) => {
     const img = event.target.querySelector('img');
     img && (img.src = LeftButtonIconOn);
     event.target.style.cssText = `
-    cursor: pointer;
+      cursor: pointer;
+
     `;
   };
   const rightHovered = event => {
     const img = event.target.querySelector('img');
     img && (img.src = RightButtonIconOn);
     event.target.style.cssText = `
-    cursor: pointer;
-  `;
+      cursor: pointer;
+    `;
+
   };
   const leftUnhovered = event => {
     const img = event.target.querySelector('img');
     img && (img.src = LeftButtonIconOff);
     event.target.style.cssText = `
-    cursor: default;
+
+      cursor: default;
+
     `;
   };
   const rightUnhovered = event => {
@@ -39,6 +43,7 @@ const Year = ({ background, border, onClick }) => {
     event.target.style.cssText = `
     cursor: default;
   `;
+
   };
   return (
     <YearTemplate>
@@ -73,9 +78,12 @@ const YearTemplate = styled.div`
   display: flex;
 
   margin: 0 auto;
+
   .button {
     display: flex;
     margin: 0 auto;
+
+
     &--left {
       width: 24px;
       height: 24px;
@@ -98,6 +106,7 @@ const YearTemplate = styled.div`
     }
   }
 `;
+
 const StateWrapper = styled.div`
   margin-left: 10px;
   margin-right: 13px;

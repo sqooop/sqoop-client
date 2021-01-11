@@ -26,6 +26,5 @@ export const getCardAPI = async month => {
     return data.data;
   } catch (e) {
     console.log(`[FAIL] GET CARD ACTIVITIES`, e);
-    throw e;
   }
 };

@@ -1,25 +1,51 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { React, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import { getUserName } from '../../lib/api/home/userAPI';
+import { setUserName } from '../../store/modules/home';
+import { useSelector, useDispatch } from 'react-redux';
 
 const GreetingBlock = styled.div`
-  width: 264px;
+  width: 400px;
   height: 150px;
   display: flex;
   margin: 20px 90px;
   justify-content: space-between;
-  font-size: 48px;
+  font-size: 50px;
+
   .greeting {
-    font-weight: 700;
+    font-weight: bold;
+    animation-name: appearing;
+    animation-duration: 2s;
+  }
+
+  @keyframes appearing {
+    from {
+      opacity: 0.3;
+    }
+    to {
+      opacity: 1;
+    }
   }
 `;
 
-const Greetings = ({ username }) => {
+const Greetings = ({ match }) => {
+  const dispatch = useDispatch();
+  const saveUserName = string => dispatch(setUserName(string));
+  const userName = useSelector(state => state.home.name);
+
+  useEffect(() => {
+    (async () => {
+      const name = await getUserName();
+      saveUserName(name);
+    })();
+  }, [match.path]);
+
   return (
     <>
       <GreetingBlock>
         <div className="greeting">
-          {username}님,
+          {userName}님,
           <br />
           안녕하세요!
         </div>
@@ -28,12 +54,4 @@ const Greetings = ({ username }) => {
   );
 };
 
-Greetings.defaultProps = {
-  username: 'Sqoop',
-};
-
-Greetings.propTypes = {
-  username: PropTypes.string,
-};
-
-export default Greetings;
+export default withRouter(Greetings);

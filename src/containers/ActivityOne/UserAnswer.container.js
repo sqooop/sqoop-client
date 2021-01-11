@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUseranswer } from '../../store/modules/useranswer';
-import ActivityOneUserData from '../../components/activityOne/ActivityOneUserData';
+import UserEdit from '../../components/activityOne/edit/UserEdit';
 
 const UserAnswerContainer = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const UserAnswerContainer = () => {
   return (
     <>
       {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(idx => (
-        <ActivityOneUserData
+        <UserEdit
           onChangeInputs={evt => {
             const value = evt.target.value;
             saveUserAnswer(value, idx);

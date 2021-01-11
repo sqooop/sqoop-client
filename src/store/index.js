@@ -10,7 +10,6 @@ import currentCard from './modules/currentCard';
 import userCardInfo from './modules/userCardInfo';
 import cardIndex from './modules/cardIndex';
 import filter from './modules/filter';
-import loading from './modules/loading';
 import home from './modules/home';
 
 const rootReducer = combineReducers({
@@ -25,7 +24,6 @@ const rootReducer = combineReducers({
   userCardInfo,
   cardIndex,
   filter,
-  loading,
   home,
 });
 
