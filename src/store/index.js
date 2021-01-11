@@ -10,7 +10,7 @@ import currentCard from './modules/currentCard';
 import userCard from './modules/userCard';
 import filter from './modules/filter';
 import loading from './modules/loading';
-import homeCard, { CardSaga } from './modules/homeCard';
+import homeCard, { CardSaga } from './modules/cardList';
 
 const rootReducer = combineReducers({
   activity,
