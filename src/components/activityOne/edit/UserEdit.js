@@ -6,11 +6,6 @@ const ActivityOneUserData = props => {
   const { text, onChangeInputs } = props;
   const state = useSelector(state => state.userCardInfo.questions);
 
-<<<<<<< HEAD
-  console.log([state]);
-
-=======
->>>>>>> db417a074beafe1bf912b5d118b3235dbcf2d21d
   return (
     <StyledUserData className="UserData">
       {state.map((data, index) => (
