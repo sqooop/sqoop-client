@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import 'antd/dist/antd.css';
 import { Select } from 'antd';
 import filterImg from '../../assets/icons/filter.svg';
+import closeImg from '../../assets/icons/close.svg';
 
 const { Option } = Select;
 const StyledSelect = styled(Select)`
@@ -22,6 +23,7 @@ const HeaderWrap = styled.div`
   position: relative;
   padding-bottom: 30px;
   .filterImg {
+    cursor: pointer;
     position: absolute;
     right: 0px;
     top: 15px;
@@ -29,7 +31,7 @@ const HeaderWrap = styled.div`
 `;
 
 const Header = props => {
-  const { handleChange, status } = props;
+  const { handleChange, status, onClick, isOpen } = props;
   const optionStyle = {
     fontSize: '24px',
     paddingTop: '10px',
@@ -51,7 +53,21 @@ const Header = props => {
           </Option>
         </StyledSelect>
         {status === 'all' ? (
-          <img className="filterImg" src={filterImg} alt="" />
+          !isOpen ? (
+            <img
+              className="filterImg"
+              src={filterImg}
+              alt=""
+              onClick={onClick}
+            />
+          ) : (
+            <img
+              className="filterImg"
+              src={closeImg}
+              alt=""
+              onClick={onClick}
+            />
+          )
         ) : (
           <></>
         )}

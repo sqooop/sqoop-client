@@ -4,7 +4,7 @@ const accessToken =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3RlciIsImlhdCI6MTYxMDE3OTg2MywiZXhwIjoxNjEwNzg0NjYzLCJpc3MiOiJsY2cifQ.hkYUZx9REp8ugpkRrf_XUhXC1BDTT7dpToseAYnxM9Y';
 const headers = { jwt: accessToken };
 
-const getCardAPI = async () => {
+export const getCardAPI = async () => {
   try {
     const { data } = await axios.get(`${url}activity/getActivityDate`, {
       headers,
@@ -15,5 +15,3 @@ const getCardAPI = async () => {
     console.log(`[FAIL] GET CARD ACTIVITIES`, e);
   }
 };
-
-export { getCardAPI };
