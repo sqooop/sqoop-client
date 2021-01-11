@@ -5,6 +5,7 @@ export const setUseranswer = (useranswer, idx) => ({
   useranswer,
   idx,
 });
+
 const initialState = {
   useranswer: {
     0: '',

@@ -1,57 +1,18 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 const ActivityOneUserData = props => {
   const { text, onChangeInputs } = props;
+  const state = useSelector(state => state.userCardInfo.questions);
 
-  const UserData = [
-    {
-      index: 0,
-      title: '1. 활동 목표는?',
-    },
-    {
-      index: 1,
-      title: '2. 활동 목표는?',
-    },
-    {
-      index: 2,
-      title: '3. 활동 목표는?',
-    },
-    {
-      index: 3,
-      title: '4. 활동 목표는?',
-    },
-    {
-      index: 4,
-      title: '5. 활동 목표는?',
-    },
-    {
-      index: 5,
-      title: '6. 활동 목표는?',
-    },
-    {
-      index: 6,
-      title: '7. 활동 목표는?',
-    },
-    {
-      index: 7,
-      title: '8. 활동 목표는?',
-    },
-    {
-      index: 8,
-      title: '9. 활동 목표는?',
-    },
-    {
-      index: 9,
-      title: '10. 활동 목표는?',
-    },
-  ];
+  console.log([state].1);
 
   return (
     <StyledUserData className="UserData">
-      {UserData.map((data, index) => (
+      {state.map((data, index) => (
         <>
-          <StyledQuestionData key={index - 1}>{data.title}</StyledQuestionData>
+          <StyledQuestionData key={index - 1}>{data.index}</StyledQuestionData>
           <StyledAnswerData
             className="AnswerData"
             key={index}
