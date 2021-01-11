@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Star } from '../../../assets/icons/star.svg';
-import { ReactComponent as StarFill } from '../../../assets/icons/starFill.svg';
+import { ReactComponent as Star } from '../../../assets/icons/Star.svg';
+import { ReactComponent as StarFill } from '../../../assets/icons/StarFill.svg';
 
 const FavoritesButton = () => {
   // 즐겨찾기를 클릭하면 component를 변경하기 위한 state

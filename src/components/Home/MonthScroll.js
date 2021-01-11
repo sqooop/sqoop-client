@@ -20,10 +20,10 @@ const MonthScroll = () => {
       for (let i = data.firstYear; i <= data.lastYear; i++) {
         result.set(i, new Set());
       }
-      result.set(0, new Set());
-      data.allMonthArray.forEach(month =>
-        result.get(Math.floor(month / 100).push(month % 100)),
-      );
+      data.allMonthArray
+        .filter(item => item.length !== 0)
+        .forEach(month => result.get(Math.floor(month / 100)).add(month % 100));
+      console.log(result);
     })();
   });
 

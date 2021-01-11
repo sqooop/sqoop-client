@@ -1,12 +1,14 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import SaveIcon from '../../assets/icons/SaveIcon.svg';
 import SaveIconBlue from '../../assets/icons/SaveIconBlue.svg';
+
 const AddButtonWrap = Styled.div`
   margin-left: 90px;
-  margin-top: 250px;
-  width: 200px;
+  margin-bottom: 53px;
+
   button {
     outline: none;
     border: none;
@@ -14,18 +16,18 @@ const AddButtonWrap = Styled.div`
     width: 170px;
     height: 50px;
     color: white;
-    font-size: 17px;
-    font-weight: 700;
-    display: center;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding-right: 0rem;
-    cursor: pointer;
+
     &:hover{
       background: ${palette.white};
       color: ${palette.main};
       border: solid 1px ${palette.main};
       const icon= ${SaveIconBlue};
-
+      cursor: pointer;
     }
   }
 
@@ -36,7 +38,7 @@ const AddButtonWrap = Styled.div`
     margin-right: 4px;
   } 
 `;
-const AddButton = ({ background, color, onClick, border }) => {
+const AddButton = ({ history }) => {
   const hovered = event => {
     const img = event.target.querySelector('img');
     img && (img.src = SaveIconBlue);
@@ -62,12 +64,7 @@ const AddButton = ({ background, color, onClick, border }) => {
   return (
     <AddButtonWrap>
       <button
-        style={{
-          background: background,
-          color: color,
-          border: border,
-        }}
-        onClick={onClick}
+        onClick={() => history.push('/create')}
         onMouseEnter={hovered}
         onMouseLeave={unhovered}
       >
@@ -80,4 +77,4 @@ const AddButton = ({ background, color, onClick, border }) => {
   );
 };
 
-export default AddButton;
+export default withRouter(AddButton);
