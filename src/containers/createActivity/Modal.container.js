@@ -1,32 +1,26 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setVisible } from '../../store/modules/modal';
+import { withRouter } from 'react-router-dom';
 import Modal from '../../components/createActivity/Modal';
-import { createActivity } from '../../lib/api/activity';
 
-const ModalContainer = () => {
+const ModalContainer = ({ history }) => {
   const dispatch = useDispatch();
   const saveVisible = data => dispatch(setVisible(data));
 
   const isVisible = useSelector(state => state.modal.isVisible);
-  const activity = useSelector(state => state.activity);
 
-  const toggleVisible = () => {
+  const nextTime = () => {
     saveVisible(!isVisible);
-  };
-  const onClickSave = async event => {
-    saveVisible(!isVisible);
-    // console.log(activity);
-    await createActivity(activity);
+    history.push(`/`);
   };
 
-  return (
-    <Modal
-      toggleVisible={toggleVisible}
-      visible={isVisible}
-      onClickSave={onClickSave}
-    />
-  );
+  const goCard = () => {
+    saveVisible(!isVisible);
+    history.push(`/steps/0`);
+  };
+
+  return <Modal nextTime={nextTime} visible={isVisible} goCard={goCard} />;
 };
 
-export default ModalContainer;
+export default withRouter(ModalContainer);

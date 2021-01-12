@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setStatus, setFilterOpen } from '../../store/modules/filter';
 import { setActivities } from '../../store/modules/activities';
 import Header from '../../components/filterActivities/Header';
-import { getLikeActivity, getActivities } from '../../lib/api/activity';
+import {
+  getLikeActivity,
+  getActivities,
+  getWritingActivity,
+} from '../../lib/api/activity';
 
 const HeaderContainer = () => {
   const dispatch = useDispatch();
@@ -26,6 +30,9 @@ const HeaderContainer = () => {
         saveActivities(data);
       } else if (status === 'all') {
         const data = await getActivities();
+        saveActivities(data);
+      } else if (status === 'writing') {
+        const data = await getWritingActivity();
         saveActivities(data);
       }
     })();
