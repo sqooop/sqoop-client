@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import CardImg from '../../assets/images/CardImg.svg';
+import noImage from '../../assets/images/noImage.svg';
 
 const CardItem = props => {
   const { card } = props;
@@ -9,15 +9,30 @@ const CardItem = props => {
   console.log('id', card);
   return (
     <CardTemplateBlock>
-      <ImageTemplate>
-        <ImageContainer>
+      {card.imageUrl ? (
+        <ImageTemplate>
+          <img
+            src={card.imageUrl}
+            style={{ width: 'inherit', height: 'inherit' }}
+            alt=""
+          />
+        </ImageTemplate>
+      ) : (
+        <ImageTemplate>
+          <img
+            src={noImage}
+            style={{ width: 'inherit', height: 'inherit' }}
+            alt=""
+          />
+        </ImageTemplate>
+      )}
+      {/*      <Img>
           <img
             src={card.imageUrl}
             style={({ width: '343px' }, { height: '195px' })}
             alt=""
           ></img>
-        </ImageContainer>
-      </ImageTemplate>
+        </Img> */}
       <TitleTemplate>{card.title}</TitleTemplate>
       <DateTemplate>
         {card.startDate}~{card.endDate}
@@ -32,14 +47,9 @@ const CardTemplateBlock = styled.div`
   height: 349px;
   display: inline;
 `;
-const ImageContainer = styled.div`
-  width: 343px;
-  height: 195px;
-`;
 const ImageTemplate = styled.div`
   width: 343px;
   height: 195px;
-  background: pink;
   margin: 8px 8px;
 `;
 const TitleTemplate = styled.div`
@@ -62,9 +72,4 @@ const HashTagTemplate = styled.div`
   background: white;
   margin: 8px 8px;
 `;
-
-CardItem.defaultProps = {
-  imageUrl: CardImg,
-};
-
 export default CardItem;
