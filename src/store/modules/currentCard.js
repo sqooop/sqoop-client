@@ -3,6 +3,7 @@ const SET_NOT_SAVED = 'CURRENT_CARD/SET_NOT_SAVED';
 const SET_TEXT_VALUE = 'CURRENT_CARD/SET_TEXT_VALUE';
 const SET_TEXT_LIMIT = 'CURRENT_CARD/SET_TEXT_LIMIT';
 const SET_MODAL_ACTIVE = 'CURRENT_CARD/SET_MODAL_ACTIVE';
+const SET_CLASS_NAME = 'CURRENT_CARD/SET_CLASS_NAME';
 
 export const setSaved = data => ({
   type: SET_SAVED,
@@ -24,6 +25,10 @@ export const setModalActive = data => ({
   type: SET_MODAL_ACTIVE,
   data,
 });
+export const setClassName = string => ({
+  type: SET_CLASS_NAME,
+  string,
+});
 
 const initialState = {
   saved: false,
@@ -31,6 +36,7 @@ const initialState = {
   textValue: '',
   textLimit: 0,
   modalActive: false,
+  className: 'card',
 };
 
 export default function reducer(state = initialState, action) {
@@ -59,6 +65,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         modalActive: action.data,
+      };
+    case SET_CLASS_NAME:
+      return {
+        ...state,
+        className: action.string,
       };
     default:
       return state;

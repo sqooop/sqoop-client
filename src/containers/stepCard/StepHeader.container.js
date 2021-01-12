@@ -1,16 +1,19 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import StepHeader from '../../components/stepCard/StepHeader';
-import { setModalActive } from '../../store/modules/currentCard';
+import { setModalActive, setClassName } from '../../store/modules/currentCard';
+import { setPrevIndex } from '../../store/modules/cardIndex';
 
 const StepHeaderContainer = () => {
   const userCardInfo = useSelector(state => state.userCardInfo);
-  const notSaved = useSelector(state => state.currentCard.notSaved);
-  const modalActive = useSelector(state => state.currentCard.modalActive);
+  const currentCard = useSelector(state => state.currentCard);
+  const { notSaved, modalActive } = currentCard;
   const { title, answers } = userCardInfo;
 
   const dispatch = useDispatch();
   const saveModalActive = data => dispatch(setModalActive(data));
+  const savePrevIndex = idx => dispatch(setPrevIndex(idx));
+  const saveClassName = string => dispatch(setClassName(string));
 
   return (
     <StepHeader
@@ -19,6 +22,8 @@ const StepHeaderContainer = () => {
       notSaved={notSaved}
       modalActive={modalActive}
       saveModalActive={saveModalActive}
+      savePrevIndex={savePrevIndex}
+      saveClassName={saveClassName}
     />
   );
 };
