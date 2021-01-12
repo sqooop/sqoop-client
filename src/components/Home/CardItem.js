@@ -1,32 +1,26 @@
-import { React, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import CardImg from '../../assets/images/CardImg.svg';
-import { getCardAPI } from '../../lib/api/home/cardAPI';
-import { useSelector } from 'react-redux';
 
-//imgUrl, title, startDate, endDate, hashtag
-const CardItem = ({ match }) => {
-  useEffect(() => {
-    (async () => {
-      const data = await getCardAPI();
-      console.log('aaaaaaa', data);
-    })();
-  });
-  const CardData = {
-    imgUrl: CardImg,
-    title: '홍익대 2019 졸업 전시 참여',
-    startDate: '2020. 10. 03',
-    endDate: '2021. 10. 10',
-  };
+const CardItem = props => {
+  const { card } = props;
+  /*   const year = useSelector(state => state.home.year);
+  const month = useSelector(state => state.home.month); */
+  console.log('id', card);
   return (
     <CardTemplateBlock>
       <ImageTemplate>
-        <img src={CardData.imgUrl} alt="cardImage"></img>
+        <ImageContainer>
+          <img
+            src={card.imageUrl}
+            style={({ width: '343px' }, { height: '195px' })}
+            alt=""
+          ></img>
+        </ImageContainer>
       </ImageTemplate>
-      <TitleTemplate>{CardData.title}</TitleTemplate>
+      <TitleTemplate>{card.title}</TitleTemplate>
       <DateTemplate>
-        {CardData.startDate}~{CardData.endDate}
-        {/*new Date().toLocateDateString()*/}
+        {card.startDate}~{card.endDate}
       </DateTemplate>
       <HashTagTemplate />
     </CardTemplateBlock>
@@ -37,6 +31,10 @@ const CardTemplateBlock = styled.div`
   width: 359px;
   height: 349px;
   display: inline;
+`;
+const ImageContainer = styled.div`
+  width: 343px;
+  height: 195px;
 `;
 const ImageTemplate = styled.div`
   width: 343px;
@@ -64,5 +62,9 @@ const HashTagTemplate = styled.div`
   background: white;
   margin: 8px 8px;
 `;
+
+CardItem.defaultProps = {
+  imageUrl: CardImg,
+};
 
 export default CardItem;
