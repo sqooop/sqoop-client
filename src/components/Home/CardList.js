@@ -5,7 +5,12 @@ import { useSelector } from 'react-redux';
 //imgUrl, title, startDate, endDate, hashtag
 const CardList = () => {
   const cards = useSelector(state => state.home.cards);
-  console.log('cardsssss', cards);
+  /*   const year = useSelector(state => state.home.year);
+  const monthArr = useSelector(state => state.month.month);
+  useEffect(()=>{
+
+  })
+  console.log('cardsssss', cards); */
   return (
     <CardListBlock>
       {/* 배열의 길이 만큼 CardItem*/}
