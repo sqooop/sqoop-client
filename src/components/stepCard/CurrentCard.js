@@ -53,6 +53,22 @@ const CurrentCardWrap = Styled.div`
     }
   }
 
+  .rightToLeft {
+    animation-name: right-to-left;
+    animation-duration: 1s;
+  }
+
+  @keyframes right-to-left {
+    from {
+      transform: translateX(278px) scale(0.743, 0.716);
+      /* transform: ${props =>
+        props.display === 'none' ? `scale(0.7)` : `scale(1,1)`}; */
+    }
+    to {
+      transform: translateX(0px) scale(1, 1);
+    }
+  }
+
   textarea:focus {
     outline: none;
   }
@@ -129,7 +145,7 @@ const CurrentCard = ({
 
   return (
     <CurrentCardWrap>
-      <div className="card">
+      <div className="card rightToLeft">
         <div className="card--question">
           <span className="card--question__number">
             sqoop {index + 1}.<br />

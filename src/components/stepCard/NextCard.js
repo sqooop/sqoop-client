@@ -47,12 +47,26 @@ const NextCardWrap = Styled.div`
       }
     }
   }
+
+  .rightToLeft {
+    animation-name: right-to-left;
+    animation-duration: 1s;
+  }
+
+  @keyframes right-to-left {
+    from {
+      transform: translateX(278px);
+    }
+    to {
+      transform: translateX(0px);
+    }
+  }
 `;
 
 const NextCard = ({ questions, index }) => {
   return (
     <NextCardWrap>
-      <div className="card">
+      <div className="card rightToLeft">
         <div className="card--question">
           <span className="card--question__number">
             sqoop {index + 1}.<br />
