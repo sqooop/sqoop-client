@@ -1,5 +1,6 @@
 // 리덕스 적용완료
-import React from 'react';
+import { React, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import LockedIcon from '../../assets/icons/LockedIcon.svg';
 import Styled from 'styled-components';
 
@@ -47,12 +48,75 @@ const NextCardWrap = Styled.div`
       }
     }
   }
+
+  .rightToLeft {
+    animation-name: right;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+  }
+
+  .shrinkLeft {
+    animation-name: shrinkLeft;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+  }
+
+  .leftToRight {
+    animation-name: left;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+  }
+  
+  @keyframes right {
+    from {
+      transform: translateX(278px);
+    } to {
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes left {
+    from {
+      transform: translateX(-278px);
+    } to {
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes shrinkLeft {
+    from {
+      transform: translateX(-278px) scaleX(1.346) scaleY(1.397);
+      transform-origin: top;
+    } to {
+      transform: translateX(0px) scaleX(1) scaleY(1);
+      transform-origin: top;
+    }
+  }
 `;
 
-const NextCard = ({ questions, index }) => {
+const NextCard = ({
+  questions,
+  index,
+  prevIndex,
+  className,
+  saveClassName,
+  match,
+}) => {
+  const currentIndex = parseInt(match.params.id);
+
+  useEffect(() => {
+    if (currentIndex > prevIndex) {
+      saveClassName('card rightToLeft');
+    } else if (currentIndex < prevIndex) {
+      saveClassName('card leftToRight');
+    } else {
+      saveClassName('card');
+    }
+  }, [index]);
+
   return (
     <NextCardWrap>
-      <div className="card">
+      <div className={className}>
         <div className="card--question">
           <span className="card--question__number">
             sqoop {index + 1}.<br />
@@ -74,4 +138,4 @@ const NextCard = ({ questions, index }) => {
   );
 };
 
-export default NextCard;
+export default withRouter(NextCard);

@@ -1,26 +1,31 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import { React, useState, useEffect } from 'react';
+import getUserEdit from '../../../lib/api/activityOne/user';
 import styled from 'styled-components';
 
-const ActivityOneUserData = props => {
-  const { text, onChangeInputs } = props;
-  const state = useSelector(state => state.userCardInfo.questions);
+const UserData = () => {
+  const [data, setData] = useState('');
+
+  useEffect(() => {
+    (async () => {
+      const userData = await getUserEdit(49);
+      setData(userData);
+    })();
+  }, []);
 
   return (
     <StyledUserData className="UserData">
-      {state.map((data, index) => (
-        <>
-          <StyledQuestionData key={index - 1}>
-            {index + 1}. {data}
-          </StyledQuestionData>
-          <StyledAnswerData
-            className="AnswerData"
-            key={index}
-            value={text}
-            onChange={onChangeInputs}
-          />
-        </>
-      ))}
+      {data ? (
+        data.map((item, index) => (
+          <>
+            <StyledQuestionData key={index - 1}>
+              {index + 1}. {item.question}
+            </StyledQuestionData>
+            <StyledAnswerData key={index + 1}>{item.content}</StyledAnswerData>
+          </>
+        ))
+      ) : (
+        <></>
+      )}
     </StyledUserData>
   );
 };
@@ -30,7 +35,7 @@ const StyledUserData = styled.div`
   width: 41.6vw;
   height: 39.1vw;
   overflow-y: scroll;
-  margin-top: 1.6vw;
+  margin-top: 2.5vw;
 
   ::-webkit-scrollbar {
     width: 0px;
@@ -53,7 +58,7 @@ const StyledQuestionData = styled.div`
   line-height: 150%;
 `;
 
-const StyledAnswerData = styled.input`
+const StyledAnswerData = styled.div`
   width: 39.1vw;
   height: auto;
   margin-bottom: 2.7vw;
@@ -63,10 +68,6 @@ const StyledAnswerData = styled.input`
   line-height: 150%;
   border: none;
   outline: none;
-
-  :hover {
-    background-color: #eeeeee;
-  }
 `;
 
-export default ActivityOneUserData;
+export default UserData;

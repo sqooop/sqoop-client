@@ -1,7 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setVisible } from '../../store/modules/modal';
+import { setID } from '../../store/modules/userCardInfo';
 import Button from '../../components/createActivity/Button';
+import { createActivity } from '../../lib/api/activity';
 
 const ButtonContainer = () => {
   const dispatch = useDispatch();
@@ -10,10 +12,13 @@ const ButtonContainer = () => {
   const { title, jobTag, skillTag, endDate, startDate } = activity;
 
   const saveVisible = data => dispatch(setVisible(data));
+  const saveID = data => dispatch(setID(data));
   const isVisible = useSelector(state => state.modal.isVisible);
 
-  const toggleVisible = () => {
+  const onClick = async () => {
     saveVisible(!isVisible);
+    const id = await createActivity(activity);
+    saveID(id);
   };
 
   return (
@@ -23,11 +28,7 @@ const ButtonContainer = () => {
       startDate &&
       skillTag.length > 0 &&
       jobTag.length > 0 ? (
-        <Button
-          backgroundColor="#195BFF"
-          onClick={toggleVisible}
-          isAble={true}
-        />
+        <Button backgroundColor="#195BFF" onClick={onClick} isAble={true} />
       ) : (
         <Button
           backgroundColor="#A5A5A5"

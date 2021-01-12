@@ -62,7 +62,7 @@ const ModalButtonWrap = styled.div`
 `;
 
 const Modal = props => {
-  const { visible, toggleVisible, onClickSave } = props;
+  const { visible, nextTime, goCard } = props;
   return (
     <>
       <ModalBackgorundWrap visible={visible}></ModalBackgorundWrap>
@@ -75,10 +75,10 @@ const Modal = props => {
           </span>
         </ModalTtile>
         <ModalButtonWrap>
-          <ModalButton style={{ color: '#a5a5a5' }} onClick={toggleVisible}>
+          <ModalButton style={{ color: '#a5a5a5' }} onClick={nextTime}>
             다음에 할래요
           </ModalButton>
-          <ModalButton style={{ color: '#195BFF' }} onClick={onClickSave}>
+          <ModalButton style={{ color: '#195BFF' }} onClick={goCard}>
             네
           </ModalButton>
         </ModalButtonWrap>

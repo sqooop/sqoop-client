@@ -32,6 +32,24 @@ const LastCardWrap = Styled.div`
       margin: 48px 0px;
     }
   }
+
+  .rightToLeft {
+    animation-name: rightGrow;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes rightGrow {
+    from {
+      opacity: 0.5;
+      transform-origin: top;
+      -webkit-transform: translateZ(0) translateX(278px) scaleX(0.743) scaleY(0.716);
+    } to {
+      opacity: 1;
+      transform-origin: top;
+      -webkit-transform: translateZ(0) translateX(0px) scaleX(1) scaleY(1);
+    }
+  }
 `;
 
 const LastCard = ({ history }) => {
@@ -65,7 +83,7 @@ const LastCard = ({ history }) => {
 
   return (
     <LastCardWrap>
-      <div className="card">
+      <div className="card rightToLeft">
         <div className="card--title">어느새 맛있는 경험 완성!</div>
         <div className="card--guide">
           작성한 내용을 한 번에 확인·수정해 보아요.

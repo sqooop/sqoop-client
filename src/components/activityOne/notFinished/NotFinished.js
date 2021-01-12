@@ -5,19 +5,18 @@ import ActivityReviewButton from '../global/ActivityReviewButton';
 
 const NotFinished = () => {
   return (
-    <StyledNotFinished>
-      <div style={{ display: 'block' }}>
-        <NotFinishedIcon />
-        <ActivityReviewButton />
-      </div>
-    </StyledNotFinished>
+    <StyledIcon>
+      <NotFinishedIcon style={{ width: '21.3vw', height: '12.9vw' }} />
+      <ActivityReviewButton />
+    </StyledIcon>
   );
 };
 
-const StyledNotFinished = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const StyledIcon = styled.div`
+  display: block;
+  text-align: center;
+  margin-top: 7vw;
+  width: 41.6vw;
 `;
 
 export default NotFinished;

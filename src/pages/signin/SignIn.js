@@ -77,6 +77,8 @@ function LoginWrap() {
       alert('Email&Password를 입력해 주세요.');
     }
   };
+
+  return <div></div>;
 }
 
 export default LoginWrap;
