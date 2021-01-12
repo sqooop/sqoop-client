@@ -1,18 +1,18 @@
 import React from 'react';
 import Title from '../default/Title';
 import BasicData from '../default/BasicData';
-import NotStarting from './NotStarting';
+import UserData from './UserData';
 
-const NotStartingWrap = () => {
+const DefaultWrap = () => {
   return (
     <>
       <Title />
       <div style={{ display: 'flex' }}>
         <BasicData />
-        <NotStarting />
+        <UserData />
       </div>
     </>
   );
 };
 
-export default NotStartingWrap;
+export default DefaultWrap;

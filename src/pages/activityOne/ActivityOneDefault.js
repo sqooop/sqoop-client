@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import NotStarting from '../../components/activityOne/notStarting/NotStartingWrap';
+import DefaultWrap from '../../components/activityOne/default/DefaultWrap';
 
 const ActivityOneDefault = () => {
   return (
     <StyledActivityOneWrap>
-      <NotStarting />
+      <DefaultWrap />
     </StyledActivityOneWrap>
   );
 };

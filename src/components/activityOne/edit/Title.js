@@ -11,7 +11,7 @@ const ActivityOneTitle = ({ userData }) => {
   // userFlag로 userData의 여부를 확인해 버튼을 보여주거나 보여주지 않음
   return (
     <StyledActivityOneTitle>
-      <span>라오스 봉사 활동</span>
+      <input></input>
       <div style={{ display: 'flex' }}>
         {userFlag ? (
           <>
@@ -32,10 +32,16 @@ const StyledActivityOneTitle = styled.div`
   font-weight: bold !important;
   margin-top: 2.5vw;
 
-  & > span {
+  & > input {
     font-size: 2.5vw;
     font-weight: 700;
     line-height: 4.8rem;
+    border-style: none;
+    width: 63.8vw;
+
+    :focus {
+      outline: none;
+    }
   }
 `;
 
