@@ -1,12 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import noImage from '../../assets/images/noImage.svg';
-
+import HashTag from './HashTag';
 const CardItem = props => {
   const { card } = props;
-  /*   const year = useSelector(state => state.home.year);
-  const month = useSelector(state => state.home.month); */
-  console.log('id', card);
+  const startyear = card.startDate.substring(0, 4);
+  const startmonth = card.startDate.substring(4, 6);
+  const startday = card.startDate.substring(6, 8);
+  const endyear = card.endDate.substring(0, 4);
+  const endmonth = card.endDate.substring(4, 6);
+  const endday = card.endDate.substring(6, 8);
+  const jobtags = card.jobTag;
+  const skilltags = card.skillTag;
   return (
     <CardTemplateBlock>
       {card.imageUrl ? (
@@ -26,23 +31,24 @@ const CardItem = props => {
           />
         </ImageTemplate>
       )}
-      {/*      <Img>
-          <img
-            src={card.imageUrl}
-            style={({ width: '343px' }, { height: '195px' })}
-            alt=""
-          ></img>
-        </Img> */}
       <TitleTemplate>{card.title}</TitleTemplate>
       <DateTemplate>
-        {card.startDate}~{card.endDate}
+        {startyear}. {startmonth}. {startday} ~ {endyear}. {endmonth}. {endday}
       </DateTemplate>
-      <HashTagTemplate />
+      <JobTagTemplate>
+        {jobtags?.map((data, index) => (
+          <HashTag key={index} tag={data}></HashTag>
+        ))}
+      </JobTagTemplate>
+      <SkillTagTemplate>
+        {skilltags?.map((data, index) => (
+          <HashTag key={index} tag={data}></HashTag>
+        ))}
+      </SkillTagTemplate>
     </CardTemplateBlock>
   );
 };
 const CardTemplateBlock = styled.div`
-  background: white;
   width: 359px;
   height: 349px;
   display: inline;
@@ -55,7 +61,6 @@ const ImageTemplate = styled.div`
 const TitleTemplate = styled.div`
   width: 343px;
   height: 38px;
-  background: white;
   margin: 8px 8px;
   font-size: 24px;
   font-weight: bold !important;
@@ -63,13 +68,16 @@ const TitleTemplate = styled.div`
 const DateTemplate = styled.div`
   width: 343px;
   height: 20px;
-  background: white;
   margin: 8px 8px;
 `;
-const HashTagTemplate = styled.div`
+const JobTagTemplate = styled.div`
   width: 343px;
-  height: 55px;
-  background: white;
-  margin: 8px 8px;
+  height: 28px;
+  margin: 4px 8px;
+`;
+const SkillTagTemplate = styled.div`
+  width: 343px;
+  height: 28px;
+  margin: 4px 8px;
 `;
 export default CardItem;
