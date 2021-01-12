@@ -19,7 +19,7 @@ const MonthScroll = () => {
   const monthArr = useSelector(state => state.month.month);
   const dataSet = new Map();
   const monthMap = new Map();
-  console.log('saveMonth', saveMonth.data);
+
   useEffect(() => {
     (async () => {
       const data = await getMonthAPI();
