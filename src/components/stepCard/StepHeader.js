@@ -52,6 +52,8 @@ const StepHeader = ({
   notSaved,
   modalActive,
   saveModalActive,
+  savePrevIndex,
+  saveClassName,
   history,
   match,
 }) => {
@@ -77,6 +79,8 @@ const StepHeader = ({
     } else {
       event.stopPropagation();
       if (answers[index - 1]) {
+        saveClassName('');
+        savePrevIndex(index);
         history.push(`/steps/${index - 1}`);
       }
     }
@@ -87,6 +91,8 @@ const StepHeader = ({
     } else {
       event.stopPropagation();
       if (answers[index]) {
+        saveClassName('');
+        savePrevIndex(index);
         history.push(`/steps/${index + 1}`);
       }
     }

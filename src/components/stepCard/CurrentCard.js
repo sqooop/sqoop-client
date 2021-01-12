@@ -54,18 +54,38 @@ const CurrentCardWrap = Styled.div`
   }
 
   .rightToLeft {
-    animation-name: right-to-left;
-    animation-duration: 1s;
+    animation-name: rightGrow;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+  }
+  
+  .leftToRight {
+    animation-name: leftGrow;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+  }
+  
+  @keyframes rightGrow {
+    from {
+      opacity: 0.5;
+      transform-origin: top;
+      transform: translateX(278px) scaleX(0.743) scaleY(0.716);
+    } to {
+      opacity: 1;
+      transform-origin: top;
+      transform: translateX(0px) scaleX(1) scaleY(1);
+    }
   }
 
-  @keyframes right-to-left {
+  @keyframes leftGrow {
     from {
-      transform: translateX(278px) scale(0.743, 0.716);
-      /* transform: ${props =>
-        props.display === 'none' ? `scale(0.7)` : `scale(1,1)`}; */
-    }
-    to {
-      transform: translateX(0px) scale(1, 1);
+      opacity: 0.5;
+      transform-origin: top;
+      transform: translateX(-278px) scaleX(0.743) scaleY(0.716);
+    } to {
+      opacity: 1;
+      transform-origin: top;
+      transform: translateX(0px) scaleX(1) scaleY(1);
     }
   }
 
@@ -80,6 +100,7 @@ const CurrentCardWrap = Styled.div`
 
 const CurrentCard = ({
   index,
+  prevIndex,
   question,
   answer,
   textValue,
@@ -90,12 +111,22 @@ const CurrentCard = ({
   textLimit,
   saveTextLimit,
   guide,
+  className,
+  saveClassName,
   onClickFunc,
 }) => {
   useEffect(() => {
     saveTextValue(answer);
     saveNotSaved(false);
     saveTextLimit(answer.length);
+
+    if (index > prevIndex) {
+      saveClassName('card rightToLeft');
+    } else if (index < prevIndex) {
+      saveClassName('card leftToRight');
+    } else {
+      saveClassName('card');
+    }
   }, [answer]);
 
   const onChangeFunc = event => {
@@ -145,7 +176,7 @@ const CurrentCard = ({
 
   return (
     <CurrentCardWrap>
-      <div className="card rightToLeft">
+      <div className={className}>
         <div className="card--question">
           <span className="card--question__number">
             sqoop {index + 1}.<br />

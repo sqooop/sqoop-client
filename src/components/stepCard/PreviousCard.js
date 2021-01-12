@@ -1,5 +1,5 @@
 // 리덕스 적용완료
-import React from 'react';
+import { React, useEffect } from 'react';
 import ModifyIconOff from '../../assets/icons/ModifyIconOff.svg';
 import ModifyIconOn from '../../assets/icons/ModifyIconOn.svg';
 import { withRouter } from 'react-router-dom';
@@ -72,17 +72,78 @@ const PreviousCardWrap = Styled.div`
       font-size: 16px;
     }
   }
+
+  .rightToLeft {
+    animation-name: right;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+  }
+
+  .shrinkRight {
+    animation-name: shrinkRight;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+  }
+  
+  .leftToRight {
+    animation-name: left;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+  }
+  
+  @keyframes right {
+    from {
+      transform: translateX(278px);
+    } to {
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes shrinkRight {
+    from {
+      transform: translateX(278px) scaleX(1.346) scaleY(1.397);
+      transform-origin: top;
+    } to {
+      transform: translateX(0px) scaleX(1) scaleY(1);
+      transform-origin: top;
+    }
+  }
+
+  @keyframes left {
+    from {
+      transform: translateX(-278px);
+    } to {
+      transform: translateX(0px);
+    }
+  }
 `;
 
 const PreviousCard = ({
   index,
+  prevIndex,
   question,
   answer,
   notSaved,
   modalActive,
   saveModalActive,
+  savePrevIndex,
+  className,
+  saveClassName,
   history,
+  match,
 }) => {
+  const currentIndex = parseInt(match.params.id);
+
+  useEffect(() => {
+    if (currentIndex > prevIndex) {
+      saveClassName('card rightToLeft');
+    } else if (currentIndex < prevIndex) {
+      saveClassName('card leftToRight');
+    } else {
+      saveClassName('card');
+    }
+  }, [index]);
+
   const hovered = event => {
     let card = event.target;
     while (card.className !== 'card') {
@@ -133,62 +194,66 @@ const PreviousCard = ({
       while (card.className !== 'card') {
         card = card.parentNode;
       }
+      savePrevIndex(match.params.id);
+      saveClassName('');
       history.push(`/steps/${card.id}`);
     }
   };
 
   return (
     <PreviousCardWrap>
-      <div
-        className="card"
-        id={index}
-        onMouseEnter={hovered}
-        onMouseLeave={unhovered}
-        onClick={onClickFunc}
-      >
+      <div className={className}>
         <div
-          className="card--question"
+          className="card"
+          id={index}
           onMouseEnter={hovered}
           onMouseLeave={unhovered}
           onClick={onClickFunc}
         >
-          <span className="card--question__number">
-            sqoop {index + 1}.<br />
-          </span>
-          {(index === 3 || index === 9) && (
-            <span className="card--question__long">{question}</span>
-          )}
-          {index === 3 || index === 9 || (
-            <span className="card--question__short">{question}</span>
-          )}
-        </div>
-        <hr className="card--hr" />
-        <div
-          className="card--text"
-          onMouseEnter={hovered}
-          onMouseLeave={unhovered}
-          onClick={onClickFunc}
-        >
-          {answer}
-        </div>
-        <div
-          className="card--modify"
-          onMouseEnter={hovered}
-          onMouseLeave={unhovered}
-          onClick={onClickFunc}
-        >
-          <img
-            className="card--modify__icon"
-            src={ModifyIconOff}
-            alt=""
+          <div
+            className="card--question"
             onMouseEnter={hovered}
             onMouseLeave={unhovered}
             onClick={onClickFunc}
-          />
-          스쿱 수정
+          >
+            <span className="card--question__number">
+              sqoop {index + 1}.<br />
+            </span>
+            {(index === 3 || index === 9) && (
+              <span className="card--question__long">{question}</span>
+            )}
+            {index === 3 || index === 9 || (
+              <span className="card--question__short">{question}</span>
+            )}
+          </div>
+          <hr className="card--hr" />
+          <div
+            className="card--text"
+            onMouseEnter={hovered}
+            onMouseLeave={unhovered}
+            onClick={onClickFunc}
+          >
+            {answer}
+          </div>
+          <div
+            className="card--modify"
+            onMouseEnter={hovered}
+            onMouseLeave={unhovered}
+            onClick={onClickFunc}
+          >
+            <img
+              className="card--modify__icon"
+              src={ModifyIconOff}
+              alt=""
+              onMouseEnter={hovered}
+              onMouseLeave={unhovered}
+              onClick={onClickFunc}
+            />
+            스쿱 수정
+          </div>
         </div>
+        {modalActive && <SaveModal setModalActive={saveModalActive} />}
       </div>
-      {modalActive && <SaveModal setModalActive={saveModalActive} />}
     </PreviousCardWrap>
   );
 };
