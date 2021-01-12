@@ -6,13 +6,13 @@ const ActivityOneUserData = props => {
   const { text, onChangeInputs } = props;
   const state = useSelector(state => state.userCardInfo.questions);
 
-  console.log([state].1);
-
   return (
     <StyledUserData className="UserData">
       {state.map((data, index) => (
         <>
-          <StyledQuestionData key={index - 1}>{data.index}</StyledQuestionData>
+          <StyledQuestionData key={index - 1}>
+            {index + 1}. {data}
+          </StyledQuestionData>
           <StyledAnswerData
             className="AnswerData"
             key={index}

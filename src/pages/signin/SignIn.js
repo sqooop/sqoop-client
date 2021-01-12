@@ -78,9 +78,7 @@ function LoginWrap() {
     }
   };
 
-  return (
-    
-  );
+  return <div></div>;
 }
 
 export default LoginWrap;
