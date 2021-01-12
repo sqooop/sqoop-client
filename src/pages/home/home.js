@@ -8,6 +8,7 @@ import Year from '../../components/home/Year';
 import MonthScroll from '../../components/home/MonthScroll';
 import Line from '../../components/home/Line';
 import CardList from '../../components/home/CardList';
+//import CardItemContainer from '../../containers/home/CardList.container';
 
 const ScrollWrapper = styled.div`
   display: flex;
@@ -36,12 +37,25 @@ const MonthWrapper = styled.div`
   display: flex;
 `;
 
+const GreetingWrap = styled.div`
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+
+  .empty {
+    flex: 1 1 auto;
+  }
+`;
+
 const Home = () => {
   return (
     <div>
-      <Greeting username={'현지'}></Greeting>
-      <Question />
-      <AddButton />
+      <GreetingWrap>
+        <Greeting />
+        <Question />
+        <div className="empty" />
+        <AddButton />
+      </GreetingWrap>
       <ActivityTemplate>
         <Year />
         <MonthWrapper>

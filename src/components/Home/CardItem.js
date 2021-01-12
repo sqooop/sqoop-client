@@ -1,9 +1,17 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import styled from 'styled-components';
 import CardImg from '../../assets/images/CardImg.svg';
+import { getCardAPI } from '../../lib/api/home/cardAPI';
+import { useSelector } from 'react-redux';
 
 //imgUrl, title, startDate, endDate, hashtag
 const CardItem = ({ match }) => {
+  useEffect(() => {
+    (async () => {
+      const data = await getCardAPI();
+      console.log('aaaaaaa', data);
+    })();
+  });
   const CardData = {
     imgUrl: CardImg,
     title: '홍익대 2019 졸업 전시 참여',

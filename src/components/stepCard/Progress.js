@@ -1,5 +1,6 @@
 // 리덕스 적용시 에러
 import { React, useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import AniEmpty from '../../assets/icons/AniEmpty.svg';
 import AniBall from '../../assets/icons/AniBall.svg';
 import TextBox from '../../assets/icons/TextBox.svg';
@@ -135,7 +136,7 @@ const ProgressWrap = Styled.div`
   }
 `;
 
-const Progress = ({ answers }) => {
+const Progress = ({ answers, saveCompleteIndex, match }) => {
   const textList = {
     2: '경험을 한 스쿱씩 꺼내보자!',
     4: '이번 스쿱은 무슨 맛일까?',
@@ -154,6 +155,10 @@ const Progress = ({ answers }) => {
     setWrittenIndex(idx);
     writtenIndex in textList ? setAniIndex(true) : setAniIndex(false);
   });
+
+  useEffect(() => {
+    saveCompleteIndex(writtenIndex);
+  }, [writtenIndex]);
 
   const chunk = textList[writtenIndex];
   const percent = writtenIndex * 10 + '%';
@@ -261,4 +266,4 @@ const Progress = ({ answers }) => {
   );
 };
 
-export default Progress;
+export default withRouter(Progress);
