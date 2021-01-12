@@ -6,6 +6,8 @@ import {
   setJob,
   setDate,
 } from '../../store/modules/filter';
+import { setActivities } from '../../store/modules/activities';
+import { getFilterActivity } from '../../lib/api/activity';
 import Button from '../../components/filterActivities/Button';
 
 const ButtonContainer = () => {
@@ -17,10 +19,16 @@ const ButtonContainer = () => {
   const saveSkill = data => dispatch(setSkill(data));
   const saveJob = data => dispatch(setJob(data));
   const saveDate = data => dispatch(setDate(data));
-
-  const onClick = () => {
+  const saveActivities = data => dispatch(setActivities(data));
+  const onClick = async () => {
     saveFilterOpen(!isOpen);
-    // 여기에서 서버통신!!
+    const data = await getFilterActivity({
+      jobTag,
+      skillTag,
+      endDate,
+      startDate,
+    });
+    saveActivities(data);
     saveSkill([]);
     saveJob([]);
     saveDate(['', '']);

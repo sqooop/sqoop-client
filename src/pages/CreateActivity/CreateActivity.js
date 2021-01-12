@@ -1,5 +1,6 @@
 import { React } from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 import Title from '../../containers/createActivity/Title.container';
 import Button from '../../containers/createActivity/Button.container';
 import DateSelector from '../../containers/createActivity/DateSelector.container';
@@ -70,4 +71,4 @@ const CreateActivity = () => {
   );
 };
 
-export default CreateActivity;
+export default withRouter(CreateActivity);
