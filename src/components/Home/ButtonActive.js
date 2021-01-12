@@ -21,9 +21,9 @@ const ButtonActiveWrap = Styled.div`
 const ButtonActive = ({ index, month, onClickFunc }) => {
   return (
     <ButtonActiveWrap>
-      <button key={index} onClick={onClickFunc}>
-        {month}
-      </button>
+      <div key={index} onClick={onClickFunc}>
+        {month}월
+      </div>
     </ButtonActiveWrap>
   );
 };

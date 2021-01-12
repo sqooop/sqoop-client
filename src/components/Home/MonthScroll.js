@@ -19,6 +19,7 @@ const MonthScroll = () => {
   const monthArr = useSelector(state => state.month.month);
   const dataSet = new Map();
   const monthMap = new Map();
+  console.log('saveMonth', saveMonth.data);
   useEffect(() => {
     (async () => {
       const data = await getMonthAPI();
@@ -37,18 +38,18 @@ const MonthScroll = () => {
 
   return (
     <MonthScrollWrapper>
-      {monthArr?.get(1) ? <Button month={1} /> : <ButtonActive month={1} />}
-      {monthArr?.get(2) ? <Button month={2} /> : <ButtonActive month={2} />}
-      {monthArr?.get(3) ? <Button month={3} /> : <ButtonActive month={3} />}
-      {monthArr?.get(4) ? <Button month={4} /> : <ButtonActive month={4} />}
-      {monthArr?.get(5) ? <Button month={5} /> : <ButtonActive month={5} />}
-      {monthArr?.get(6) ? <Button month={6} /> : <ButtonActive month={6} />}
-      {monthArr?.get(7) ? <Button month={7} /> : <ButtonActive month={7} />}
-      {monthArr?.get(8) ? <Button month={8} /> : <ButtonActive month={8} />}
-      {monthArr?.get(9) ? <Button month={9} /> : <ButtonActive month={9} />}
-      {monthArr?.get(10) ? <Button month={10} /> : <ButtonActive month={10} />}
-      {monthArr?.get(11) ? <Button month={11} /> : <ButtonActive month={11} />}
-      {monthArr?.get(12) ? <Button month={12} /> : <ButtonActive month={12} />}
+      {monthArr?.get(1) ? <ButtonActive month={1} /> : <Button month={1} />}
+      {monthArr?.get(2) ? <ButtonActive month={2} /> : <Button month={2} />}
+      {monthArr?.get(3) ? <ButtonActive month={3} /> : <Button month={3} />}
+      {monthArr?.get(4) ? <ButtonActive month={4} /> : <Button month={4} />}
+      {monthArr?.get(5) ? <ButtonActive month={5} /> : <Button month={5} />}
+      {monthArr?.get(6) ? <ButtonActive month={6} /> : <Button month={6} />}
+      {monthArr?.get(7) ? <ButtonActive month={7} /> : <Button month={7} />}
+      {monthArr?.get(8) ? <ButtonActive month={8} /> : <Button month={8} />}
+      {monthArr?.get(9) ? <ButtonActive month={9} /> : <Button month={9} />}
+      {monthArr?.get(10) ? <ButtonActive month={10} /> : <Button month={10} />}
+      {monthArr?.get(11) ? <ButtonActive month={11} /> : <Button month={11} />}
+      {monthArr?.get(12) ? <ButtonActive month={12} /> : <Button month={12} />}
       {/* {MonthArray.map((data, index) => (
         <MonthData key={index}>{data.month}</MonthData>
       ))} */}
