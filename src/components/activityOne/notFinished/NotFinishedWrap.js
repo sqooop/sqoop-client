@@ -1,6 +1,6 @@
 import React from 'react';
 import Title from '../default/Title';
-import BasicData from '../edit/BasicData';
+import BasicData from '../default/BasicData';
 import NotFinished from './NotFinished';
 
 const NotFinishedWrap = () => {
