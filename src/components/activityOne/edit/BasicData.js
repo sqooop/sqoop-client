@@ -46,6 +46,10 @@ const StyledBasicData = styled.div``;
 const StyledContentWrap = styled.div`
   display: flex;
   margin-top: 1.2vw;
+
+  & > div:nth-child(2) {
+    margin-top: 0.1vw;
+  }
 `;
 
 export default BasicData;
