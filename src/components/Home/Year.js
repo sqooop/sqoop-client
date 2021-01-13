@@ -30,8 +30,6 @@ const Year = ({ background, border, onClick }) => {
       const monthId = year * 100 + firstMonth;
       const cardData = await getCardAPI(monthId);
       saveCards(cardData);
-      console.log('1st month', firstMonth);
-      console.log('YEAR DATA SET', dataSet.get(year));
     })();
   }, []);
   const leftHovered = event => {

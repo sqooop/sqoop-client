@@ -33,8 +33,6 @@ const MonthScroll = () => {
       }
       console.log('dataSetgetyear', dataSet.get(year));
       saveMonth(monthMap);
-      /*       const trueMap = await monthMap.filter(item => item.values !== false);
-      console.log(trueMap); */
       console.log('allmonthArray', data.allMonthArray);
       console.log('dataSet', dataSet);
       console.log('monthMap', monthMap);
@@ -55,9 +53,6 @@ const MonthScroll = () => {
       {monthArr?.get(10) ? <ButtonActive month={10} /> : <Button month={10} />}
       {monthArr?.get(11) ? <ButtonActive month={11} /> : <Button month={11} />}
       {monthArr?.get(12) ? <ButtonActive month={12} /> : <Button month={12} />}
-      {/* {MonthArray.map((data, index) => (
-        <MonthData key={index}>{data.month}</MonthData>
-      ))} */}
     </MonthScrollWrapper>
   );
 };

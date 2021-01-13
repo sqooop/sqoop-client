@@ -26,8 +26,7 @@ const ButtonActive = ({ index, month }) => {
   const saveCards = data => dispatch(setCardArray(data));
   const monthId = year * 100 + month;
   const dataSet = new Map();
-  //서버에게 보내줄 202010 형식의 날짜 값 만들어줌
-  //onClick 할시 서버에서 해당 년월의 활동 get
+
   useEffect(() => {
     (async () => {
       const data = await getMonthAPI();
@@ -44,8 +43,6 @@ const ButtonActive = ({ index, month }) => {
       const monthId = year * 100 + firstMonth;
       const cardData = await getCardAPI(monthId);
       saveCards(cardData);
-      console.log('1st month', firstMonth);
-      console.log('YEAR DATA SET', dataSet.get(year));
     })();
   }, []);
 
