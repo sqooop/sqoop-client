@@ -19,7 +19,6 @@ const MonthScroll = () => {
   const monthArr = useSelector(state => state.month.month);
   const dataSet = new Map();
   const monthMap = new Map();
-
   useEffect(() => {
     (async () => {
       const data = await getMonthAPI();
@@ -32,7 +31,13 @@ const MonthScroll = () => {
       for (let m = 1; m <= 12; m++) {
         monthMap.set(m, dataSet.get(year).has(m));
       }
+      console.log('dataSetgetyear', dataSet.get(year));
       saveMonth(monthMap);
+      /*       const trueMap = await monthMap.filter(item => item.values !== false);
+      console.log(trueMap); */
+      console.log('allmonthArray', data.allMonthArray);
+      console.log('dataSet', dataSet);
+      console.log('monthMap', monthMap);
     })();
   }, [year]);
 
