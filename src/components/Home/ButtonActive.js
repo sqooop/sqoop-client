@@ -20,12 +20,14 @@ const ButtonActiveWrap = Styled.div`
   }
 `;
 
-const ButtonActive = ({ index, month, onClickFunc }) => {
+const ButtonActive = ({ index, month }) => {
   const dispatch = useDispatch();
   // const saveMonth = data => dispatch(setMonth(data));
   const year = useSelector(state => state.home.year);
   const saveCards = data => dispatch(setCardArray(data));
   const monthId = year * 100 + month;
+  //서버에게 보내줄 202010 형식의 날짜 값 만들어줌
+  //onClick 할시 서버에서 해당 년월의 활동 get
   const onClick = async () => {
     const data = await getCardAPI(monthId);
     saveCards(data);
