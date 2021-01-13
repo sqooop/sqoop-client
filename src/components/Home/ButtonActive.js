@@ -1,8 +1,8 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import palette from '../../lib/styles/palette';
 import Styled from 'styled-components';
 import { setCardArray } from '../../store/modules/home';
-import { getCardAPI } from '../../lib/api/home/cardAPI';
+import { getCardAPI, getMonthAPI } from '../../lib/api/home/cardAPI';
 import { useDispatch, useSelector } from 'react-redux';
 const ButtonActiveWrap = Styled.div`
   margin: 0 auto;
@@ -22,12 +22,30 @@ const ButtonActiveWrap = Styled.div`
 
 const ButtonActive = ({ index, month }) => {
   const dispatch = useDispatch();
-  // const saveMonth = data => dispatch(setMonth(data));
   const year = useSelector(state => state.home.year);
   const saveCards = data => dispatch(setCardArray(data));
   const monthId = year * 100 + month;
-  //서버에게 보내줄 202010 형식의 날짜 값 만들어줌
-  //onClick 할시 서버에서 해당 년월의 활동 get
+  const dataSet = new Map();
+
+  useEffect(() => {
+    (async () => {
+      const data = await getMonthAPI();
+      const saveCards = data => dispatch(setCardArray(data));
+      for (let i = data.firstYear; i <= data.lastYear; i++) {
+        dataSet.set(i, new Set());
+      }
+      data.allMonthArray
+        .filter(item => item.length !== 0)
+        .forEach(item => dataSet.get(Math.floor(item / 100)).add(item % 100));
+      dataSet.get(year);
+      const dataSetArray = Array.from(dataSet.get(year)); // 활동이 있는 월 배열로 바꿔줌
+      const firstMonth = dataSetArray[0];
+      const monthId = year * 100 + firstMonth;
+      const cardData = await getCardAPI(monthId);
+      saveCards(cardData);
+    })();
+  }, []);
+
   const onClick = async () => {
     const data = await getCardAPI(monthId);
     saveCards(data);

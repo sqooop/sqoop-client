@@ -1,21 +1,10 @@
-import { React, useEffect } from 'react';
+import { React } from 'react';
 import styled from 'styled-components';
 import CardItem from './CardItem';
-import { useSelector, useDispatch } from 'react-redux';
-//imgUrl, title, startDate, endDate, hashtag
+import { useSelector } from 'react-redux';
+
 const CardList = () => {
-  const dispatch = useDispatch();
   const cards = useSelector(state => state.home.cards);
-  const year = useSelector(state => state.home.year);
-  const monthArr = useSelector(state => state.month.month);
-
-  /*   useEffect(() => {
-    (async () => {
-      const year = await get
-      console.log('monthArr', monthArr);
-    })();
-  }, []); */
-
   return (
     <CardListBlock>
       {/* 배열의 길이 만큼 CardItem*/}

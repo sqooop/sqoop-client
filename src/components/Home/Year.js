@@ -11,8 +11,8 @@ import { setYear } from '../../store/modules/home';
 
 const Year = ({ background, border, onClick }) => {
   const dispatch = useDispatch();
-  const saveYear = number => dispatch(setYear(number));
   const year = useSelector(state => state.home.year);
+  const saveYear = number => dispatch(setYear(number));
   const dataSet = new Map();
   useEffect(() => {
     (async () => {
@@ -30,8 +30,6 @@ const Year = ({ background, border, onClick }) => {
       const monthId = year * 100 + firstMonth;
       const cardData = await getCardAPI(monthId);
       saveCards(cardData);
-      console.log('1st month', firstMonth);
-      console.log('YEAR DATA SET', dataSet.get(year));
     })();
   }, []);
   const leftHovered = event => {
