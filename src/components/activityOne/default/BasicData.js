@@ -1,11 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import EditList from '../global/EditList';
 import Photo from './Photo';
 import getOneData from '../../../lib/api/activityOne/basic';
 import Clip from '../../../assets/icons/Clip.svg';
+import {
+  setDetailDate,
+  setDetailTitle,
+  setDetailGroup,
+  setDetailSummary,
+  setDetailJob,
+  setDetailSkill,
+  setDetailImage,
+  setDetailFile,
+} from '../../../store/modules/detail';
 
 const BasicData = () => {
+  const dispatch = useDispatch();
+  const saveDate = data => dispatch(setDetailDate(data));
+  const saveTitle = data => dispatch(setDetailTitle(data));
+  const saveGroup = data => dispatch(setDetailGroup(data));
+  const saveSummary = data => dispatch(setDetailSummary(data));
+  const saveJob = data => dispatch(setDetailJob(data));
+  const saveSkill = data => dispatch(setDetailSkill(data));
+  const saveImage = data => dispatch(setDetailImage(data));
+
   const [activity, setActivity] = useState('');
   const [startdate, setStartdate] = useState('');
   const [enddate, setEnddate] = useState('');
