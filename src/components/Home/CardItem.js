@@ -52,6 +52,7 @@ const CardTemplateBlock = styled.div`
   width: 359px;
   height: 349px;
   display: inline;
+  background: pink;
 `;
 const ImageTemplate = styled.div`
   width: 343px;
@@ -59,25 +60,30 @@ const ImageTemplate = styled.div`
   margin: 8px 8px;
 `;
 const TitleTemplate = styled.div`
+  // background: skyblue;
   width: 343px;
   height: 38px;
-  margin: 8px 8px;
+  margin: 4px 8px;
   font-size: 24px;
   font-weight: bold !important;
 `;
 const DateTemplate = styled.div`
+  // background: skyblue;
   width: 343px;
   height: 20px;
-  margin: 8px 8px;
+  margin: 4px 8px 6px 8px;
+  font-weight: normal;
 `;
 const JobTagTemplate = styled.div`
+  // background: skyblue;
   width: 343px;
   height: 28px;
-  margin: 4px 8px;
+  margin: 8px 8px 6px 8px;
 `;
 const SkillTagTemplate = styled.div`
+  // background: skyblue;
   width: 343px;
   height: 28px;
-  margin: 4px 8px;
+  margin: 6px 8px 20px 8px;
 `;
 export default CardItem;
