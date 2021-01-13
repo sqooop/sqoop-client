@@ -4,8 +4,8 @@ import CardItem from './CardItem';
 import { useSelector, useDispatch } from 'react-redux';
 //imgUrl, title, startDate, endDate, hashtag
 const CardList = () => {
-  const dispatch = useDispatch();
   const cards = useSelector(state => state.home.cards);
+  const dispatch = useDispatch();
   const year = useSelector(state => state.home.year);
   const monthArr = useSelector(state => state.month.month);
 

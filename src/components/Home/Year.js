@@ -11,8 +11,8 @@ import { setYear } from '../../store/modules/home';
 
 const Year = ({ background, border, onClick }) => {
   const dispatch = useDispatch();
-  const saveYear = number => dispatch(setYear(number));
   const year = useSelector(state => state.home.year);
+  const saveYear = number => dispatch(setYear(number));
   const dataSet = new Map();
   useEffect(() => {
     (async () => {
