@@ -1,4 +1,5 @@
-const SET_DETAIL_DATE = 'detail/SET_DETAIL_DATE';
+const SET_DETAIL_START = 'detail/SET_DETAIL_START';
+const SET_DETAIL_END = 'detail/SET_DETAIL_END';
 const SET_DETAIL_TITLE = 'detail/SET_DETAIL_TITLE';
 const SET_DETAIL_GROUP = 'detail/SET_DETAIL_GROUP';
 const SET_DETAIL_SUMMARY = 'detail/SET_DETAIL_SUMMARY';
@@ -6,10 +7,17 @@ const SET_DETAIL_JOB = 'detail/SET_DETAIL_JOB';
 const SET_DETAIL_SKILL = 'detail/SET_DETAIL_SKILL';
 const SET_DETAIL_IMAGE = 'detail/SET_DETAIL_IMAGE';
 const SET_DETAIL_FILE = 'detail/SET_DETAIL_FILE';
+const SET_DETAIL_FILENAME = 'detail/SET_DETAIL_FILENAME';
+const SET_DETAIL_STATE = 'detail/SET_DETAIL_STATE';
 
-export const setDetailDate = dateString => ({
-  type: SET_DETAIL_DATE,
-  dateString,
+export const setDetailStart = detailStart => ({
+  type: SET_DETAIL_START,
+  detailStart,
+});
+
+export const setDetailEnd = detailEnd => ({
+  type: SET_DETAIL_END,
+  detailEnd,
 });
 
 export const setDetailTitle = detailTitle => ({
@@ -27,36 +35,48 @@ export const setDetailSummary = detailSummary => ({
   detailSummary,
 });
 
-export const setDetailJob = detailJob => ({
+export const setDetailJob = detailJobTag => ({
   type: SET_DETAIL_JOB,
-  detailJob,
+  detailJobTag,
 });
 
-export const setDetailSkill = detailSkill => ({
+export const setDetailSkill = detailSkillTag => ({
   type: SET_DETAIL_SKILL,
-  detailSkill,
+  detailSkillTag,
 });
 
-export const setDetailImage = detailImage => ({
+export const setDetailImage = detailImageUrl => ({
   type: SET_DETAIL_IMAGE,
-  detailImage,
+  detailImageUrl,
 });
 
-export const setDetailFile = detailFile => ({
+export const setDetailFile = detailFileUrl => ({
   type: SET_DETAIL_FILE,
-  detailFile,
+  detailFileUrl,
+});
+
+export const setDetailFilename = detailFilename => ({
+  type: SET_DETAIL_FILENAME,
+  detailFilename,
+});
+
+export const setDetailState = detailState => ({
+  type: SET_DETAIL_STATE,
+  detailState,
 });
 
 const initialState = {
   detailTitle: '',
-  detailStartDate: '',
-  detailEndDate: '',
+  detailStart: '',
+  detailEnd: '',
   detailGroup: '',
   detailJobTag: [],
   detailSkillTag: [],
   detailSummary: '',
   detailImageUrl: '',
   detailFileUrl: '',
+  detailFilename: '',
+  detailState: '',
 };
 
 export default function reducer(state = initialState, action) {
@@ -64,43 +84,57 @@ export default function reducer(state = initialState, action) {
     case SET_DETAIL_TITLE:
       return {
         ...state,
-        detailTitle: action.title,
+        detailTitle: action.detailTitle,
       };
-    case SET_DETAIL_DATE:
+    case SET_DETAIL_START:
       return {
         ...state,
-        detailStartDate: action.dateString[0],
-        detailEndDate: action.dateString[1],
+        detailStart: action.detailStart,
+      };
+    case SET_DETAIL_END:
+      return {
+        ...state,
+        detailEnd: action.detailEnd,
       };
     case SET_DETAIL_GROUP:
       return {
         ...state,
-        detailGroup: action.group,
+        detailGroup: action.detailGroup,
       };
     case SET_DETAIL_SUMMARY:
       return {
         ...state,
-        detailSummary: action.summary,
+        detailSummary: action.detailSummary,
       };
     case SET_DETAIL_JOB:
       return {
         ...state,
-        detailJobTag: action.job,
+        detailJobTag: action.detailJobTag,
       };
     case SET_DETAIL_SKILL:
       return {
         ...state,
-        detailSkillTag: action.skill,
+        detailSkillTag: action.detailSkillTag,
       };
     case SET_DETAIL_IMAGE:
       return {
         ...state,
-        detailImageUrl: action.image,
+        detailImageUrl: action.detailImageUrl,
       };
     case SET_DETAIL_FILE:
       return {
         ...state,
-        detailFileUrl: action.file,
+        detailFileUrl: action.detailFileUrl,
+      };
+    case SET_DETAIL_FILENAME:
+      return {
+        ...state,
+        detailFilename: action.detailFilename,
+      };
+    case SET_DETAIL_STATE:
+      return {
+        ...state,
+        detailState: action.detailState,
       };
     default:
       return state;
