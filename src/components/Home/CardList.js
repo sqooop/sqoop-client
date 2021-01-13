@@ -18,7 +18,6 @@ const CardList = () => {
 const CardListBlock = styled.div`
   width: 360px;
   margin-left: 45px;
-  background: white;
   scrollbar-width: none;
   ::-webkit-scrollbar {
     display: none;
