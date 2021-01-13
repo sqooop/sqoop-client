@@ -1,11 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 import DefaultWrap from '../../components/activityOne/default/DefaultWrap';
+import NotStarting from '../../components/activityOne/notStarting/NotStartingWrap';
+import NotFinished from '../../components/activityOne/notFinished/NotFinished';
 
-const ActivityOneDefault = () => {
+const ActivityOneDefault = ({ match }) => {
+  const id = match.params.id;
+  const detail = useSelector(state => state.detail);
+
   return (
     <StyledActivityOneWrap>
-      <DefaultWrap />
+      {detail.detailState === 0 ? (
+        <NotStarting id={id} />
+      ) : detail.detailState === 1 ? (
+        <NotFinished id={id} />
+      ) : (
+        <DefaultWrap id={id} />
+      )}
     </StyledActivityOneWrap>
   );
 };
