@@ -2,12 +2,12 @@ import { React, useState, useEffect } from 'react';
 import getUserEdit from '../../../lib/api/activityOne/user';
 import styled from 'styled-components';
 
-const UserData = () => {
+const UserData = ({ id }) => {
   const [data, setData] = useState('');
 
   useEffect(() => {
     (async () => {
-      const userData = await getUserEdit(49);
+      const userData = await getUserEdit(id);
       setData(userData);
     })();
   }, []);

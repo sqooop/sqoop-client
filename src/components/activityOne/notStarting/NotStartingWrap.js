@@ -1,6 +1,6 @@
 import React from 'react';
 import Title from '../default/Title';
-import BasicData from '../default/BasicData';
+import BasicData from '../../../containers/activityOne/BasicData.container';
 import NotStarting from './NotStarting';
 
 const NotStartingWrap = () => {

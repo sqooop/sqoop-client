@@ -5,12 +5,12 @@ import DeleteButton from '../global/DeleteButton';
 import EditButton from '../global/EditButton';
 import getOneData from '../../../lib/api/activityOne/basic';
 
-const ActivityOneTitle = ({ userData }) => {
+const ActivityOneTitle = ({ userData, id }) => {
   const [basic, setBasic] = useState('');
 
   useEffect(() => {
     (async () => {
-      const basic = await getOneData(49);
+      const basic = await getOneData(id);
       setBasic(basic.selectedActivity);
     })();
   }, []);
