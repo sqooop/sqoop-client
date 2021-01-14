@@ -88,7 +88,7 @@ const Year = ({ background, border, onClick }) => {
         <button
           className="button--right"
           style={{ background: background, border: border }}
-          onClick={() => (year < lastYear ? saveYear(year - 1) : undefined)}
+          onClick={() => (year < lastYear ? saveYear(year + 1) : undefined)}
           onMouseEnter={rightHovered}
           onMouseLeave={rightUnhovered}
         >
