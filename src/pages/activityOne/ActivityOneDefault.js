@@ -10,7 +10,7 @@ const ActivityOneDefault = ({ match }) => {
   const detail = useSelector(state => state.detail);
 
   return (
-    <StyledActivityOneWrap>
+    <StyledActivityOneWrap id={id}>
       {detail.detailState === 0 ? (
         <NotStarting id={id} />
       ) : detail.detailState === 1 ? (

@@ -1,6 +1,6 @@
 import instance from '../instance';
 
-const getUserEdit = async id => {
+const getUserEdit = async ({ id }) => {
   try {
     const { data } = await instance.get(`/card/${id}`);
     console.log('[SUCCESS] GET User Edit', data);

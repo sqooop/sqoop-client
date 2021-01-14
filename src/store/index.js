@@ -3,7 +3,7 @@ import activity from './modules/activity';
 import activities from './modules/activities';
 import jobTag from './modules/jobTag';
 import skillTag from './modules/skillTag';
-import useranswer from './modules/useranswer';
+import userdata from './modules/userdata';
 import modal from './modules/modal';
 import preview from './modules/preview';
 import currentCard from './modules/currentCard';
@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
   activities,
   jobTag,
   skillTag,
-  useranswer,
+  userdata,
   modal,
   preview,
   currentCard,

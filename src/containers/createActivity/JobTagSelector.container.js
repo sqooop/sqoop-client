@@ -17,15 +17,18 @@ const JobTagSelectorContainer = () => {
   const onNameChange = event => {
     saveName(event.target.value);
   };
+
   const addItem = () => {
     if (name !== '' && !items.includes(`#${name}`)) {
       saveItems([...items, `#${name}`]);
     }
     saveName('');
   };
+
   const onChange = event => {
     saveJob(event);
   };
+
   return (
     <TagSelector
       onNameChange={onNameChange}
