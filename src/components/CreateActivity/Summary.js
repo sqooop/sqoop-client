@@ -9,6 +9,7 @@ const TextArea = styled.textarea`
   height: 13.2rem;
   padding-left: 0.8rem;
   padding-top: 0.5rem;
+  resize: none;
   &:hover {
     background-color: #eeeeee !important;
   }

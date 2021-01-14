@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import EditList from '../../components/activityOne/global/EditList';
 import Photo from '../../components/activityOne/default/Photo';
-import getOneData from '../../lib/api/activityOne/basic';
+import getOneActivity from '../../lib/api/activityOne/basic';
 import Clip from '../../assets/icons/Clip.svg';
 import {
   setDetailStart,
@@ -18,7 +18,8 @@ import {
   setDetailState,
 } from '../../store/modules/detail';
 
-const BasicDataContainer = ({ id }) => {
+const BasicDataContainer = () => {
+  const id = 74;
   const dispatch = useDispatch();
   const saveStart = data => dispatch(setDetailStart(data));
   const saveEnd = data => dispatch(setDetailEnd(data));
@@ -31,9 +32,11 @@ const BasicDataContainer = ({ id }) => {
   const saveState = data => dispatch(setDetailState(data));
   const saveFileName = data => dispatch(setDetailFilename(data));
 
+  const detail = useSelector(state => state.detail);
+
   useEffect(() => {
     (async () => {
-      const BasicData = await getOneData(id);
+      const BasicData = await getOneActivity(id);
       saveStart(BasicData.selectedActivity.startDate);
       saveEnd(BasicData.selectedActivity.endDate);
       saveGroup(BasicData.selectedActivity.group);
@@ -45,9 +48,8 @@ const BasicDataContainer = ({ id }) => {
       saveFileName(BasicData.selectedActivity.fileName);
       saveState(BasicData.isFinished);
     })();
-  }, []);
+  }, [id]);
 
-  const detail = useSelector(state => state.detail);
   const { detailJobTag, detailSkillTag } = detail;
 
   const startyear = detail.detailStart.substring(0, 4);
@@ -124,7 +126,7 @@ const StyledBasicData = styled.div``;
 
 const StyledContentWrap = styled.div`
   display: flex;
-  margin-top: 1.2vw;
+  margin-top: 0.8vw;
 `;
 
 const StyledBasic = styled.div`
@@ -134,7 +136,7 @@ const StyledBasic = styled.div`
   line-height: 1.6vw;
   display: flex;
   align-items: center;
-  margin-top: 1.1vw;
+  margin-top: 0.48vw;
 
   img {
     display: flex;

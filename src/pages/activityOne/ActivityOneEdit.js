@@ -3,16 +3,19 @@ import styled from 'styled-components';
 import Title from '../../components/activityOne/edit/Title';
 import BasicData from '../../components/activityOne/edit/BasicData';
 import UserEdit from '../../components/activityOne/edit/UserEdit';
-
+import MainHeader from '../../components/common/MainHeader';
 const ActivityOneEdit = () => {
   return (
-    <StyledActivityOneWrap>
-      <Title />
-      <div style={{ display: 'flex' }}>
-        <BasicData />
-        <UserEdit />
-      </div>
-    </StyledActivityOneWrap>
+    <>
+      <MainHeader />
+      <StyledActivityOneWrap>
+        <Title />
+        <div style={{ display: 'flex' }}>
+          <BasicData />
+          <UserEdit />
+        </div>
+      </StyledActivityOneWrap>
+    </>
   );
 };
 

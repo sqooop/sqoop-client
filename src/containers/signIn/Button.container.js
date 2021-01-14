@@ -16,14 +16,13 @@ const ButtonContainer = ({ history }) => {
     try {
       const { data } = await signin({ email, password });
       localStorage.setItem('token', data.data.accessToken);
-      console.log(data, data.data.accessToken);
       saveToken(data.data.accessToken);
     } catch (e) {
       console.log('[FAIL] SIGNIN', e);
       saveWarning('이메일 혹은 비밀번호를 확인해주세요');
       throw e;
     }
-    history.push('/');
+    history.push('/home');
   };
   return (
     <>

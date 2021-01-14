@@ -64,4 +64,4 @@ const MainHeader = ({ history }) => {
   );
 };
 
-export default MainHeader;
+export default withRouter(MainHeader);

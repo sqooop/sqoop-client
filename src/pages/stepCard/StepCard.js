@@ -18,6 +18,7 @@ import ProgressContainer from '../../containers/stepCard/Progress.container';
 import EmptyCard from '../../components/stepCard/EmptyCard';
 import LastCard from '../../components/stepCard/LastCard';
 import Styled from 'styled-components';
+import MainHeader from '../../components/common/MainHeader';
 
 const CardWrap = Styled.div`
   display: flex;
@@ -72,6 +73,7 @@ const StepCard = ({ match }) => {
 
   return (
     <>
+      <MainHeader />
       <StepHeaderContainer />
       <CardWrap>
         {questions[currentIndex - 2] ? (

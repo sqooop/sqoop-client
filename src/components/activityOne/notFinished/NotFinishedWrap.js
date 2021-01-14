@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '../default/Title';
+import Title from '../../../containers/activityOne/Title.container';
 import BasicData from '../../../containers/activityOne/BasicData.container';
 import NotFinished from './NotFinished';
 
