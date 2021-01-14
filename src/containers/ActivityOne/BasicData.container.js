@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import EditList from '../../components/activityOne/global/EditList';
 import Photo from '../../components/activityOne/default/Photo';
-import getOneData from '../../lib/api/activityOne/basic';
+import getOneActivity from '../../lib/api/activityOne/basic';
 import Clip from '../../assets/icons/Clip.svg';
 import {
   setDetailStart,
@@ -33,7 +33,7 @@ const BasicDataContainer = ({ id }) => {
 
   useEffect(() => {
     (async () => {
-      const BasicData = await getOneData(id);
+      const BasicData = await getOneActivity(id);
       saveStart(BasicData.selectedActivity.startDate);
       saveEnd(BasicData.selectedActivity.endDate);
       saveGroup(BasicData.selectedActivity.group);
@@ -124,7 +124,7 @@ const StyledBasicData = styled.div``;
 
 const StyledContentWrap = styled.div`
   display: flex;
-  margin-top: 1.2vw;
+  margin-top: 0.8vw;
 `;
 
 const StyledBasic = styled.div`
@@ -134,7 +134,7 @@ const StyledBasic = styled.div`
   line-height: 1.6vw;
   display: flex;
   align-items: center;
-  margin-top: 1.1vw;
+  margin-top: 0.48vw;
 
   img {
     display: flex;

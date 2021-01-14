@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import getUserEdit from '../../../lib/api/activityOne/user';
 import styled from 'styled-components';
 
@@ -7,7 +8,7 @@ const UserData = ({ id }) => {
 
   useEffect(() => {
     (async () => {
-      const userData = await getUserEdit(id);
+      const userData = await getUserEdit({ id });
       setData(userData);
     })();
   }, []);

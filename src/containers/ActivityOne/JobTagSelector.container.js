@@ -1,26 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { setJobItems, setJobName } from '../../store/modules/jobTag';
-import { setJob } from '../../store/modules/activity';
+import { setDetailJob } from '../../store/modules/detail';
 import { useDispatch, useSelector } from 'react-redux';
-import TagSelector from '../../components/createActivity/TagSelector';
-import { getHashtag } from '../../lib/api/hashtag';
+import TagSelector from '../../components/activityOne/edit/TagSelector';
 
 const JobTagSelectorContainer = () => {
   const dispatch = useDispatch();
   const saveItems = data => dispatch(setJobItems(data));
   const saveName = data => dispatch(setJobName(data));
-  const saveJob = data => dispatch(setJob(data));
+  const saveJob = data => dispatch(setDetailJob(data));
 
   const name = useSelector(state => state.jobTag.name);
   const items = useSelector(state => state.jobTag.items);
-  const job = useSelector(state => state.activity.jobTag);
+  const job = useSelector(state => state.detail.detailJobTag);
 
-  useEffect(() => {
-    (async () => {
-      const data = await getHashtag();
-      saveItems(data.jobTag);
-    })();
-  }, []);
   const onNameChange = event => {
     saveName(event.target.value);
   };

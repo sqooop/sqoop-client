@@ -15,7 +15,7 @@ const StyleDiv = styled.div`
   display: flex;
   width: 6.3vw;
   height: 1.6vw;
-  margin-top: 1.2vw;
+  margin-top: 0.6vw;
   font-size: 1.1vw !important;
   line-height: 150%;
 `;

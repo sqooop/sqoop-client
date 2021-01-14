@@ -4,7 +4,7 @@ import PhotoUpload from './PhotoUpload';
 import EditList from '../global/EditList';
 import DateSelector from '../../../containers/createActivity/DateSelector.container';
 import Group from '../../../containers/createActivity/Group.container';
-import JobTagSelector from '../../../containers/createActivity/SkillTagSelector.container';
+import JobTagSelector from '../../../containers/activityOne/JobTagSelector.container';
 import SkillTagSelector from '../../../containers/createActivity/SkillTagSelector.container';
 import Summary from '../../../containers/createActivity/Summary.container';
 import FileUpload from '../../../components/activityOne/edit/FileUpload';

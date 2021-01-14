@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import FavoritesButton from '../global/FavoritesButton';
-import DeleteButton from '../global/DeleteButton';
-import EditButton from '../global/EditButton';
-import getOneData from '../../../lib/api/activityOne/basic';
+import FavoritesButton from '../../components/activityOne/global/FavoritesButton';
+import DeleteButton from '../../components/activityOne/global/DeleteButton';
+import EditButton from '../../components/activityOne/global/EditButton';
+import getOneActivity from '../../lib/api/activityOne/basic';
+import { setDetailTitle } from '../../store/modules/detail';
 
-const ActivityOneTitle = ({ userData, id }) => {
-  const [basic, setBasic] = useState('');
+const TitleContainer = ({ userData, id }) => {
+  const dispatch = useDispatch();
+  const saveTitle = data => dispatch(setDetailTitle(data));
 
   useEffect(() => {
     (async () => {
-      const basic = await getOneData(id);
-      setBasic(basic.selectedActivity);
+      const BasicData = await getOneActivity(id);
+      saveTitle(BasicData.selectedActivity.title);
     })();
   }, []);
 
@@ -19,9 +22,12 @@ const ActivityOneTitle = ({ userData, id }) => {
   const userFlag = userData !== null ? true : false;
 
   // userFlag로 userData의 여부를 확인해 버튼을 보여주거나 보여주지 않음
+
+  const title = useSelector(state => state.detail.detailTitle);
+
   return (
     <StyledActivityOneTitle>
-      <span>{basic.title}</span>
+      <span>{title}</span>
       <div style={{ display: 'flex' }}>
         {userFlag ? (
           <>
@@ -40,13 +46,13 @@ const StyledActivityOneTitle = styled.div`
   display: flex;
   justify-content: space-between;
   font-weight: bold !important;
-  margin-top: 2.5vw;
+  margin-top: 1vw;
 
   & > span {
-    font-size: 2.5vw;
+    font-size: 2.2vw;
     font-weight: 700;
     line-height: 4.8rem;
   }
 `;
 
-export default ActivityOneTitle;
+export default TitleContainer;
