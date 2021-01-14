@@ -1,6 +1,5 @@
 import axios from 'axios';
 import instance from './instance';
-import qs from 'qs';
 const token =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3RlciIsImlhdCI6MTYxMDYwMzE5NSwiZXhwIjoxNjExMjA3OTk1LCJpc3MiOiJsY2cifQ.c62Cm6w7pvEDAQNrWX2a-uJTXnYFXZusoaLoL6JtoD0';
 const baseURL = 'http://54.180.189.240:3000/';
@@ -20,7 +19,7 @@ export const createActivity = async activity => {
     const { data } = await axios.post(`${baseURL}activity/create`, formData, {
       headers: {
         'Content-type': 'multipart/form-data',
-        jwt: token,
+        jwt: localStorage.getItem('token'),
       },
     });
     console.log('[SUCCESS] CREATE ACTIVITY', data);

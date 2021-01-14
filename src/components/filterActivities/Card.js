@@ -8,6 +8,7 @@ const CardWrap = styled.div`
   &:hover {
     background-color: #eeeeee;
   }
+  cursor: pointer;
   margin-bottom: 2px;
 `;
 
@@ -40,18 +41,18 @@ const Tag = styled.span`
   display: inline-block;
 `;
 const Card = props => {
-  const { activity } = props;
+  const { activity, onClick } = props;
   const startDate = `${activity.startDate.substr(
     0,
     4,
-  )}.${activity.startDate.substr(3, 2)}.${activity.startDate.substr(6, 2)}`;
+  )}.${activity.startDate.substr(4, 2)}.${activity.startDate.substr(6, 2)}`;
   const endDate = `${activity.endDate.substr(0, 4)}.${activity.endDate.substr(
-    3,
+    4,
     2,
   )}.${activity.endDate.substr(6, 2)}`;
   const date = `${startDate} - ${endDate}`;
   return (
-    <CardWrap>
+    <CardWrap onClick={onClick}>
       {activity.imageUrl ? (
         <Img src={activity.imageUrl} />
       ) : (

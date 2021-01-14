@@ -4,6 +4,9 @@ import Header from '../../containers/filterActivities/Header.container';
 import Card from '../../containers/filterActivities/Card.container';
 import Filter from '../../components/filterActivities/Filter';
 import { useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import MainHeader from '../../components/common/MainHeader';
+
 const FilterActivitiesWrap = styled.div`
   padding-left: 14.297vw;
   padding-right: 14.297vw;
@@ -11,11 +14,14 @@ const FilterActivitiesWrap = styled.div`
 const FilterActivities = () => {
   const isOpen = useSelector(state => state.filter.isOpen);
   return (
-    <FilterActivitiesWrap>
-      <Header />
-      {isOpen ? <Filter /> : <Card />}
-    </FilterActivitiesWrap>
+    <>
+      <MainHeader />
+      <FilterActivitiesWrap>
+        <Header />
+        {isOpen ? <Filter /> : <Card />}
+      </FilterActivitiesWrap>
+    </>
   );
 };
 
-export default FilterActivities;
+export default withRouter(FilterActivities);

@@ -14,7 +14,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route component={MainHeader} />
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/create" component={CreateActivity} />
