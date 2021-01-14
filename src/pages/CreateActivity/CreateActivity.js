@@ -27,8 +27,6 @@ const RightWrap = styled.div`
   float: left;
 `;
 const LeftWrap = styled.div`
-  /* width: 27.28vw; */
-  /* background-color: red; */
   float: left;
 `;
 const CreateActivity = () => {

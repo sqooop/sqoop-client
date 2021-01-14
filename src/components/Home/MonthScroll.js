@@ -19,7 +19,7 @@ const MonthScroll = () => {
   const monthArr = useSelector(state => state.month.month);
   const dataSet = new Map();
   const monthMap = new Map();
-  /*   useEffect(() => {
+  useEffect(() => {
     (async () => {
       const data = await getMonthAPI();
       for (let i = data.firstYear; i <= data.lastYear; i++) {
@@ -37,7 +37,7 @@ const MonthScroll = () => {
       console.log('dataSet', dataSet);
       console.log('monthMap', monthMap);
     })();
-  }, [year]); */
+  }, [year]);
 
   return (
     <MonthScrollWrapper>
