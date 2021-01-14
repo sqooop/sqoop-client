@@ -1,15 +1,16 @@
-import React from 'react';
+import { React } from 'react';
 import styled from 'styled-components';
 import CardItem from './CardItem';
+import { useSelector } from 'react-redux';
 
-//imgUrl, title, startDate, endDate, hashtag
 const CardList = () => {
+  const cards = useSelector(state => state.home.cards);
   return (
     <CardListBlock>
-      <CardItem />
-      <CardItem />
-      <CardItem />
-      <CardItem />
+      {/* 배열의 길이 만큼 CardItem*/}
+      {cards?.map((data, index) => (
+        <CardItem key={index} card={data}></CardItem>
+      ))}
     </CardListBlock>
   );
 };
@@ -17,7 +18,6 @@ const CardList = () => {
 const CardListBlock = styled.div`
   width: 360px;
   margin-left: 45px;
-  background: white;
   scrollbar-width: none;
   ::-webkit-scrollbar {
     display: none;

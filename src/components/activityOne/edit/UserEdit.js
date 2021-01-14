@@ -53,9 +53,8 @@ const StyledQuestionData = styled.div`
   line-height: 150%;
 `;
 
-const StyledAnswerData = styled.input`
+const StyledAnswerData = styled.textarea`
   width: 39.1vw;
-  height: auto;
   margin-bottom: 2.7vw;
   margin-left: 2.5vw;
   font-size: 0.8vw;
@@ -63,6 +62,7 @@ const StyledAnswerData = styled.input`
   line-height: 150%;
   border: none;
   outline: none;
+  height: 'scrollheight';
 
   :hover {
     background-color: #eeeeee;

@@ -1,40 +1,33 @@
 import { React, useState, useEffect } from 'react';
+import getUserEdit from '../../../lib/api/activityOne/user';
 import styled from 'styled-components';
 
-const UserData = () => {
-  const [userData, setUserData] = useState([]);
-  const id = '49';
-
-  const saveData = data => {
-    map((data, index) => setUserData(data.data.questionCards[index]));
-  };
-
-  const fetchData = async () => {
-    const response = await fetch(`http://54.180.189.240:3000/card/${id}`, {
-      method: 'GET',
-      headers: {
-        jwt:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3RlciIsImlhdCI6MTYxMDE3OTg2MywiZXhwIjoxNjEwNzg0NjYzLCJpc3MiOiJsY2cifQ.hkYUZx9REp8ugpkRrf_XUhXC1BDTT7dpToseAYnxM9Y',
-      },
-    }).then(async response => {
-      if (response.status === 200) {
-        response.json().then(data => {
-          saveData(data);
-        });
-      } else {
-        console.log('Server Error');
-      }
-    });
-    return response;
-  };
+const UserData = ({ id }) => {
+  const [data, setData] = useState('');
 
   useEffect(() => {
-    fetchData();
+    (async () => {
+      const userData = await getUserEdit(id);
+      setData(userData);
+    })();
   }, []);
 
-  console.log(userData.question);
-
-  return <StyledUserData className="UserData">ㅎㅇ</StyledUserData>;
+  return (
+    <StyledUserData className="UserData">
+      {data ? (
+        data.map((item, index) => (
+          <>
+            <StyledQuestionData key={index - 1}>
+              {index + 1}. {item.question}
+            </StyledQuestionData>
+            <StyledAnswerData key={index + 1}>{item.content}</StyledAnswerData>
+          </>
+        ))
+      ) : (
+        <></>
+      )}
+    </StyledUserData>
+  );
 };
 
 const StyledUserData = styled.div`
@@ -42,7 +35,7 @@ const StyledUserData = styled.div`
   width: 41.6vw;
   height: 39.1vw;
   overflow-y: scroll;
-  margin-top: 1.6vw;
+  margin-top: 2.5vw;
 
   ::-webkit-scrollbar {
     width: 0px;

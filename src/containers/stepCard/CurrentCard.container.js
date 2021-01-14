@@ -2,7 +2,8 @@ import { React } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { setAnswer } from '../../store/modules/userCardInfo';
-import { setModalActive } from '../../store/modules/currentCard';
+import { setModalActive, setClassName } from '../../store/modules/currentCard';
+import { setPrevIndex } from '../../store/modules/cardIndex';
 import {
   setTextValue,
   setTextLimit,
@@ -16,9 +17,9 @@ const CurrentCardContainer = ({ history }) => {
   const userCardInfo = useSelector(state => state.userCardInfo);
   const { questions, answers, guide, id } = userCardInfo;
   const cardIndex = useSelector(state => state.cardIndex);
-  const { currentIndex, writtenIndex } = cardIndex;
+  const { currentIndex, writtenIndex, previousIndex } = cardIndex;
   const currentCard = useSelector(state => state.currentCard);
-  const { saved, notSaved, textValue, textLimit } = currentCard;
+  const { saved, notSaved, textValue, textLimit, className } = currentCard;
 
   const dispatch = useDispatch();
   const saveAnswer = (answer, idx) => dispatch(setAnswer(answer, idx));
@@ -27,6 +28,8 @@ const CurrentCardContainer = ({ history }) => {
   const saveNotSaved = data => dispatch(setNotSaved(data));
   const saveTextLimit = number => dispatch(setTextLimit(number));
   const saveModalActive = data => dispatch(setModalActive(data));
+  const savePrevIndex = idx => dispatch(setPrevIndex(idx));
+  const saveClassName = string => dispatch(setClassName(string));
 
   const onClickFunc = () => {
     saveAnswer(textValue, currentIndex);
@@ -43,12 +46,15 @@ const CurrentCardContainer = ({ history }) => {
         await createCard(card);
       })();
       setTimeout(() => {
+        saveClassName('');
         saveTextValue(answers[currentIndex + 1]);
+        savePrevIndex(currentIndex);
         history.push(`/steps/${currentIndex + 1}`);
       }, 2000);
     } else {
       (async () => {
         await updateCard(card);
+        saveClassName('card');
       })();
     }
   };
@@ -61,6 +67,7 @@ const CurrentCardContainer = ({ history }) => {
   return (
     <CurrentCard
       index={currentIndex}
+      prevIndex={previousIndex}
       question={questions[currentIndex]}
       answer={answers[currentIndex]}
       textValue={textValue}
@@ -72,6 +79,8 @@ const CurrentCardContainer = ({ history }) => {
       textLimit={textLimit}
       saveTextLimit={saveTextLimit}
       guide={guide[currentIndex]}
+      className={className}
+      saveClassName={saveClassName}
       onClickFunc={onClickFunc}
     />
   );

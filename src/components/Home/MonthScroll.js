@@ -19,7 +19,6 @@ const MonthScroll = () => {
   const monthArr = useSelector(state => state.month.month);
   const dataSet = new Map();
   const monthMap = new Map();
-  console.log('saveMonth', saveMonth.data);
   useEffect(() => {
     (async () => {
       const data = await getMonthAPI();
@@ -32,7 +31,11 @@ const MonthScroll = () => {
       for (let m = 1; m <= 12; m++) {
         monthMap.set(m, dataSet.get(year).has(m));
       }
+      console.log('dataSetgetyear', dataSet.get(year));
       saveMonth(monthMap);
+      console.log('allmonthArray', data.allMonthArray);
+      console.log('dataSet', dataSet);
+      console.log('monthMap', monthMap);
     })();
   }, [year]);
 
@@ -50,9 +53,6 @@ const MonthScroll = () => {
       {monthArr?.get(10) ? <ButtonActive month={10} /> : <Button month={10} />}
       {monthArr?.get(11) ? <ButtonActive month={11} /> : <Button month={11} />}
       {monthArr?.get(12) ? <ButtonActive month={12} /> : <Button month={12} />}
-      {/* {MonthArray.map((data, index) => (
-        <MonthData key={index}>{data.month}</MonthData>
-      ))} */}
     </MonthScrollWrapper>
   );
 };

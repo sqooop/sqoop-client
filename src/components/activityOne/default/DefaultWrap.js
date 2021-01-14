@@ -1,15 +1,15 @@
 import React from 'react';
 import Title from '../default/Title';
-import BasicData from '../default/BasicData';
+import BasicData from '../../../containers/activityOne/BasicData.container';
 import UserData from './UserData';
 
-const DefaultWrap = () => {
+const DefaultWrap = ({ id }) => {
   return (
     <>
-      <Title />
+      <Title id={id} />
       <div style={{ display: 'flex' }}>
-        <BasicData />
-        <UserData />
+        <BasicData id={id} />
+        <UserData id={id} />
       </div>
     </>
   );
