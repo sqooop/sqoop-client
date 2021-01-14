@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { setSkillItems, setSkillName } from '../../store/modules/skillTag';
 import { setSkill } from '../../store/modules/activity';
 import { useDispatch, useSelector } from 'react-redux';
 import TagSelector from '../../components/createActivity/TagSelector';
+import { getHashtag } from '../../lib/api/hashtag';
 
 const JobTagSelectorContainer = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,12 @@ const JobTagSelectorContainer = () => {
   const items = useSelector(state => state.skillTag.items);
   const skill = useSelector(state => state.activity.skillTag);
 
+  useEffect(() => {
+    (async () => {
+      const data = await getHashtag();
+      saveItems(data.skillTag);
+    })();
+  }, []);
   const onNameChange = event => {
     saveName(event.target.value);
   };
