@@ -1,5 +1,5 @@
 import { BrowserRouter, Route } from 'react-router-dom';
-import MainHeader from './components/common/MainHeader';
+//import MainHeader from './components/common/MainHeader';
 import Home from './pages/home/home';
 import SignIn from './pages/signin/SignIn';
 import CreateActivity from './pages/createActivity/CreateActivity';
@@ -13,7 +13,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route component={MainHeader} />
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/create" component={CreateActivity} />

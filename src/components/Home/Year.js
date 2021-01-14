@@ -18,7 +18,7 @@ const Year = ({ background, border, onClick }) => {
   const saveLastYear = number => dispatch(setLastYear(number));
   const firstYear = useSelector(state => state.home.firstYear);
   const lastYear = useSelector(state => state.home.lastYear);
-  useEffect(() => {
+  /*   useEffect(() => {
     (async () => {
       const data = await getMonthAPI();
       const saveCards = data => dispatch(setCardArray(data));
@@ -38,7 +38,7 @@ const Year = ({ background, border, onClick }) => {
       const cardData = await getCardAPI(monthId);
       saveCards(cardData);
     })();
-  }, []);
+  }, []); */
   const leftHovered = event => {
     const img = event.target.querySelector('img');
     img && (img.src = LeftButtonIconOn);

@@ -7,6 +7,6 @@ const instance = axios.create({
 
 instance.defaults.headers.common = {
   jwt:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3RlciIsImlhdCI6MTYwOTk5NzYwNywiZXhwIjoxNjEwNjAyNDA3LCJpc3MiOiJsY2cifQ.9Ua8ekgW9CFKuy6M_0p2drB9fnprPmewZUVSgNH47Hg',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6IuyYiOyngCIsImlhdCI6MTYxMDYyNjI1OCwiZXhwIjoxNjExMjMxMDU4LCJpc3MiOiJsY2cifQ.P44MKAAObdu5sWPvywxNa2s96gs3LR8runHNkCd2ohw',
 };
 export default instance;

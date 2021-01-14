@@ -8,7 +8,7 @@ import Year from '../../components/home/Year';
 import MonthScroll from '../../components/home/MonthScroll';
 import Line from '../../components/home/Line';
 import CardList from '../../components/home/CardList';
-
+import MainHeader from '../../components/common/MainHeader';
 const ScrollWrapper = styled.div`
   display: flex;
   width: 40px;
@@ -49,6 +49,7 @@ const GreetingWrap = styled.div`
 const Home = () => {
   return (
     <div>
+      <MainHeader />
       <GreetingWrap>
         <Greeting />
         <Question />
