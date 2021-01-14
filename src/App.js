@@ -1,7 +1,7 @@
 import { BrowserRouter, Route } from 'react-router-dom';
 //import MainHeader from './components/common/MainHeader';
 import Home from './pages/home/home';
-import SignIn from './pages/signin/SignIn';
+import SignIn from './pages/signIn/SignIn';
 import CreateActivity from './pages/createActivity/CreateActivity';
 import StepCard from './pages/stepCard/StepCard';
 import FilterActivities from './pages/filterActivities/FilterActivities';
@@ -14,8 +14,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/" component={SignIn} />
+        <Route exact path="/home" component={Home} />
         <Route exact path="/create" component={CreateActivity} />
         <Route exact path="/steps/:id" component={StepCard} />
         <Route exact path="/activities" component={FilterActivities} />

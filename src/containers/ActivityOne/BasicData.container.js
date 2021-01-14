@@ -18,7 +18,8 @@ import {
   setDetailState,
 } from '../../store/modules/detail';
 
-const BasicDataContainer = ({ id }) => {
+const BasicDataContainer = () => {
+  const id = 74;
   const dispatch = useDispatch();
   const saveStart = data => dispatch(setDetailStart(data));
   const saveEnd = data => dispatch(setDetailEnd(data));
@@ -30,6 +31,8 @@ const BasicDataContainer = ({ id }) => {
   const saveFile = data => dispatch(setDetailFile(data));
   const saveState = data => dispatch(setDetailState(data));
   const saveFileName = data => dispatch(setDetailFilename(data));
+
+  const detail = useSelector(state => state.detail);
 
   useEffect(() => {
     (async () => {
@@ -45,9 +48,8 @@ const BasicDataContainer = ({ id }) => {
       saveFileName(BasicData.selectedActivity.fileName);
       saveState(BasicData.isFinished);
     })();
-  }, []);
+  }, [id]);
 
-  const detail = useSelector(state => state.detail);
   const { detailJobTag, detailSkillTag } = detail;
 
   const startyear = detail.detailStart.substring(0, 4);
