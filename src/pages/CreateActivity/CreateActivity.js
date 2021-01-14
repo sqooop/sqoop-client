@@ -13,7 +13,6 @@ import Modal from '../../containers/createActivity/Modal.container';
 import DefaultData from '../../components/createActivity/DefaultData';
 import File from '../../containers/createActivity/File.container';
 import MainHeader from '../../components/common/MainHeader';
-
 const CreateActivityWrap = styled.div`
   padding-left: 14.297vw;
   padding-right: 14.297vw;

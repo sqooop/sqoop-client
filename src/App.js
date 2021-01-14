@@ -1,7 +1,7 @@
 import { BrowserRouter, Route } from 'react-router-dom';
-import MainHeader from './components/common/MainHeader';
+//import MainHeader from './components/common/MainHeader';
 import Home from './pages/home/home';
-import SignIn from './pages/signIn/SignIn';
+import SignIn from './pages/signin/SignIn';
 import CreateActivity from './pages/createActivity/CreateActivity';
 import StepCard from './pages/stepCard/StepCard';
 import FilterActivities from './pages/filterActivities/FilterActivities';
