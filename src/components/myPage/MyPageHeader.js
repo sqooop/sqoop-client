@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Styled from 'styled-components';
-import Edit from '../../assets/icons/Edit.svg';
+import Edit from '../../assets/icons/edit.svg';
 
 const MyPageHeaderWrap = Styled.div`
   display: flex;
