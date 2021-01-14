@@ -54,6 +54,7 @@ const CurrentCardContainer = ({ history }) => {
     } else {
       (async () => {
         await updateCard(card);
+        saveClassName('card');
       })();
     }
   };

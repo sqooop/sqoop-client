@@ -29,7 +29,7 @@ export const setID = number => ({
 });
 
 const initialState = {
-  id: 53,
+  id: 0,
   title: '활동 이름',
   questions: [
     '활동을 하게 된 이유는 무엇인가요?',

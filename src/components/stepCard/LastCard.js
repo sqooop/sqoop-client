@@ -43,11 +43,13 @@ const LastCardWrap = Styled.div`
     from {
       opacity: 0.5;
       transform-origin: top;
-      -webkit-transform: translateZ(0) translateX(278px) scaleX(0.743) scaleY(0.716);
+      -webkit-transform: translateZ(0);
+      transform: translateX(278px) scaleX(0.743) scaleY(0.716);
     } to {
       opacity: 1;
       transform-origin: top;
-      -webkit-transform: translateZ(0) translateX(0px) scaleX(1) scaleY(1);
+      -webkit-transform: translateZ(0);
+      transform: translateX(0px) scaleX(1) scaleY(1);
     }
   }
 `;

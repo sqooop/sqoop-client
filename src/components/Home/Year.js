@@ -7,13 +7,17 @@ import LeftButtonIconOn from '../../assets/icons/LeftButtonIconOn.svg';
 import LeftButtonIconOff from '../../assets/icons/LeftButtonIconOff.svg';
 import RightButtonIconOn from '../../assets/icons/RightButtonIconOn.svg';
 import RightButtonIconOff from '../../assets/icons/RightButtonIconOff.svg';
-import { setYear } from '../../store/modules/home';
+import { setYear, setFirstYear, setLastYear } from '../../store/modules/home';
 
 const Year = ({ background, border, onClick }) => {
   const dispatch = useDispatch();
   const year = useSelector(state => state.home.year);
   const saveYear = number => dispatch(setYear(number));
   const dataSet = new Map();
+  const saveFirstYear = number => dispatch(setFirstYear(number));
+  const saveLastYear = number => dispatch(setLastYear(number));
+  const firstYear = useSelector(state => state.home.firstYear);
+  const lastYear = useSelector(state => state.home.lastYear);
   useEffect(() => {
     (async () => {
       const data = await getMonthAPI();
@@ -21,6 +25,9 @@ const Year = ({ background, border, onClick }) => {
       for (let i = data.firstYear; i <= data.lastYear; i++) {
         dataSet.set(i, new Set());
       }
+
+      saveFirstYear(data.firstYear);
+      saveLastYear(data.lastYear);
       data.allMonthArray
         .filter(item => item.length !== 0)
         .forEach(item => dataSet.get(Math.floor(item / 100)).add(item % 100));
@@ -63,13 +70,15 @@ const Year = ({ background, border, onClick }) => {
     cursor: default;
   `;
   };
+  console.log('fyear : ', firstYear);
+  console.log('lyear :', lastYear);
   return (
     <YearTemplate>
       <div className="button">
         <button
           className="button--left"
           style={{ background: background, border: border }}
-          onClick={() => saveYear(year - 1)}
+          onClick={() => (year > firstYear ? saveYear(year - 1) : undefined)}
           onMouseEnter={leftHovered}
           onMouseLeave={leftUnhovered}
         >
@@ -79,7 +88,7 @@ const Year = ({ background, border, onClick }) => {
         <button
           className="button--right"
           style={{ background: background, border: border }}
-          onClick={() => saveYear(year + 1)}
+          onClick={() => (year < lastYear ? saveYear(year + 1) : undefined)}
           onMouseEnter={rightHovered}
           onMouseLeave={rightUnhovered}
         >

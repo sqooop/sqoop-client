@@ -18,6 +18,8 @@ const ButtonContainer = () => {
   const onClick = async () => {
     saveVisible(!isVisible);
     const id = await createActivity(activity);
+    const jsonID = JSON.stringify(id);
+    localStorage.setItem('activityID', jsonID);
     saveID(id);
   };
 

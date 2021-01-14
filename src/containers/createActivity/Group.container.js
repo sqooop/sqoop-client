@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setGroup } from '../../store/modules/activity';
 import Group from '../../components/createActivity/Group';
 
-const TitleContainer = () => {
+const GroupContainer = () => {
   const dispatch = useDispatch();
   const saveGroup = data => dispatch(setGroup(data));
 
@@ -18,4 +18,4 @@ const TitleContainer = () => {
   return <Group onChangeInputs={onChangeInputs} text={group} />;
 };
 
-export default TitleContainer;
+export default GroupContainer;

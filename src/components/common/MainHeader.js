@@ -52,7 +52,7 @@ const MainHeader = ({ history }) => {
           <li
             className="list"
             onClick={() => {
-              history.push('/');
+              history.push('/mypage/basic');
             }}
           >
             마이페이지

@@ -12,6 +12,7 @@ import cardIndex from './modules/cardIndex';
 import filter from './modules/filter';
 import home from './modules/home';
 import month from './modules/month';
+import signIn from './modules/signIn';
 import detail from './modules/detail';
 
 const rootReducer = combineReducers({
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
   filter,
   home,
   month,
+  signIn,
   detail,
 });
 

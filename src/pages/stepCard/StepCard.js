@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   setTitle,
@@ -18,6 +18,7 @@ import ProgressContainer from '../../containers/stepCard/Progress.container';
 import EmptyCard from '../../components/stepCard/EmptyCard';
 import LastCard from '../../components/stepCard/LastCard';
 import Styled from 'styled-components';
+import MainHeader from '../../components/common/MainHeader';
 
 const CardWrap = Styled.div`
   display: flex;
@@ -35,8 +36,14 @@ const StepCard = ({ match }) => {
   const saveAnswer = (string, idx) => dispatch(setAnswer(string, idx));
   const saveGuide = (string, idx) => dispatch(setGuide(string, idx));
 
-  const id = useSelector(state => state.userCardInfo.id);
+  let id = useSelector(state => state.userCardInfo.id);
+  if (id === 0) {
+    const jsonID = localStorage.getItem('activityID');
+    id = JSON.parse(jsonID);
+  }
+
   const index = parseInt(match.params.id);
+
   useEffect(() => {
     saveCurrentIndex(index);
   }, [index]);
@@ -66,6 +73,7 @@ const StepCard = ({ match }) => {
 
   return (
     <>
+      <MainHeader />
       <StepHeaderContainer />
       <CardWrap>
         {questions[currentIndex - 2] ? (
