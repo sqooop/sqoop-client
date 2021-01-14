@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUseranswer, setQuestion } from '../../store/modules/useranswer';
+import { setUseranswer, setQuestion } from '../../store/modules/userdata';
 import UserEdit from '../../components/activityOne/edit/UserEdit';
 
 const UserAnswerContainer = () => {

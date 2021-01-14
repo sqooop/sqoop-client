@@ -24,9 +24,11 @@ ant-select-selector : padding-left가 태그랑 입력창 전체
       background-color: #eeeeee !important;
     }
   }
+
   .ant-select-selection-search {
     margin-left: -0.3rem !important;
   }
+
   .ant-select-selection-placeholder {
     right: 0rem !important;
     left: 0.8rem !important;
