@@ -12,7 +12,7 @@ const ModalContainer = ({ history }) => {
 
   const nextTime = () => {
     saveVisible(!isVisible);
-    history.push(`/`);
+    history.push(`/home`);
   };
 
   const goCard = () => {

@@ -64,10 +64,10 @@ const StyledNoPhoto = styled.div`
   height: 253px; */
   cursor: pointer;
   img {
+    display: block;
     border-style: 'none';
-    width: 8.1rem;
-    height: 10rem;
-    margin: 17% 40%;
+    width: 6.3281vw;
+    margin: 0 auto;
   }
 `;
 

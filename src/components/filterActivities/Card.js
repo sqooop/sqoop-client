@@ -4,7 +4,7 @@ import noImage from '../../assets/images/noImage.svg';
 
 const CardWrap = styled.div`
   height: 174px;
-  width: 914px;
+  width: 71.40625vw;
   &:hover {
     background-color: #eeeeee;
   }
