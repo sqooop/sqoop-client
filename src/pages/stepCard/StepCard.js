@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   setTitle,
@@ -35,8 +35,14 @@ const StepCard = ({ match }) => {
   const saveAnswer = (string, idx) => dispatch(setAnswer(string, idx));
   const saveGuide = (string, idx) => dispatch(setGuide(string, idx));
 
-  const id = useSelector(state => state.userCardInfo.id);
+  let id = useSelector(state => state.userCardInfo.id);
+  if (id === 0) {
+    const jsonID = localStorage.getItem('activityID');
+    id = JSON.parse(jsonID);
+  }
+
   const index = parseInt(match.params.id);
+
   useEffect(() => {
     saveCurrentIndex(index);
   }, [index]);
