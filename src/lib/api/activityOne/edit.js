@@ -12,7 +12,19 @@ const editActivity = async detail => {
         formData.append(key, detail[key]);
       }
     }
-    const { data } = await instance.put(`/activity/update`, formData);
+    console.log(formData);
+    for (let key of formData.keys()) {
+      console.log('키 테스트');
+      console.log('key', key);
+    }
+    for (let value of formData.values()) {
+      console.log('value', value);
+    }
+    const { data } = await instance.put(`/activity/update`, formData, {
+      headers: {
+        'Content-type': 'multipart/form-data',
+      },
+    });
     console.log('[SUCCESS] PUT One Activity', data);
     return data.data;
   } catch (error) {
