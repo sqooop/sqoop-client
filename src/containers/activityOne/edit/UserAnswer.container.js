@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUseranswer, setQuestion } from '../../../store/modules/userdata';
+import { setUseranswer } from '../../../store/modules/userdata';
 import UserEdit from '../../../components/activityOne/edit/UserEdit';
+
 const UserAnswerContainer = () => {
   const dispatch = useDispatch();
   const saveUseranswer = (userdata, idx) =>
@@ -18,8 +20,9 @@ const UserAnswerContainer = () => {
   const answer9 = useSelector(state => state.userdata.useranswer[9]);
   const answer10 = useSelector(state => state.userdata.useranswer[10]);
   const order = useSelector(state => state.userdata.order);
+
   return (
-    <div style={{ display: 'block' }}>
+    <StyledAnswer>
       <UserEdit
         text={answer1}
         question={question[1]}
@@ -100,8 +103,19 @@ const UserAnswerContainer = () => {
           saveUseranswer(evt.target.value, 10);
         }}
       />
-    </div>
+    </StyledAnswer>
   );
 };
+
+const StyledAnswer = styled.div`
+  display: block;
+  height: 33vw;
+  overflow-y: scroll;
+  margin-bottom: 1vw;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
 
 export default UserAnswerContainer;

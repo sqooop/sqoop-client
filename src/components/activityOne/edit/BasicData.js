@@ -47,7 +47,7 @@ const StyledBasicData = styled.div``;
 
 const StyledContentWrap = styled.div`
   display: flex;
-  margin-top: 1.2vw;
+  margin-top: 0.8vw;
 
   & > div:nth-child(2) {
     margin-top: 0.1vw;
