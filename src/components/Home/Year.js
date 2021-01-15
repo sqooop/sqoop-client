@@ -85,7 +85,7 @@ const Year = ({ background, border, onClick }) => {
       <div className="button">
         {year > firstYear ? (
           <img
-            className="button--left"
+            className="button--left buttonOn"
             src={LeftButtonIconOn}
             alt=""
             onClick={onClickLeft}
@@ -111,7 +111,7 @@ const Year = ({ background, border, onClick }) => {
         <StateWrapper>{year}</StateWrapper>
         {year < lastYear ? (
           <img
-            className="button--right"
+            className="button--right buttonOn"
             src={RightButtonIconOn}
             alt=""
             onClick={onClickRight}
@@ -172,6 +172,10 @@ const YearTemplate = styled.div`
         outline: none;
       }
     }
+  }
+
+  .buttonOn:hover {
+    cursor: pointer;
   }
 `;
 
