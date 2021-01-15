@@ -1,20 +1,23 @@
 import { React } from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { ReactComponent as Delete } from '../../../assets/icons/DeleteButton.svg';
-import { deleteActivity } from '../../../lib/api/activity';
-const DeleteButton = ({ history }) => {
+import DeleteModal from './DeleteModal';
+import { setVisible } from '../../../store/modules/modal';
+
+const DeleteButton = () => {
+  const dispatch = useDispatch();
+  const saveVisible = isVisible => dispatch(setVisible(isVisible));
+  const isVisible = useSelector(state => state.modal.isVisible);
   const id = useSelector(state => state.paramsid.id);
-  const DeleteClick = async () => {
-    await deleteActivity(id);
-    history.goBack();
-  };
 
   return (
-    <StyledDelete onClick={DeleteClick}>
-      <Delete />
-    </StyledDelete>
+    <>
+      <StyledDelete onClick={() => saveVisible(true)}>
+        <Delete />
+      </StyledDelete>
+      {isVisible && <DeleteModal id={id} saveVisible={saveVisible} />}
+    </>
   );
 };
 
@@ -26,4 +29,4 @@ const StyledDelete = styled.div`
   cursor: pointer;
 `;
 
-export default withRouter(DeleteButton);
+export default DeleteButton;

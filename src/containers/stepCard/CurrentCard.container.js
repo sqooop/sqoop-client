@@ -52,6 +52,7 @@ const CurrentCardContainer = ({ history }) => {
         history.push(`/steps/${currentIndex + 1}`);
       }, 2000);
     } else {
+      saveSaved(true);
       (async () => {
         await updateCard(card);
         saveClassName('card');

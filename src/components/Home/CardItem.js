@@ -4,8 +4,7 @@ import noImage from '../../assets/images/NoImage.svg';
 import palette from '../../lib/styles/palette';
 import HashTag from './HashTag';
 import { withRouter } from 'react-router-dom';
-const CardItem = (props, { history }) => {
-  const { card } = props;
+const CardItem = ({ card, history }) => {
   const id = card.id;
   console.log(id);
   const startyear = card.startDate.substring(0, 4);
@@ -62,6 +61,7 @@ const CardTemplateBlock = styled.div`
   padding-top: 3px;
   &:hover {
     background-color: ${palette.grey01};
+    cursor: pointer;
   }
 `;
 const ImageTemplate = styled.div`
