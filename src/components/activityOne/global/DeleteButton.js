@@ -1,13 +1,13 @@
 import { React } from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { ReactComponent as Delete } from '../../../assets/icons/DeleteButton.svg';
 import { deleteActivity } from '../../../lib/api/activity';
-
 const DeleteButton = ({ history }) => {
+  const id = useSelector(state => state.paramsid.id);
   const DeleteClick = async () => {
-    // id 받아와서
-    // await deleteActivity();
+    await deleteActivity(id);
     history.goBack();
   };
 
