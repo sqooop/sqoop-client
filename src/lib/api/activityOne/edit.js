@@ -1,10 +1,14 @@
-import instance from '../instance';
+import axios from 'axios';
 
 const editActivity = async detail => {
   try {
     const formData = new FormData();
-    for (var key in detail) {
-      if (key === 'detailJobTag' || key === 'detailSkillTag') {
+    for (let key in detail) {
+      if (key === 'jobTag' || key === 'skillTag') {
+        for (let i = 0; i < detail[key].length; i++) {
+          formData.append(`${key}[${i}]`, detail[key][i].content);
+        }
+      } else if (key === 'questions' || key === 'contents') {
         for (let i = 0; i < detail[key].length; i++) {
           formData.append(`${key}[${i}]`, detail[key][i]);
         }
@@ -12,19 +16,16 @@ const editActivity = async detail => {
         formData.append(key, detail[key]);
       }
     }
-    console.log(formData);
-    for (let key of formData.keys()) {
-      console.log('키 테스트');
-      console.log('key', key);
-    }
-    for (let value of formData.values()) {
-      console.log('value', value);
-    }
-    const { data } = await instance.put(`/activity/update`, formData, {
-      headers: {
-        'Content-type': 'multipart/form-data',
+    const { data } = await axios.put(
+      `http://54.180.189.240:3000/activity/update`,
+      formData,
+      {
+        headers: {
+          'Content-type': 'multipart/form-data',
+          jwt: localStorage.getItem('token'),
+        },
       },
-    });
+    );
     console.log('[SUCCESS] PUT One Activity', data);
     return data.data;
   } catch (error) {
