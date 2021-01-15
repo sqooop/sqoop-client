@@ -4,8 +4,6 @@ import { setWrittenIndex } from '../../store/modules/cardIndex';
 import Progress from '../../components/stepCard/Progress';
 
 const ProgressContainer = () => {
-  const cardIndex = useSelector(state => state.cardIndex);
-  const { writtenIndex } = cardIndex;
   const answers = useSelector(state => state.userCardInfo.answers);
 
   const dispatch = useDispatch();
