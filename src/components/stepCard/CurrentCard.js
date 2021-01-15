@@ -155,6 +155,7 @@ const CurrentCard = ({
   const hovered = event => {
     const image = event.target.querySelector('img');
     image && (image.src = SaveIconOnHover);
+    image && (image.style.border = 'none');
     event.target.style.cssText = `
       border: 1px solid #195BFF; 
       background-color: white; 
@@ -166,6 +167,7 @@ const CurrentCard = ({
   const unhovered = event => {
     const image = event.target.querySelector('img');
     image && (image.src = SaveIconOn);
+    image && (image.style.border = 'none');
     event.target.style.cssText = `
       border: none;
       background-color: #195BFF;
