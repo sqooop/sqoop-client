@@ -14,13 +14,13 @@ const PhotoUpload = props => {
         onChange={onChange}
       />
       <StyledPhotoPreview>
-        <label for="ImageUpload">
+        <label htmlFor="ImageUpload">
           {!image ? (
             <StyledNoPhoto>
               <img src={PostImageIcon} alt="userImage"></img>
             </StyledNoPhoto>
           ) : (
-            <img src={image} alt="previewImage"></img>
+            <img className="imgExist" src={image} alt="previewImage"></img>
           )}
         </label>
       </StyledPhotoPreview>
@@ -49,10 +49,11 @@ const StyledPhotoPreview = styled.div`
   &:hover {
     background-color: #eeeeee, 90%;
   }
-  img {
+  .imgExist {
     border-style: 'none';
     width: 35.15625vw;
     height: 19.765625vw;
+    object-fit: cover;
   }
 `;
 
@@ -60,14 +61,13 @@ const StyledNoPhoto = styled.div`
   border: 0.1rem solid #000000;
   width: 35.15625vw;
   height: 19.765625vw;
-  /* width: 450px;
-  height: 253px; */
   cursor: pointer;
   img {
     display: block;
     border-style: 'none';
     width: 6.3281vw;
     margin: 0 auto;
+    margin-top: 17%;
   }
 `;
 
