@@ -1,5 +1,4 @@
 import { React, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { getUserName } from '../../lib/api/home/userAPI';
 import { setUserName } from '../../store/modules/home';
@@ -29,7 +28,7 @@ const GreetingBlock = styled.div`
   }
 `;
 
-const Greetings = ({ match }) => {
+const Greetings = () => {
   const dispatch = useDispatch();
   const saveUserName = string => dispatch(setUserName(string));
   const userName = useSelector(state => state.home.name);
@@ -39,7 +38,7 @@ const Greetings = ({ match }) => {
       const name = await getUserName();
       saveUserName(name);
     })();
-  }, [match.path]);
+  });
 
   return (
     <>
@@ -54,4 +53,4 @@ const Greetings = ({ match }) => {
   );
 };
 
-export default withRouter(Greetings);
+export default Greetings;

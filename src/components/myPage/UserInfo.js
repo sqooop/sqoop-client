@@ -26,11 +26,11 @@ const UserInfoWrap = Styled.div`
       align-items: center;
       font-size: 14px;
       align-items: left;
-      &__birth > input,
+      /* &__birth > input,
       &__phone > input,
       &__sns > input {
         color: #A5A5A5;
-      }
+      } */
       &__sns > span {
         margin-bottom: 0px;
       }
