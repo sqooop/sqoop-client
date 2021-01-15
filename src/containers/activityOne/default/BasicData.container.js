@@ -19,7 +19,7 @@ import {
 } from '../../../store/modules/detail';
 
 const BasicDataContainer = () => {
-  const id = 74;
+  const id = 55;
   const dispatch = useDispatch();
   const saveStart = data => dispatch(setDetailStart(data));
   const saveEnd = data => dispatch(setDetailEnd(data));

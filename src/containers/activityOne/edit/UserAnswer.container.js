@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUseranswer, setQuestion } from '../../../store/modules/userdata';
 import UserEdit from '../../../components/activityOne/edit/UserEdit';
+import getOneActivity from '../../../lib/api/activityOne/basic';
 
 const UserAnswerContainer = () => {
+  const id = 55;
   const dispatch = useDispatch();
-  // 처음에 서버 통신해서 question이랑 useranswer에 대한 리덕스 state들 다 변경!
-
-  const saveUserAnswer = (useranswer, idx) =>
+  const setUserAnswer = (useranswer, idx) =>
+    dispatch(setUseranswer(useranswer, idx));
+  const setQuestion = (question, idx) =>
     dispatch(setUseranswer(useranswer, idx));
   const useranswer = useSelector(state => state.useranswer.useranswer);
+  const question = useSelector(state => state.useranswer.question);
+
+  useEffect(() => {
+    (async () => {
+      const BasicData = await getOneActivity(id);
+      setUserAnswer(BasicData.selectedActivity.startDate);
+      setQuestion(BasicData.selectedActivity.endDate);
+      console.log(BasicData);
+    })();
+  }, [id]);
 
   return (
     <>
@@ -17,7 +29,7 @@ const UserAnswerContainer = () => {
         <UserEdit
           onChangeInputs={evt => {
             const value = evt.target.value;
-            saveUserAnswer(value, idx);
+            setUserAnswer(value, idx);
           }}
           idx={idx}
           text={useranswer}
