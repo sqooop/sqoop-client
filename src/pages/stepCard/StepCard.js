@@ -7,6 +7,7 @@ import {
   setQuestion,
   setAnswer,
   setGuide,
+  setID,
 } from '../../store/modules/userCardInfo';
 import { setCurrentIndex } from '../../store/modules/cardIndex';
 import { getActivityName, getCardInfo } from '../../lib/api/stepCard';
@@ -35,11 +36,13 @@ const StepCard = ({ match }) => {
   const saveQuestion = (string, idx) => dispatch(setQuestion(string, idx));
   const saveAnswer = (string, idx) => dispatch(setAnswer(string, idx));
   const saveGuide = (string, idx) => dispatch(setGuide(string, idx));
+  const saveID = number => dispatch(setID(number));
 
   let id = useSelector(state => state.userCardInfo.id);
   if (id === 0) {
     const jsonID = localStorage.getItem('activityID');
     id = JSON.parse(jsonID);
+    saveID(id);
   }
 
   const index = parseInt(match.params.id);
