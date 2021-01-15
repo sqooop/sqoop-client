@@ -28,7 +28,7 @@ const SchoolInfoWrap = Styled.div`
       }
       &__time {
         & > span {
-          width: 47px;
+          width: 80px;
           display: inline-block;
           text-align: center;
           color: #A5A5A5;
@@ -60,8 +60,8 @@ const SchoolInfoWrap = Styled.div`
 `;
 
 const SchoolInfo = () => {
-  const [school, setSchool] = useState('');
-  const [major, setMajor] = useState('');
+  const [school, setSchool] = useState('한국외국어대학교');
+  const [major, setMajor] = useState('네덜란드어, 융복합소프트웨어');
 
   return (
     <SchoolInfoWrap>
@@ -76,7 +76,7 @@ const SchoolInfo = () => {
         />
         <div className="empty" />
         <div className="info--school__time">
-          <span>년/월</span>~<span>년/월</span>
+          <span>2017년/3월</span>~<span>2022년/2월</span>
         </div>
       </div>
       <div className="info--major">
