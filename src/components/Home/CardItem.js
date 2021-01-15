@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import noImage from '../../assets/images/noImage.svg';
+import noImage from '../../assets/images/NoImage.svg';
 import palette from '../../lib/styles/palette';
 import HashTag from './HashTag';
 import { withRouter } from 'react-router-dom';
