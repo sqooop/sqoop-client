@@ -7,16 +7,7 @@ import getOneActivity from '../../../lib/api/activityOne/basic';
 const TitleContainer = () => {
   const dispatch = useDispatch();
   const saveTitle = data => dispatch(setDetailTitle(data));
-
   const title = useSelector(state => state.detail.detailTitle);
-  // const id = useSelector(state => state.paramsid.id);
-  const id = 55;
-  useEffect(() => {
-    (async () => {
-      const BasicData = await getOneActivity(id);
-      saveTitle(BasicData.selectedActivity.title);
-    })();
-  }, [id]);
 
   const onChangeInputs = evt => {
     const value = evt.target.value;
