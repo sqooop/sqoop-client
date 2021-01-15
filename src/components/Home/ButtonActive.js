@@ -14,6 +14,7 @@ const ButtonActiveWrap = Styled.div`
   margin-bottom: 72px;
   border: 0;
   outline: 0;
+  cursor: pointer;
   :hover {
     font-size: 15px;
     color: ${palette.main};
