@@ -1,43 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Clip from '../../../assets/icons/Clip.svg';
 
-const FileUpload = ({ userFile }) => {
-  // 파일 이름을 미리보기로 보여주기 위한 state
-  const [previewFile, setPreviewFile] = useState(null);
-  const [serverFile, setServerFile] = useState(null);
+const FileUpload = props => {
+  const { onChange, previewFile } = props;
 
-  // 사용자가 파일 입력 함수
-  const handleFileOnChange = e => {
-    e.preventDefault();
-
-    let reader = new FileReader();
-    let file = e.target.files[0];
-
-    if (file) {
-      reader.readAsDataURL(file);
-      setPreviewFile(() => file.name);
-    } else {
-      setPreviewFile(() => previewFile);
-    }
-
-    reader.onloadend = () => {
-      setServerFile(() => reader.result);
-    };
-  };
-
-  // 사용자가 수정한 값 서버로 전송하는 함수
-  const dataSubmit = async () => {
-    await fetch('서버 API', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        file: serverFile,
-      }),
-    });
-  };
+  const userFile = useSelector(state => state.detail.detailFilename);
 
   return (
     <div style={{ display: 'flex' }}>
@@ -45,7 +14,7 @@ const FileUpload = ({ userFile }) => {
         type="file"
         id="FileUpload"
         name="FileUpload"
-        onChange={handleFileOnChange}
+        onChange={onChange}
       />
       <StyledFilePreview>
         <label for="FileUpload">

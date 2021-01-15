@@ -1,15 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import PhotoUpload from './PhotoUpload';
+import PhotoUpload from '../../../containers/activityOne/edit/Image.container';
 import EditList from '../global/EditList';
-import DateSelector from '../../../containers/createActivity/DateSelector.container';
-import Group from '../../../containers/createActivity/Group.container';
-import JobTagSelector from '../../../containers/activityOne/JobTagSelector.container';
-import SkillTagSelector from '../../../containers/createActivity/SkillTagSelector.container';
-import Summary from '../../../containers/createActivity/Summary.container';
-import FileUpload from '../../../components/activityOne/edit/FileUpload';
+import DateSelector from '../../../containers/activityOne/edit/DateSelector.container';
+import Group from '../../../containers/activityOne/edit/Group.container';
+import JobTagSelector from '../../../containers/activityOne/edit/JobTagSelector.container';
+import SkillTagSelector from '../../../containers/activityOne/edit/SkillTagSelector.container';
+import Summary from '../../../containers/activityOne/edit/Summary.container';
+import FileUpload from '../../../containers/activityOne/edit/File.container';
 
 const BasicData = () => {
+  const detail = useSelector(state => state.detail);
   return (
     <StyledBasicData>
       <PhotoUpload />
@@ -19,7 +21,7 @@ const BasicData = () => {
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="소속 단체" />
-        <Group />
+        <Group value={detail.detailGroup} />
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="관련 직무" isStar={true} />

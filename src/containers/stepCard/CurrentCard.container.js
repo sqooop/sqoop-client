@@ -33,7 +33,6 @@ const CurrentCardContainer = ({ history }) => {
 
   const onClickFunc = () => {
     saveAnswer(textValue, currentIndex);
-    saveSaved(true);
     const card = {
       ActivityId: id,
       number: currentIndex + 1,
@@ -42,16 +41,18 @@ const CurrentCardContainer = ({ history }) => {
     };
 
     if (currentIndex === writtenIndex) {
+      saveSaved(true);
       (async () => {
         await createCard(card);
       })();
       setTimeout(() => {
-        saveClassName('');
+        saveClassName('card');
         saveTextValue(answers[currentIndex + 1]);
         savePrevIndex(currentIndex);
         history.push(`/steps/${currentIndex + 1}`);
       }, 2000);
     } else {
+      saveSaved(true);
       (async () => {
         await updateCard(card);
         saveClassName('card');

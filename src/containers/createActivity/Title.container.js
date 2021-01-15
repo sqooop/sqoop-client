@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTitle } from '../../store/modules/activity';
 import Title from '../../components/createActivity/Title';
@@ -9,6 +9,9 @@ const TitleContainer = () => {
 
   const title = useSelector(state => state.activity.title);
 
+  useEffect(() => {
+    saveTitle('');
+  }, []);
   const onChangeInputs = evt => {
     const value = evt.target.value;
     let cnt = 0;

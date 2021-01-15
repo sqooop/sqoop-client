@@ -1,21 +1,23 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
 import { ReactComponent as Delete } from '../../../assets/icons/DeleteButton.svg';
+import DeleteModal from './DeleteModal';
+import { setVisible } from '../../../store/modules/modal';
 
 const DeleteButton = () => {
-  // 삭제하는 버튼 위에 마우스를 hover 했을 때 아이콘을 변경하고
-  // 삭제하기 기능 구현을 위한 state
-  const [deleteClick, setDeleteClick] = useState('DeleteIcon');
-
-  // 삭제하기 버튼
-  const DeleteClick = () => {
-    setDeleteClick();
-  };
+  const dispatch = useDispatch();
+  const saveVisible = isVisible => dispatch(setVisible(isVisible));
+  const isVisible = useSelector(state => state.modal.isVisible);
+  const id = useSelector(state => state.paramsid.id);
 
   return (
-    <StyledDelete onClick={DeleteClick}>
-      <Delete />
-    </StyledDelete>
+    <>
+      <StyledDelete onClick={() => saveVisible(true)}>
+        <Delete />
+      </StyledDelete>
+      {isVisible && <DeleteModal id={id} saveVisible={saveVisible} />}
+    </>
   );
 };
 
@@ -24,6 +26,7 @@ const StyledDelete = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 8px;
+  cursor: pointer;
 `;
 
 export default DeleteButton;

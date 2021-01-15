@@ -4,7 +4,7 @@ import Styled from 'styled-components';
 const SaveModalWrap = Styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 98;
   position: absolute;
   top: 0; left: 0;
@@ -13,6 +13,7 @@ const SaveModalWrap = Styled.div`
   justify-content: center;
 
   .modal {
+    border: 1px solid black;
     position: relative;
     box-sizing: border-box;
     background-color: white;

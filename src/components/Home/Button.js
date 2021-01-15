@@ -12,6 +12,7 @@ const ButtonWrap = Styled.div`
   margin-bottom: 72px;
   border: 0;
   outline: 0;
+  cursor: default;
   color: ${palette.grey02};
 `;
 
