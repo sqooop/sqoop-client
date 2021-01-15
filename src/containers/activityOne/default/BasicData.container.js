@@ -9,11 +9,14 @@ const BasicDataContainer = () => {
   const detail = useSelector(state => state.detail);
   const { detailJobTag, detailSkillTag } = detail;
   const startyear = detail.detailStart.substring(0, 4);
-  const startmonth = detail.detailStart.substring(4, 6);
-  const startday = detail.detailStart.substring(6, 8);
+  const startmonth = detail.detailStart.substring(5, 7);
+  const startday = detail.detailStart.substring(8, 10);
   const endyear = detail.detailEnd.substring(0, 4);
-  const endmonth = detail.detailEnd.substring(4, 6);
-  const endday = detail.detailEnd.substring(6, 8);
+  const endmonth = detail.detailEnd.substring(5, 7);
+  const endday = detail.detailEnd.substring(8, 10);
+
+  console.log(detail.detailStart);
+  console.log(detail.detailEnd);
 
   return (
     <StyledBasicData>
@@ -55,16 +58,16 @@ const BasicDataContainer = () => {
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="파일 첨부" />
-        <StyledBasic>
+        <StyledBasic
+          style={{ display: 'flex', justifyContent: 'space-between' }}
+        >
           {detail.detailFilename}
           <img src={Clip} alt="" />
         </StyledBasic>
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="한 줄 설명" />
-        <StyledBasic style={{ marginBottom: '3.8vw' }}>
-          {detail.detailSummary}
-        </StyledBasic>
+        <StyledBasic>{detail.detailSummary}</StyledBasic>
       </StyledContentWrap>
     </StyledBasicData>
   );

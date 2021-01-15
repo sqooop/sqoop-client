@@ -20,19 +20,20 @@ const Photo = ({ imageUrl }) => {
 };
 
 const StyledPhoto = styled.div`
-  width: 28vw;
-  height: 15.8vw;
+  width: 25.2vw;
+  height: 14.2vw;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid #000000;
   margin-top: 2.5vw;
   z-index: 99;
+
   .existImage {
     background-color: black;
     object-fit: contain;
-    width: 28vw;
-    height: 15.8vw;
+    width: 25.2vw;
+    height: 14.2vw;
     z-index: -1;
   }
 `;
