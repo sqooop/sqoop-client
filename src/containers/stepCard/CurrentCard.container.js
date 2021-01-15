@@ -32,7 +32,6 @@ const CurrentCardContainer = ({ history }) => {
   const saveClassName = string => dispatch(setClassName(string));
 
   const onClickFunc = () => {
-    saveSaved(true);
     saveAnswer(textValue, currentIndex);
     const card = {
       ActivityId: id,
@@ -42,6 +41,7 @@ const CurrentCardContainer = ({ history }) => {
     };
 
     if (currentIndex === writtenIndex) {
+      saveSaved(true);
       (async () => {
         await createCard(card);
       })();

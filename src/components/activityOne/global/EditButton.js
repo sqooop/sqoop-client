@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { ReactComponent as Edit } from '../../../assets/icons/Edit.svg';
 import { ReactComponent as Complete } from '../../../assets/icons/Complete.svg';
@@ -10,6 +10,8 @@ const EditButton = ({ history }) => {
   const [editClick, setEditClick] = useState('EditIcon');
   const editStatus = editClick === 'EditIcon' ? true : false;
   const id = useSelector(state => state.paramsid.id);
+  const dispatch = useDispatch();
+  const detail = useSelector(state => state.detail);
 
   // 편집하기를 클릭하면 아이콘이 바뀌는 함수
   const EditClick = () => {

@@ -136,7 +136,7 @@ const ProgressWrap = Styled.div`
   }
 `;
 
-const Progress = ({ answers, saveCompleteIndex, match }) => {
+const Progress = ({ answers, saveCompleteIndex, history, match }) => {
   const textList = {
     2: '경험을 한 스쿱씩 꺼내보자!',
     4: '이번 스쿱은 무슨 맛일까?',
@@ -158,6 +158,7 @@ const Progress = ({ answers, saveCompleteIndex, match }) => {
 
   useEffect(() => {
     saveCompleteIndex(writtenIndex);
+    history.push(`/steps/${writtenIndex}`);
   }, [writtenIndex]);
 
   const chunk = textList[writtenIndex];
