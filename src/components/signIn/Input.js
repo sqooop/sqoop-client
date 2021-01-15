@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import inputLine from '../../assets/icons/inputLine.svg';
+import inputLine from '../../assets/icons/InputLine.svg';
 
 const ShowPassword = styled.span`
   cursor: pointer;

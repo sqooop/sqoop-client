@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import 'antd/dist/antd.css';
 import { Select } from 'antd';
-import filterImg from '../../assets/icons/filter.svg';
-import closeImg from '../../assets/icons/close.svg';
+import filterImg from '../../assets/icons/Filter.svg';
+import closeImg from '../../assets/icons/Close.svg';
 
 const { Option } = Select;
 const StyledSelect = styled(Select)`

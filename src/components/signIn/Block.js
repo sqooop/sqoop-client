@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import divider from '../../assets/icons/divider.svg';
+import divider from '../../assets/icons/Divider.svg';
 
 const StyledSpan = styled.span`
   color: #a5a5a5;

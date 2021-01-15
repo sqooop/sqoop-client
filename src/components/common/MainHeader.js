@@ -1,4 +1,4 @@
-import logo from '../../assets/images/ic_sqoop.svg';
+import logo from '../../assets/images/Ic_sqoop.svg';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 
