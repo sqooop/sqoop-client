@@ -19,7 +19,6 @@ import {
 } from '../../../store/modules/detail';
 
 const BasicDataContainer = () => {
-  const id = 55;
   const dispatch = useDispatch();
   const saveStart = data => dispatch(setDetailStart(data));
   const saveEnd = data => dispatch(setDetailEnd(data));
@@ -33,9 +32,11 @@ const BasicDataContainer = () => {
   const saveFileName = data => dispatch(setDetailFilename(data));
 
   const detail = useSelector(state => state.detail);
+  const id = useSelector(state => state.paramsid.id);
 
   useEffect(() => {
     (async () => {
+      console.log('basingData', id);
       const BasicData = await getOneActivity(id);
       saveStart(BasicData.selectedActivity.startDate);
       saveEnd(BasicData.selectedActivity.endDate);
@@ -48,7 +49,7 @@ const BasicDataContainer = () => {
       saveFileName(BasicData.selectedActivity.fileName);
       saveState(BasicData.isFinished);
     })();
-  }, [id]);
+  }, []);
 
   const { detailJobTag, detailSkillTag } = detail;
 

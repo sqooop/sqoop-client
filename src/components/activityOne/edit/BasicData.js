@@ -24,7 +24,6 @@ import {
 } from '../../../store/modules/detail';
 
 const BasicData = () => {
-  const id = 55;
   const dispatch = useDispatch();
   const saveStart = data => dispatch(setDetailStart(data));
   const saveEnd = data => dispatch(setDetailEnd(data));
@@ -38,7 +37,8 @@ const BasicData = () => {
   const saveFileName = data => dispatch(setDetailFilename(data));
 
   const detail = useSelector(state => state.detail);
-
+  // const id = useSelector(state => state.paramsid.id);
+  const id = 55;
   useEffect(() => {
     (async () => {
       const BasicData = await getOneActivity(id);

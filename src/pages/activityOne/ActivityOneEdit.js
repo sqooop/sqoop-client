@@ -17,7 +17,6 @@ const ActivityOneEdit = ({ match }) => {
 
   useEffect(() => {
     saveID(id);
-    console.log(id);
   }, []);
 
   return (

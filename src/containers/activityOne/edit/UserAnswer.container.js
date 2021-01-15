@@ -5,7 +5,6 @@ import UserEdit from '../../../components/activityOne/edit/UserEdit';
 import getOneActivity from '../../../lib/api/activityOne/basic';
 
 const UserAnswerContainer = () => {
-  const id = 55;
   const dispatch = useDispatch();
   const setUserAnswer = (useranswer, idx) =>
     dispatch(setUseranswer(useranswer, idx));
@@ -14,12 +13,13 @@ const UserAnswerContainer = () => {
   const useranswer = useSelector(state => state.useranswer.useranswer);
   const question = useSelector(state => state.useranswer.question);
 
+  const id = useSelector(state => state.paramsid.id);
+
   useEffect(() => {
     (async () => {
       const BasicData = await getOneActivity(id);
       setUserAnswer(BasicData.selectedActivity.startDate);
       setQuestion(BasicData.selectedActivity.endDate);
-      console.log(BasicData);
     })();
   }, [id]);
 

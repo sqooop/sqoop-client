@@ -8,13 +8,14 @@ import getOneActivity from '../../../lib/api/activityOne/basic';
 import { setDetailTitle } from '../../../store/modules/detail';
 
 const TitleContainer = ({ userData }) => {
-  const id = 55;
   const dispatch = useDispatch();
   const saveTitle = data => dispatch(setDetailTitle(data));
 
+  // const id = useSelector(state => state.paramsid.id);
+  const id = 55;
   useEffect(() => {
     (async () => {
-      const BasicData = await getOneActivity(74);
+      const BasicData = await getOneActivity(id);
       saveTitle(BasicData.selectedActivity.title);
     })();
   }, [id]);
