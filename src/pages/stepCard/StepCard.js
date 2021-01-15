@@ -58,6 +58,9 @@ const StepCard = ({ history, match }) => {
       saveTitle(data);
     })();
     (async () => {
+      for (let i = 0; i < 10; i++) {
+        saveAnswer('', i);
+      }
       const data = await getCardInfo(id);
       data.questions.map((card, index) => {
         saveQuestion(card.content, index);
