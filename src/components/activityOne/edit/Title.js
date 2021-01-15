@@ -30,10 +30,10 @@ const StyledActivityOneTitle = styled.div`
   display: flex;
   justify-content: space-between;
   font-weight: bold !important;
-  margin-top: 2.5vw;
+  margin-top: 1vw;
 
   & > input {
-    font-size: 2.5vw;
+    font-size: 2.2vw;
     font-weight: 700;
     line-height: 4.8rem;
     border-style: none;

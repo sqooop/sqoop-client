@@ -21,20 +21,7 @@ const ActivityOneUserData = props => {
 
 const StyledUserData = styled.div`
   width: 41.6vw;
-  overflow-y: scroll;
-  margin-top: 1.6vw;
-
-  ::-webkit-scrollbar {
-    width: 0px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: white;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: white;
-  }
+  margin-top: 1vw;
 `;
 
 const StyledQuestionData = styled.div`
@@ -47,7 +34,6 @@ const StyledQuestionData = styled.div`
 
 const StyledAnswerData = styled.textarea`
   width: 39.1vw;
-  margin-bottom: 2.7vw;
   margin-left: 2.5vw;
   font-size: 0.8vw;
   font-weight: 400 !important;

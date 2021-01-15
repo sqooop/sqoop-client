@@ -74,8 +74,8 @@ const StyledPhotoPreview = styled.div`
     border-style: 'none';
     display: block;
     opacity: 1;
-    width: 28vw;
-    height: 15.8vw;
+    width: 25.2vw;
+    height: 14.2vw;
     object-fit: cover;
   }
 

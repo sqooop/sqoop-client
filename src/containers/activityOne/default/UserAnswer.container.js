@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import UserData from '../../../components/activityOne/default/UserData';
 
@@ -8,7 +9,7 @@ const UserAnswerContainer = () => {
   const order = useSelector(state => state.userdata.order);
 
   return (
-    <div style={{ display: 'block' }}>
+    <StyledAnswer>
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(idx => (
         <UserData
           style
@@ -17,8 +18,18 @@ const UserAnswerContainer = () => {
           index={order[idx]}
         />
       ))}
-    </div>
+    </StyledAnswer>
   );
 };
+
+const StyledAnswer = styled.div`
+  display: block;
+  height: 33vw;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
 
 export default UserAnswerContainer;
