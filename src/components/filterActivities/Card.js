@@ -19,6 +19,15 @@ const Img = styled.img`
   width: 278px;
   padding-right: 20px;
   object-fit: cover;
+  margin-right: 20px;
+`;
+const NoImg = styled.img`
+  margin: 8px 8px;
+  float: left;
+  height: 158px;
+  width: 278px;
+  padding-right: 20px;
+  margin-right: 20px;
 `;
 const Title = styled.div`
   font-size: 30px;
@@ -57,7 +66,7 @@ const Card = props => {
       {activity.imageUrl ? (
         <Img src={activity.imageUrl} />
       ) : (
-        <Img src={noImage} />
+        <NoImg src={noImage} />
       )}
       <Title>{activity.title}</Title>
       <Date>{date}</Date>
