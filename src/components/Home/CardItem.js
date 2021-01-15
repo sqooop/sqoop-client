@@ -7,7 +7,6 @@ import { withRouter } from 'react-router-dom';
 
 const CardItem = ({ history, card }) => {
   const cardId = card.id;
-  console.log(cardId);
   const startyear = card.startDate.substring(0, 4);
   const startmonth = card.startDate.substring(4, 6);
   const startday = card.startDate.substring(6, 8);

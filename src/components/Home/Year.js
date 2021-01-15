@@ -39,7 +39,17 @@ const Year = ({ background, border, onClick }) => {
       saveCards(cardData);
     })();
   }, []);
-  const leftHovered = event => {
+
+  const leftHovered = event => {};
+  const rightHovered = event => {};
+  const onClickLeft = event => {
+    saveYear(year - 1);
+  };
+  const onClickRight = event => {
+    saveYear(year + 1);
+  };
+
+  /*   const leftHovered = event => {
     const img = event.target.querySelector('img');
     img && (img.src = LeftButtonIconOn);
     event.target.style.cssText = `
@@ -54,46 +64,76 @@ const Year = ({ background, border, onClick }) => {
       cursor: pointer;
     `;
   };
-  const leftUnhovered = event => {
+  const onClickLeft = event => {
     const img = event.target.querySelector('img');
     img && (img.src = LeftButtonIconOff);
     event.target.style.cssText = `
-
       cursor: default;
-
     `;
   };
-  const rightUnhovered = event => {
+  const onClickRight = event => {
     const img = event.target.querySelector('img');
     img && (img.src = RightButtonIconOff);
     event.target.style.cssText = `
     cursor: default;
   `;
-  };
-  console.log('fyear : ', firstYear);
-  console.log('lyear :', lastYear);
+  }; */
+  /*   console.log('fyear : ', firstYear);
+  console.log('lyear :', lastYear); */
   return (
     <YearTemplate>
       <div className="button">
-        <button
+        {year > firstYear ? (
+          <img
+            className="button--left"
+            src={LeftButtonIconOn}
+            alt=""
+            onClick={onClickLeft}
+            onMouseEnter={leftHovered}
+          />
+        ) : (
+          <img
+            className="button--left"
+            src={LeftButtonIconOff}
+            alt=""
+            onMouseEnter={leftHovered}
+          />
+        )}
+        {/*         <button
           className="button--left"
           style={{ background: background, border: border }}
           onClick={() => (year > firstYear ? saveYear(year - 1) : undefined)}
           onMouseEnter={leftHovered}
-          onMouseLeave={leftUnhovered}
+          onMouseLeave={onClickLeft}
         >
           <img src={LeftButtonIconOff} alt="" />
-        </button>
+        </button> */}
         <StateWrapper>{year}</StateWrapper>
-        <button
+        {year < lastYear ? (
+          <img
+            className="button--right"
+            src={RightButtonIconOn}
+            alt=""
+            onClick={onClickRight}
+            onMouseEnter={rightHovered}
+          />
+        ) : (
+          <img
+            className="button--right"
+            src={RightButtonIconOff}
+            alt=""
+            onMouseEnter={rightHovered}
+          />
+        )}
+        {/*         <button
           className="button--right"
           style={{ background: background, border: border }}
           onClick={() => (year < lastYear ? saveYear(year + 1) : undefined)}
-          onMouseEnter={rightHovered}
-          onMouseLeave={rightUnhovered}
+          onMouseOver={rightHovered}
+          onMouseLeave={onClickRight}
         >
           <img src={RightButtonIconOff} alt="" />
-        </button>
+        </button> */}
       </div>
     </YearTemplate>
   );
@@ -118,6 +158,8 @@ const YearTemplate = styled.div`
       border: none;
       &:focus {
         outline: none;
+      }
+      &:hover {
       }
     }
     &--right {
