@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import EditList from '../../components/activityOne/global/EditList';
-import Photo from '../../components/activityOne/default/Photo';
-import getOneActivity from '../../lib/api/activityOne/basic';
-import Clip from '../../assets/icons/Clip.svg';
+import EditList from '../../../components/activityOne/global/EditList';
+import Photo from '../../../components/activityOne/default/Photo';
+import getOneActivity from '../../../lib/api/activityOne/basic';
+import Clip from '../../../assets/icons/Clip.svg';
 import {
   setDetailStart,
   setDetailEnd,
@@ -16,7 +16,7 @@ import {
   setDetailFile,
   setDetailFilename,
   setDetailState,
-} from '../../store/modules/detail';
+} from '../../../store/modules/detail';
 
 const BasicDataContainer = () => {
   const id = 74;

@@ -1,8 +1,8 @@
 import React from 'react';
-import { setJobItems, setJobName } from '../../store/modules/jobTag';
-import { setDetailJob } from '../../store/modules/detail';
+import { setJobItems, setJobName } from '../../../store/modules/jobTag';
+import { setDetailJob } from '../../../store/modules/detail';
 import { useDispatch, useSelector } from 'react-redux';
-import TagSelector from '../../components/activityOne/edit/TagSelector';
+import TagSelector from '../../../components/activityOne/edit/TagSelector';
 
 const JobTagSelectorContainer = () => {
   const dispatch = useDispatch();
