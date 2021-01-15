@@ -25,8 +25,8 @@ const DateSelectorContainer = () => {
     value = [];
     value.push(dateString[0].replace('-', '').replace('-', ''));
     value.push(dateString[1].replace('-', '').replace('-', ''));
-    let start = dateString[0];
-    let end = dateString[1];
+    let start = value[0];
+    let end = value[1];
     saveDetailStart(start);
     saveDetailEnd(end);
   };
