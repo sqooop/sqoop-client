@@ -19,6 +19,7 @@ import {
   setDetailState,
   setDetailTitle,
 } from '../../store/modules/detail';
+import { setUseranswer, setAllData } from '../../store/modules/userdata';
 import getOneActivity from '../../lib/api/activityOne/basic';
 
 const ActivityOneEdit = ({ match }) => {
@@ -37,6 +38,7 @@ const ActivityOneEdit = ({ match }) => {
   const saveState = data => dispatch(setDetailState(data));
   const saveFileName = data => dispatch(setDetailFilename(data));
   const saveDetailTitle = data => dispatch(setDetailTitle(data));
+  const saveAllData = (question, idx) => dispatch(setAllData(question, idx));
 
   const detail = useSelector(state => state.detail);
 
@@ -55,6 +57,7 @@ const ActivityOneEdit = ({ match }) => {
       saveFileName(BasicData.selectedActivity.fileName);
       saveState(BasicData.isFinished);
       saveDetailTitle(BasicData.selectedActivity.title);
+      saveAllData(BasicData.questionCards);
     })();
   }, [id]);
 

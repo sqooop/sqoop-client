@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ActivityOneUserData = props => {
-  const { text, onChangeInputs, question } = props;
-
+  const { text, onChange, question } = props;
+  console.log(text);
   return (
     <StyledUserData className="UserData">
       <>
@@ -11,7 +11,7 @@ const ActivityOneUserData = props => {
         <StyledAnswerData
           className="AnswerData"
           value={text}
-          onChange={onChangeInputs}
+          onChange={onChange}
         />
       </>
     </StyledUserData>
@@ -19,7 +19,7 @@ const ActivityOneUserData = props => {
 };
 
 const StyledUserData = styled.div`
-  display: block;
+  /* display: block; */
   width: 41.6vw;
   height: 39.1vw;
   overflow-y: scroll;

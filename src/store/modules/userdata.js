@@ -1,5 +1,6 @@
 const SET_QUESTION = 'useranswer/SET_QUESTION';
 const SET_USERANSWER = 'useranswer/SET_USERANSWER';
+const SET_ALL_DATA = 'useranswer/SET_ALL_DATA';
 
 export const setUseranswer = (useranswer, idx) => ({
   type: SET_USERANSWER,
@@ -13,9 +14,13 @@ export const setQuestion = (question, idx) => ({
   idx,
 });
 
+export const setAllData = data => ({
+  type: SET_ALL_DATA,
+  data,
+});
+
 const initialState = {
   useranswer: {
-    0: '',
     1: '',
     2: '',
     3: '',
@@ -25,10 +30,10 @@ const initialState = {
     7: '',
     8: '',
     9: '',
+    10: '',
   },
 
   question: {
-    0: '',
     1: '',
     2: '',
     3: '',
@@ -38,6 +43,7 @@ const initialState = {
     7: '',
     8: '',
     9: '',
+    10: '',
   },
 };
 
@@ -51,6 +57,13 @@ export default function reducer(state = initialState, action) {
       state.question[action.idx] = action.question;
       return state;
 
+    case SET_ALL_DATA:
+      action.data.map(item => {
+        state.useranswer[item.number] = item.content;
+        state.question[item.number] = item.question;
+      });
+      console.log('SDAFSAFASDFAD', action.data, state);
+      return state;
     default:
       return state;
   }
