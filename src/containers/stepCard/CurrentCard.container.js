@@ -8,6 +8,7 @@ import {
   setClassNameGrow,
   setClassNameShrink,
   setClassNameRight,
+  setClassNameShrinkRight,
 } from '../../store/modules/currentCard';
 import { setPrevIndex } from '../../store/modules/cardIndex';
 import {
@@ -39,6 +40,8 @@ const CurrentCardContainer = ({ history }) => {
   const saveClassNameLeft = string => dispatch(setClassNameLeft(string));
   const saveClassNameShrink = string => dispatch(setClassNameShrink(string));
   const saveClassNameRight = string => dispatch(setClassNameRight(string));
+  const saveClassNameShrinkRight = string =>
+    dispatch(setClassNameShrinkRight(string));
 
   const onClickFunc = () => {
     saveAnswer(textValue, currentIndex);
@@ -59,6 +62,7 @@ const CurrentCardContainer = ({ history }) => {
         saveClassNameLeft('card');
         saveClassNameShrink('card');
         saveClassNameRight('card');
+        saveClassNameShrinkRight('card');
         saveTextValue(answers[currentIndex + 1]);
         savePrevIndex(currentIndex);
         history.push(`/steps/${currentIndex + 1}`);
@@ -71,6 +75,7 @@ const CurrentCardContainer = ({ history }) => {
         saveClassNameLeft('card');
         saveClassNameShrink('card');
         saveClassNameRight('card');
+        saveClassNameShrinkRight('card');
       })();
     }
   };
