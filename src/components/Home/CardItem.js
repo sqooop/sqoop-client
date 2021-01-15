@@ -62,6 +62,7 @@ const CardTemplateBlock = styled.div`
   padding-top: 3px;
   &:hover {
     background-color: ${palette.grey01};
+    cursor: pointer;
   }
 `;
 const ImageTemplate = styled.div`
