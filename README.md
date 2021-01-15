@@ -24,15 +24,14 @@
 | :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: |
 | <img src="https://avatars3.githubusercontent.com/u/70877186?s=460&u=b80382a7a0abb0acbf147217eb41720a9d3e0a38&v=4" alt="profile" width="200" height="200"> | <img src="https://avatars1.githubusercontent.com/u/55863806?s=460&u=c65fa17d24b3d8c5603a24ea7c561879be7983ae&v=4" alt="profile" width="200" height="200"> | <img src="https://avatars3.githubusercontent.com/u/55784772?s=460&u=3b15b3f7c5ac71e8d20b5dbb6d34e00c89fc2f0a&v=4" alt="profile" width="200" height="200"> | <img src="https://avatars1.githubusercontent.com/u/48766355?s=460&u=0419d273d1a31539ee4f1151cdacb6fefd45dacc&v=4" alt="profile" width="200" height="200">
 |                                             [sohee-K](https://github.com/sohee-K)                                             |                                          [Hyun-juhee](https://github.com/Hyun-juhee)                                          |                                            [yezgoget](https://github.com/yezgoget)                                            |                                              [mnxmnz](https://github.com/mnxmnz)                                              |
-|                                                         활동 돌아보기                                                         |                                                         새 활동 추가<br /> 활동 모아보기<br /> 로그인                                                          |                                                            메인 홈                                                            |                                                        개별 활동 보기                                                         |
-|                        git branch <br />[[step-card]](https://github.com/sqooop/sqoop-client/tree/step-card)                        |                   git branch <br />[[createActivity]](https://github.com/sqooop/sqoop-client/tree/createActivity)                   |                             git branch <br /> [[home]](https://github.com/sqooop/sqoop-client/tree/home)                             |                     git branch <br />[[activity-one]](https://github.com/sqooop/sqoop-client/tree/activity-one)                     |
+|                                                         활동 돌아보기 <br /> 마이페이지(~ing)                                                         |                                                         새 활동 추가<br /> 활동 모아보기<br /> 로그인                                                          |                                                            메인 홈                                                            |                                                        개별 활동 보기                                                         |
+|                        git branch <br />[[step-card]](https://github.com/sqooop/sqoop-client/tree/step-card) <br /> [[my-page]](https://github.com/sqooop/sqoop-client/tree/my-page)                       |                   git branch <br />[[createActivity]](https://github.com/sqooop/sqoop-client/tree/createActivity)                   |                             git branch <br /> [[home]](https://github.com/sqooop/sqoop-client/tree/home)                             |                     git branch <br />[[activity-one]](https://github.com/sqooop/sqoop-client/tree/activity-one)                     |
 
 
 ### 🔵 서비스 핵심 기능
 
 #### ⚪️ 활동 돌아보기(/steps/:id)
 <img  width="700" alt="도라보기1" src="https://user-images.githubusercontent.com/55784772/104732024-ec308d00-577f-11eb-9129-cffbcb6f4685.PNG" width="1500" height="400"> 
-
 
     💡 헤더
       - 활동 이름 표시
@@ -41,6 +40,7 @@
     💡 현재 질문 카드
       - 카드 index에 따라 질문 표시
       - 답변 작성 영역(중복 공백 불가능, 최대 1000자)
+      - 답변 수정 중 이전카드 또는 좌우버튼 클릭시 저장 안내 모달 표시
 
     💡 스쿱 저장 버튼
       - 답변이 빈 문자열일 경우 비활성화
@@ -67,7 +67,6 @@
 #### ⚪️ 새 활동 추가(/create)
 
 <img width="700" alt="활동추가1" src="https://user-images.githubusercontent.com/55784772/104733740-809bef00-5782-11eb-8a9b-1bbf42a7eacc.PNG">
-
 
     💡 활동 내용 입력받기 
        - 제목
@@ -133,7 +132,6 @@
 #### ⚪️ 메인 홈 (/home)
 <img  width="700" alt="홈" src="https://user-images.githubusercontent.com/55784772/104731707-73c9cc00-577f-11eb-8157-c7bfe1cc6fdd.PNG" width="1500" height="400">
 
-
     💡 메인 헤더
       - 홈
       - 모아보기
@@ -152,16 +150,6 @@
       - 기간 선택 
       - 타임라인 숫자 비활성화
  
-#### ⚪️ 로그인 (/signin)
-
-    💡 이메일 입력
-      
-    💡 비밀 번호 입력
-   
-    💡 로그인 
-      - 로그인 성공 시 홈으로 이동
-      - 실패시 경고문 출력
- 
 #### ⚪️ 활동 모아보기 (/activities)
 <img  width="700" alt="모아보기1" src="https://user-images.githubusercontent.com/55784772/104731769-8b08b980-577f-11eb-8d9b-0541295d8bfd.PNG" width="1500" height="400">
 
@@ -179,6 +167,21 @@
     💡 활동 클릭시
       - 개별 활동 조회 페이지로 이동
       
+#### ⚪️ 로그인 (/signin)
+
+    💡 이메일 입력
+      
+    💡 비밀 번호 입력
+   
+    💡 로그인 
+      - 로그인 성공 시 홈으로 이동
+      - 실패시 경고문 출력
+      
+#### ⚪️ 마이페이지 (/mypage/basic, /mypage/career)
+
+    💡 기본 정보 레이아웃
+      
+    💡 이력 사항 레이아웃
 
   
 ### 📂 프로젝트 폴더 구조
@@ -189,31 +192,45 @@
 │   ├── icons
 │   └── image
 ├── components
-│   ├── home
 │   ├── activityOne
-│   └── createActivity
+│   │   ├── default
+│   │   ├── edit
+│   │   ├── global
+│   │   ├── notFinished
+│   │   └── notStarting
+│   ├── common
+│   ├── createActivity
+│   ├── filterActivities
+│   ├── home
+│   ├── myPage
+│   ├── signIn
 │   └── stepCard
-│   └── common
 ├── containers
-│   ├── home
 │   ├── activityOne
-│   └── createActivity
+│   │   ├── default
+│   │   └── edit
+│   ├── createActivity
+│   ├── filterActivities
+│   ├── home
+│   ├── signIn
 │   └── stepCard
-│   └── common
 ├── font
 ├── lib
 │   ├── api
 │   ├── styles
 ├── pages
+│   ├── activityOne
+│   ├── createActivity
+│   ├── filterActivities
 │   ├── home
-│   ├── signin
-│   └── createActivity
+│   ├── myPage
+│   ├── signIn
 │   └── stepCard
-│   └── common
 ├── stores
 │   ├── modules
-│   ├── index,js
+│   └── index.js
 ├── App.js
+├── index.js
 └── serviceWorker.js
 ```
 
@@ -255,6 +272,10 @@
        - step-card (활동 돌아보기 view)
 
        - activity-one (개별 활동 보기 view)
+       
+       - my-page (마이페이지 view)
+       
+       - responsive (반응형 확인용 브랜치)
 
 #### ➕ Code Convention
 
