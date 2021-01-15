@@ -1,43 +1,59 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { ReactComponent as Edit } from '../../../assets/icons/Edit.svg';
 import { ReactComponent as Complete } from '../../../assets/icons/Complete.svg';
 import EditApi from '../../../lib/api/activityOne/edit';
-import UserApi from '../../../lib/api/activityOne/answer';
+import { setEditMode } from '../../../store/modules/editButton';
 
 const EditButton = ({ history }) => {
-  // 편집하기와 완료하기를 클릭하면 component를 변경하기 위한 state
-  const [editClick, setEditClick] = useState('EditIcon');
-  const editStatus = editClick === 'EditIcon' ? true : false;
+  const dispatch = useDispatch();
   const id = useSelector(state => state.paramsid.id);
   const detail = useSelector(state => state.detail);
   const userdata = useSelector(state => state.userdata);
-
-  // 편집하기를 클릭하면 아이콘이 바뀌는 함수
+  const isEditMode = useSelector(state => state.editButton.isEditMode);
+  const saveEditMode = data => dispatch(setEditMode(data));
   const EditClick = () => {
-    setEditClick('CompleteIcon');
+    saveEditMode(true);
     history.push(`/detail/edit/${id}`);
   };
 
-  // 완료하기를 클릭하면 아이콘이 바뀌는 함수
-  const CompleteClick = () => {
-    setEditClick('EditIcon');
-    EditApi(detail);
-    UserApi(userdata);
+  const CompleteClick = async () => {
+    saveEditMode(false);
+    let questions = [];
+    let contents = [];
+    for (let i = 1; i < 11; i++) {
+      questions.push(userdata.question[i]);
+      contents.push(userdata.useranswer[i]);
+    }
+    const data = {
+      title: detail.detailTitle,
+      startDate: detail.detailStart,
+      endDate: detail.detailEnd,
+      group: detail.detailGroup,
+      summary: detail.detailSummary,
+      imageUrl: detail.detailImageUrl,
+      fileUrl: detail.detailFileUrl,
+      jobTag: detail.detailJobTag,
+      skillTag: detail.detailSkillTag,
+      ActivityId: id,
+      questions,
+      contents,
+    };
+    await EditApi(data);
     history.push(`/detail/${id}`);
   };
 
   return (
     <StyledActivityOneButton>
-      {editStatus ? (
-        <StyledActivityOneEdit onClick={EditClick}>
-          <Edit />
-        </StyledActivityOneEdit>
-      ) : (
+      {isEditMode ? (
         <StyledActivityOneEdit onClick={CompleteClick}>
           <Complete />
+        </StyledActivityOneEdit>
+      ) : (
+        <StyledActivityOneEdit onClick={EditClick}>
+          <Edit />
         </StyledActivityOneEdit>
       )}
     </StyledActivityOneButton>

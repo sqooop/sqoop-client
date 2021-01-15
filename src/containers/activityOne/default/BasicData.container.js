@@ -35,31 +35,23 @@ const BasicDataContainer = () => {
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="관련 직무" isStar={true} />
-        <StyledBasic>
-          <StyledTagWrap>
-            {detailJobTag ? (
-              detailJobTag.map((item, index) => (
-                <StyledTag key={index - 1}>{item.content}</StyledTag>
-              ))
-            ) : (
-              <></>
-            )}
-          </StyledTagWrap>
-        </StyledBasic>
+        {detailJobTag ? (
+          detailJobTag.map((item, index) => (
+            <StyledTag key={index - 1}>{item.content}</StyledTag>
+          ))
+        ) : (
+          <></>
+        )}
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="핵심 역량" isStar={true} />
-        <StyledBasic>
-          <StyledTagWrap>
-            {detailSkillTag ? (
-              detailSkillTag.map((datalist, index) => (
-                <StyledTag key={index - 1}>{datalist.content}</StyledTag>
-              ))
-            ) : (
-              <></>
-            )}
-          </StyledTagWrap>
-        </StyledBasic>
+        {detailSkillTag ? (
+          detailSkillTag.map((datalist, index) => (
+            <StyledTag key={index - 1}>{datalist.content}</StyledTag>
+          ))
+        ) : (
+          <></>
+        )}
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="파일 첨부" />
@@ -100,18 +92,13 @@ const StyledBasic = styled.div`
   }
 `;
 
-const StyledTagWrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-`;
-
-const StyledTag = styled.div`
-  padding-left: 0.8vw;
-  padding-right: 0.8vw;
+const StyledTag = styled.span`
   background: #195bff;
   color: white;
-  margin-right: 0.6vw;
+  font-size: 13px;
+  padding: 1px 10px;
+  margin-right: 12px;
+  margin-top: 12px;
+  display: inline-block;
 `;
-
 export default BasicDataContainer;

@@ -15,6 +15,7 @@ import month from './modules/month';
 import signIn from './modules/signIn';
 import detail from './modules/detail';
 import paramsid from './modules/paramsid';
+import editButton from './modules/editButton';
 
 const rootReducer = combineReducers({
   activity,
@@ -33,6 +34,7 @@ const rootReducer = combineReducers({
   signIn,
   detail,
   paramsid,
+  editButton,
 });
 
 export default rootReducer;

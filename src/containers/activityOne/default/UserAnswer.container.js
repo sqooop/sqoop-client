@@ -6,7 +6,6 @@ const UserAnswerContainer = () => {
   const answer = useSelector(state => state.userdata.useranswer);
   const question = useSelector(state => state.userdata.question);
   const order = useSelector(state => state.userdata.order);
-  console.log(order);
 
   return (
     <div style={{ display: 'block' }}>
