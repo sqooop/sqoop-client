@@ -15,7 +15,7 @@ const PhotoUpload = props => {
         onChange={onChange}
       />
       <label for="ImageUpload">
-        {image === null ? (
+        {image === '' ? (
           <StyledPhotoPreview>
             <img src={user} alt="userImg"></img>
             <div className="hoverImg"></div>
