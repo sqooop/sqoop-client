@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   setTitle,
@@ -9,10 +9,7 @@ import {
   setGuide,
   setID,
 } from '../../store/modules/userCardInfo';
-import {
-  setCurrentIndex,
-  setWrittenIndex,
-} from '../../store/modules/cardIndex';
+import { setCurrentIndex } from '../../store/modules/cardIndex';
 import { getActivityName, getCardInfo } from '../../lib/api/stepCard';
 import StepHeaderContainer from '../../containers/stepCard/StepHeader.container';
 import CurrentCardContainer from '../../containers/stepCard/CurrentCard.container';
@@ -40,9 +37,7 @@ const StepCard = ({ history, match }) => {
   const saveAnswer = (string, idx) => dispatch(setAnswer(string, idx));
   const saveGuide = (string, idx) => dispatch(setGuide(string, idx));
   const saveID = number => dispatch(setID(number));
-  const saveWrittenIndex = idx => dispatch(setWrittenIndex(idx));
 
-  let writtenIndex = useSelector(state => state.cardIndex.writtenIndex);
   let id = useSelector(state => state.userCardInfo.id);
 
   if (id === 0) {
@@ -75,7 +70,6 @@ const StepCard = ({ history, match }) => {
           return 0;
         });
       }
-      history.push(`/steps/${writtenIndex}`);
     })();
   }, [match.path]);
 
