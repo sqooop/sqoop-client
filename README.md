@@ -29,8 +29,7 @@
 ### 🔵 서비스 핵심 기능
 
 #### ⚪️ 활동 돌아보기(/steps/:id)
-
-![step-card](/src/assets/images/stepCard.png)
+<img width="457" alt="도라보기1" src="https://user-images.githubusercontent.com/55784772/104732024-ec308d00-577f-11eb-9129-cffbcb6f4685.PNG" width="1500" height="400"> 
 
 
     💡 헤더
@@ -64,6 +63,7 @@
       - 활동 돌아보기 버튼 클릭시 미리보기 뷰로 넘어감
 
 #### ⚪️ 새 활동 추가(/create)
+<img width="723" alt="활동추가1" src="https://user-images.githubusercontent.com/55784772/104731865-ad023c00-577f-11eb-99e4-6609f7f8dae0.PNG" width="1500" height="400">
 
     💡 활동 내용 입력받기 
        - 제목
@@ -85,6 +85,7 @@
       - 사진, 파일 formData로 서버에 전송 
       
 #### ⚪️ 개별 활동 보기(/detail/:id 및 /detail/edit/:id)
+<img width="726" alt="개별활동1" src="https://user-images.githubusercontent.com/55784772/104731835-a1af1080-577f-11eb-8840-68c007bfbcb2.PNG" width="1500" height="400">
 
     💡 헤더
       - 활동 이름 표시
@@ -120,22 +121,26 @@
       - 2: 10번까지 모든 질문 카드 작성했을 경우
       - 3: 사용자가 10번까지 질문 카드를 작성한 직 후 미리보기 화면
 #### ⚪️ 메인 홈 (/home)
+<img width="654" alt="홈" src="https://user-images.githubusercontent.com/55784772/104731707-73c9cc00-577f-11eb-8157-c7bfe1cc6fdd.PNG" width="1500" height="400">
+
 
     💡 메인 헤더
       - 홈
       - 모아보기
       - 마이페이지
       
-    💡 메인 헤더
+    💡 사용자 인삿말
       - 사용자 이름이 들어간 인사말
       - 활동 제안 (F5시 랜덤으로 바뀜)
+      - 새 활동 추가 버튼
    
     💡 활동 불러오기
-      - 기간 선택 (달별)
+      - 기간 선택 버튼 (년도) 
       - 활동 카드 
         ㄴ 활동 이미지. 활동 제목 , 기간, 해시태그 
-      - 새 활동 추가 버튼
-      - 타임라인 숫자 
+        ㄴ 사용자 경험을 요약해서 보여줌.
+      - 기간 선택 
+      - 타임라인 숫자 비활성화
       
 #### ⚪️ 로그인 (/signin)
 
@@ -148,6 +153,7 @@
       - 실패시 경고문 출력
       
 #### ⚪️ 활동 모아보기 (/activities)
+<img width="573" alt="모아보기1" src="https://user-images.githubusercontent.com/55784772/104731769-8b08b980-577f-11eb-8d9b-0541295d8bfd.PNG" width="1500" height="400">
 
     💡 활동 모아보기/즐겨찾기/작성 중인 활동 선택
       - 활동 모아보기 : 필터링 가능, 처음에는 전체 활동
