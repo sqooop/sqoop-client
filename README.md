@@ -22,7 +22,7 @@
 
 |                                                            권소희                                                             |                                                            현주희                                                             |                                                            손예지                                                             |                                                            김민지                                                             |
 | :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: |
-| <img src="https://avatars3.githubusercontent.com/u/70877186?s=460&u=b80382a7a0abb0acbf147217eb41720a9d3e0a38&v=4" alt="profile" width="180" height="180"> | <img src="https://avatars1.githubusercontent.com/u/55863806?s=460&u=c65fa17d24b3d8c5603a24ea7c561879be7983ae&v=4" alt="profile" width="180" height="180"> | <img src="https://avatars3.githubusercontent.com/u/55784772?s=460&u=3b15b3f7c5ac71e8d20b5dbb6d34e00c89fc2f0a&v=4" alt="profile" width="180" height="180"> | <img src="https://avatars1.githubusercontent.com/u/48766355?s=460&u=0419d273d1a31539ee4f1151cdacb6fefd45dacc&v=4" alt="profile" width="180" height="180">
+| <img src="https://avatars3.githubusercontent.com/u/70877186?s=460&u=b80382a7a0abb0acbf147217eb41720a9d3e0a38&v=4" alt="profile" width="200" height="200"> | <img src="https://avatars1.githubusercontent.com/u/55863806?s=460&u=c65fa17d24b3d8c5603a24ea7c561879be7983ae&v=4" alt="profile" width="200" height="200"> | <img src="https://avatars3.githubusercontent.com/u/55784772?s=460&u=3b15b3f7c5ac71e8d20b5dbb6d34e00c89fc2f0a&v=4" alt="profile" width="200" height="200"> | <img src="https://avatars1.githubusercontent.com/u/48766355?s=460&u=0419d273d1a31539ee4f1151cdacb6fefd45dacc&v=4" alt="profile" width="200" height="200">
 |                                             [sohee-K](https://github.com/sohee-K)                                             |                                          [Hyun-juhee](https://github.com/Hyun-juhee)                                          |                                            [yezgoget](https://github.com/yezgoget)                                            |                                              [mnxmnz](https://github.com/mnxmnz)                                              |
 |                                                         활동 돌아보기                                                         |                                                         새 활동 추가<br /> 활동 모아보기<br /> 로그인                                                          |                                                            메인 홈                                                            |                                                        개별 활동 보기                                                         |
 |                        git branch <br />[[step-card]](https://github.com/sqooop/sqoop-client/tree/step-card)                        |                   git branch <br />[[createActivity]](https://github.com/sqooop/sqoop-client/tree/createActivity)                   |                             git branch <br /> [[home]](https://github.com/sqooop/sqoop-client/tree/home)                             |                     git branch <br />[[activity-one]](https://github.com/sqooop/sqoop-client/tree/activity-one)                     |
@@ -93,6 +93,9 @@
 
     💡 헤더
       - 활동 이름 표시
+      - 즐겨찾기 버튼
+      - 수정 버튼
+      - 삭제 버튼
 
     💡 활동 내용 확인하기 
        - 제목
@@ -102,6 +105,7 @@
        - 역량 태그
        - 한줄 설명
        - 파일 첨부
+       - 활동 카드 부분 사용자 답변 정리
 
     💡 활동 내용 수정하기 
        - 제목
@@ -112,12 +116,13 @@
        - 한줄 설명
        - 파일 첨부
        - 입력차 hover시 스타일 변경
+       - 활동 카드 부분 사용자 답변 정리
 
     💡 수정 완료 버튼
-      - 제목, 직무 태그, 역량 태그 입력시 수정 완료 버튼
+      - 사용자가 값을 수정한 후 수정 완료 가능
 
     💡 즐겨찾기 버튼
-      - 활동 즐겨찾기 등록 기능
+      - 활동 즐겨찾기 등록 및 해제 기능
 
     💡 사용자 답변 상태에 따라 4가지 다른 뷰 제공
       - 0: 작성한 질문 카드는 하나도 없고 기본 정보만 입력했을 경우
