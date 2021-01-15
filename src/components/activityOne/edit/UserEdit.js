@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const ActivityOneUserData = props => {
   const { text, onChange, question } = props;
-  console.log(text);
   return (
     <StyledUserData className="UserData">
       <>

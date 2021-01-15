@@ -28,6 +28,7 @@ const StyledPhoto = styled.div`
   border: 1px solid #000000;
   margin-top: 2.5vw;
   z-index: 99;
+  /* background-color: black; */
   .existImage {
     object-fit: contain;
     width: 28vw;
