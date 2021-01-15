@@ -36,7 +36,7 @@ export const setFilterOpen = data => ({
   data,
 });
 const initialState = {
-  status: 'all',
+  status: '활동 모아보기',
   startDate: '',
   endDate: '',
   jobTag: [],

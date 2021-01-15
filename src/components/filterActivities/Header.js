@@ -41,18 +41,18 @@ const Header = props => {
   return (
     <>
       <HeaderWrap>
-        <StyledSelect defaultValue="활동 모아보기" onChange={handleChange}>
-          <Option style={optionStyle} value="all">
+        <StyledSelect defaultValue={status} onChange={handleChange}>
+          <Option style={optionStyle} value="활동 모아보기">
             활동 모아보기
           </Option>
-          <Option style={optionStyle} value="like">
+          <Option style={optionStyle} value="즐겨찾기">
             즐겨찾기
           </Option>
-          <Option style={optionStyle} value="writing">
+          <Option style={optionStyle} value="작성 중인 활동">
             작성 중인 활동
           </Option>
         </StyledSelect>
-        {status === 'all' ? (
+        {status === '활동 모아보기' ? (
           !isOpen ? (
             <img
               className="filterImg"
