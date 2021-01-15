@@ -1,6 +1,9 @@
 import logo from '../../assets/images/Ic_sqoop.svg';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { setActivities } from '../../store/modules/activities';
+import { getActivities } from '../../lib/api/activity';
 
 const HeaderBlock = styled.div`
   display: flex;
@@ -28,6 +31,8 @@ const Spacer = styled.div`
 `;
 
 const MainHeader = ({ history }) => {
+  const dispatch = useDispatch();
+  const saveActivities = data => dispatch(setActivities(data));
   return (
     <>
       <HeaderBlock>

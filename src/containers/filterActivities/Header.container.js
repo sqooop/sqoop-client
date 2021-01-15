@@ -25,13 +25,13 @@ const HeaderContainer = () => {
   };
   useEffect(() => {
     (async () => {
-      if (status === 'like') {
+      if (status === '즐겨찾기') {
         const data = await getLikeActivity();
         saveActivities(data);
-      } else if (status === 'all') {
+      } else if (status === '활동 모아보기') {
         const data = await getActivities();
         saveActivities(data);
-      } else if (status === 'writing') {
+      } else if (status === '작성 중인 활동') {
         const data = await getWritingActivity();
         saveActivities(data);
       }
