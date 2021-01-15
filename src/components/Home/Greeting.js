@@ -14,11 +14,11 @@ const GreetingBlock = styled.div`
 
   .greeting {
     font-weight: bold;
-    animation-name: appearing;
+    animation-name: appear;
     animation-duration: 2s;
   }
 
-  @keyframes appearing {
+  @keyframes appear {
     from {
       opacity: 0.3;
     }
