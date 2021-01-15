@@ -7,9 +7,10 @@ export const setUseranswer = (useranswer, idx) => ({
   idx,
 });
 
-export const setQuestion = question => ({
+export const setQuestion = (question, idx) => ({
   type: SET_QUESTION,
   question,
+  idx,
 });
 
 const initialState = {
@@ -25,6 +26,7 @@ const initialState = {
     8: '',
     9: '',
   },
+
   question: {
     0: '',
     1: '',
@@ -44,9 +46,11 @@ export default function reducer(state = initialState, action) {
     case SET_USERANSWER:
       state.useranswer[action.idx] = action.useranswer;
       return state;
+
     case SET_QUESTION:
       state.question[action.idx] = action.question;
       return state;
+
     default:
       return state;
   }
