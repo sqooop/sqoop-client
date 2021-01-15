@@ -62,7 +62,6 @@ export default function reducer(state = initialState, action) {
         state.useranswer[item.number] = item.content;
         state.question[item.number] = item.question;
       });
-      console.log('SDAFSAFASDFAD', action.data, state);
       return state;
     default:
       return state;

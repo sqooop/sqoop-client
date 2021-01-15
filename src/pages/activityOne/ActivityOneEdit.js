@@ -57,7 +57,9 @@ const ActivityOneEdit = ({ match }) => {
       saveFileName(BasicData.selectedActivity.fileName);
       saveState(BasicData.isFinished);
       saveDetailTitle(BasicData.selectedActivity.title);
-      saveAllData(BasicData.questionCards);
+      if (BasicData.questionCards) {
+        saveAllData(BasicData.questionCards);
+      }
     })();
   }, [id]);
 

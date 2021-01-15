@@ -9,6 +9,7 @@ const SET_DETAIL_IMAGE = 'detail/SET_DETAIL_IMAGE';
 const SET_DETAIL_FILE = 'detail/SET_DETAIL_FILE';
 const SET_DETAIL_FILENAME = 'detail/SET_DETAIL_FILENAME';
 const SET_DETAIL_STATE = 'detail/SET_DETAIL_STATE';
+const SET_STAR = 'detail/SET_STAR';
 
 export const setDetailStart = detailStart => ({
   type: SET_DETAIL_START,
@@ -65,6 +66,11 @@ export const setDetailState = detailState => ({
   detailState,
 });
 
+export const setStar = data => ({
+  type: SET_STAR,
+  data,
+});
+
 const initialState = {
   detailTitle: '',
   detailStart: '',
@@ -77,6 +83,7 @@ const initialState = {
   detailFileUrl: '',
   detailFilename: '',
   detailState: '',
+  star: false,
 };
 
 export default function reducer(state = initialState, action) {
@@ -135,6 +142,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         detailState: action.detailState,
+      };
+    case SET_STAR:
+      return {
+        ...state,
+        star: action.data,
       };
     default:
       return state;

@@ -1,34 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { ReactComponent as Star } from '../../../assets/icons/Star.svg';
 import { ReactComponent as StarFill } from '../../../assets/icons/StarFill.svg';
 import { likeActivity } from '../../../lib/api/activity';
+import { setStar } from '../../../store/modules/detail';
 
 const FavoritesButton = () => {
-  // 즐겨찾기를 클릭하면 component를 변경하기 위한 state
-  const [favoritesClick, setFavoritesClick] = useState('BasicIcon');
-  const favoritesStatus = favoritesClick === 'BasicIcon' ? true : false;
+  const dispatch = useDispatch();
   const id = useSelector(state => state.paramsid.id);
+  const star = useSelector(state => state.detail.star);
+  const saveStar = data => dispatch(setStar(data));
   const FavoritesClick = async () => {
     await likeActivity(id);
-    setFavoritesClick('FillIcon');
+    saveStar(!star);
   };
-
-  const FillFavoritesClick = async () => {
-    await likeActivity(id);
-    setFavoritesClick('BasicIcon');
-  };
-
   return (
     <StyledButton>
-      {favoritesStatus ? (
+      {star ? (
         <StyledFavorites onClick={FavoritesClick}>
-          <Star />
+          <StarFill />
         </StyledFavorites>
       ) : (
-        <StyledFavorites onClick={FillFavoritesClick}>
-          <StarFill />
+        <StyledFavorites onClick={FavoritesClick}>
+          <Star />
         </StyledFavorites>
       )}
     </StyledButton>
