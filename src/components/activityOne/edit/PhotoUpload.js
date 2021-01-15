@@ -22,16 +22,16 @@ const PhotoUpload = props => {
             <img className="noImage" src={NoImage} alt="noImage"></img>
             <div className="hoverImg"></div>
           </StyledPhotoPreview>
-        ) : image === '' && user != '' ? (
+        ) : image === '' && user !== '' ? (
           <StyledPhotoPreview>
-            <img src={user} alt="previewImg"></img>
+            <img className="existImage" src={user} alt="previewImg"></img>
             <div className="hoverImg">
               <ImageIcon className="iconImg" />
             </div>
           </StyledPhotoPreview>
         ) : (
           <StyledPhotoPreview>
-            <img src={image} alt="previewImg"></img>
+            <img className="existImage" src={image} alt="previewImg"></img>
             <div className="hoverImg">
               <ImageIcon className="iconImg" />
             </div>
@@ -64,13 +64,17 @@ const StyledPhotoPreview = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 25.2vw;
+  height: 14.2vw;
+  border: 1px solid #000000;
 
   .iconImg {
-    width: 6.3vw;
-    height: 7.8vw;
+    width: 82px;
+    margin: 0 auto;
+    margin-top: 2px;
   }
 
-  img {
+  .existImage {
     border-style: 'none';
     display: block;
     opacity: 1;
@@ -81,9 +85,8 @@ const StyledPhotoPreview = styled.div`
 
   .hoverImg {
     position: absolute;
+    top: 60px;
     opacity: 0;
-    top: 4vw;
-    left: 10.9vw;
     background-color: #eeeeee 90%;
   }
 
@@ -92,7 +95,12 @@ const StyledPhotoPreview = styled.div`
   }
 
   :hover .hoverImg {
+    height: 20px;
     opacity: 1;
+  }
+  .noImage {
+    width: 44px;
+    height: 44px;
   }
 `;
 
