@@ -1,6 +1,6 @@
 import React from 'react';
-import Title from '../../../containers/activityOne/default/Title.container';
-import BasicData from '../../../containers/activityOne/default/BasicData.container';
+import Title from '../../../containers/activityOne/edit/Title.container';
+import BasicData from '../edit/BasicData';
 import NotFinished from './NotFinished';
 
 const NotFinishedWrap = () => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFile } from '../../store/modules/activity';
 import { setPreviewFile } from '../../store/modules/preview';
@@ -9,7 +9,10 @@ const FileContainer = () => {
   const saveFile = data => dispatch(setFile(data));
   const savePreviewFile = data => dispatch(setPreviewFile(data));
   const previewFile = useSelector(state => state.preview.previewFile);
-
+  useEffect(() => {
+    savePreviewFile('');
+    saveFile('');
+  }, []);
   const onChange = e => {
     e.preventDefault();
     let reader = new FileReader();
@@ -21,9 +24,6 @@ const FileContainer = () => {
       savePreviewFile(previewFile);
     }
     saveFile(file);
-    reader.onloadend = () => {
-      savePreviewFile(reader.result);
-    };
   };
   return <File onChange={onChange} previewFile={previewFile} />;
 };

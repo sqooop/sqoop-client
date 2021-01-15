@@ -54,9 +54,9 @@ const LastCardWrap = Styled.div`
   }
 `;
 
-const LastCard = ({ history }) => {
+const LastCard = ({ id, history }) => {
   const onClickFunc = event => {
-    history.push(`/detail/edit/0`);
+    history.push(`/detail/${id}`);
   };
 
   const hovered = event => {

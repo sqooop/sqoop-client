@@ -7,8 +7,12 @@ import {
   setQuestion,
   setAnswer,
   setGuide,
+  setID,
 } from '../../store/modules/userCardInfo';
-import { setCurrentIndex } from '../../store/modules/cardIndex';
+import {
+  setCurrentIndex,
+  setWrittenIndex,
+} from '../../store/modules/cardIndex';
 import { getActivityName, getCardInfo } from '../../lib/api/stepCard';
 import StepHeaderContainer from '../../containers/stepCard/StepHeader.container';
 import CurrentCardContainer from '../../containers/stepCard/CurrentCard.container';
@@ -16,7 +20,7 @@ import NextCardContainer from '../../containers/stepCard/NextCard.container';
 import PreviousCardContainer from '../../containers/stepCard/PreviousCard.container';
 import ProgressContainer from '../../containers/stepCard/Progress.container';
 import EmptyCard from '../../components/stepCard/EmptyCard';
-import LastCard from '../../components/stepCard/LastCard';
+import LastCardContainer from '../../containers/stepCard/LastCard.container';
 import Styled from 'styled-components';
 import MainHeader from '../../components/common/MainHeader';
 
@@ -35,11 +39,16 @@ const StepCard = ({ match }) => {
   const saveQuestion = (string, idx) => dispatch(setQuestion(string, idx));
   const saveAnswer = (string, idx) => dispatch(setAnswer(string, idx));
   const saveGuide = (string, idx) => dispatch(setGuide(string, idx));
+  const saveID = number => dispatch(setID(number));
+  const saveWrittenIndex = idx => dispatch(setWrittenIndex(idx));
 
+  let writtenIndex = useSelector(state => state.cardIndex.writtenIndex);
   let id = useSelector(state => state.userCardInfo.id);
+  
   if (id === 0) {
     const jsonID = localStorage.getItem('activityID');
     id = JSON.parse(jsonID);
+    saveID(id);
   }
 
   const index = parseInt(match.params.id);
@@ -63,6 +72,7 @@ const StepCard = ({ match }) => {
       data.questionCards &&
         data.questionCards.map(card => {
           saveAnswer(card.content, card.number - 1);
+          saveWrittenIndex(writtenIndex + 1);
           return 0;
         });
     })();
@@ -86,7 +96,7 @@ const StepCard = ({ match }) => {
         ) : (
           <EmptyCard marginRight={'12px'} />
         )}
-        {currentIndex < 10 ? <CurrentCardContainer /> : <LastCard />}
+        {currentIndex < 10 ? <CurrentCardContainer /> : <LastCardContainer />}
         {questions[currentIndex + 1] ? (
           <NextCardContainer index={currentIndex + 1} />
         ) : (

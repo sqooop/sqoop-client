@@ -1,16 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setGroup } from '../../store/modules/activity';
-import Group from '../../components/createActivity/Group';
+import { setDetailGroup } from '../../../store/modules/detail';
+import Group from '../../../components/activityOne/edit/Group';
 
 const GroupContainer = () => {
   const dispatch = useDispatch();
-  const saveGroup = data => dispatch(setGroup(data));
-  const group = useSelector(state => state.activity.group);
+  const saveGroup = data => dispatch(setDetailGroup(data));
 
-  useEffect(() => {
-    saveGroup('');
-  }, []);
+  const group = useSelector(state => state.detail.detailGroup);
   const onChangeInputs = evt => {
     const value = evt.target.value;
     if (value.length <= 18) {

@@ -63,6 +63,27 @@ export const getWritingActivity = async () => {
   }
 };
 
+export const deleteActivity = async activityId => {
+  try {
+    const { data } = await instance.delete(`/activity/delete/${activityId}`);
+    console.log('[SUCCESS] DELETE ACTIVITY', data.data);
+    return data.data;
+  } catch (e) {
+    console.log('[FAIL] DELETE ACTIVITY', e);
+    throw e;
+  }
+};
+export const likeActivity = async activityId => {
+  try {
+    const { data } = await instance.put(`/activity/likeActivity/${activityId}`);
+    console.log('[SUCCESS] LIKE ACTIVITY', data.data);
+    return data.data;
+  } catch (e) {
+    console.log('[FAIL] LIKE ACTIVITY', e);
+    throw e;
+  }
+};
+
 export const getFilterActivity = async filter => {
   try {
     const { jobTag, skillTag, endDate, startDate } = filter;

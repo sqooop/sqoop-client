@@ -1,18 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setImage } from '../../store/modules/activity';
-import { setPreviewImage } from '../../store/modules/preview';
-import Image from '../../components/createActivity/Image';
+import { setDetailImage } from '../../../store/modules/detail';
+import { setPreviewImage } from '../../../store/modules/preview';
+import Image from '../../../components/activityOne/edit/PhotoUpload';
 
 const ImageContainer = () => {
   const dispatch = useDispatch();
-  const saveImage = data => dispatch(setImage(data));
+  const saveImage = data => dispatch(setDetailImage(data));
   const savePreviewImage = data => dispatch(setPreviewImage(data));
+  const user = useSelector(state => state.detail.detailImageUrl);
   const previewImage = useSelector(state => state.preview.previewImage);
-  useEffect(() => {
-    savePreviewImage('');
-    saveImage('');
-  }, []);
+
   const onChange = e => {
     e.preventDefault();
     const reader = new FileReader();
@@ -24,10 +22,10 @@ const ImageContainer = () => {
       savePreviewImage(previewImage);
     }
     reader.onloadend = () => {
-      savePreviewImage(reader.result);
+      saveImage(reader.result);
     };
   };
-  return <Image onChange={onChange} image={previewImage} />;
+  return <Image onChange={onChange} image={previewImage} user={user} />;
 };
 
 export default ImageContainer;

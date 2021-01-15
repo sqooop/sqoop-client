@@ -1,15 +1,14 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { ReactComponent as Delete } from '../../../assets/icons/DeleteButton.svg';
-
-const DeleteButton = () => {
-  // 삭제하는 버튼 위에 마우스를 hover 했을 때 아이콘을 변경하고
-  // 삭제하기 기능 구현을 위한 state
-  const [deleteClick, setDeleteClick] = useState('DeleteIcon');
-
-  // 삭제하기 버튼
-  const DeleteClick = () => {
-    setDeleteClick();
+import { deleteActivity } from '../../../lib/api/activity';
+const DeleteButton = ({ history }) => {
+  const id = useSelector(state => state.paramsid.id);
+  const DeleteClick = async () => {
+    await deleteActivity(id);
+    history.goBack();
   };
 
   return (
@@ -24,6 +23,7 @@ const StyledDelete = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 8px;
+  cursor: pointer;
 `;
 
-export default DeleteButton;
+export default withRouter(DeleteButton);

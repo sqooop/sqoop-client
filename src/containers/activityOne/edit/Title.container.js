@@ -1,20 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setTitle } from '../../store/modules/activity';
-import Title from '../../components/createActivity/Title';
+import { setDetailTitle } from '../../../store/modules/detail';
+import Title from '../../../components/activityOne/edit/Title';
+import getOneActivity from '../../../lib/api/activityOne/basic';
 
 const TitleContainer = () => {
   const dispatch = useDispatch();
-  const saveTitle = data => dispatch(setTitle(data));
+  const saveTitle = data => dispatch(setDetailTitle(data));
+  const title = useSelector(state => state.detail.detailTitle);
 
-  const title = useSelector(state => state.activity.title);
-
-  useEffect(() => {
-    saveTitle('');
-  }, []);
   const onChangeInputs = evt => {
     const value = evt.target.value;
     let cnt = 0;
+
     for (let i = 0; i < value.length; i++) {
       if (cnt > 26) {
         break;
@@ -27,6 +25,7 @@ const TitleContainer = () => {
         cnt += 1;
       }
     }
+
     if (cnt <= 25) {
       saveTitle(value);
     }

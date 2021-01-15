@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import noActivity from '../../assets/icons/noActivity.svg';
+import noActivity from '../../assets/icons/NoActivity.svg';
 const NoActivityWrap = styled.div`
   width: 350px;
   height: 164px;

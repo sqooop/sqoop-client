@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Star } from '../../../assets/icons/star.svg';
-import { ReactComponent as StarFill } from '../../../assets/icons/starFill.svg';
+import { useSelector } from 'react-redux';
+import { ReactComponent as Star } from '../../../assets/icons/Star.svg';
+import { ReactComponent as StarFill } from '../../../assets/icons/StarFill.svg';
+import { likeActivity } from '../../../lib/api/activity';
 
 const FavoritesButton = () => {
   // 즐겨찾기를 클릭하면 component를 변경하기 위한 state
   const [favoritesClick, setFavoritesClick] = useState('BasicIcon');
   const favoritesStatus = favoritesClick === 'BasicIcon' ? true : false;
-
-  // 즐겨찾기를 클릭하면 아이콘이 바뀌는 함수 추후 서버 연결 예정
-  const FavoritesClick = () => {
+  const id = useSelector(state => state.paramsid.id);
+  const FavoritesClick = async () => {
+    await likeActivity(id);
     setFavoritesClick('FillIcon');
   };
 
-  // 즐겨찾기를 해제하면 아이콘이 바뀌는 함수 추후 서버 연결 예정
-  const FillFavoritesClick = () => {
+  const FillFavoritesClick = async () => {
+    await likeActivity(id);
     setFavoritesClick('BasicIcon');
   };
 
@@ -44,6 +46,7 @@ const StyledFavorites = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 8px;
+  cursor: pointer;
 `;
 
 export default FavoritesButton;
