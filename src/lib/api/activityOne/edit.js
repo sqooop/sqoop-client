@@ -4,11 +4,12 @@ const editActivity = async detail => {
   try {
     const formData = new FormData();
     for (let key in detail) {
-      if (key === 'jobTag' || key === 'skillTag') {
-        for (let i = 0; i < detail[key].length; i++) {
-          formData.append(`${key}[${i}]`, detail[key][i].content);
-        }
-      } else if (key === 'questions' || key === 'contents') {
+      if (
+        key === 'jobTag' ||
+        key === 'skillTag' ||
+        key === 'questions' ||
+        key === 'contents'
+      ) {
         for (let i = 0; i < detail[key].length; i++) {
           formData.append(`${key}[${i}]`, detail[key][i]);
         }
