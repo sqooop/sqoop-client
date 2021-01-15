@@ -5,7 +5,7 @@ import EditWrap from '../../components/activityOne/edit/EditWrap';
 import NotStarting from '../../components/activityOne/notStarting/NotStartingEdit';
 import NotFinished from '../../components/activityOne/notFinished/NotFinishedEdit';
 import MainHeader from '../../components/common/MainHeader';
-import setParamsID from '../../store/modules/paramsid';
+import { setParamsID } from '../../store/modules/paramsid';
 
 const ActivityOneEdit = ({ match }) => {
   const id = match.params.id;
