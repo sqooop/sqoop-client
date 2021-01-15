@@ -17,6 +17,7 @@ const PreviousCardWrap = Styled.div`
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    background-color: white;
 
     &--question {
       margin: 12px;
@@ -127,20 +128,26 @@ const PreviousCard = ({
   modalActive,
   saveModalActive,
   savePrevIndex,
-  className,
-  saveClassName,
+  classNameLeft,
+  saveClassNameLeft,
+  classNameShrink,
+  saveClassNameShrink,
+  saveClassNameS,
+  saveClassNameGrow,
+  saveClassNameRight,
   history,
   match,
 }) => {
   const currentIndex = parseInt(match.params.id);
 
   useEffect(() => {
-    if (currentIndex > prevIndex) {
-      saveClassName('card rightToLeft');
-    } else if (currentIndex < prevIndex) {
-      saveClassName('card leftToRight');
+    if (prevIndex < currentIndex && currentIndex - index === 1) {
+      saveClassNameShrink('card shrinkRight');
+    } else if (prevIndex < currentIndex && currentIndex - index === 2) {
+      saveClassNameLeft('card rightToLeft');
     } else {
-      saveClassName('card');
+      saveClassNameShrink('card leftToRight');
+      saveClassNameLeft('card leftToRight');
     }
   }, [index]);
 
@@ -195,14 +202,20 @@ const PreviousCard = ({
         card = card.parentNode;
       }
       savePrevIndex(match.params.id);
-      saveClassName('');
+      saveClassNameLeft('card');
+      saveClassNameShrink('card');
+      saveClassNameS('card');
+      saveClassNameGrow('card');
+      saveClassNameRight('card');
       history.push(`/steps/${card.id}`);
     }
   };
 
   return (
     <PreviousCardWrap>
-      <div className={className}>
+      <div
+        className={currentIndex - index === 2 ? classNameLeft : classNameShrink}
+      >
         <div
           className="card"
           id={index}
