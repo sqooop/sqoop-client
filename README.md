@@ -168,7 +168,7 @@
       - 개별 활동 조회 페이지로 이동
       
 #### ⚪️ 로그인 (/)
-
+<img width="700" alt="로그인" src="https://user-images.githubusercontent.com/55784772/104748991-a8e11900-5795-11eb-92c2-bff921b3bc3b.PNG">
     💡 이메일 입력
       
     💡 비밀 번호 입력
@@ -179,10 +179,15 @@
       
 #### ⚪️ 마이페이지 (/mypage/basic, /mypage/career)
 
+<img width="700" alt="마이페이지" src="https://user-images.githubusercontent.com/55784772/104749042-b4344480-5795-11eb-8bad-932b00eb4e08.PNG">
+
+
     💡 기본 정보 레이아웃
       
     💡 이력 사항 레이아웃
 
+### 워크 플로우
+<img width="700" alt="workflow" src="https://user-images.githubusercontent.com/55784772/104748698-5c95d900-5795-11eb-8381-a9d1d5519421.png" >
   
 ### 📂 프로젝트 폴더 구조
 
