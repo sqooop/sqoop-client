@@ -1,32 +1,15 @@
-import { React, useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import getUserEdit from '../../../lib/api/activityOne/user';
+import React from 'react';
 import styled from 'styled-components';
 
-const UserData = ({ id }) => {
-  const [data, setData] = useState('');
-
-  useEffect(() => {
-    (async () => {
-      const userData = await getUserEdit({ id });
-      setData(userData);
-    })();
-  }, []);
+const UserData = props => {
+  const { answer, question } = props;
 
   return (
     <StyledUserData className="UserData">
-      {data ? (
-        data.map((item, index) => (
-          <>
-            <StyledQuestionData key={index - 1}>
-              {index + 1}. {item.question}
-            </StyledQuestionData>
-            <StyledAnswerData key={index + 1}>{item.content}</StyledAnswerData>
-          </>
-        ))
-      ) : (
-        <></>
-      )}
+      <>
+        <StyledQuestionData>{question}</StyledQuestionData>
+        <StyledAnswerData>{answer}</StyledAnswerData>
+      </>
     </StyledUserData>
   );
 };
