@@ -2,12 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const UserData = props => {
-  const { answer, question } = props;
+  const { answer, question, index } = props;
 
   return (
     <StyledUserData className="UserData">
       <>
-        <StyledQuestionData>{question}</StyledQuestionData>
+        <StyledQuestionData>
+          {index}. {question}
+        </StyledQuestionData>
         <StyledAnswerData>{answer}</StyledAnswerData>
       </>
     </StyledUserData>
@@ -15,10 +17,8 @@ const UserData = props => {
 };
 
 const StyledUserData = styled.div`
-  display: block;
+  display: block !important;
   width: 41.6vw;
-  height: 39.1vw;
-  overflow-y: scroll;
   margin-top: 2.5vw;
 
   ::-webkit-scrollbar {
