@@ -27,6 +27,7 @@ const SaveButtonWrap = Styled.div`
     height: 24px;
     margin-left: 14px;
     margin-right: 4px;
+    border: none;
   }
 `;
 
@@ -54,9 +55,9 @@ const SaveButton = ({
         onMouseLeave={onMouseLeave}
       >
         {onClick ? (
-          <img src={SaveIconOn} alt="" />
+          <img src={SaveIconOn} style={{ border: 'none' }} alt="" />
         ) : (
-          <img src={SaveIconOff} alt="" />
+          <img src={SaveIconOff} style={{ border: 'none' }} alt="" />
         )}
         {text}
       </button>

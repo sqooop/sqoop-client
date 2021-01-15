@@ -12,7 +12,7 @@ const HeaderBlock = styled.div`
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  .list {
+  li {
     list-style: none;
     padding: 16px 10px;
     font-weight: 400;
@@ -34,15 +34,15 @@ const MainHeader = ({ history }) => {
         <img src={logo} alt="logo" style={{}} />
         <Wrapper>
           <li
-            className="list"
+            className="home"
             onClick={() => {
-              history.push('/');
+              history.push('/home');
             }}
           >
             홈
           </li>
           <li
-            className="list"
+            className="activities"
             onClick={() => {
               history.push('/activities');
             }}
@@ -50,7 +50,7 @@ const MainHeader = ({ history }) => {
             모아보기
           </li>
           <li
-            className="list"
+            className="mypage"
             onClick={() => {
               history.push('/mypage/basic');
             }}

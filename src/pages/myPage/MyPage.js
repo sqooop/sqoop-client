@@ -4,6 +4,7 @@ import UserInfo from '../../components/myPage/UserInfo';
 import SchoolInfo from '../../components/myPage/SchoolInfo';
 import InterestInfo from '../../components/myPage/InterestInfo';
 import IntroInfo from '../../components/myPage/IntroInfo';
+import MainHeader from '../../components/common/MainHeader';
 import Styled from 'styled-components';
 
 const MyPageWrap = Styled.div`
@@ -28,17 +29,20 @@ const MyPageWrap = Styled.div`
 
 const MyPage = () => {
   return (
-    <MyPageWrap>
-      <MyPageHeader />
-      <UserInfo />
-      <SchoolInfo />
-      <InterestInfo />
-      <IntroInfo />
-      <div className="footer">
-        <div className="setting">계정 설정</div>
-        <div className="logout">로그아웃</div>
-      </div>
-    </MyPageWrap>
+    <>
+      <MainHeader />
+      <MyPageWrap>
+        <MyPageHeader />
+        <UserInfo />
+        <SchoolInfo />
+        <InterestInfo />
+        <IntroInfo />
+        <div className="footer">
+          <div className="setting">계정 설정</div>
+          <div className="logout">로그아웃</div>
+        </div>
+      </MyPageWrap>
+    </>
   );
 };
 
