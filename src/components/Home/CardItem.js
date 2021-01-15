@@ -69,6 +69,9 @@ const ImageTemplate = styled.div`
   width: 343px;
   height: 195px;
   margin: 8px 8px;
+  img {
+    object-fit: cover;
+  }
 `;
 const TitleTemplate = styled.div`
   width: 343px;
