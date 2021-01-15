@@ -5,12 +5,12 @@ import Title from '../../../components/activityOne/edit/Title';
 import getOneActivity from '../../../lib/api/activityOne/basic';
 
 const TitleContainer = () => {
-  const id = 55;
   const dispatch = useDispatch();
   const saveTitle = data => dispatch(setDetailTitle(data));
 
   const title = useSelector(state => state.detail.detailTitle);
-
+  // const id = useSelector(state => state.paramsid.id);
+  const id = 55;
   useEffect(() => {
     (async () => {
       const BasicData = await getOneActivity(id);
