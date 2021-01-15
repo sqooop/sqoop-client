@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from '../../../containers/activityOne/default/Title.container';
 import BasicData from '../../../containers/activityOne/default/BasicData.container';
-import UserData from './UserData';
+import UserData from '../../../containers/activityOne/default/UserAnswer.container';
 
 const DefaultWrap = () => {
   return (
