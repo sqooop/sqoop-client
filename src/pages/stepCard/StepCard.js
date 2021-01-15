@@ -32,7 +32,7 @@ const CardWrap = Styled.div`
   justify-content: center;
 `;
 
-const StepCard = ({ match }) => {
+const StepCard = ({ history, match }) => {
   const dispatch = useDispatch();
   const saveCurrentIndex = idx => dispatch(setCurrentIndex(idx));
   const saveTitle = string => dispatch(setTitle(string));
@@ -44,7 +44,7 @@ const StepCard = ({ match }) => {
 
   let writtenIndex = useSelector(state => state.cardIndex.writtenIndex);
   let id = useSelector(state => state.userCardInfo.id);
-  
+
   if (id === 0) {
     const jsonID = localStorage.getItem('activityID');
     id = JSON.parse(jsonID);
@@ -69,12 +69,13 @@ const StepCard = ({ match }) => {
         saveGuide(card.guide, index);
         return 0;
       });
-      data.questionCards &&
+      if (data.questionCards) {
         data.questionCards.map(card => {
           saveAnswer(card.content, card.number - 1);
-          saveWrittenIndex(writtenIndex + 1);
           return 0;
         });
+      }
+      history.push(`/steps/${writtenIndex}`);
     })();
   }, [match.path]);
 
