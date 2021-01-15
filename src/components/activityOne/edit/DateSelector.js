@@ -16,14 +16,13 @@ const StyledRangePicker = styled(RangePicker)`
 `;
 
 const DateSelector = props => {
-  const onChange = props.onChange;
-
+  const { startPlaceholer, endPlaceholer, onChange } = props;
   return (
     <DateSelectorWrap>
       <Space direction="vertical" size={12}>
         <StyledRangePicker
           suffixIcon=""
-          placeholder={['2021-01-01', '2021-02-01']}
+          placeholder={[startPlaceholer, endPlaceholer]}
           onChange={onChange}
         />
       </Space>
