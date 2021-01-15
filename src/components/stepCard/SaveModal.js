@@ -13,6 +13,7 @@ const SaveModalWrap = Styled.div`
   justify-content: center;
 
   .modal {
+    border: 1px solid black;
     position: relative;
     box-sizing: border-box;
     background-color: white;

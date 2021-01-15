@@ -4,10 +4,10 @@ import noImage from '../../assets/images/NoImage.svg';
 import palette from '../../lib/styles/palette';
 import HashTag from './HashTag';
 import { withRouter } from 'react-router-dom';
-const CardItem = (props, { history }) => {
-  const { card } = props;
-  const id = card.id;
-  console.log(id);
+
+const CardItem = ({ history, card }) => {
+  const cardId = card.id;
+  console.log(cardId);
   const startyear = card.startDate.substring(0, 4);
   const startmonth = card.startDate.substring(4, 6);
   const startday = card.startDate.substring(6, 8);
@@ -18,7 +18,7 @@ const CardItem = (props, { history }) => {
   const skilltags = card.skillTag;
   return (
     <>
-      <CardTemplateBlock onClick={() => history.push(`/detail/${id}`)}>
+      <CardTemplateBlock onClick={() => history.push(`/detail/${cardId}`)}>
         {card.imageUrl ? (
           <ImageTemplate>
             <img
@@ -62,6 +62,7 @@ const CardTemplateBlock = styled.div`
   padding-top: 3px;
   &:hover {
     background-color: ${palette.grey01};
+    cursor: pointer;
   }
 `;
 const ImageTemplate = styled.div`
