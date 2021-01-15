@@ -16,7 +16,7 @@ import NextCardContainer from '../../containers/stepCard/NextCard.container';
 import PreviousCardContainer from '../../containers/stepCard/PreviousCard.container';
 import ProgressContainer from '../../containers/stepCard/Progress.container';
 import EmptyCard from '../../components/stepCard/EmptyCard';
-import LastCard from '../../components/stepCard/LastCard';
+import LastCardContainer from '../../containers/stepCard/LastCard.container';
 import Styled from 'styled-components';
 import MainHeader from '../../components/common/MainHeader';
 
@@ -86,7 +86,7 @@ const StepCard = ({ match }) => {
         ) : (
           <EmptyCard marginRight={'12px'} />
         )}
-        {currentIndex < 10 ? <CurrentCardContainer /> : <LastCard />}
+        {currentIndex < 10 ? <CurrentCardContainer /> : <LastCardContainer />}
         {questions[currentIndex + 1] ? (
           <NextCardContainer index={currentIndex + 1} />
         ) : (
