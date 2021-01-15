@@ -3,56 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import EditList from '../../../components/activityOne/global/EditList';
 import Photo from '../../../components/activityOne/default/Photo';
-import getOneActivity from '../../../lib/api/activityOne/basic';
 import Clip from '../../../assets/icons/Clip.svg';
-import {
-  setDetailStart,
-  setDetailEnd,
-  setDetailGroup,
-  setDetailSummary,
-  setDetailJob,
-  setDetailSkill,
-  setDetailImage,
-  setDetailFile,
-  setDetailFilename,
-  setDetailState,
-} from '../../../store/modules/detail';
 
 const BasicDataContainer = () => {
-  const dispatch = useDispatch();
-  const saveStart = data => dispatch(setDetailStart(data));
-  const saveEnd = data => dispatch(setDetailEnd(data));
-  const saveGroup = data => dispatch(setDetailGroup(data));
-  const saveSummary = data => dispatch(setDetailSummary(data));
-  const saveJob = data => dispatch(setDetailJob(data));
-  const saveSkill = data => dispatch(setDetailSkill(data));
-  const saveImage = data => dispatch(setDetailImage(data));
-  const saveFile = data => dispatch(setDetailFile(data));
-  const saveState = data => dispatch(setDetailState(data));
-  const saveFileName = data => dispatch(setDetailFilename(data));
-
   const detail = useSelector(state => state.detail);
-  const id = useSelector(state => state.paramsid.id);
-
-  useEffect(() => {
-    (async () => {
-      console.log('basingData', id);
-      const BasicData = await getOneActivity(id);
-      saveStart(BasicData.selectedActivity.startDate);
-      saveEnd(BasicData.selectedActivity.endDate);
-      saveGroup(BasicData.selectedActivity.group);
-      saveSummary(BasicData.selectedActivity.summary);
-      saveJob(BasicData.jobTag);
-      saveSkill(BasicData.skillTag);
-      saveImage(BasicData.selectedActivity.imageUrl);
-      saveFile(BasicData.selectedActivity.fileUrl);
-      saveFileName(BasicData.selectedActivity.fileName);
-      saveState(BasicData.isFinished);
-    })();
-  }, []);
 
   const { detailJobTag, detailSkillTag } = detail;
-
   const startyear = detail.detailStart.substring(0, 4);
   const startmonth = detail.detailStart.substring(4, 6);
   const startday = detail.detailStart.substring(6, 8);
