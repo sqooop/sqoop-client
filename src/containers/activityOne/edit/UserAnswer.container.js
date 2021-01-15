@@ -22,10 +22,10 @@ const UserAnswerContainer = () => {
     })();
   }, [id]);
 
-  const onChangeInputs = (evt, idx) => {
+  const onChangeInputs = evt => {
     const value = evt.target.value;
     if (value.length <= 18) {
-      saveUseranswer(value, idx);
+      saveUseranswer(value, 0);
     }
   };
 
