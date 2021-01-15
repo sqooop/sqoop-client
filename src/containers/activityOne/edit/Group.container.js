@@ -8,7 +8,6 @@ const GroupContainer = () => {
   const saveGroup = data => dispatch(setDetailGroup(data));
 
   const group = useSelector(state => state.detail.detailGroup);
-
   const onChangeInputs = evt => {
     const value = evt.target.value;
     if (value.length <= 18) {
