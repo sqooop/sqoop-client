@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import FavoritesButton from '../../components/activityOne/global/FavoritesButton';
-import DeleteButton from '../../components/activityOne/global/DeleteButton';
-import EditButton from '../../components/activityOne/global/EditButton';
-import getOneActivity from '../../lib/api/activityOne/basic';
-import { setDetailTitle } from '../../store/modules/detail';
+import FavoritesButton from '../../../components/activityOne/global/FavoritesButton';
+import DeleteButton from '../../../components/activityOne/global/DeleteButton';
+import EditButton from '../../../components/activityOne/global/EditButton';
+import getOneActivity from '../../../lib/api/activityOne/basic';
+import { setDetailTitle } from '../../../store/modules/detail';
 
 const TitleContainer = ({ userData }) => {
   const id = 74;
