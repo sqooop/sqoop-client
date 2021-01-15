@@ -8,15 +8,18 @@ import Clip from '../../../assets/icons/Clip.svg';
 const BasicDataContainer = () => {
   const detail = useSelector(state => state.detail);
   const { detailJobTag, detailSkillTag } = detail;
-  const startyear = detail.detailStart.substring(0, 4);
-  const startmonth = detail.detailStart.substring(5, 7);
-  const startday = detail.detailStart.substring(8, 10);
-  const endyear = detail.detailEnd.substring(0, 4);
-  const endmonth = detail.detailEnd.substring(5, 7);
-  const endday = detail.detailEnd.substring(8, 10);
+  const startdate = detail.detailStart;
+  const enddate = detail.detailEnd;
 
-  console.log(detail.detailStart);
-  console.log(detail.detailEnd);
+  const start = startdate.replace('-', '');
+  const end = enddate.replace('-', '');
+
+  const startyear = start.substring(0, 4);
+  const startmonth = start.substring(4, 6);
+  const startday = start.substring(6, 9);
+  const endyear = end.substring(0, 4);
+  const endmonth = end.substring(4, 6);
+  const endday = end.substring(6, 9);
 
   return (
     <StyledBasicData>
@@ -24,7 +27,8 @@ const BasicDataContainer = () => {
       <StyledContentWrap>
         <EditList text="활동 기간" isStar={true} />
         <StyledBasic>
-          {startyear}년 {startmonth}월 {startday}일 ~ {endyear}년 {endmonth}월
+          {startyear}년 {startmonth}월 {startday}일 ~ {endyear}년 {endmonth}
+          월&nbsp;
           {endday}일
         </StyledBasic>
       </StyledContentWrap>
@@ -81,17 +85,20 @@ const StyledContentWrap = styled.div`
 `;
 
 const StyledBasic = styled.div`
-  width: 20.8vw;
+  width: 18.8vw;
   font-size: 1.1vw;
   font-weight: 400;
   line-height: 1.6vw;
   display: flex;
   align-items: center;
   margin-top: 0.48vw;
+  position: relative;
 
   img {
-    display: flex;
-    justify-content: flex-end;
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    cursor: pointer;
   }
 `;
 

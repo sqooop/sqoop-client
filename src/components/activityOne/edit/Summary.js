@@ -5,11 +5,13 @@ const TextArea = styled.textarea`
   font-size: 1.4rem;
   border: none;
   outline: none;
-  width: 20.156vw;
+  width: 18.8vw;
   height: 5.2rem;
   padding-left: 0.8rem;
   padding-top: 0.5rem;
+  margin-top: 0.4vw;
   resize: none;
+
   &:hover {
     background-color: #eeeeee !important;
   }

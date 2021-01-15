@@ -5,7 +5,6 @@ import Clip from '../../../assets/icons/Clip.svg';
 
 const FileUpload = props => {
   const { onChange, previewFile } = props;
-
   const userFile = useSelector(state => state.detail.detailFilename);
 
   return (
@@ -54,7 +53,16 @@ const StyledFileInput = styled.input`
 `;
 
 const StyledFilePreview = styled.div`
-  width: 20.8vw;
+  width: 18.8vw;
+  margin-top: 0.4vw;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    cursor: pointer;
+  }
 `;
 
 export default FileUpload;

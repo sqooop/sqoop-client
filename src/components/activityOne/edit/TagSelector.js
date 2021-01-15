@@ -17,9 +17,10 @@ ant-select-selector : padding-left가 태그랑 입력창 전체
   .ant-select-selector {
     padding-left: 0.6rem;
     border: none !important;
-    width: 20.156vw !important;
+    width: 18.8vw !important;
     padding-top: 0rem !important;
-    margin-top: 0rem !important;
+    margin-top: 0.4vw;
+
     &:hover {
       background-color: #eeeeee !important;
     }
