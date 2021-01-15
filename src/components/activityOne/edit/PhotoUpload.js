@@ -15,7 +15,7 @@ const PhotoUpload = props => {
         accept="image/*"
         onChange={onChange}
       />
-      <label for="ImageUpload">
+      <label htmlFor="ImageUpload">
         {image === '' && user === '' ? (
           <StyledPhotoPreview>
             {user}

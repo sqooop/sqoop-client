@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { ReactComponent as Edit } from '../../../assets/icons/Edit.svg';
 import { ReactComponent as Complete } from '../../../assets/icons/Complete.svg';
+import EditApi from '../../../lib/api/activityOne/edit';
+import UserApi from '../../../lib/api/activityOne/answer';
 
 const EditButton = ({ history }) => {
   // 편집하기와 완료하기를 클릭하면 component를 변경하기 위한 state
   const [editClick, setEditClick] = useState('EditIcon');
   const editStatus = editClick === 'EditIcon' ? true : false;
   const id = useSelector(state => state.paramsid.id);
-  const dispatch = useDispatch();
   const detail = useSelector(state => state.detail);
+  const userdata = useSelector(state => state.userdata);
 
   // 편집하기를 클릭하면 아이콘이 바뀌는 함수
   const EditClick = () => {
@@ -22,6 +24,8 @@ const EditButton = ({ history }) => {
   // 완료하기를 클릭하면 아이콘이 바뀌는 함수
   const CompleteClick = () => {
     setEditClick('EditIcon');
+    EditApi(detail);
+    UserApi(userdata);
     history.push(`/detail/${id}`);
   };
 

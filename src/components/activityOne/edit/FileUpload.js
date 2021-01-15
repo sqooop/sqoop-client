@@ -17,7 +17,7 @@ const FileUpload = props => {
         onChange={onChange}
       />
       <StyledFilePreview>
-        <label for="FileUpload">
+        <label htmlFor="FileUpload">
           {previewFile === null ? (
             <div>
               {userFile}

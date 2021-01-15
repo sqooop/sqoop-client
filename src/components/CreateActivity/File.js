@@ -14,7 +14,7 @@ const FileUpload = props => {
         onChange={onChange}
       />
       <StyledFilePreview>
-        <label for="FileUpload">
+        <label htmlFor="FileUpload">
           {previewFile === null ? (
             <span style={{ color: '#A5A5A5' }}>
               활동 증빙 및 관련 자료 첨부 (doc, hwp, zip 등)
