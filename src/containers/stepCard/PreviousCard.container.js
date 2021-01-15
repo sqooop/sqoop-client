@@ -3,19 +3,35 @@ import { useSelector, useDispatch } from 'react-redux';
 import PreviousCard from '../../components/stepCard/PreviousCard';
 import { setModalActive } from '../../store/modules/currentCard';
 import { setPrevIndex } from '../../store/modules/cardIndex';
-import { setClassName } from '../../store/modules/currentCard';
+import {
+  setClassNameLeft,
+  setClassNameShrinkRight,
+  setClassNameShrink,
+  setClassNameRight,
+  setClassNameGrow,
+} from '../../store/modules/currentCard';
 
 const PreviousCardContainer = ({ index }) => {
   const userCardInfo = useSelector(state => state.userCardInfo);
   const { questions, answers } = userCardInfo;
   const currentCard = useSelector(state => state.currentCard);
-  const { notSaved, modalActive, className } = currentCard;
+  const {
+    notSaved,
+    modalActive,
+    classNameLeft,
+    classNameShrinkRight,
+  } = currentCard;
   const prevIndex = useSelector(state => state.cardIndex.previousIndex);
 
   const dispatch = useDispatch();
   const saveModalActive = data => dispatch(setModalActive(data));
   const savePrevIndex = idx => dispatch(setPrevIndex(idx));
-  const saveClassName = string => dispatch(setClassName(string));
+  const saveClassNameLeft = string => dispatch(setClassNameLeft(string));
+  const saveClassNameShrinkRight = string =>
+    dispatch(setClassNameShrinkRight(string));
+  const saveClassNameShrink = string => dispatch(setClassNameShrink(string));
+  const saveClassNameGrow = string => dispatch(setClassNameGrow(string));
+  const saveClassNameRight = string => dispatch(setClassNameRight(string));
 
   return (
     <PreviousCard
@@ -27,8 +43,13 @@ const PreviousCardContainer = ({ index }) => {
       modalActive={modalActive}
       saveModalActive={saveModalActive}
       savePrevIndex={savePrevIndex}
-      className={className}
-      saveClassName={saveClassName}
+      classNameLeft={classNameLeft}
+      saveClassNameLeft={saveClassNameLeft}
+      classNameShrink={classNameShrinkRight}
+      saveClassNameShrink={saveClassNameShrinkRight}
+      saveClassNameS={saveClassNameShrink}
+      saveClassNameGrow={saveClassNameGrow}
+      saveClassNameRight={saveClassNameRight}
     />
   );
 };

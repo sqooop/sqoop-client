@@ -101,7 +101,7 @@ const StepCard = ({ history, match }) => {
           <EmptyCard marginLeft={'12px'} />
         )}
         {questions[currentIndex + 2] ? (
-          <NextCardContainer index={currentIndex + 2} />
+          <NextCardContainer index={currentIndex + 2} zindex={-1} />
         ) : (
           <EmptyCard marginLeft={'12px'} />
         )}

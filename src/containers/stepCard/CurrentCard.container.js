@@ -2,7 +2,13 @@ import { React } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { setAnswer } from '../../store/modules/userCardInfo';
-import { setModalActive, setClassName } from '../../store/modules/currentCard';
+import {
+  setModalActive,
+  setClassNameLeft,
+  setClassNameGrow,
+  setClassNameShrink,
+  setClassNameRight,
+} from '../../store/modules/currentCard';
 import { setPrevIndex } from '../../store/modules/cardIndex';
 import {
   setTextValue,
@@ -19,7 +25,7 @@ const CurrentCardContainer = ({ history }) => {
   const cardIndex = useSelector(state => state.cardIndex);
   const { currentIndex, writtenIndex, previousIndex } = cardIndex;
   const currentCard = useSelector(state => state.currentCard);
-  const { saved, notSaved, textValue, textLimit, className } = currentCard;
+  const { saved, notSaved, textValue, textLimit, classNameGrow } = currentCard;
 
   const dispatch = useDispatch();
   const saveAnswer = (answer, idx) => dispatch(setAnswer(answer, idx));
@@ -29,7 +35,10 @@ const CurrentCardContainer = ({ history }) => {
   const saveTextLimit = number => dispatch(setTextLimit(number));
   const saveModalActive = data => dispatch(setModalActive(data));
   const savePrevIndex = idx => dispatch(setPrevIndex(idx));
-  const saveClassName = string => dispatch(setClassName(string));
+  const saveClassName = string => dispatch(setClassNameGrow(string));
+  const saveClassNameLeft = string => dispatch(setClassNameLeft(string));
+  const saveClassNameShrink = string => dispatch(setClassNameShrink(string));
+  const saveClassNameRight = string => dispatch(setClassNameRight(string));
 
   const onClickFunc = () => {
     saveAnswer(textValue, currentIndex);
@@ -47,6 +56,9 @@ const CurrentCardContainer = ({ history }) => {
       })();
       setTimeout(() => {
         saveClassName('card');
+        saveClassNameLeft('card');
+        saveClassNameShrink('card');
+        saveClassNameRight('card');
         saveTextValue(answers[currentIndex + 1]);
         savePrevIndex(currentIndex);
         history.push(`/steps/${currentIndex + 1}`);
@@ -56,6 +68,9 @@ const CurrentCardContainer = ({ history }) => {
       (async () => {
         await updateCard(card);
         saveClassName('card');
+        saveClassNameLeft('card');
+        saveClassNameShrink('card');
+        saveClassNameRight('card');
       })();
     }
   };
@@ -80,7 +95,7 @@ const CurrentCardContainer = ({ history }) => {
       textLimit={textLimit}
       saveTextLimit={saveTextLimit}
       guide={guide[currentIndex]}
-      className={className}
+      className={classNameGrow}
       saveClassName={saveClassName}
       onClickFunc={onClickFunc}
     />

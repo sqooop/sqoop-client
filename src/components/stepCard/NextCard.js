@@ -7,6 +7,7 @@ import Styled from 'styled-components';
 const NextCardWrap = Styled.div`
   .card {
     box-sizing: border-box;
+    background-color: white;
     width: 266px;
     height: 355px;
     margin-left: 12px;
@@ -97,26 +98,34 @@ const NextCardWrap = Styled.div`
 const NextCard = ({
   questions,
   index,
+  zindex,
   prevIndex,
-  className,
-  saveClassName,
+  classNameShrink,
+  classNameRight,
+  saveClassNameShrink,
+  saveClassNameRight,
   match,
 }) => {
   const currentIndex = parseInt(match.params.id);
 
   useEffect(() => {
-    if (currentIndex > prevIndex) {
-      saveClassName('card rightToLeft');
-    } else if (currentIndex < prevIndex) {
-      saveClassName('card leftToRight');
+    if (prevIndex > currentIndex && currentIndex - index === -2) {
+      saveClassNameRight('card leftToRight');
+    } else if (prevIndex > currentIndex && currentIndex - index === -1) {
+      saveClassNameShrink('card shrinkLeft');
     } else {
-      saveClassName('card');
+      saveClassNameRight('card rightToLeft');
+      saveClassNameShrink('card rightToLeft');
     }
   }, [index]);
 
   return (
-    <NextCardWrap>
-      <div className={className}>
+    <NextCardWrap style={{ zIndex: zindex }}>
+      <div
+        className={
+          currentIndex - index === -2 ? classNameRight : classNameShrink
+        }
+      >
         <div className="card--question">
           <span className="card--question__number">
             sqoop {index + 1}.<br />
