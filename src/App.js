@@ -14,8 +14,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/" component={SignIn} />
+        <Route exact path="/home" component={Home} />
         <Route exact path="/create" component={CreateActivity} />
         <Route exact path="/steps/:id" component={StepCard} />
         <Route exact path="/activities" component={FilterActivities} />
