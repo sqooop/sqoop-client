@@ -61,6 +61,9 @@ const StyledPhotoInput = styled.input`
 
 const StyledPhotoPreview = styled.div`
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .iconImg {
     width: 6.3vw;

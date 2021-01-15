@@ -17,11 +17,13 @@ const UserAnswerContainer = () => {
   const answer8 = useSelector(state => state.userdata.useranswer[8]);
   const answer9 = useSelector(state => state.userdata.useranswer[9]);
   const answer10 = useSelector(state => state.userdata.useranswer[10]);
+  const order = useSelector(state => state.userdata.order);
   return (
-    <>
+    <div style={{ display: 'block' }}>
       <UserEdit
         text={answer1}
         question={question[1]}
+        index={order[1]}
         onChange={evt => {
           saveUseranswer(evt.target.value, 1);
         }}
@@ -29,6 +31,7 @@ const UserAnswerContainer = () => {
       <UserEdit
         text={answer2}
         question={question[2]}
+        index={order[2]}
         onChange={evt => {
           saveUseranswer(evt.target.value, 2);
         }}
@@ -36,6 +39,7 @@ const UserAnswerContainer = () => {
       <UserEdit
         text={answer3}
         question={question[3]}
+        index={order[3]}
         onChange={evt => {
           saveUseranswer(evt.target.value, 3);
         }}
@@ -43,6 +47,7 @@ const UserAnswerContainer = () => {
       <UserEdit
         text={answer4}
         question={question[4]}
+        index={order[4]}
         onChange={evt => {
           saveUseranswer(evt.target.value, 4);
         }}
@@ -50,6 +55,7 @@ const UserAnswerContainer = () => {
       <UserEdit
         text={answer5}
         question={question[5]}
+        index={order[5]}
         onChange={evt => {
           saveUseranswer(evt.target.value, 5);
         }}
@@ -57,6 +63,7 @@ const UserAnswerContainer = () => {
       <UserEdit
         text={answer6}
         question={question[6]}
+        index={order[6]}
         onChange={evt => {
           saveUseranswer(evt.target.value, 6);
         }}
@@ -64,6 +71,7 @@ const UserAnswerContainer = () => {
       <UserEdit
         text={answer7}
         question={question[7]}
+        index={order[7]}
         onChange={evt => {
           saveUseranswer(evt.target.value, 7);
         }}
@@ -71,6 +79,7 @@ const UserAnswerContainer = () => {
       <UserEdit
         text={answer8}
         question={question[8]}
+        index={order[8]}
         onChange={evt => {
           saveUseranswer(evt.target.value, 8);
         }}
@@ -78,6 +87,7 @@ const UserAnswerContainer = () => {
       <UserEdit
         text={answer9}
         question={question[9]}
+        index={order[9]}
         onChange={evt => {
           saveUseranswer(evt.target.value, 9);
         }}
@@ -85,11 +95,12 @@ const UserAnswerContainer = () => {
       <UserEdit
         text={answer10}
         question={question[10]}
+        index={order[10]}
         onChange={evt => {
           saveUseranswer(evt.target.value, 10);
         }}
       />
-    </>
+    </div>
   );
 };
 

@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ActivityOneUserData = props => {
-  const { text, onChange, question } = props;
+  const { text, onChange, question, index } = props;
   return (
     <StyledUserData className="UserData">
       <>
-        <StyledQuestionData>{question}</StyledQuestionData>
+        <StyledQuestionData>
+          {index}. {question}
+        </StyledQuestionData>
         <StyledAnswerData
           className="AnswerData"
           value={text}
@@ -18,9 +20,7 @@ const ActivityOneUserData = props => {
 };
 
 const StyledUserData = styled.div`
-  /* display: block; */
   width: 41.6vw;
-  height: 39.1vw;
   overflow-y: scroll;
   margin-top: 1.6vw;
 
