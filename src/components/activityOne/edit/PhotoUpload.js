@@ -67,6 +67,7 @@ const StyledPhotoPreview = styled.div`
   width: 25.2vw;
   height: 14.2vw;
   border: 1px solid #000000;
+  cursor: pointer;
 
   .iconImg {
     width: 82px;
@@ -80,7 +81,8 @@ const StyledPhotoPreview = styled.div`
     opacity: 1;
     width: 25.2vw;
     height: 14.2vw;
-    object-fit: cover;
+    background-color: black;
+    object-fit: contain;
   }
 
   .hoverImg {
