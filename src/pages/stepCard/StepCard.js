@@ -43,8 +43,8 @@ const StepCard = ({ match }) => {
   const saveWrittenIndex = idx => dispatch(setWrittenIndex(idx));
 
   let writtenIndex = useSelector(state => state.cardIndex.writtenIndex);
-
   let id = useSelector(state => state.userCardInfo.id);
+  
   if (id === 0) {
     const jsonID = localStorage.getItem('activityID');
     id = JSON.parse(jsonID);
