@@ -23,7 +23,7 @@ import { setAllData } from '../../store/modules/userdata';
 import getOneActivity from '../../lib/api/activityOne/basic';
 import { setEditMode } from '../../store/modules/editButton';
 
-const ActivityOneEdit = ({ match }) => {
+const ActivityOneEdit = ({ match, history }) => {
   const id = match.params.id;
 
   const dispatch = useDispatch();
@@ -47,26 +47,30 @@ const ActivityOneEdit = ({ match }) => {
     (async () => {
       saveID(id);
       const BasicData = await getOneActivity(id);
-      const jobTag = BasicData.jobTag.map(item => {
-        return item.content;
-      });
-      const skillTag = BasicData.skillTag.map(item => {
-        return item.content;
-      });
-      saveStart(BasicData.selectedActivity.startDate);
-      saveEnd(BasicData.selectedActivity.endDate);
-      saveGroup(BasicData.selectedActivity.group);
-      saveSummary(BasicData.selectedActivity.summary);
-      saveJob(jobTag);
-      saveSkill(skillTag);
-      saveImage(BasicData.selectedActivity.imageUrl);
-      saveFile(BasicData.selectedActivity.fileUrl);
-      saveFileName(BasicData.selectedActivity.fileName);
-      saveState(BasicData.isFinished);
-      saveDetailTitle(BasicData.selectedActivity.title);
-      saveEditMode(true);
-      if (BasicData.questionCards) {
-        saveAllData(BasicData.questionCards);
+      if (!BasicData) {
+        history.push('/home');
+      } else {
+        const jobTag = BasicData.jobTag.map(item => {
+          return item.content;
+        });
+        const skillTag = BasicData.skillTag.map(item => {
+          return item.content;
+        });
+        saveStart(BasicData.selectedActivity.startDate);
+        saveEnd(BasicData.selectedActivity.endDate);
+        saveGroup(BasicData.selectedActivity.group);
+        saveSummary(BasicData.selectedActivity.summary);
+        saveJob(jobTag);
+        saveSkill(skillTag);
+        saveImage(BasicData.selectedActivity.imageUrl);
+        saveFile(BasicData.selectedActivity.fileUrl);
+        saveFileName(BasicData.selectedActivity.fileName);
+        saveState(BasicData.isFinished);
+        saveDetailTitle(BasicData.selectedActivity.title);
+        saveEditMode(true);
+        if (BasicData.questionCards) {
+          saveAllData(BasicData.questionCards);
+        }
       }
     })();
   }, [id]);
