@@ -1,10 +1,11 @@
 import { React, useEffect } from 'react';
 import styled from 'styled-components';
-import { getMonthAPI } from '../../lib/api/home/cardAPI';
+import { getCardAPI, getMonthAPI } from '../../lib/api/home/cardAPI';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMonth } from '../../store/modules/month';
 import ButtonActive from '../../components/home/ButtonActive';
 import Button from '../../components/home/Button';
+import { setCardArray } from '../../store/modules/home';
 
 const MonthScrollWrapper = styled.div`
   display: block;
@@ -15,6 +16,7 @@ const MonthScrollWrapper = styled.div`
 const MonthScroll = () => {
   const dispatch = useDispatch();
   const saveMonth = data => dispatch(setMonth(data));
+  const saveCards = data => dispatch(setCardArray(data));
   const year = useSelector(state => state.home.year);
   const monthArr = useSelector(state => state.month.month);
   const dataSet = new Map();
@@ -36,6 +38,13 @@ const MonthScroll = () => {
       console.log('allmonthArray', data.allMonthArray);
       console.log('dataSet', dataSet);
       console.log('monthMap', monthMap);
+
+      const dataSetArray = Array.from(dataSet.get(year)); // 활동이 있는 월 배열로 바꿔줌
+      const firstMonth = dataSetArray[0];
+      const monthId = year * 100 + firstMonth;
+
+      const cardData = await getCardAPI(monthId);
+      saveCards(cardData);
     })();
   }, [year]);
 
