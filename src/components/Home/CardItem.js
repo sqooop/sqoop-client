@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import noImage from '../../assets/images/noImage.svg';
+import noImage from '../../assets/images/NoImage.svg';
 import HashTag from './HashTag';
 const CardItem = props => {
   const { card } = props;

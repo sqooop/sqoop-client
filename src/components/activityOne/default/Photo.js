@@ -5,14 +5,14 @@ import NoImage from '../../../assets/icons/NoImage.svg';
 const Photo = ({ imageUrl }) => {
   return (
     <>
-      {imageUrl === undefined ? (
+      {imageUrl === '' ? (
         <StyledPhoto>
           {imageUrl}
-          <img src={NoImage} alt="noImage"></img>
+          <img className="noImage" src={NoImage} alt="noImage"></img>
         </StyledPhoto>
       ) : (
         <StyledPhoto>
-          <img src={imageUrl} alt="imageUrl"></img>
+          <img className="existImage" src={imageUrl} alt="imageUrl"></img>
         </StyledPhoto>
       )}
     </>
@@ -27,8 +27,7 @@ const StyledPhoto = styled.div`
   align-items: center;
   border: 1px solid #000000;
   margin-top: 2.5vw;
-
-  img {
+  .existImage {
     width: 28vw;
     height: 15.8vw;
   }
