@@ -18,6 +18,7 @@ const Img = styled.img`
   height: 158px;
   width: 278px;
   padding-right: 20px;
+  object-fit: cover;
 `;
 const Title = styled.div`
   font-size: 30px;
