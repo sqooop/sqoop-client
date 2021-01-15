@@ -1,26 +1,19 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 const ActivityOneUserData = props => {
-  const { text, onChangeInputs } = props;
-  const state = useSelector(state => state.userCardInfo.questions);
+  const { text, onChangeInputs, question } = props;
 
   return (
     <StyledUserData className="UserData">
-      {state.map((data, index) => (
-        <>
-          <StyledQuestionData key={index - 1}>
-            {index + 1}. {data}
-          </StyledQuestionData>
-          <StyledAnswerData
-            className="AnswerData"
-            key={index}
-            value={text}
-            onChange={onChangeInputs}
-          />
-        </>
-      ))}
+      <>
+        <StyledQuestionData>{question}</StyledQuestionData>
+        <StyledAnswerData
+          className="AnswerData"
+          value={text}
+          onChange={onChangeInputs}
+        />
+      </>
     </StyledUserData>
   );
 };

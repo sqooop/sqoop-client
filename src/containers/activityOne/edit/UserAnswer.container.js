@@ -6,33 +6,37 @@ import getOneActivity from '../../../lib/api/activityOne/basic';
 
 const UserAnswerContainer = () => {
   const dispatch = useDispatch();
-  const setUserAnswer = (useranswer, idx) =>
-    dispatch(setUseranswer(useranswer, idx));
-  const setQuestion = (question, idx) =>
-    dispatch(setUseranswer(useranswer, idx));
-  const useranswer = useSelector(state => state.useranswer.useranswer);
-  const question = useSelector(state => state.useranswer.question);
+  const saveUseranswer = (userdata, idx) =>
+    dispatch(setUseranswer(userdata, idx));
+  const saveQuestion = (question, idx) => dispatch(setQuestion(question, idx));
+  const useranswer = useSelector(state => state.userdata.useranswer);
+  const question = useSelector(state => state.userdata.question);
 
   const id = useSelector(state => state.paramsid.id);
 
   useEffect(() => {
     (async () => {
       const BasicData = await getOneActivity(id);
-      setUserAnswer(BasicData.selectedActivity.startDate);
-      setQuestion(BasicData.selectedActivity.endDate);
+      saveUseranswer(BasicData.questionCards.content);
+      saveQuestion(BasicData.questionCards.question);
     })();
   }, [id]);
+
+  const onChangeInputs = (evt, idx) => {
+    const value = evt.target.value;
+    if (value.length <= 18) {
+      saveUseranswer(value, idx);
+    }
+  };
 
   return (
     <>
       {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(idx => (
         <UserEdit
-          onChangeInputs={evt => {
-            const value = evt.target.value;
-            setUserAnswer(value, idx);
-          }}
+          onChange={onChangeInputs}
           idx={idx}
           text={useranswer}
+          question={question}
         />
       ))}
     </>

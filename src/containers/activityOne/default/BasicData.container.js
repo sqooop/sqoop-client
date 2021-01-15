@@ -49,7 +49,7 @@ const BasicDataContainer = () => {
       saveFileName(BasicData.selectedActivity.fileName);
       saveState(BasicData.isFinished);
     })();
-  }, []);
+  }, [id]);
 
   const { detailJobTag, detailSkillTag } = detail;
 
