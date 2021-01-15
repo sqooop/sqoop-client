@@ -10,7 +10,6 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-  // console.log('뭐지?', action);
   switch (action.type) {
     case SET_PARAMS_ID:
       return {

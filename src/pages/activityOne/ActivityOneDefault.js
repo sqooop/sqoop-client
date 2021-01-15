@@ -17,7 +17,6 @@ const ActivityOneDefault = ({ match }) => {
 
   useEffect(() => {
     saveID(id);
-    console.log(id);
   }, []);
 
   return (
