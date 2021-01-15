@@ -8,7 +8,7 @@ import getOneActivity from '../../../lib/api/activityOne/basic';
 import { setDetailTitle } from '../../../store/modules/detail';
 
 const TitleContainer = ({ userData }) => {
-  const id = 74;
+  const id = 55;
   const dispatch = useDispatch();
   const saveTitle = data => dispatch(setDetailTitle(data));
 

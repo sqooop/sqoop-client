@@ -5,7 +5,7 @@ import Title from '../../../components/activityOne/edit/Title';
 import getOneActivity from '../../../lib/api/activityOne/basic';
 
 const TitleContainer = () => {
-  const id = 74;
+  const id = 55;
   const dispatch = useDispatch();
   const saveTitle = data => dispatch(setDetailTitle(data));
 
