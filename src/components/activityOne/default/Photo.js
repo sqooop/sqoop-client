@@ -5,7 +5,7 @@ import NoImage from '../../../assets/icons/NoImage.svg';
 const Photo = ({ imageUrl }) => {
   return (
     <>
-      {imageUrl === undefined ? (
+      {imageUrl === '' ? (
         <StyledPhoto>
           {imageUrl}
           <img src={NoImage} alt="noImage"></img>
