@@ -37,7 +37,7 @@ const BasicDataContainer = () => {
         <EditList text="관련 직무" isStar={true} />
         {detailJobTag ? (
           detailJobTag.map((item, index) => (
-            <StyledTag key={index - 1}>{item.content}</StyledTag>
+            <StyledTag key={index - 1}>{item}</StyledTag>
           ))
         ) : (
           <></>
@@ -47,7 +47,7 @@ const BasicDataContainer = () => {
         <EditList text="핵심 역량" isStar={true} />
         {detailSkillTag ? (
           detailSkillTag.map((datalist, index) => (
-            <StyledTag key={index - 1}>{datalist.content}</StyledTag>
+            <StyledTag key={index - 1}>{datalist}</StyledTag>
           ))
         ) : (
           <></>

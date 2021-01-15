@@ -46,17 +46,11 @@ const TagSelector = props => {
     placeholder,
     selected,
   } = props;
-  const array = [];
-  array.push(
-    selected.map(item => {
-      return item.content;
-    }),
-  );
   return (
     <TagSelectorWrap>
       <StyledSelect
         suffixIcon=""
-        defaultValue={[...array]}
+        defaultValue={selected}
         mode="multiple"
         showArrow
         tagRender={TagRender}

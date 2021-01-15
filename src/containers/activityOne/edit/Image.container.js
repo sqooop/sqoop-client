@@ -22,7 +22,7 @@ const ImageContainer = () => {
       savePreviewImage(previewImage);
     }
     reader.onloadend = () => {
-      saveImage(reader.result);
+      savePreviewImage(reader.result);
     };
   };
   return <Image onChange={onChange} image={previewImage} user={user} />;

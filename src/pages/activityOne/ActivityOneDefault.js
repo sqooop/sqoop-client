@@ -22,6 +22,7 @@ import {
 } from '../../store/modules/detail';
 import { setAllData } from '../../store/modules/userdata';
 import getOneActivity from '../../lib/api/activityOne/basic';
+import { setEditMode } from '../../store/modules/editButton';
 
 const ActivityOneDefault = ({ match }) => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const ActivityOneDefault = ({ match }) => {
   const saveID = data => dispatch(setParamsID(data));
   const saveDetailTitle = data => dispatch(setDetailTitle(data));
   const saveStar = data => dispatch(setStar(data));
+  const saveEditMode = data => dispatch(setEditMode(data));
   const saveAllData = (question, idx) => dispatch(setAllData(question, idx));
   const id = match.params.id;
   const detail = useSelector(state => state.detail);
@@ -46,17 +48,24 @@ const ActivityOneDefault = ({ match }) => {
     (async () => {
       saveID(id);
       const BasicData = await getOneActivity(id);
+      const jobTag = BasicData.jobTag.map(item => {
+        return item.content;
+      });
+      const skillTag = BasicData.skillTag.map(item => {
+        return item.content;
+      });
       saveStart(BasicData.selectedActivity.startDate);
       saveEnd(BasicData.selectedActivity.endDate);
       saveGroup(BasicData.selectedActivity.group);
       saveSummary(BasicData.selectedActivity.summary);
-      saveJob(BasicData.jobTag);
-      saveSkill(BasicData.skillTag);
+      saveJob(jobTag);
+      saveSkill(skillTag);
       saveImage(BasicData.selectedActivity.imageUrl);
       saveFile(BasicData.selectedActivity.fileUrl);
       saveFileName(BasicData.selectedActivity.fileName);
       saveState(BasicData.isFinished);
       saveDetailTitle(BasicData.selectedActivity.title);
+      saveEditMode(false);
       if (BasicData.questionCards) {
         saveAllData(BasicData.questionCards);
       }
