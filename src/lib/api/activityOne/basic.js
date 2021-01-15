@@ -3,7 +3,7 @@ import instance from '../instance';
 const getOneActivity = async id => {
   try {
     console.log('lib로 넘어온', id);
-    const { data } = await instance.get(`/activity/getOneActivity/${id}`);
+    const { data } = await instance.get(`/activity/getOneActivity/55`);
     console.log('[SUCCESS] GET One Activity', data);
     return data.data;
   } catch (error) {

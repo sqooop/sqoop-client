@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import noImage from '../../assets/images/noImage.svg';
+import noImage from '../../assets/images/NoImage.svg';
 
 const CardWrap = styled.div`
   height: 174px;
