@@ -23,9 +23,6 @@ const FileContainer = () => {
       saveFilename(previewFile);
     }
     saveFile(file);
-    reader.onloadend = () => {
-      saveFile(reader.result);
-    };
   };
   return <File onChange={onChange} previewFile={previewFile} />;
 };
