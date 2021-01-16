@@ -5,7 +5,6 @@ import logoTxt from '../../assets/icons/LogoTxt.svg';
 
 const LogoWrap = styled.div`
   margin: 0 auto;
-  margin-top: 169px;
   width: 174px;
 `;
 const Logo = props => {
