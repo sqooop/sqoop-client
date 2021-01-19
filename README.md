@@ -2,6 +2,7 @@
     <img src="https://user-images.githubusercontent.com/55784772/103595413-af25f880-4f3e-11eb-8821-8119d6b213cb.gif" alt="Logo" width="150" height="150">
 </p>
 <h2 align="center">sqoop Web 👻<br><br>🔵 질문을 통해 돌아보는 대학생 경험 정리 가이드 sqoop! ⚪️</h2>
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/vun8bf4lPhc/0.jpg)](https://www.youtube.com/watch?v=vun8bf4lPhc)
 <br>
 <br />
 
