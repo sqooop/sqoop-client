@@ -27,10 +27,10 @@ const editActivity = async detail => {
         },
       },
     );
-    console.log('[SUCCESS] PUT One Activity', data);
+    // console.log('[SUCCESS] PUT One Activity', data);
     return data.data;
   } catch (error) {
-    console.log('[FAIL] PUT One Activity', error);
+    // console.log('[FAIL] PUT One Activity', error);
   }
 };
 

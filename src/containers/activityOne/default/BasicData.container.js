@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import EditList from '../../../components/activityOne/global/EditList';
 import Photo from '../../../components/activityOne/default/Photo';
@@ -111,4 +111,5 @@ const StyledTag = styled.span`
   margin-top: 12px;
   display: inline-block;
 `;
+
 export default BasicDataContainer;
