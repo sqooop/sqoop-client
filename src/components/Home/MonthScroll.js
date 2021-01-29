@@ -33,11 +33,11 @@ const MonthScroll = () => {
       for (let m = 1; m <= 12; m++) {
         monthMap.set(m, dataSet.get(year).has(m));
       }
-      console.log('dataSetgetyear', dataSet.get(year));
+      // console.log('dataSetgetyear', dataSet.get(year));
       saveMonth(monthMap);
-      console.log('allmonthArray', data.allMonthArray);
-      console.log('dataSet', dataSet);
-      console.log('monthMap', monthMap);
+      // console.log('allmonthArray', data.allMonthArray);
+      // console.log('dataSet', dataSet);
+      // console.log('monthMap', monthMap);
 
       const dataSetArray = Array.from(dataSet.get(year)); // 활동이 있는 월 배열로 바꿔줌
       const firstMonth = dataSetArray[0];
