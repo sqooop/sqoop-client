@@ -37,7 +37,6 @@ const StyledActivityOneTitle = styled.div`
     font-size: 2.5vw;
     font-weight: 700;
     line-height: 3.8vw;
-    border-style: solid;
   }
 `;
 

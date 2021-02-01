@@ -41,21 +41,26 @@ const ActivityOneEdit = ({ match, history }) => {
   const saveDetailTitle = data => dispatch(setDetailTitle(data));
   const saveAllData = (question, idx) => dispatch(setAllData(question, idx));
   const saveEditMode = data => dispatch(setEditMode(data));
+
   const detail = useSelector(state => state.detail);
 
   useEffect(() => {
     (async () => {
       saveID(id);
+
       const BasicData = await getOneActivity(id);
+
       if (!BasicData) {
         history.push('/home');
       } else {
         const jobTag = BasicData.jobTag.map(item => {
           return item.content;
         });
+
         const skillTag = BasicData.skillTag.map(item => {
           return item.content;
         });
+
         saveStart(BasicData.selectedActivity.startDate);
         saveEnd(BasicData.selectedActivity.endDate);
         saveGroup(BasicData.selectedActivity.group);
@@ -68,6 +73,7 @@ const ActivityOneEdit = ({ match, history }) => {
         saveState(BasicData.isFinished);
         saveDetailTitle(BasicData.selectedActivity.title);
         saveEditMode(true);
+
         if (BasicData.questionCards) {
           saveAllData(BasicData.questionCards);
         }
