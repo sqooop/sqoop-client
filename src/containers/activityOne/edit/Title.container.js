@@ -8,10 +8,12 @@ import EditButton from '../../../components/activityOne/global/EditButton';
 
 const TitleContainer = ({ userData }) => {
   const dispatch = useDispatch();
+
   const saveTitle = data => dispatch(setDetailTitle(data));
-  const title = useSelector(state => state.detail.detailTitle);
 
   const userFlag = userData !== null ? true : false;
+
+  const title = useSelector(state => state.detail.detailTitle);
 
   const onChangeInputs = evt => {
     const value = evt.target.value;
