@@ -1,19 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import TextareaAutosize from 'react-textarea-autosize';
 
 const ActivityOneUserData = props => {
   const { text, onChange, question, index } = props;
+
   return (
     <StyledUserData className="UserData">
       <>
         <StyledQuestionData>
           {index}. {question}
         </StyledQuestionData>
-        <StyledAnswerData
-          className="AnswerData"
-          value={text}
-          onChange={onChange}
-        />
+        <StyledAnswerData>
+          <TextareaAutosize
+            className="AnswerData"
+            value={text}
+            onChange={onChange}
+          />
+        </StyledAnswerData>
       </>
     </StyledUserData>
   );
@@ -32,18 +36,20 @@ const StyledQuestionData = styled.div`
   line-height: 150%;
 `;
 
-const StyledAnswerData = styled.textarea`
-  width: 39.1vw;
-  margin-left: 2.5vw;
-  font-size: 0.8vw;
-  font-weight: 400 !important;
-  line-height: 150%;
-  border: none;
-  outline: none;
-  height: 'scrollheight';
+const StyledAnswerData = styled.div`
+  .AnswerData {
+    width: 39.1vw;
+    margin-left: 2.5vw;
+    font-size: 0.8vw;
+    font-weight: 400 !important;
+    line-height: 150%;
+    border: none;
+    outline: none;
+    resize: none;
 
-  :hover {
-    background-color: #eeeeee;
+    :hover {
+      background-color: #eeeeee;
+    }
   }
 `;
 
