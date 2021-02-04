@@ -31,6 +31,7 @@ const Year = ({ background, border, onClick }) => {
       data.allMonthArray
         .filter(item => item.length !== 0)
         .forEach(item => dataSet.get(Math.floor(item / 100)).add(item % 100));
+
       dataSet.get(year);
       const dataSetArray = Array.from(dataSet.get(year)); // 활동이 있는 월 배열로 바꿔줌
       const firstMonth = dataSetArray[0];
@@ -38,7 +39,7 @@ const Year = ({ background, border, onClick }) => {
       const cardData = await getCardAPI(monthId);
       saveCards(cardData);
     })();
-  }, []);
+  }, [year]);
 
   const leftHovered = event => {};
   const rightHovered = event => {};
@@ -99,15 +100,7 @@ const Year = ({ background, border, onClick }) => {
             onMouseEnter={leftHovered}
           />
         )}
-        {/*         <button
-          className="button--left"
-          style={{ background: background, border: border }}
-          onClick={() => (year > firstYear ? saveYear(year - 1) : undefined)}
-          onMouseEnter={leftHovered}
-          onMouseLeave={onClickLeft}
-        >
-          <img src={LeftButtonIconOff} alt="" />
-        </button> */}
+
         <StateWrapper>{year}</StateWrapper>
         {year < lastYear ? (
           <img
@@ -125,15 +118,6 @@ const Year = ({ background, border, onClick }) => {
             onMouseEnter={rightHovered}
           />
         )}
-        {/*         <button
-          className="button--right"
-          style={{ background: background, border: border }}
-          onClick={() => (year < lastYear ? saveYear(year + 1) : undefined)}
-          onMouseOver={rightHovered}
-          onMouseLeave={onClickRight}
-        >
-          <img src={RightButtonIconOff} alt="" />
-        </button> */}
       </div>
     </YearTemplate>
   );

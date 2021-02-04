@@ -5,13 +5,15 @@ import { setCardArray } from '../../store/modules/home';
 import { getCardAPI, getMonthAPI } from '../../lib/api/home/cardAPI';
 import { useDispatch, useSelector } from 'react-redux';
 const ButtonActiveWrap = Styled.div`
+//background: skyblue;
+text-align: center;
   margin: 0 auto;
   margin-top: 10px;
-  font-size: 15px;
-  width: 45px;
+  width: 40px;
+  height: 30px;
   font-size: 10px;
   font-weight: bold !important;
-  margin-bottom: 72px;
+  margin-bottom: 60px;
   border: 0;
   outline: 0;
   cursor: pointer;
