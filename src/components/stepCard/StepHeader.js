@@ -53,7 +53,11 @@ const StepHeader = ({
   modalActive,
   saveModalActive,
   savePrevIndex,
-  saveClassName,
+  saveClassNameLeft,
+  saveClassNameGrow,
+  saveClassNameShrink,
+  saveClassNameRight,
+  saveClassNameShrinkRight,
   history,
   match,
 }) => {
@@ -79,7 +83,11 @@ const StepHeader = ({
     } else {
       event.stopPropagation();
       if (answers[index - 1]) {
-        saveClassName('');
+        saveClassNameLeft('card');
+        saveClassNameGrow('card');
+        saveClassNameShrink('card');
+        saveClassNameRight('card');
+        saveClassNameShrinkRight('card');
         savePrevIndex(index);
         history.push(`/steps/${index - 1}`);
       }
@@ -91,7 +99,11 @@ const StepHeader = ({
     } else {
       event.stopPropagation();
       if (answers[index]) {
-        saveClassName('');
+        saveClassNameLeft('card');
+        saveClassNameGrow('card');
+        saveClassNameShrink('card');
+        saveClassNameRight('card');
+        saveClassNameShrinkRight('card');
         savePrevIndex(index);
         history.push(`/steps/${index + 1}`);
       }

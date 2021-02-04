@@ -14,11 +14,11 @@ const GreetingBlock = styled.div`
 
   .greeting {
     font-weight: bold;
-    animation-name: appearing;
+    animation-name: appear;
     animation-duration: 2s;
   }
 
-  @keyframes appearing {
+  @keyframes appear {
     from {
       opacity: 0.3;
     }
@@ -38,7 +38,7 @@ const Greetings = () => {
       const name = await getUserName();
       saveUserName(name);
     })();
-  });
+  }, [userName]);
 
   return (
     <>

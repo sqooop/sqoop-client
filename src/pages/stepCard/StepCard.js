@@ -58,6 +58,9 @@ const StepCard = ({ history, match }) => {
       saveTitle(data);
     })();
     (async () => {
+      for (let i = 0; i < 10; i++) {
+        saveAnswer('', i);
+      }
       const data = await getCardInfo(id);
       data.questions.map((card, index) => {
         saveQuestion(card.content, index);
@@ -98,7 +101,7 @@ const StepCard = ({ history, match }) => {
           <EmptyCard marginLeft={'12px'} />
         )}
         {questions[currentIndex + 2] ? (
-          <NextCardContainer index={currentIndex + 2} />
+          <NextCardContainer index={currentIndex + 2} zindex={-1} />
         ) : (
           <EmptyCard marginLeft={'12px'} />
         )}

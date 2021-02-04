@@ -1,7 +1,5 @@
 import axios from 'axios';
 import instance from './instance';
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InRlc3RlciIsImlhdCI6MTYxMDYwMzE5NSwiZXhwIjoxNjExMjA3OTk1LCJpc3MiOiJsY2cifQ.c62Cm6w7pvEDAQNrWX2a-uJTXnYFXZusoaLoL6JtoD0';
 const baseURL = 'http://54.180.189.240:3000/';
 
 export const createActivity = async activity => {
@@ -22,10 +20,10 @@ export const createActivity = async activity => {
         jwt: localStorage.getItem('token'),
       },
     });
-    console.log('[SUCCESS] CREATE ACTIVITY', data);
+    // console.log('[SUCCESS] CREATE ACTIVITY', data);
     return data.data.newActivity.id;
   } catch (e) {
-    console.log('[FAIL] CREATE ACTIVITY', e);
+    // console.log('[FAIL] CREATE ACTIVITY', e);
     throw e;
   }
 };
@@ -33,10 +31,10 @@ export const createActivity = async activity => {
 export const getActivities = async () => {
   try {
     const { data } = await instance.get(`/activity/getAllActivity`);
-    console.log('[SUCCESS] GET ACTIVITIES', data.data);
+    // console.log('[SUCCESS] GET ACTIVITIES', data.data);
     return data.data;
   } catch (e) {
-    console.log('[FAIL] GET ACTIVITIES', e);
+    // console.log('[FAIL] GET ACTIVITIES', e);
     throw e;
   }
 };
@@ -44,10 +42,10 @@ export const getActivities = async () => {
 export const getLikeActivity = async () => {
   try {
     const { data } = await instance.get(`/activity/getLikeActivity`);
-    console.log('[SUCCESS] GET LIKE ACTIVITIES', data.data);
+    // console.log('[SUCCESS] GET LIKE ACTIVITIES', data.data);
     return data.data;
   } catch (e) {
-    console.log('[FAIL] GET LIKE ACTIVITIES', e);
+    // console.log('[FAIL] GET LIKE ACTIVITIES', e);
     throw e;
   }
 };
@@ -55,10 +53,10 @@ export const getLikeActivity = async () => {
 export const getWritingActivity = async () => {
   try {
     const { data } = await instance.get(`/activity/getAllIncompleteActivity`);
-    console.log('[SUCCESS] GET WRITING ACTIVITIES', data.data);
+    // console.log('[SUCCESS] GET WRITING ACTIVITIES', data.data);
     return data.data;
   } catch (e) {
-    console.log('[FAIL] GET WRITING ACTIVITIES', e);
+    // console.log('[FAIL] GET WRITING ACTIVITIES', e);
     throw e;
   }
 };
@@ -66,20 +64,20 @@ export const getWritingActivity = async () => {
 export const deleteActivity = async activityId => {
   try {
     const { data } = await instance.delete(`/activity/delete/${activityId}`);
-    console.log('[SUCCESS] DELETE ACTIVITY', data.data);
+    // console.log('[SUCCESS] DELETE ACTIVITY', data.data);
     return data.data;
   } catch (e) {
-    console.log('[FAIL] DELETE ACTIVITY', e);
+    // console.log('[FAIL] DELETE ACTIVITY', e);
     throw e;
   }
 };
 export const likeActivity = async activityId => {
   try {
     const { data } = await instance.put(`/activity/likeActivity/${activityId}`);
-    console.log('[SUCCESS] LIKE ACTIVITY', data.data);
+    // console.log('[SUCCESS] LIKE ACTIVITY', data.data);
     return data.data;
   } catch (e) {
-    console.log('[FAIL] LIKE ACTIVITY', e);
+    // console.log('[FAIL] LIKE ACTIVITY', e);
     throw e;
   }
 };
@@ -94,10 +92,10 @@ export const getFilterActivity = async filter => {
         .map((tag, index) => `skillTag[${index}]=${tag.replace('#', '%23')}`)
         .join('&')}`,
     );
-    console.log('[SUCCESS] GET WRITING ACTIVITIES', data.data);
+    // console.log('[SUCCESS] GET WRITING ACTIVITIES', data.data);
     return data.data;
   } catch (e) {
-    console.log('[FAIL] GET WRITING ACTIVITIES', e);
+    // console.log('[FAIL] GET WRITING ACTIVITIES', e);
     throw e;
   }
 };

@@ -1,15 +1,15 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 import FavoritesButton from '../../../components/activityOne/global/FavoritesButton';
 import DeleteButton from '../../../components/activityOne/global/DeleteButton';
 import EditButton from '../../../components/activityOne/global/EditButton';
 
 const TitleContainer = ({ userData }) => {
-  // userData를 props로 받는 이유는 최종 검토하기 페이지에서 즐겨찾기 버튼과 삭제 버튼이 없기 때문
   const userFlag = userData !== null ? true : false;
 
   const title = useSelector(state => state.detail.detailTitle);
+
   return (
     <StyledActivityOneTitle>
       <span>{title}</span>
@@ -31,12 +31,12 @@ const StyledActivityOneTitle = styled.div`
   display: flex;
   justify-content: space-between;
   font-weight: bold !important;
-  margin-top: 1vw;
+  margin-top: 4.4vh;
 
   & > span {
-    font-size: 2.2vw;
+    font-size: 2.5vw;
     font-weight: 700;
-    line-height: 4.8rem;
+    line-height: 3.8vw;
   }
 `;
 

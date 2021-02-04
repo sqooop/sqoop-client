@@ -50,6 +50,37 @@ const Year = ({ background, border, onClick }) => {
     saveYear(year + 1);
   };
 
+  /*   const leftHovered = event => {
+    const img = event.target.querySelector('img');
+    img && (img.src = LeftButtonIconOn);
+    event.target.style.cssText = `
+      cursor: pointer;
+
+    `;
+  };
+  const rightHovered = event => {
+    const img = event.target.querySelector('img');
+    img && (img.src = RightButtonIconOn);
+    event.target.style.cssText = `
+      cursor: pointer;
+    `;
+  };
+  const onClickLeft = event => {
+    const img = event.target.querySelector('img');
+    img && (img.src = LeftButtonIconOff);
+    event.target.style.cssText = `
+      cursor: default;
+    `;
+  };
+  const onClickRight = event => {
+    const img = event.target.querySelector('img');
+    img && (img.src = RightButtonIconOff);
+    event.target.style.cssText = `
+    cursor: default;
+  `;
+  }; */
+  /*   // console.log('fyear : ', firstYear);
+  // console.log('lyear :', lastYear); */
   return (
     <YearTemplate>
       <div className="button">

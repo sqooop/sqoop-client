@@ -1,23 +1,33 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import NextCard from '../../components/stepCard/NextCard';
-import { setClassName } from '../../store/modules/currentCard';
+import {
+  setClassNameShrink,
+  setClassNameRight,
+} from '../../store/modules/currentCard';
 
-const NextCardContainer = ({ index }) => {
+const NextCardContainer = ({ index, zindex }) => {
   const questions = useSelector(state => state.userCardInfo.questions);
   const prevIndex = useSelector(state => state.cardIndex.previousIndex);
-  const className = useSelector(state => state.currentCard.className);
+  const classNameShrink = useSelector(
+    state => state.currentCard.classNameShrink,
+  );
+  const classNameRight = useSelector(state => state.currentCard.classNameRight);
 
   const dispatch = useDispatch();
-  const saveClassName = string => dispatch(setClassName(string));
+  const saveClassNameShrink = string => dispatch(setClassNameShrink(string));
+  const saveClassNameRight = string => dispatch(setClassNameRight(string));
 
   return (
     <NextCard
       questions={questions}
       index={index}
+      zindex={zindex}
       prevIndex={prevIndex}
-      className={className}
-      saveClassName={saveClassName}
+      classNameShrink={classNameShrink}
+      classNameRight={classNameRight}
+      saveClassNameShrink={saveClassNameShrink}
+      saveClassNameRight={saveClassNameRight}
     />
   );
 };

@@ -45,7 +45,6 @@ const StyledQuestionData = styled.div`
 const StyledAnswerData = styled.div`
   width: 39.1vw;
   height: auto;
-  margin-bottom: 2.7vw;
   margin-left: 2.5vw;
   font-size: 0.8vw;
   font-weight: 400 !important;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDetailImage } from '../../../store/modules/detail';
 import { setPreviewImage } from '../../../store/modules/preview';
@@ -10,7 +10,9 @@ const ImageContainer = () => {
   const savePreviewImage = data => dispatch(setPreviewImage(data));
   const user = useSelector(state => state.detail.detailImageUrl);
   const previewImage = useSelector(state => state.preview.previewImage);
-
+  useEffect(() => {
+    savePreviewImage('');
+  }, []);
   const onChange = e => {
     e.preventDefault();
     const reader = new FileReader();
@@ -22,7 +24,7 @@ const ImageContainer = () => {
       savePreviewImage(previewImage);
     }
     reader.onloadend = () => {
-      saveImage(reader.result);
+      savePreviewImage(reader.result);
     };
   };
   return <Image onChange={onChange} image={previewImage} user={user} />;

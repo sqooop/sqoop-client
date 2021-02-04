@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import UserPhoto from '../../assets/icons/UserPhoto.svg';
 import Styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
 const UserInfoWrap = Styled.div`
   width: 730px;
@@ -56,10 +57,12 @@ const UserInfoWrap = Styled.div`
 `;
 
 const UserInfo = () => {
-  const [name, setName] = useState('권소희');
+  const userName = useSelector(state => state.home.name);
+
+  const [name, setName] = useState(userName);
   const [birth, setBirth] = useState('1998년  10월  17일');
   const [phone, setPhone] = useState('010 - 6533 - 1928');
-  const [email, setEmail] = useState('soheekwon@naver.com');
+  const [email, setEmail] = useState('thgml6533@gmail.com');
   const [sns, setSns] = useState('@sophisticated_hee');
 
   return (

@@ -5,9 +5,10 @@ const TextInput = styled.input`
   font-size: 1.4rem;
   border: none;
   outline: none;
-  width: 20.156vw;
+  width: 18.8vw;
   height: 3rem;
   padding-left: 0.8rem;
+  margin-top: 0.4vw;
 
   &:hover {
     background-color: #eeeeee !important;

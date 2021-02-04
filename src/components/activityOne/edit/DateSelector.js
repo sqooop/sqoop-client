@@ -7,8 +7,9 @@ const DateSelectorWrap = styled.div``;
 
 const StyledRangePicker = styled(RangePicker)`
   height: 3rem;
-  width: 20.156vw;
+  width: 18.8vw;
   border: none;
+  margin-top: 0.4vw;
 
   &:hover {
     background-color: #eeeeee !important;
