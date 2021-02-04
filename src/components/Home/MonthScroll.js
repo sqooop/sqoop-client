@@ -11,6 +11,8 @@ const MonthScrollWrapper = styled.div`
   display: block;
   width: 50px;
   height: 100%;
+  // background: ivory;
+  text-align: center;
 `;
 
 const MonthScroll = () => {

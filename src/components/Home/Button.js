@@ -3,13 +3,15 @@ import palette from '../../lib/styles/palette';
 import Styled from 'styled-components';
 
 const ButtonWrap = Styled.div`
+//background: pink;
+text-align: center;
   margin: 0 auto;
-  margin-top: 10px;
-  font-size: 15px;
-  width: 45px;
+  margin-top: 0px;
+  width: 40px;
+  height: 30px;
   font-size: 10px;
   font-weight: bold !important;
-  margin-bottom: 72px;
+  margin-bottom: 60px;
   border: 0;
   outline: 0;
   cursor: default;
