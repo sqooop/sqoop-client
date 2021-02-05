@@ -21,6 +21,13 @@ const BasicDataContainer = () => {
   const endmonth = end.substring(4, 6);
   const endday = end.substring(6, 9);
 
+  const fileUrl = detail.detailFileUrl;
+  const fileName = detail.detailFilename;
+
+  const onClickFile = () => {
+    window.open(`${fileUrl}`, `${fileName}`);
+  };
+
   return (
     <StyledBasicData>
       <Photo imageUrl={detail.detailImageUrl} />
@@ -62,12 +69,14 @@ const BasicDataContainer = () => {
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="파일 첨부" />
-        <StyledBasic
-          style={{ display: 'flex', justifyContent: 'space-between' }}
-        >
-          {detail.detailFilename}
-          <img src={Clip} alt="" />
-        </StyledBasic>
+        <a href={`${fileUrl}`} download={`${fileName}`}>
+          <StyledBasic
+            style={{ display: 'flex', justifyContent: 'space-between' }}
+          >
+            {detail.detailFilename}
+            <img src={Clip} alt="" />
+          </StyledBasic>
+        </a>
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="한 줄 설명" />
@@ -77,7 +86,12 @@ const BasicDataContainer = () => {
   );
 };
 
-const StyledBasicData = styled.div``;
+const StyledBasicData = styled.div`
+  a {
+    color: rgba(0, 0, 0, 0.85);
+    text-decoration: none;
+  }
+`;
 
 const StyledContentWrap = styled.div`
   display: flex;
