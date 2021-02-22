@@ -36,7 +36,7 @@ const ButtonContainer = () => {
 
   return (
     <>
-      {endDate && startDate && skillTag.length > 0 && jobTag.length > 0 ? (
+      {(endDate && startDate) || skillTag.length > 0 || jobTag.length > 0 ? (
         <Button backgroundColor="#195BFF" onClick={onClick} isAble={true} />
       ) : (
         <Button
