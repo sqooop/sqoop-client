@@ -1,13 +1,9 @@
 import React from 'react';
 import MyPageHeader from '../../components/myPage/MyPageHeader';
-import UserInfoContainer from '../../containers/myPage/UserInfo.container';
-import SchoolInfoContainer from '../../containers/myPage/SchoolInfo.container';
-import InterestInfo from '../../components/myPage/InterestInfo';
-import IntroInfo from '../../components/myPage/IntroInfo';
 import MainHeader from '../../components/common/MainHeader';
 import Styled from 'styled-components';
 
-const MyPageWrap = Styled.div`
+const SettingsWrap = Styled.div`
   display: flex;
   flex-direction: column;
   width: 1000px;
@@ -26,22 +22,18 @@ const MyPageWrap = Styled.div`
   }
 `;
 
-const MyPage = () => {
+const Settings = () => {
   return (
     <>
       <MainHeader />
-      <MyPageWrap>
-        <MyPageHeader profileColor={'black'} />
-        <UserInfoContainer />
-        <SchoolInfoContainer />
-        <InterestInfo />
-        <IntroInfo />
+      <SettingsWrap>
+        <MyPageHeader settingsColor={'black'} />
         <div className="footer">
           <div className="logout">로그아웃</div>
         </div>
-      </MyPageWrap>
+      </SettingsWrap>
     </>
   );
 };
 
-export default MyPage;
+export default Settings;

@@ -28,11 +28,11 @@ const MyPageHeaderWrap = Styled.div`
   }
 
   .button {
-    &--basic {
-      margin-right: 20px;
-      color: black;
+    &--profile {
+      margin-right: 36px;
+      color: #AAAAAA;
     }
-    &--career {
+    &--settings {
       color: #AAAAAA;
     }
     &--edit {
@@ -46,23 +46,25 @@ const MyPageHeaderWrap = Styled.div`
 }
 `;
 
-const MyPageHeader = ({ history, match }) => {
+const MyPageHeader = ({ history, profileColor, settingsColor }) => {
   return (
     <MyPageHeaderWrap>
       <button
-        className="button--basic"
-        onClick={() => history.push('/mypage/basic')}
+        className="button--profile"
+        style={{ color: profileColor }}
+        onClick={() => history.push('/mypage/profile')}
       >
-        기본 정보
+        프로필
       </button>
       <button
-        className="button--career"
-        onClick={() => history.push('/mypage/career')}
+        className="button--settings"
+        style={{ color: settingsColor }}
+        onClick={() => history.push('/mypage/settings')}
       >
-        이력 사항
+        계정 설정
       </button>
       <div className="empty" />
-      <img className="button--edit" src={Edit} alt="" />
+      {profileColor && <img className="button--edit" src={Edit} alt="" />}
     </MyPageHeaderWrap>
   );
 };

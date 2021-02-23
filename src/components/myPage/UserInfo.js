@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import UserPhoto from '../../assets/icons/UserPhoto.svg';
 import Styled from 'styled-components';
-import { useSelector } from 'react-redux';
 
 const UserInfoWrap = Styled.div`
   width: 730px;
@@ -29,7 +29,7 @@ const UserInfoWrap = Styled.div`
       align-items: left;
       /* &__birth > input,
       &__phone > input,
-      &__sns > input {
+      &__url > input {
         color: #A5A5A5;
       } */
       &__sns > span {
@@ -53,17 +53,20 @@ const UserInfoWrap = Styled.div`
     &:focus {
       outline: none;
     }
+    &::placeholder {
+      color: #AAAAAA;
+    }
   }
 `;
 
-const UserInfo = () => {
-  const userName = useSelector(state => state.home.name);
-
-  const [name, setName] = useState(userName);
-  const [birth, setBirth] = useState('1998년  10월  17일');
-  const [phone, setPhone] = useState('010 - 6533 - 1928');
-  const [email, setEmail] = useState('thgml6533@gmail.com');
-  const [sns, setSns] = useState('@sophisticated_hee');
+const UserInfo = ({ userName, birthday, phone, email, url, match }) => {
+  const userBirthday = `${birthday.slice(0, 4)}년    ${parseInt(
+    birthday.slice(4, 6),
+  )}월    ${parseInt(birthday.slice(6, 8))}일`;
+  const userPhone = phone
+    ? `${phone.slice(0, 3)} - ${phone.slice(3, 7)} - ${phone.slice(7, 11)}`
+    : '';
+  const isReadOnly = match.path === '/mypage/profile' ? true : false;
 
   return (
     <UserInfoWrap>
@@ -73,26 +76,19 @@ const UserInfo = () => {
       <div className="user--info">
         <div className="user--info__name">
           <span className="title">이름</span>
-          <input
-            type="text"
-            value={name}
-            onChange={event => setName(event.target.value)}
-          />
+          <input type="text" value={userName} readOnly={isReadOnly} />
         </div>
         <div className="user--info__birth">
           <span className="title">생년월일</span>
-          <input
-            type="text"
-            value={birth}
-            onChange={event => setBirth(event.target.value)}
-          />
+          <input type="text" value={userBirthday} readOnly={isReadOnly} />
         </div>
         <div className="user--info__phone">
           <span className="title">전화번호</span>
           <input
             type="text"
-            value={phone}
-            onChange={event => setPhone(event.target.value)}
+            value={userPhone}
+            placeholder="입력해주세요"
+            readOnly={isReadOnly}
           />
         </div>
         <div className="user--info__email">
@@ -100,15 +96,17 @@ const UserInfo = () => {
           <input
             type="text"
             value={email}
-            onChange={event => setEmail(event.target.value)}
+            placeholder="입력해주세요"
+            readOnly={isReadOnly}
           />
         </div>
-        <div className="user--info__sns">
-          <span className="title">SNS</span>
+        <div className="user--info__url">
+          <span className="title">URL</span>
           <input
             type="text"
-            value={sns}
-            onChange={event => setSns(event.target.value)}
+            value={url}
+            placeholder="입력해주세요"
+            readOnly={isReadOnly}
           />
         </div>
       </div>
@@ -116,4 +114,4 @@ const UserInfo = () => {
   );
 };
 
-export default UserInfo;
+export default withRouter(UserInfo);

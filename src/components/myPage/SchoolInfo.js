@@ -1,22 +1,15 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import Styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 const SchoolInfoWrap = Styled.div`
   width: 730px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  margin-top: 48px;
   font-size: 14px;
 
   .info {
-    &--title {
-      width: 28px;
-      font-weight: bold;
-      margin-bottom: 26px;
-      display: flex;
-      justify-content: left;
-    }
     &--school {
       margin-bottom: 12px;
       display: flex;
@@ -28,11 +21,10 @@ const SchoolInfoWrap = Styled.div`
       }
       &__time {
         & > span {
-          width: 80px;
           display: inline-block;
           text-align: center;
-          color: #A5A5A5;
-          margin: 0 10px;
+          color: black;
+          margin: 0 6px;
         }
       }
     }
@@ -59,24 +51,28 @@ const SchoolInfoWrap = Styled.div`
   }
 `;
 
-const SchoolInfo = () => {
-  const [school, setSchool] = useState('한국외국어대학교');
-  const [major, setMajor] = useState('네덜란드어, 융복합소프트웨어');
+const SchoolInfo = ({ school, major, startDate, endDate, match }) => {
+  const isReadOnly = match.path === '/mypage/profile' ? true : false;
+  const startYear = startDate.slice(0, 4);
+  const startMonth = parseInt(startDate.slice(4, 6));
+  const endYear = endDate.slice(0, 4);
+  const endMonth = parseInt(endDate.slice(4, 6));
 
   return (
     <SchoolInfoWrap>
-      <div className="info--title">학력</div>
       <div className="info--school">
         <span className="info--school__title">학교</span>
         <input
           type="text"
           value={school}
-          onChange={event => setSchool(event.target.value)}
           placeholder="학교명을 입력해주세요"
+          readOnly={isReadOnly}
         />
         <div className="empty" />
         <div className="info--school__time">
-          <span>2017년/3월</span>~<span>2022년/2월</span>
+          <span>{startYear}년</span>&nbsp;<span>{startMonth}월</span>
+          &nbsp;~&nbsp;<span>{endYear}년</span>&nbsp;
+          <span>{endMonth}월</span>
         </div>
       </div>
       <div className="info--major">
@@ -84,12 +80,12 @@ const SchoolInfo = () => {
         <input
           type="text"
           value={major}
-          onChange={event => setMajor(event.target.value)}
           placeholder="전공을 입력해주세요"
+          readOnly={isReadOnly}
         />
       </div>
     </SchoolInfoWrap>
   );
 };
 
-export default SchoolInfo;
+export default withRouter(SchoolInfo);
