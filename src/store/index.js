@@ -13,6 +13,7 @@ import filter from './modules/filter';
 import home from './modules/home';
 import month from './modules/month';
 import signIn from './modules/signIn';
+import signup from './modules/signup';
 import detail from './modules/detail';
 import paramsid from './modules/paramsid';
 import editButton from './modules/editButton';
@@ -35,6 +36,7 @@ const rootReducer = combineReducers({
   detail,
   paramsid,
   editButton,
+  signup,
 });
 
 export default rootReducer;

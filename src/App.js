@@ -2,6 +2,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 //import MainHeader from './components/common/MainHeader';
 import Home from './pages/home/home';
 import SignIn from './pages/signin/SignIn';
+import SignUp from './pages/signUp/SignUp';
 import CreateActivity from './pages/createActivity/CreateActivity';
 import StepCard from './pages/stepCard/StepCard';
 import FilterActivities from './pages/filterActivities/FilterActivities';
@@ -15,6 +16,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Route exact path="/" component={SignIn} />
+        <Route exact path="/signup" component={SignUp} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/create" component={CreateActivity} />
         <Route exact path="/steps/:id" component={StepCard} />

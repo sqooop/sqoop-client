@@ -13,8 +13,7 @@ const ShowPassword = styled.span`
 const StyledSpan = styled.span`
   margin-left: 2px;
   font-size: 12px;
-  width: 50px;
-  margin-right: 36px;
+  width: 92px;
   display: inline-block;
 `;
 const StyledInput = styled.input`
@@ -44,7 +43,7 @@ const Input = props => {
   return (
     <InputWrap>
       <StyledSpan>{content}</StyledSpan>
-      {content === '비밀번호' ? (
+      {content === '비밀번호' || content === '비밀번호 확인' ? (
         <>
           <StyledInput type="password" value={value} onChange={onChange} />
           <ShowPassword onMouseDown={onMouseDown} onMouseUp={onMouseUp}>
