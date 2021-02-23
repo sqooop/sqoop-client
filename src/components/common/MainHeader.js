@@ -1,9 +1,11 @@
 import logo from '../../assets/images/Ic_sqoop.svg';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { setActivities } from '../../store/modules/activities';
+import { setModalActive } from '../../store/modules/currentCard';
 import { getActivities } from '../../lib/api/activity';
+import SaveModal from '../stepCard/SaveModal';
 
 const HeaderBlock = styled.div`
   display: flex;
@@ -33,6 +35,10 @@ const Spacer = styled.div`
 const MainHeader = ({ history }) => {
   const dispatch = useDispatch();
   const saveActivities = data => dispatch(setActivities(data));
+  const saveModalActive = data => dispatch(setModalActive(data));
+  const currentCard = useSelector(state => state.currentCard);
+  const { notSaved, modalActive } = currentCard;
+
   return (
     <>
       <HeaderBlock>
@@ -41,7 +47,11 @@ const MainHeader = ({ history }) => {
           <li
             className="home"
             onClick={() => {
-              history.push('/home');
+              if (notSaved) {
+                saveModalActive(true);
+              } else {
+                history.push('/home');
+              }
             }}
           >
             홈
@@ -49,7 +59,11 @@ const MainHeader = ({ history }) => {
           <li
             className="activities"
             onClick={() => {
-              history.push('/activities');
+              if (notSaved) {
+                saveModalActive(true);
+              } else {
+                history.push('/activities');
+              }
             }}
           >
             모아보기
@@ -57,7 +71,11 @@ const MainHeader = ({ history }) => {
           <li
             className="mypage"
             onClick={() => {
-              history.push('/mypage/basic');
+              if (notSaved) {
+                saveModalActive(true);
+              } else {
+                history.push('/mypage/basic');
+              }
             }}
           >
             마이페이지
@@ -65,6 +83,7 @@ const MainHeader = ({ history }) => {
         </Wrapper>
       </HeaderBlock>
       <Spacer />
+      {modalActive && <SaveModal setModalActive={saveModalActive} />}
     </>
   );
 };
