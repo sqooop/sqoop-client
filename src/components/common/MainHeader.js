@@ -74,7 +74,7 @@ const MainHeader = ({ history }) => {
               if (notSaved) {
                 saveModalActive(true);
               } else {
-                history.push('/mypage/basic');
+                history.push('/mypage/profile');
               }
             }}
           >
