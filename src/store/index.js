@@ -17,6 +17,7 @@ import signup from './modules/signup';
 import detail from './modules/detail';
 import paramsid from './modules/paramsid';
 import editButton from './modules/editButton';
+import myPage from './modules/myPage';
 
 const rootReducer = combineReducers({
   activity,
@@ -37,6 +38,7 @@ const rootReducer = combineReducers({
   paramsid,
   editButton,
   signup,
+  myPage,
 });
 
 export default rootReducer;
