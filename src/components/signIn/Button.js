@@ -7,7 +7,6 @@ const ButtonDiv = styled.div`
   width: 358px;
   color: white;
   cursor: pointer;
-  width: 357px;
   height: 50px;
   text-align: center;
   padding-top: 13px;
@@ -15,10 +14,14 @@ const ButtonDiv = styled.div`
   margin-bottom: 12px;
 `;
 const Button = props => {
-  const { onClick, color } = props;
+  const { onClick, color, content } = props;
   return (
-    <ButtonDiv onClick={onClick} color={color}>
-      로그인
+    <ButtonDiv
+      onClick={color === '#a5a5a5' ? false : onClick}
+      color={color}
+      disabled="true"
+    >
+      {content}
     </ButtonDiv>
   );
 };
