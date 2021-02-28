@@ -4,8 +4,9 @@ import logoSymbol from '../../assets/icons/LogoSymbol.svg';
 import logoTxt from '../../assets/icons/LogoTxt.svg';
 
 const LogoWrap = styled.div`
-  margin: 0 auto;
-  width: 174px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Logo = props => {
   return (

@@ -10,6 +10,8 @@ import ActivityOneDefault from './pages/activityOne/ActivityOneDefault';
 import ActivityOneEdit from './pages/activityOne/ActivityOneEdit';
 import MyPage from './pages/myPage/MyPage';
 import Settings from './pages/myPage/Settings';
+import Email from './pages/findInformation/Email';
+import Password from './pages/findInformation/Password';
 import './App.css';
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
         <Route exact path="/detail/edit/:id" component={ActivityOneEdit} />
         <Route exact path="/mypage/profile" component={MyPage} />
         <Route exact path="/mypage/settings" component={Settings} />
+        <Route exact path="/email" component={Email} />
+        <Route exact path="/password" component={Password} />
       </BrowserRouter>
     </div>
   );
