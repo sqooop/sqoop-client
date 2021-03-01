@@ -21,6 +21,7 @@ const BasicDataContainer = () => {
   const endmonth = end.substring(4, 6);
   const endday = end.substring(6, 9);
 
+<<<<<<< HEAD
   const fileUrl = detail.detailFileUrl;
   const fileName = detail.detailFilename;
 
@@ -28,6 +29,8 @@ const BasicDataContainer = () => {
     window.open(`${fileUrl}`, `${fileName}`);
   };
 
+=======
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
   return (
     <StyledBasicData>
       <Photo imageUrl={detail.detailImageUrl} />
@@ -69,6 +72,7 @@ const BasicDataContainer = () => {
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="파일 첨부" />
+<<<<<<< HEAD
         <a href={`${fileUrl}`} download={`${fileName}`}>
           <StyledBasic
             style={{ display: 'flex', justifyContent: 'space-between' }}
@@ -77,6 +81,14 @@ const BasicDataContainer = () => {
             <img src={Clip} alt="" />
           </StyledBasic>
         </a>
+=======
+        <StyledBasic
+          style={{ display: 'flex', justifyContent: 'space-between' }}
+        >
+          {detail.detailFilename}
+          <img src={Clip} alt="" />
+        </StyledBasic>
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="한 줄 설명" />
@@ -86,12 +98,16 @@ const BasicDataContainer = () => {
   );
 };
 
+<<<<<<< HEAD
 const StyledBasicData = styled.div`
   a {
     color: rgba(0, 0, 0, 0.85);
     text-decoration: none;
   }
 `;
+=======
+const StyledBasicData = styled.div``;
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
 
 const StyledContentWrap = styled.div`
   display: flex;

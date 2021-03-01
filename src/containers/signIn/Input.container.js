@@ -10,6 +10,11 @@ const GroupContainer = () => {
 
   const email = useSelector(state => state.signIn.email);
   const password = useSelector(state => state.signIn.password);
+<<<<<<< HEAD
+=======
+  const emailWarning = useSelector(state => state.signIn.emailWarning);
+  const passwordWarning = useSelector(state => state.signIn.passwordWarning);
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
 
   const onChangeEmail = evt => {
     const value = evt.target.value;
@@ -26,12 +31,20 @@ const GroupContainer = () => {
         value={email}
         onChange={onChangeEmail}
         defaultValue=""
+<<<<<<< HEAD
+=======
+        warning={emailWarning}
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
       />
       <Input
         content="비밀번호"
         value={password}
         onChange={onChangePassword}
         defaultValue=""
+<<<<<<< HEAD
+=======
+        warning={passwordWarning}
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
       />
     </>
   );

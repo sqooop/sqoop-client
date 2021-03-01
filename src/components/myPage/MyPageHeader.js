@@ -5,9 +5,16 @@ import Edit from '../../assets/icons/Edit.svg';
 
 const MyPageHeaderWrap = Styled.div`
   display: flex;
+<<<<<<< HEAD
   width: 928px;
   justify-content: center;
   margin-bottom: 40px;
+=======
+  flex-direction: row;
+  width: 928px;
+  margin: 40px auto;
+  justify-content: center;
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
   align-items: center;
 
   button {
@@ -27,11 +34,19 @@ const MyPageHeaderWrap = Styled.div`
   }
 
   .button {
+<<<<<<< HEAD
     &--profile {
       margin-right: 36px;
       color: #AAAAAA;
     }
     &--settings {
+=======
+    &--basic {
+      margin-right: 20px;
+      color: black;
+    }
+    &--career {
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
       color: #AAAAAA;
     }
     &--edit {
@@ -45,6 +60,7 @@ const MyPageHeaderWrap = Styled.div`
 }
 `;
 
+<<<<<<< HEAD
 const MyPageHeader = ({ history, profileColor, settingsColor }) => {
   return (
     <MyPageHeaderWrap>
@@ -64,6 +80,25 @@ const MyPageHeader = ({ history, profileColor, settingsColor }) => {
       </button>
       <div className="empty" />
       {profileColor && <img className="button--edit" src={Edit} alt="" />}
+=======
+const MyPageHeader = ({ history, match }) => {
+  return (
+    <MyPageHeaderWrap>
+      <button
+        className="button--basic"
+        onClick={() => history.push('/mypage/basic')}
+      >
+        기본 정보
+      </button>
+      <button
+        className="button--career"
+        onClick={() => history.push('/mypage/career')}
+      >
+        이력 사항
+      </button>
+      <div className="empty" />
+      <img className="button--edit" src={Edit} alt="" />
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
     </MyPageHeaderWrap>
   );
 };

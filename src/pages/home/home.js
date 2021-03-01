@@ -47,7 +47,11 @@ const GreetingWrap = styled.div`
   }
 `;
 
+<<<<<<< HEAD
 const Home = () => {
+=======
+const Home = match => {
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
   return (
     <div>
       <MainHeader />

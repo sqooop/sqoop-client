@@ -3,8 +3,13 @@ import styled from 'styled-components';
 import { getCardAPI, getMonthAPI } from '../../lib/api/home/cardAPI';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMonth } from '../../store/modules/month';
+<<<<<<< HEAD
 import ButtonActive from './ButtonActive';
 import Button from './Button';
+=======
+import ButtonActive from '../../components/home/ButtonActive';
+import Button from '../../components/home/Button';
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
 import { setCardArray } from '../../store/modules/home';
 
 const MonthScrollWrapper = styled.div`

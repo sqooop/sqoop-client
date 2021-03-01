@@ -29,7 +29,10 @@ const ButtonContainer = ({ history }) => {
       <Button
         onClick={onClick}
         color={email && password ? '#195bff' : '#a5a5a5'}
+<<<<<<< HEAD
         content="로그인"
+=======
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
       />
     </>
   );

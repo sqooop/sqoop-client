@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useEffect } from 'react';
+=======
+import React from 'react';
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
 import styled from 'styled-components';
 import Input from '../../containers/signIn/Input.container';
 import Button from '../../containers/signIn/Button.container';
@@ -16,9 +20,12 @@ const SignInWrap = styled.div`
   overflow: hidden;
 `;
 const SignIn = () => {
+<<<<<<< HEAD
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+=======
+>>>>>>> c701b541a4661ae58261808483f8b9182a287066
   return (
     <SignInWrap>
       <Logo />
