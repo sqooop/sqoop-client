@@ -7,10 +7,6 @@ const ButtonDiv = styled.div`
   width: 358px;
   color: white;
   cursor: pointer;
-<<<<<<< HEAD
-=======
-  width: 357px;
->>>>>>> c701b541a4661ae58261808483f8b9182a287066
   height: 50px;
   text-align: center;
   padding-top: 13px;
@@ -18,7 +14,6 @@ const ButtonDiv = styled.div`
   margin-bottom: 12px;
 `;
 const Button = props => {
-<<<<<<< HEAD
   const { onClick, color, content } = props;
   return (
     <ButtonDiv
@@ -27,12 +22,6 @@ const Button = props => {
       disabled="true"
     >
       {content}
-=======
-  const { onClick, color } = props;
-  return (
-    <ButtonDiv onClick={onClick} color={color}>
-      로그인
->>>>>>> c701b541a4661ae58261808483f8b9182a287066
     </ButtonDiv>
   );
 };

@@ -21,16 +21,9 @@ const BasicDataContainer = () => {
   const endmonth = end.substring(4, 6);
   const endday = end.substring(6, 9);
 
-<<<<<<< HEAD
   const fileUrl = detail.detailFileUrl;
   const fileName = detail.detailFilename;
 
-  const onClickFile = () => {
-    window.open(`${fileUrl}`, `${fileName}`);
-  };
-
-=======
->>>>>>> c701b541a4661ae58261808483f8b9182a287066
   return (
     <StyledBasicData>
       <Photo imageUrl={detail.detailImageUrl} />
@@ -52,43 +45,47 @@ const BasicDataContainer = () => {
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="관련 직무" isStar={true} />
-        {detailJobTag ? (
-          detailJobTag.map((item, index) => (
-            <StyledTag key={index - 1}>{item}</StyledTag>
-          ))
-        ) : (
-          <></>
-        )}
+        <div style={{ display: 'flex', flexWrap: 'wrap', width: '19.9444vw' }}>
+          {detailJobTag ? (
+            detailJobTag.map((item, index) => (
+              <StyledTag key={index - 1}>{item}</StyledTag>
+            ))
+          ) : (
+            <></>
+          )}
+        </div>
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="핵심 역량" isStar={true} />
-        {detailSkillTag ? (
-          detailSkillTag.map((datalist, index) => (
-            <StyledTag key={index - 1}>{datalist}</StyledTag>
-          ))
-        ) : (
-          <></>
-        )}
+        <div style={{ display: 'flex', flexWrap: 'wrap', width: '19.9444vw' }}>
+          {detailSkillTag ? (
+            detailSkillTag.map((datalist, index) => (
+              <StyledTag key={index - 1}>{datalist}</StyledTag>
+            ))
+          ) : (
+            <></>
+          )}
+        </div>
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="파일 첨부" />
-<<<<<<< HEAD
-        <a href={`${fileUrl}`} download={`${fileName}`}>
+        {fileUrl ? (
+          <a href={`${fileUrl}`} download={`${fileName}`}>
+            <StyledBasic
+              style={{ display: 'flex', justifyContent: 'space-between' }}
+            >
+              {detail.detailFilename}
+              <img src={Clip} alt="" />
+            </StyledBasic>
+          </a>
+        ) : (
           <StyledBasic
             style={{ display: 'flex', justifyContent: 'space-between' }}
           >
             {detail.detailFilename}
             <img src={Clip} alt="" />
           </StyledBasic>
-        </a>
-=======
-        <StyledBasic
-          style={{ display: 'flex', justifyContent: 'space-between' }}
-        >
-          {detail.detailFilename}
-          <img src={Clip} alt="" />
-        </StyledBasic>
->>>>>>> c701b541a4661ae58261808483f8b9182a287066
+        )}
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="한 줄 설명" />
@@ -98,16 +95,15 @@ const BasicDataContainer = () => {
   );
 };
 
-<<<<<<< HEAD
 const StyledBasicData = styled.div`
+  width: 27.9688vw;
+  margin-bottom: 6.1111vw;
+
   a {
     color: rgba(0, 0, 0, 0.85);
     text-decoration: none;
   }
 `;
-=======
-const StyledBasicData = styled.div``;
->>>>>>> c701b541a4661ae58261808483f8b9182a287066
 
 const StyledContentWrap = styled.div`
   display: flex;
@@ -116,7 +112,8 @@ const StyledContentWrap = styled.div`
 
 const StyledBasic = styled.div`
   width: 18.8vw;
-  font-size: 1.1vw;
+  height: 3rem;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.6vw;
   display: flex;
@@ -132,14 +129,13 @@ const StyledBasic = styled.div`
   }
 `;
 
-const StyledTag = styled.span`
+const StyledTag = styled.div`
   background: #195bff;
   color: white;
   font-size: 13px;
-  padding: 1px 10px;
-  margin-right: 12px;
-  margin-top: 12px;
-  display: inline-block;
+  padding: 0.0781vw 0.7813vw;
+  margin-right: 0.9375vw;
+  margin-top: 0.9375vw;
 `;
 
 export default BasicDataContainer;

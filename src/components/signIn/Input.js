@@ -13,12 +13,8 @@ const ShowPassword = styled.span`
 const StyledSpan = styled.span`
   margin-left: 2px;
   font-size: 12px;
-<<<<<<< HEAD
   width: 92px;
-=======
-  width: 50px;
-  margin-right: 36px;
->>>>>>> c701b541a4661ae58261808483f8b9182a287066
+  width: 92px;
   display: inline-block;
 `;
 const StyledInput = styled.input`
@@ -48,11 +44,7 @@ const Input = props => {
   return (
     <InputWrap>
       <StyledSpan>{content}</StyledSpan>
-<<<<<<< HEAD
       {content === '비밀번호' || content === '비밀번호 확인' ? (
-=======
-      {content === '비밀번호' ? (
->>>>>>> c701b541a4661ae58261808483f8b9182a287066
         <>
           <StyledInput type="password" value={value} onChange={onChange} />
           <ShowPassword onMouseDown={onMouseDown} onMouseUp={onMouseUp}>

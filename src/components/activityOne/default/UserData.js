@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import TextareaAutosize from 'react-textarea-autosize';
 
 const UserData = props => {
   const { answer, question, index } = props;
@@ -10,7 +11,9 @@ const UserData = props => {
         <StyledQuestionData>
           {index}. {question}
         </StyledQuestionData>
-        <StyledAnswerData>{answer}</StyledAnswerData>
+        <StyledAnswerData>
+          <TextareaAutosize className="AnswerData" value={answer} />
+        </StyledAnswerData>
       </>
     </StyledUserData>
   );
@@ -19,7 +22,6 @@ const UserData = props => {
 const StyledUserData = styled.div`
   display: block !important;
   width: 41.6vw;
-  margin-top: 2.5vw;
 
   ::-webkit-scrollbar {
     width: 0px;
@@ -36,21 +38,23 @@ const StyledUserData = styled.div`
 
 const StyledQuestionData = styled.div`
   margin-bottom: 0.9vw;
-  margin-left: 1.9vw;
   font-size: 1vw;
   font-weight: 700 !important;
   line-height: 150%;
 `;
 
 const StyledAnswerData = styled.div`
-  width: 39.1vw;
-  height: auto;
-  margin-left: 2.5vw;
-  font-size: 0.8vw;
-  font-weight: 400 !important;
-  line-height: 150%;
-  border: none;
-  outline: none;
+  .AnswerData {
+    width: 39.1vw;
+    margin-left: 8px;
+    font-size: 0.8vw;
+    font-weight: 400 !important;
+    line-height: 150%;
+    border: none;
+    outline: none;
+    resize: none;
+    margin-bottom: 2.5vw;
+  }
 `;
 
 export default UserData;

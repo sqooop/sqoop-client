@@ -136,7 +136,6 @@ const CurrentCard = ({
 
     if (lastChar === lastText && (lastChar === ' ' || lastChar === '\n')) {
     } else {
-<<<<<<< HEAD
       saveTextValue(text);
       saveTextLimit(text.length);
       if (text.length > 1000) {
@@ -144,14 +143,6 @@ const CurrentCard = ({
         const slicedText = text.slice(0, 1000);
         saveTextValue(slicedText);
         saveTextLimit(slicedText.length);
-=======
-      saveTextLimit(text.length);
-      if (textLimit > 1000) {
-        alert('글자수 제한을 초과했습니다');
-        saveTextValue(text.slice(0, 1000));
-      } else {
-        saveTextValue(text);
->>>>>>> c701b541a4661ae58261808483f8b9182a287066
       }
     }
 

@@ -47,7 +47,7 @@ const NavbarWrap = Styled.div`
   float: left;
   display: block;
   display: flex;
-  width: 110px;
+  width: 120px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
@@ -77,8 +77,8 @@ const Settings = () => {
             <button className="button--password">비밀번호 변경</button>
             <button className="button--marketing">마케팅 수신 설정</button>
             <button className="button--privacy">개인정보처리방침</button>
-            <button className="button--terms">이용약관</button>
-            <button className="button--delete">계정 삭제</button>
+            <button className="button—terms">이용약관</button>
+            <button className="button—delete">계정 삭제</button>
           </NavbarWrap>
           <MaterialWrap>
             <AccountConfirm />
