@@ -25,7 +25,7 @@ const Password = () => {
 const StyledPassword = styled.div`
   padding-left: 14.297vw;
   padding-right: 14.297vw;
-  margin-top: 23.472222vh;
+  margin-top: 102px;
 `;
 
 const StyledText = styled.div`

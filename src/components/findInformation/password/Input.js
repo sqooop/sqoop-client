@@ -14,7 +14,9 @@ const InputContainer = () => {
     const value = evt.target.value;
     var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
     if (!reg_email.test(value)) {
-      saveEmailWarning('이메일 형식이 올바르지 않습니다');
+      saveEmailWarning(
+        '입력하신 정보와 일치하는 계정이 없습니다. 다시 한번 확인해주세요!',
+      );
     } else {
       saveEmailWarning('');
     }
