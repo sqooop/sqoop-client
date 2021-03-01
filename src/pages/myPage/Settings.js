@@ -7,8 +7,8 @@ import ChangePassword from '../../containers/myPage/settings/ChangePassword.cont
 import AccountConfirm from '../../containers/myPage/settings/AccountConfirm.container';
 import { setStatus } from '../../store/modules/settings/status';
 const SettingsWrap = Styled.div`
-  padding-left: 25.4629vw;
-  padding-right: 25.4629vw;
+  padding-left: 25.463vw;
+  padding-right: 25.463vw;
   .footer {
     width: 730px;
     font-size: 14px;
@@ -52,16 +52,20 @@ const MaterialWrap = Styled.div`
   float: left;
   width: 416px;
   display: block;
+  margin-left: 80px;
 `;
 
-const Settings = () => {
+const Settings = ({ history }) => {
   const dispatch = useDispatch();
   const status = useSelector(state => state.status.status);
   const saveStatus = data => dispatch(setStatus(data));
   const onClick = evt => {
     saveStatus(evt.target.innerHTML);
   };
-  console.log(status, status === '계정 정보 확인');
+  const onClickDelete = evt => {
+    saveStatus(evt.target.innerHTML);
+    history.push('/mypage/settings/delete');
+  };
   return (
     <>
       <MainHeader />
@@ -101,7 +105,7 @@ const Settings = () => {
             </OneDiv>
             <OneDiv
               color={'계정 삭제' === status ? 'black' : '#a5a5a5'}
-              onClick={onClick}
+              onClick={onClickDelete}
             >
               계정 삭제
             </OneDiv>
