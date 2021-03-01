@@ -24,9 +24,10 @@ const UserAnswerContainer = () => {
 
 const StyledAnswer = styled.div`
   display: block;
-  height: 33vw;
+  margin-top: 32px;
+  height: 79.1667vh;
   overflow-y: scroll;
-
+  margin-bottom: 1vw;
   ::-webkit-scrollbar {
     display: none;
   }
