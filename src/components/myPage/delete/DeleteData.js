@@ -6,6 +6,7 @@ import { ReactComponent as DeleteConfirm } from '../../../assets/icons/DeleteCon
 const DeleteData = () => {
   const [reasonData, setReasonData] = useState('');
   const [passwordData, setPasswordData] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   const onChangeDelete = e => {
     let name = e.target.name;
@@ -23,7 +24,9 @@ const DeleteData = () => {
         reasonData,
         passwordData,
       });
+      console.log(data);
     } catch (e) {
+      setPasswordError(e);
       throw e;
     }
   };
@@ -31,10 +34,23 @@ const DeleteData = () => {
   return (
     <StyledDeleteData>
       <Title style={{ marginTop: '42px' }}>탈퇴 사유</Title>
-      <DeleteReason name="reason" onChange={onChangeDelete} />
+      <DeleteReason
+        name="reason"
+        onChange={onChangeDelete}
+        placeholder="000님이 sqoop을 떠나시는 이유가 궁금해요. 저희 서비스에 부족한 점이 있어서 떠나시는 거라면, 꼭 알려주세요!
+서비스 발전에 큰 도움이 됩니다."
+      />
       <div style={{ display: 'flex' }}>
         <Title>비밀번호</Title>
-        <DeletePassword name="password" onChange={onChangeDelete} />
+        <div style={{ marginLeft: '3.5156vw' }}>
+          <DeletePassword
+            type="password"
+            name="password"
+            onChange={onChangeDelete}
+            placeholder="비밀번호를 입력해주세요."
+          />
+          <div style={{ marginLeft: '2px' }}>비밀번호가 일치하지 않습니다.</div>
+        </div>
       </div>
       <Button onClick={onClickDelete}>
         <DeleteConfirm />
@@ -64,23 +80,26 @@ const DeleteReason = styled.textarea`
   resize: none;
   border: none;
   outline: none;
+  font-weight: normal;
+  font-size: 14px;
 
   :hover {
     background-color: #eeeeee;
   }
 `;
 
-const DeletePassword = styled.textarea`
+const DeletePassword = styled.input`
   width: 20.7813vw;
   height: 3.3333vh;
-  margin-left: 3.5156vw;
   margin-top: 32px;
   resize: none;
-  border: none;
+  border: 0;
   outline: none;
   font-weight: normal;
   font-size: 14px;
   overflow: hidden;
+  font-weight: normal;
+  font-size: 14px;
 
   :hover {
     background-color: #eeeeee;
