@@ -7,11 +7,8 @@ import ChangePassword from '../../containers/myPage/settings/ChangePassword.cont
 import AccountConfirm from '../../containers/myPage/settings/AccountConfirm.container';
 import { setStatus } from '../../store/modules/settings/status';
 const SettingsWrap = Styled.div`
-  display: block;
-  display: flex;
-  margin: 57px 403px 302px 183px;
-  flex-direction: column;
-  justify-content: center;
+  padding-left: 25.4629vw;
+  padding-right: 25.4629vw;
   .footer {
     width: 730px;
     font-size: 14px;
@@ -20,7 +17,6 @@ const SettingsWrap = Styled.div`
   }
   .logout {
     margin-top: 197px;
-    margin-left: 122px;
     margin-bottom: 12px;
   }
 `;
@@ -28,7 +24,6 @@ const MaterialBox = Styled.div`
   display: inline-block;
   width: 700px;
   height: 244px;
-  margin-left: 122px;
 `;
 const OneDiv = Styled.div`
   background: none;
@@ -57,7 +52,6 @@ const MaterialWrap = Styled.div`
   float: left;
   width: 416px;
   display: block;
-  margin-left: 80px;
 `;
 
 const Settings = () => {
