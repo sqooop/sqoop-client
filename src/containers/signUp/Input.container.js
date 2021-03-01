@@ -9,6 +9,7 @@ import {
   setEmailWarning,
   setPasswordWarning,
   setPasswordCheckWarning,
+  setPhoneWarning,
 } from '../../store/modules/signup';
 import Input from '../../components/signIn/Input';
 import Notice from '../../components/signUp/Notice';
@@ -24,6 +25,7 @@ const InputContainer = () => {
   const savePhone = data => dispatch(setPhone(data));
   const saveEmailWarning = data => dispatch(setEmailWarning(data));
   const savePasswordWarning = data => dispatch(setPasswordWarning(data));
+  const savePhoneWarning = data => dispatch(setPhoneWarning(data));
   const savePasswordCheckWarning = data =>
     dispatch(setPasswordCheckWarning(data));
 
@@ -81,6 +83,7 @@ const InputContainer = () => {
     if (test === -1) {
       savePhone(value);
     }
+    savePhoneWarning('');
   };
   return (
     <>
