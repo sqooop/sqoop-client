@@ -1,33 +1,21 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  setEmail,
-  setPhone,
-  setEmailWarning,
-} from '../../store/modules/signup';
+import { setName, setPhone, setPhoneWarning } from '../../store/modules/signup';
 import Input from '../../components/signIn/Input';
 import Birth from '../../containers/signUp/Birth.container';
 import WarningMessage from '../../components/signUp/WarnMessage';
-
+import styled from 'styled-components';
+const Message = styled.div`
+  margin-top: 41px;
+`;
 const InputContainer = () => {
   const dispatch = useDispatch();
-  const saveEmail = data => dispatch(setEmail(data));
+  const saveName = data => dispatch(setName(data));
   const savePhone = data => dispatch(setPhone(data));
-  const saveEmailWarning = data => dispatch(setEmailWarning(data));
-  const email = useSelector(state => state.signup.email);
+  const userName = useSelector(state => state.signup.userName);
+  const savePhoneWarning = data => dispatch(setPhoneWarning(data));
   const phone = useSelector(state => state.signup.phone);
   const phoneWarning = useSelector(state => state.signup.phoneWarning);
-
-  const onChangeEmail = evt => {
-    const value = evt.target.value;
-    var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-    if (!reg_email.test(value)) {
-      saveEmailWarning('이메일 형식이 올바르지 않습니다');
-    } else {
-      saveEmailWarning('');
-    }
-    saveEmail(value);
-  };
 
   const onChangePhone = evt => {
     const value = evt.target.value;
@@ -37,14 +25,20 @@ const InputContainer = () => {
     if (test === -1) {
       savePhone(value);
     }
+    savePhoneWarning('');
+  };
+  const onChangeName = evt => {
+    const value = evt.target.value;
+    saveName(value);
+    savePhoneWarning('');
   };
 
   return (
     <>
       <Input
-        content="이메일"
-        value={email}
-        onChange={onChangeEmail}
+        content="이름"
+        value={userName}
+        onChange={onChangeName}
         defaultValue=""
       />
       <Birth />
@@ -54,7 +48,9 @@ const InputContainer = () => {
         onChange={onChangePhone}
         defaultValue=""
       />
-      <WarningMessage warning={phoneWarning} />
+      <Message>
+        <WarningMessage warning={phoneWarning} />
+      </Message>
     </>
   );
 };

@@ -18,6 +18,7 @@ const ButtonContainer = ({ history }) => {
   const phone = useSelector(state => state.signup.phone);
   const phoneWarning = useSelector(state => state.signup.phoneWarning);
   const emailWarning = useSelector(state => state.signup.emailWarning);
+  const birthday = useSelector(state => state.signup.birthday);
   const passwordWarning = useSelector(state => state.signup.passwordWarning);
   const check = useSelector(state => state.signup.isChecked);
   const passwordCheckWarning = useSelector(
@@ -56,6 +57,7 @@ const ButtonContainer = ({ history }) => {
           emailWarning === '' &&
           passwordWarning === '' &&
           passwordCheckWarning === '' &&
+          birthday &&
           check
             ? '#195bff'
             : '#a5a5a5'
