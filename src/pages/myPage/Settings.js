@@ -5,6 +5,7 @@ import MainHeader from '../../components/common/MainHeader';
 import Styled from 'styled-components';
 import ChangePassword from '../../containers/myPage/settings/ChangePassword.container';
 import AccountConfirm from '../../containers/myPage/settings/AccountConfirm.container';
+import Marketing from '../../components/myPage/settings/Marketing';
 import { setStatus } from '../../store/modules/settings/status';
 const SettingsWrap = Styled.div`
   padding-left: 25.463vw;
@@ -113,6 +114,7 @@ const Settings = ({ history }) => {
           <MaterialWrap>
             {status === '계정 정보 확인' ? <AccountConfirm /> : <></>}
             {status === '비밀번호 변경' ? <ChangePassword /> : <></>}
+            {status === '마케팅 수신 설정' ? <Marketing /> : <></>}
           </MaterialWrap>
         </MaterialBox>
         <div className="footer">

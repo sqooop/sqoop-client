@@ -1,6 +1,7 @@
 import React from 'react';
 import Styled from 'styled-components';
 import Checkbox from '../../../assets/icons/Checkbox.svg';
+
 const QuestionBox = Styled.div`
     display: flex;
     margin-bottom: 20px;

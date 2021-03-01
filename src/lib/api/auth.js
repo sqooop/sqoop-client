@@ -84,3 +84,16 @@ export const getUserSetting = async () => {
     throw e;
   }
 };
+export const changeMarketing = async ({ checkMarketing }) => {
+  return await axios.post(
+    `${baseURL}user/setMarketing`,
+    {
+      checkMarketing,
+    },
+    {
+      headers: {
+        jwt: localStorage.getItem('token'),
+      },
+    },
+  );
+};
