@@ -2,11 +2,9 @@ import React from 'react';
 import MyPageHeader from '../../components/myPage/MyPageHeader';
 import MainHeader from '../../components/common/MainHeader';
 import Styled from 'styled-components';
-import palette from '../../lib/styles/palette';
-import AccountConfirm from '../../components/myPage/settings/AccountConfirm';
+import AccountConfirm from '../../components/myPage/settings/ChangePassword';
 const SettingsWrap = Styled.div`
   diplay: block;
-  background: ivory;
   display: flex;
   margin: 57px 403px 302px 183px;
   flex-direction: column;
@@ -48,19 +46,23 @@ const MaterialBox = Styled.div`
 const NavbarWrap = Styled.div`
   float: left;
   display: block;
-  background: pink;
   display: flex;
   width: 110px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
+  color: #A5A5A5;
+  button{
+    :hover{
+      color: black;
+    }
+  }
   `;
 const MaterialWrap = Styled.div`
   float: left;
   width: 416px;
   display: block;
   margin-left: 80px;
-  background: skyblue;
 `;
 
 const Settings = () => {
