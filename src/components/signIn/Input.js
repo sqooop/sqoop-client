@@ -14,6 +14,7 @@ const StyledSpan = styled.span`
   margin-left: 2px;
   font-size: 12px;
   width: 92px;
+  width: 92px;
   display: inline-block;
 `;
 const StyledInput = styled.input`

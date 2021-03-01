@@ -1,91 +1,47 @@
-import { React } from 'react';
+import React from 'react';
+import MyPageHeader from '../../components/myPage/MyPageHeader';
+import UserInfoContainer from '../../containers/myPage/UserInfo.container';
+import SchoolInfoContainer from '../../containers/myPage/SchoolInfo.container';
+import InterestInfo from '../../components/myPage/InterestInfo';
+import IntroInfo from '../../components/myPage/IntroInfo';
+import MainHeader from '../../components/common/MainHeader';
 import Styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
 
-const SchoolInfoWrap = Styled.div`
-  width: 730px;
-  margin: 0 auto;
+const MyPageWrap = Styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 14px;
+  width: 1000px;
+  margin: 0 auto;
+  justify-content: center;
 
-  .info {
-    &--school {
-      margin-bottom: 12px;
-      display: flex;
-      flex-direction: row;
-      &__title {
-        width: 28px;
-        margin-left: 14px;
-        margin-right: 53px;
-      }
-      &__time {
-        & > span {
-          display: inline-block;
-          text-align: center;
-          color: black;
-          margin: 0 6px;
-        }
-      }
-    }
-    &--major__title {
-      width: 28px;
-      margin-left: 14px;
-      margin-right: 53px;
-    }
+  .footer {
+    width: 730px;
+    font-size: 14px;
+    margin: 0 auto;
+    margin-bottom: 40px;
   }
 
-  .empty {
-    flex: 1;
-  }
-
-  input[type="text"] {
-    width: 254px;
-    border: none;
-    &:focus {
-      outline: none;
-    }
-    &::placeholder {
-      color: #A5A5A5;
-    }
+  .logout {
+    margin-bottom: 12px;
   }
 `;
 
-const SchoolInfo = ({ school, major, startDate, endDate, match }) => {
-  const isReadOnly = match.path === '/mypage/profile' ? true : false;
-  const startYear = startDate.slice(0, 4);
-  const startMonth = parseInt(startDate.slice(4, 6));
-  const endYear = endDate.slice(0, 4);
-  const endMonth = parseInt(endDate.slice(4, 6));
-
+const MyPage = () => {
   return (
-    <SchoolInfoWrap>
-      <div className="info--school">
-        <span className="info--school__title">학교</span>
-        <input
-          type="text"
-          value={school}
-          placeholder="학교명을 입력해주세요"
-          readOnly={isReadOnly}
-        />
-        <div className="empty" />
-        <div className="info--school__time">
-          <span>{startYear}년</span>&nbsp;<span>{startMonth}월</span>
-          &nbsp;~&nbsp;<span>{endYear}년</span>&nbsp;
-          <span>{endMonth}월</span>
+    <>
+      <MainHeader />
+      <MyPageWrap>
+        <MyPageHeader profileColor={'black'} />
+        <UserInfoContainer />
+        <SchoolInfoContainer />
+        <InterestInfo />
+        <IntroInfo />
+        <div className="footer">
+          <div className="logout">로그아웃</div>
         </div>
-      </div>
-      <div className="info--major">
-        <span className="info--major__title">전공</span>
-        <input
-          type="text"
-          value={major}
-          placeholder="전공을 입력해주세요"
-          readOnly={isReadOnly}
-        />
-      </div>
-    </SchoolInfoWrap>
+      </MyPageWrap>
+    </>
   );
 };
 
-export default withRouter(SchoolInfo);
+export default MyPage;

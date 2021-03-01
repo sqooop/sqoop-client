@@ -34,7 +34,6 @@ const Spacer = styled.div`
 
 const MainHeader = ({ history }) => {
   const dispatch = useDispatch();
-  const saveActivities = data => dispatch(setActivities(data));
   const saveModalActive = data => dispatch(setModalActive(data));
   const currentCard = useSelector(state => state.currentCard);
   const { notSaved, modalActive } = currentCard;
@@ -83,6 +82,7 @@ const MainHeader = ({ history }) => {
         </Wrapper>
       </HeaderBlock>
       <Spacer />
+
       {modalActive && <SaveModal setModalActive={saveModalActive} />}
     </>
   );
