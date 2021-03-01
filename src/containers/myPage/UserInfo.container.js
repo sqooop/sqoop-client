@@ -37,7 +37,7 @@ const UserInfoContainer = () => {
       saveEmail(myPageData.profileEmail);
       saveURL(myPageData.sns);
     })();
-  }, [myPage]);
+  }, []);
 
   return (
     <>

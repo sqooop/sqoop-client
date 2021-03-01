@@ -34,12 +34,29 @@ const SchoolInfoContainer = () => {
       const myPageData = await getMyPageData();
       saveEducation(myPageData.Education);
     })();
-  }, [myPage]);
+  }, []);
+
+  function getLastMonth() {
+    const date = new Date();
+    const year =
+      date.getMonth() === 0 ? date.getFullYear() - 1 : date.getFullYear();
+    const month = date.getMonth() === 0 ? 12 : date.getMonth();
+    const monthf = month < 10 ? '0' + month : month;
+    return String(year) + String(monthf);
+  }
+
+  function getCurrentMonth() {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const monthf = month < 10 ? '0' + month : month;
+    return String(year) + String(monthf);
+  }
 
   return (
     <SchoolInfoContainerWrap>
       <div className="info--title">학력</div>
-      {education ? (
+      {education.length !== 0 ? (
         education.map(edu => (
           <SchoolInfo
             key={edu.school}
@@ -50,7 +67,12 @@ const SchoolInfoContainer = () => {
           />
         ))
       ) : (
-        <SchoolInfo school={''} major={''} startDate={''} endDate={''} />
+        <SchoolInfo
+          school={''}
+          major={''}
+          startDate={getLastMonth()}
+          endDate={getCurrentMonth()}
+        />
       )}
     </SchoolInfoContainerWrap>
   );
