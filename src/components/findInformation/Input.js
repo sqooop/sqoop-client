@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setName, setPhone, setPhoneWarning } from '../../store/modules/signup';
+import { setName, setPhone, setWarning } from '../../store/modules/findEmail';
 import Input from '../../components/signIn/Input';
-import Birth from '../../containers/signUp/Birth.container';
+import Birth from '../../containers/findInformation/Birth.container';
 import WarningMessage from '../../components/signUp/WarnMessage';
 import styled from 'styled-components';
 const Message = styled.div`
@@ -12,10 +12,10 @@ const InputContainer = () => {
   const dispatch = useDispatch();
   const saveName = data => dispatch(setName(data));
   const savePhone = data => dispatch(setPhone(data));
-  const userName = useSelector(state => state.signup.userName);
-  const savePhoneWarning = data => dispatch(setPhoneWarning(data));
-  const phone = useSelector(state => state.signup.phone);
-  const phoneWarning = useSelector(state => state.signup.phoneWarning);
+  const userName = useSelector(state => state.findEmail.userName);
+  const saveWarning = data => dispatch(setWarning(data));
+  const phone = useSelector(state => state.findEmail.phone);
+  const warning = useSelector(state => state.findEmail.warning);
 
   const onChangePhone = evt => {
     const value = evt.target.value;
@@ -25,12 +25,12 @@ const InputContainer = () => {
     if (test === -1) {
       savePhone(value);
     }
-    savePhoneWarning('');
+    saveWarning('');
   };
   const onChangeName = evt => {
     const value = evt.target.value;
     saveName(value);
-    savePhoneWarning('');
+    saveWarning('');
   };
 
   return (
@@ -49,7 +49,7 @@ const InputContainer = () => {
         defaultValue=""
       />
       <Message>
-        <WarningMessage warning={phoneWarning} />
+        <WarningMessage warning={warning} />
       </Message>
     </>
   );

@@ -18,6 +18,8 @@ import detail from './modules/detail';
 import paramsid from './modules/paramsid';
 import editButton from './modules/editButton';
 import myPage from './modules/myPage';
+import findEmail from './modules/findEmail';
+import findPassword from './modules/findPassword';
 
 const rootReducer = combineReducers({
   activity,
@@ -39,6 +41,8 @@ const rootReducer = combineReducers({
   editButton,
   signup,
   myPage,
+  findEmail,
+  findPassword,
 });
 
 export default rootReducer;

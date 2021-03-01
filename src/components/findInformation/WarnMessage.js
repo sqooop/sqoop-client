@@ -8,7 +8,7 @@ const WarnWrap = styled.div`
   width: 358px;
 `;
 const WarnMessageContainer = ({ history }) => {
-  const warning = useSelector(state => state.signIn.warning);
+  const warning = useSelector(state => state.findEmail.warning);
   return (
     <>
       <WarnWrap>{warning}</WarnWrap>
