@@ -56,7 +56,16 @@ const BasicDataContainer = () => {
   );
 };
 
-const StyledBasicData = styled.div``;
+const StyledBasicData = styled.div`
+  width: 27.9688vw;
+
+  margin-bottom: 6.1111vw;
+
+  a {
+    color: rgba(0, 0, 0, 0.85);
+    text-decoration: none;
+  }
+`;
 
 const StyledContentWrap = styled.div`
   display: flex;

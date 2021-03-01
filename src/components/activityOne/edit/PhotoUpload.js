@@ -48,6 +48,7 @@ const StyledPhotoInput = styled.input`
   height: 1px;
   opacity: 0;
   z-index: -1;
+  outline: none;
 
   :focus {
     outline: none;
