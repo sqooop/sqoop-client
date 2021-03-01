@@ -1,30 +1,52 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 import Logo from '../../components/signIn/Logo';
 import Input from '../../components/findInformation/Input';
 import WarnMessage from '../../components/findInformation/WarnMessage';
-import Button from '../../components/findInformation/Button';
+import Button from '../../containers/findInformation/Button.container';
 import Block from '../../components/findInformation/Block';
 
 const Email = () => {
+  const email = useSelector(state => state.signup.email);
   return (
     <StyledEmail>
       <Logo />
-      <StyledText>
-        <div>이메일 찾기</div>
-        <div>
-          회원가입 시 등록한 이름, 생년월일, 휴대폰 번호가 같아야,<br></br>
-          이메일을 찾을 수 있습니다.
-        </div>
-      </StyledText>
-      <Input />
-      <WarnMessage />
-      <Button />
-      <Block />
+      {email === '' ? (
+        <>
+          <StyledText>
+            <div>이메일 찾기</div>
+            <div>
+              회원가입 시 등록한 이름, 생년월일, 휴대폰 번호가 같아야,<br></br>
+              이메일을 찾을 수 있습니다.
+            </div>
+          </StyledText>
+          <Input />
+          <WarnMessage />
+          <Button content="이메일 찾기" />
+          <Block />
+        </>
+      ) : (
+        <>
+          <StyledText>
+            <div>이메일 확인</div>
+          </StyledText>
+          <StyledEmailDiv>{email}</StyledEmailDiv>
+          <Button content="로그인" />
+        </>
+      )}
     </StyledEmail>
   );
 };
 
+const StyledEmailDiv = styled.div`
+  margin: 0 auto;
+  width: 358px;
+  margin-top: 56px;
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 72px;
+`;
 const StyledEmail = styled.div`
   padding-left: 14.297vw;
   padding-right: 14.297vw;

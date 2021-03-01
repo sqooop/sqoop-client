@@ -41,3 +41,20 @@ export const signup = async ({
     phoneNumber,
   });
 };
+export const findEmail = async ({ userName, birthday, phoneNumber }) => {
+  try {
+    const { data } = await instance.get(
+      `/user/findEmail?userName=${userName}&birthday=${birthday}&phoneNumber=${phoneNumber}`,
+    );
+    console.log('[SUCCESS] GET checkEmail', data.data);
+    return data.data;
+  } catch (e) {
+    // console.log('[FAIL] GET ACTIVITIES', e);
+    throw e;
+  }
+};
+export const resetPassword = async ({ email }) => {
+  return await instance.post(`/user/resetPassword`, {
+    email,
+  });
+};
