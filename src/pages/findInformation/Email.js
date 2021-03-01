@@ -3,12 +3,11 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import Logo from '../../components/signIn/Logo';
 import Input from '../../components/findInformation/Input';
-import WarnMessage from '../../components/findInformation/WarnMessage';
 import Button from '../../containers/findInformation/Button.container';
 import Block from '../../components/findInformation/Block';
 
 const Email = () => {
-  const email = useSelector(state => state.signup.email);
+  const email = useSelector(state => state.findEmail.email);
   return (
     <StyledEmail>
       <Logo />
@@ -22,7 +21,6 @@ const Email = () => {
             </div>
           </StyledText>
           <Input />
-          <WarnMessage />
           <Button content="이메일 찾기" />
           <Block />
         </>

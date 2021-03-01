@@ -1,4 +1,6 @@
+import axios from 'axios';
 import instance from './instance';
+const baseURL = 'https://sqoop.ga/';
 
 export const signin = async ({ email, password }) => {
   return await instance.post(`/user/signin`, {
@@ -53,8 +55,8 @@ export const findEmail = async ({ userName, birthday, phoneNumber }) => {
     throw e;
   }
 };
-export const resetPassword = async ({ email }) => {
-  return await instance.post(`/user/resetPassword`, {
+export const resetPassword = async email => {
+  return await axios.post(`${baseURL}user/resetPassword`, {
     email,
   });
 };
