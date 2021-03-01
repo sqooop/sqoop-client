@@ -12,7 +12,6 @@ const SignInWrap = styled.div`
   padding-left: 14.297vw;
   padding-right: 14.297vw;
   margin-top: 23.472222vh;
-  height: 55.5556vh;
   overflow: hidden;
 `;
 const SignIn = () => {

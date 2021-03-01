@@ -1,6 +1,6 @@
 import axios from 'axios';
 import instance from './instance';
-const baseURL = 'http://54.180.189.240:3000/';
+const baseURL = 'https://sqoop.ga/';
 
 export const createActivity = async activity => {
   try {
