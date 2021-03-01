@@ -47,7 +47,7 @@ const GreetingWrap = styled.div`
   }
 `;
 
-const Home = match => {
+const Home = () => {
   return (
     <div>
       <MainHeader />

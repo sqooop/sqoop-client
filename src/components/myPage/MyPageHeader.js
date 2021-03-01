@@ -5,10 +5,9 @@ import Edit from '../../assets/icons/Edit.svg';
 
 const MyPageHeaderWrap = Styled.div`
   display: flex;
-  flex-direction: row;
   width: 928px;
-  margin: 40px auto;
   justify-content: center;
+  margin-bottom: 40px;
   align-items: center;
 
   button {
