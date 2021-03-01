@@ -60,3 +60,27 @@ export const resetPassword = async email => {
     email,
   });
 };
+export const changePassword = async ({ inputPW, newPW }) => {
+  return await axios.post(
+    `${baseURL}user/changePassword`,
+    {
+      inputPW,
+      newPW,
+    },
+    {
+      headers: {
+        jwt: localStorage.getItem('token'),
+      },
+    },
+  );
+};
+export const getUserSetting = async () => {
+  try {
+    const { data } = await instance.get(`/user/getUserSetting`);
+    console.log('[SUCCESS] GET getUserSetting', data.data);
+    return data.data;
+  } catch (e) {
+    console.log('[FAIL] GET ACTIVITIES', e);
+    throw e;
+  }
+};

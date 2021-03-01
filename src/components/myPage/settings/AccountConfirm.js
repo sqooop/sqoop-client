@@ -10,11 +10,12 @@ const AccountNumber = Styled.div`
 const AccountInfo = Styled.div`
     color: #A5A5A5; 
     `;
-const AccountConfirm = () => {
+const AccountConfirm = props => {
+  const { email, phone } = props;
   return (
     <>
-      <AccountEmail>sqoop_hwaiting@naver.com</AccountEmail>
-      <AccountNumber>010-0000-0000</AccountNumber>
+      <AccountEmail>{email}</AccountEmail>
+      <AccountNumber>{phone}</AccountNumber>
       <AccountInfo>
         sqoop 서비스 로그인을 위한 정보이기 때문에 변경할 수 없어요.
         <br />

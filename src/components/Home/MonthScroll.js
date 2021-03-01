@@ -1,4 +1,4 @@
-import { React, useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getCardAPI, getMonthAPI } from '../../lib/api/home/cardAPI';
 import { useSelector, useDispatch } from 'react-redux';
@@ -23,6 +23,9 @@ const MonthScroll = () => {
   const monthArr = useSelector(state => state.month.month);
   const dataSet = new Map();
   const monthMap = new Map();
+
+  const [dataSetArray, setDataSetArray] = useState('');
+
   useEffect(() => {
     (async () => {
       const data = await getMonthAPI();
@@ -32,16 +35,29 @@ const MonthScroll = () => {
       data.allMonthArray
         .filter(item => item.length !== 0)
         .forEach(item => dataSet.get(Math.floor(item / 100)).add(item % 100));
-      for (let m = 1; m <= 12; m++) {
-        monthMap.set(m, dataSet.get(year).has(m));
+
+      const dataMonth = dataSet.get(year);
+
+      // const dataSetArray = Array.from(dataSet.get(year)); // 활동이 있는 월 배열로 바꿔줌
+
+      if (dataMonth !== undefined) {
+        for (let m = 1; m <= 12; m++) {
+          monthMap.set(m, dataSet.get(year).has(m));
+        }
       }
+
       // console.log('dataSetgetyear', dataSet.get(year));
       saveMonth(monthMap);
       // console.log('allmonthArray', data.allMonthArray);
       // console.log('dataSet', dataSet);
       // console.log('monthMap', monthMap);
 
-      const dataSetArray = Array.from(dataSet.get(year)); // 활동이 있는 월 배열로 바꿔줌
+      // const dataSetArray = Array.from(dataSet.get(year)); // 활동이 있는 월 배열로 바꿔줌
+
+      if (dataMonth !== undefined) {
+        setDataSetArray(Array.from(dataMonth));
+      }
+
       const firstMonth = dataSetArray[0];
       const monthId = year * 100 + firstMonth;
 

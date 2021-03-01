@@ -12,6 +12,7 @@ import MyPage from './pages/myPage/MyPage';
 import Settings from './pages/myPage/Settings';
 import Email from './pages/findInformation/Email';
 import Password from './pages/findInformation/Password';
+import Delete from './pages/myPage/delete/Delete';
 import './App.css';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route exact path="/detail/edit/:id" component={ActivityOneEdit} />
         <Route exact path="/mypage/profile" component={MyPage} />
         <Route exact path="/mypage/settings" component={Settings} />
+        <Route exact path="/mypage/settings/delete" component={Delete} />
         <Route exact path="/email" component={Email} />
         <Route exact path="/password" component={Password} />
       </BrowserRouter>
