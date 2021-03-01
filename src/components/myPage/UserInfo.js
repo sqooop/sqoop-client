@@ -9,7 +9,7 @@ const UserInfoWrap = Styled.div`
   margin: 0 auto;
   flex-direction: row;
   align-items: center;
-
+  
   .user {
     &--photo {
       display: flex;

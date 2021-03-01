@@ -2,10 +2,12 @@ import React from 'react';
 import MyPageHeader from '../../components/myPage/MyPageHeader';
 import UserInfoContainer from '../../containers/myPage/UserInfo.container';
 import SchoolInfoContainer from '../../containers/myPage/SchoolInfo.container';
-import InterestInfo from '../../components/myPage/InterestInfo';
-import IntroInfo from '../../components/myPage/IntroInfo';
+import InterestInfoContainer from '../../containers/myPage/InterestInfo.container';
+import CareerInfoContainer from '../../containers/myPage/CareerInfo.container';
+import IntroInfoContainer from '../../containers/myPage/IntroInfo.container';
 import MainHeader from '../../components/common/MainHeader';
 import Styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 const MyPageWrap = Styled.div`
   display: flex;
@@ -22,11 +24,15 @@ const MyPageWrap = Styled.div`
   }
 
   .logout {
-    margin-bottom: 12px;
+    margin-bottom: 44px;
+    &:hover {
+      cursor: pointer;
+      font-weight: bold;
+    }
   }
 `;
 
-const MyPage = () => {
+const MyPage = ({ history }) => {
   return (
     <>
       <MainHeader />
@@ -34,14 +40,24 @@ const MyPage = () => {
         <MyPageHeader profileColor={'black'} />
         <UserInfoContainer />
         <SchoolInfoContainer />
-        <InterestInfo />
-        <IntroInfo />
+        <InterestInfoContainer />
+        <CareerInfoContainer />
+        <IntroInfoContainer />
         <div className="footer">
-          <div className="logout">로그아웃</div>
+          <div
+            className="logout"
+            onClick={() => {
+              localStorage.removeItem('token');
+              window.history.replaceState(null, null, '/');
+              history.push('/');
+            }}
+          >
+            로그아웃
+          </div>
         </div>
       </MyPageWrap>
     </>
   );
 };
 
-export default MyPage;
+export default withRouter(MyPage);

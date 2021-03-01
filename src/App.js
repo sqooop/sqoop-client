@@ -28,6 +28,7 @@ function App() {
         <Route exact path="/detail/:id" component={ActivityOneDefault} />
         <Route exact path="/detail/edit/:id" component={ActivityOneEdit} />
         <Route exact path="/mypage/profile" component={MyPage} />
+        <Route exact path="/mypage/profile/edit" component={MyPage} />
         <Route exact path="/mypage/settings" component={Settings} />
         <Route exact path="/mypage/settings/delete" component={Delete} />
         <Route exact path="/email" component={Email} />
