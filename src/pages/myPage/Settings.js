@@ -5,7 +5,7 @@ import MainHeader from '../../components/common/MainHeader';
 import Styled from 'styled-components';
 import ChangePassword from '../../containers/myPage/settings/ChangePassword.container';
 import AccountConfirm from '../../containers/myPage/settings/AccountConfirm.container';
-import Marketing from '../../components/myPage/settings/Marketing';
+import Marketing from '../../containers/myPage/settings/Marketing.container';
 import { setStatus } from '../../store/modules/settings/status';
 const SettingsWrap = Styled.div`
   padding-left: 25.463vw;

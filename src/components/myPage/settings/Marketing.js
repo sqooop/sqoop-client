@@ -1,6 +1,7 @@
 import React from 'react';
 import Styled from 'styled-components';
-import Checkbox from '../../../assets/icons/Checkbox.svg';
+import CheckBox from '../../../assets/icons/CheckBox.svg';
+import CheckedBox from '../../../assets/icons/CheckedBox.svg';
 
 const QuestionBox = Styled.div`
     display: flex;
@@ -11,6 +12,9 @@ const QuestionBox = Styled.div`
 const CheckBoxWrapper = Styled.div`
     display: flex;
     font-size: 14px;
+    img {
+      cursor: pointer;
+    }
 `;
 
 const Agreement = Styled.div`
@@ -20,7 +24,7 @@ const Agreement = Styled.div`
     color: #195BFF;
     
 `;
-const Marketing = () => {
+const Marketing = ({ onClick, marketingCheck }) => {
   return (
     <>
       <QuestionBox>
@@ -28,12 +32,16 @@ const Marketing = () => {
         sqoop과 관련된 업데이트 소식, 이벤트 안내 등을 받아보시겠어요?
       </QuestionBox>
       <CheckBoxWrapper>
-        <img src={Checkbox} alt="" />
+        <img
+          src={marketingCheck === '' ? CheckBox : CheckedBox}
+          alt=""
+          onClick={onClick}
+        />
         <div className="emailAgree" style={{ marginLeft: '10px' }}>
           이메일 수신 동의
         </div>
       </CheckBoxWrapper>
-      <Agreement>수신 동의 하셨습니다!</Agreement>
+      <Agreement>{marketingCheck}</Agreement>
     </>
   );
 };
