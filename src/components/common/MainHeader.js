@@ -41,7 +41,18 @@ const MainHeader = ({ history }) => {
   return (
     <>
       <HeaderBlock>
-        <img src={logo} alt="logo" style={{}} />
+        <img
+          src={logo}
+          alt="logo"
+          style={{}}
+          onClick={() => {
+            if (notSaved) {
+              saveModalActive(true);
+            } else {
+              history.push('/');
+            }
+          }}
+        />
         <Wrapper>
           <li
             className="home"
@@ -49,7 +60,7 @@ const MainHeader = ({ history }) => {
               if (notSaved) {
                 saveModalActive(true);
               } else {
-                history.push('/home');
+                history.push('/');
               }
             }}
           >
