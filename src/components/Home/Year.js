@@ -88,8 +88,8 @@ const Year = ({ background, border, onClick }) => {
     cursor: default;
   `;
   }; */
-  /*   // console.log('fyear : ', firstYear);
-  // console.log('lyear :', lastYear); */
+  /* console.log('fyear : ', firstYear);
+  console.log('lyear :', lastYear); */
   return (
     <YearTemplate>
       <div className="button">

@@ -38,7 +38,7 @@ const Greetings = () => {
       const name = await getUserName();
       saveUserName(name);
     })();
-  }, [userName]);
+  });
 
   return (
     <>

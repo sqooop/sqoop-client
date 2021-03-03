@@ -4,12 +4,8 @@ import inputLine from '../../assets/icons/InputLine.svg';
 
 const ModalBackgorundWrap = styled.div`
   display: ${props => (props.visible ? 'block' : 'none')};
-<<<<<<< HEAD
   /* background: #000000 50%; */
   background: rgba(165, 165, 165, 0.8);
-=======
-  background: rgba(0, 0, 0, 0.5);
->>>>>>> c8c01d74442ddbaddc25e1fbdd57c944875cb204
   width: 100%;
   height: 100%;
   position: fixed;

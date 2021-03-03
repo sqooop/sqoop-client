@@ -31,7 +31,7 @@ const AccountConfirmContainer = () => {
         saveMarketingCheck('');
       }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
   return <Marketing onClick={onClick} marketingCheck={marketingCheck} />;
