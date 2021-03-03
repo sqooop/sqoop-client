@@ -51,7 +51,7 @@ const ActivityOneEdit = ({ match, history }) => {
       const BasicData = await getOneActivity(id);
 
       if (!BasicData) {
-        history.push('/home');
+        history.push('/');
       } else {
         const jobTag = BasicData.jobTag.map(item => {
           return item.content;
