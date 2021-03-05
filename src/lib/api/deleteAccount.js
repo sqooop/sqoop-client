@@ -19,3 +19,14 @@ export const postDeleteAccount = async ({ reasonData, passwordData }) => {
     },
   );
 };
+
+export const getCheckPassword = async ({ passwordData }) => {
+  return await axios.get(
+    `${baseURL}user/checkPassword?password=${passwordData}`,
+    {
+      headers: {
+        jwt: localStorage.getItem('token'),
+      },
+    },
+  );
+};
