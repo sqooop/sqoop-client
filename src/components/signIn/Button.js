@@ -16,13 +16,15 @@ const ButtonDiv = styled.div`
 const Button = props => {
   const { onClick, color, content } = props;
   return (
-    <ButtonDiv
-      onClick={color === '#a5a5a5' ? false : onClick}
-      color={color}
-      disabled="true"
-    >
-      {content}
-    </ButtonDiv>
+    <>
+      {color === '#a5a5a5' ? (
+        <ButtonDiv color={color}>{content}</ButtonDiv>
+      ) : (
+        <ButtonDiv onClick={onClick} color={color}>
+          {content}
+        </ButtonDiv>
+      )}
+    </>
   );
 };
 

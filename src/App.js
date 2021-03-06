@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './pages/home/home';
 import SignIn from './pages/signin/SignIn';
 import SignUp from './pages/signUp/SignUp';
+import Notice from './pages/signUp/Notice';
+import Privacy from './pages/signUp/Privacy';
 import Email from './pages/findInformation/Email';
 import Password from './pages/findInformation/Password';
 import CreateActivity from './pages/createActivity/CreateActivity';
@@ -27,6 +29,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/signup/notice/2" component={Notice} />
+            <Route exact path="/signup/notice/1" component={Privacy} />
             <Route exact path="/email" component={Email} />
             <Route exact path="/password" component={Password} />
           </Switch>
