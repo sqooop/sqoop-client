@@ -96,21 +96,21 @@ const DeleteData = ({ history }) => {
         <ModalWrap visible={submitModal}>
           <ModalTitle>
             <p id="title">계정을 정말 삭제하시겠어요?</p>
-            <p style={{ marginTop: '1.6667vh' }}>
+            <p style={{ marginTop: '1.2rem' }}>
               계정을 삭제하면 {userName}님의 활동 정보, 프로필, 이력 사항 등
               <br></br>모든 활동 정보가 삭제됩니다.<br></br>삭제된 정보는 복원이
               불가능합니다.
             </p>
           </ModalTitle>
           <ModalButtonWrap>
-            <ModalButton style={{ color: '#a5a5a5' }} onClick={onClickCheck}>
-              취소
-            </ModalButton>
             <Link to="/">
-              <ModalButton style={{ color: '#195BFF' }} onClick={onClickDelete}>
+              <ModalButton style={{ color: '#a5a5a5' }} onClick={onClickDelete}>
                 확인
               </ModalButton>
             </Link>
+            <ModalButton style={{ color: '#195BFF' }} onClick={onClickCheck}>
+              취소
+            </ModalButton>
           </ModalButtonWrap>
         </ModalWrap>
       </>
@@ -202,8 +202,8 @@ const ModalBackgorundWrap = styled.div`
 
 const ModalWrap = styled.div`
   display: ${props => (props.visible === 'True' ? 'block' : 'none')};
-  width: 40.625vw;
-  height: 42.9167vh;
+  width: 52rem;
+  height: 33.9rem;
   z-index: 1000;
   text-align: center;
   background: #ffffff;
@@ -217,7 +217,7 @@ const ModalWrap = styled.div`
 
 const ModalTitle = styled.div`
   font-size: 1.6rem;
-  margin-top: 8.8889vh;
+  margin-top: 6.4rem;
   font-weight: 500 !important;
 
   #title {
@@ -228,16 +228,15 @@ const ModalTitle = styled.div`
 
 const ModalButtonWrap = styled.div`
   display: flex;
-  margin-top: 6.6667vh;
-  margin-left: 2rem;
-  width: 100%;
-  justify-content: space-between;
+  margin-top: 4.8rem;
+  margin-bottom: 4.8rem;
+  width: 52rem;
+  justify-content: space-around;
 `;
 
 const ModalButton = styled.button`
   font-size: 2.4rem;
   font-weight: 700 !important;
-  width: 47.2222vw;
   border: none;
   outline: none;
   background-color: #ffffff;
