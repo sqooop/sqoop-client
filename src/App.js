@@ -16,13 +16,14 @@ import Delete from './pages/myPage/delete/Delete';
 import './App.css';
 
 function App() {
-  const token = localStorage.getItem('token');
-  console.log(token);
+  const token = sessionStorage.getItem('token');
+
+  const onScrollHandle = e => {};
 
   return (
-    <div className="App">
+    <div className="App" onScroll={onScrollHandle} onWheel={onScrollHandle}>
       <BrowserRouter>
-        {token === '' ? (
+        {token === null ? (
           <Switch>
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />

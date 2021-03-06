@@ -23,7 +23,7 @@ const editActivity = async detail => {
       {
         headers: {
           'Content-type': 'multipart/form-data',
-          jwt: localStorage.getItem('token'),
+          jwt: sessionStorage.getItem('token'),
         },
       },
     );
