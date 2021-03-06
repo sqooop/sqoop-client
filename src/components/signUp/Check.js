@@ -12,18 +12,20 @@ const SigninDiv = styled.div`
 const StyledSpan = styled.span`
   color: #195bff;
   font-size: 12px;
+  cursor: pointer;
 `;
 
 const Check = props => {
-  const onChange = props.onChange;
+  const { onChange, onClick1, onClick2 } = props;
   return (
     <SigninDiv>
       <Checkbox
         onChange={onChange}
         style={{ marginRight: '8px', color: '#195bff' }}
       />
-      <StyledSpan>개인정보 수집 및 이용</StyledSpan>과{' '}
-      <StyledSpan>서비스 이용 약관</StyledSpan>에 모두 동의합니다.
+      <StyledSpan onClick={onClick1}>개인정보 수집 및 이용</StyledSpan>과{' '}
+      <StyledSpan onClick={onClick2}>서비스 이용 약관</StyledSpan>에 모두
+      동의합니다.
     </SigninDiv>
   );
 };
