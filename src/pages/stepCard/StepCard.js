@@ -41,7 +41,7 @@ const StepCard = ({ history, match }) => {
   let id = useSelector(state => state.userCardInfo.id);
 
   if (id === 0) {
-    const jsonID = localStorage.getItem('activityID');
+    const jsonID = sessionStorage.getItem('activityID');
     id = JSON.parse(jsonID);
     saveID(id);
   }

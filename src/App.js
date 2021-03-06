@@ -16,7 +16,7 @@ import Delete from './pages/myPage/delete/Delete';
 import './App.css';
 
 function App() {
-  const token = localStorage.getItem('token');
+  const token = sessionStorage.getItem('token');
 
   const onScrollHandle = e => {};
 

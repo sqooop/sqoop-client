@@ -19,7 +19,7 @@ const ButtonContainer = () => {
     saveVisible(!isVisible);
     const id = await createActivity(activity);
     const jsonID = JSON.stringify(id);
-    localStorage.setItem('activityID', jsonID);
+    sessionStorage.setItem('activityID', jsonID);
     saveID(id);
   };
 

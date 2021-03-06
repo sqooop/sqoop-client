@@ -15,7 +15,7 @@ const ButtonContainer = ({ history }) => {
   const onClick = async () => {
     try {
       const { data } = await signin({ email, password });
-      localStorage.setItem('token', data.data.accessToken);
+      sessionStorage.setItem('token', data.data.accessToken);
       saveToken(data.data.accessToken);
     } catch (e) {
       // console.log('[FAIL] SIGNIN', e);

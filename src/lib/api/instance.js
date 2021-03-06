@@ -4,6 +4,6 @@ const instance = axios.create({
   timeout: 1000,
 });
 instance.defaults.headers.common = {
-  jwt: `${localStorage.getItem('token')}`,
+  jwt: `${sessionStorage.getItem('token')}`,
 };
 export default instance;

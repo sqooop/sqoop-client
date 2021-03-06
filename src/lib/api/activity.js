@@ -17,7 +17,7 @@ export const createActivity = async activity => {
     const { data } = await axios.post(`${baseURL}activity/create`, formData, {
       headers: {
         'Content-type': 'multipart/form-data',
-        jwt: localStorage.getItem('token'),
+        jwt: sessionStorage.getItem('token'),
       },
     });
     // console.log('[SUCCESS] CREATE ACTIVITY', data);

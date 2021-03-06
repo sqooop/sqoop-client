@@ -48,7 +48,7 @@ export const findEmail = async ({ userName, birthday, phoneNumber }) => {
     const { data } = await instance.get(
       `/user/findEmail?userName=${userName}&birthday=${birthday}&phoneNumber=${phoneNumber}`,
     );
-    console.log('[SUCCESS] GET checkEmail', data.data);
+    // console.log('[SUCCESS] GET checkEmail', data.data);
     return data.data;
   } catch (e) {
     // console.log('[FAIL] GET ACTIVITIES', e);
@@ -69,7 +69,7 @@ export const changePassword = async ({ inputPW, newPW }) => {
     },
     {
       headers: {
-        jwt: localStorage.getItem('token'),
+        jwt: sessionStorage.getItem('token'),
       },
     },
   );
@@ -77,10 +77,10 @@ export const changePassword = async ({ inputPW, newPW }) => {
 export const getUserSetting = async () => {
   try {
     const { data } = await instance.get(`/user/getUserSetting`);
-    console.log('[SUCCESS] GET getUserSetting', data.data);
+    // console.log('[SUCCESS] GET getUserSetting', data.data);
     return data.data;
   } catch (e) {
-    console.log('[FAIL] GET ACTIVITIES', e);
+    // console.log('[FAIL] GET ACTIVITIES', e);
     throw e;
   }
 };
@@ -92,7 +92,7 @@ export const changeMarketing = async ({ checkMarketing }) => {
     },
     {
       headers: {
-        jwt: localStorage.getItem('token'),
+        jwt: sessionStorage.getItem('token'),
       },
     },
   );

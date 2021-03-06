@@ -59,7 +59,7 @@ const DeleteData = ({ history }) => {
         passwordData,
       });
 
-      window.localStorage.clear();
+      window.sessionStorage.clear();
       window.location.reload();
     } catch (e) {
       setPasswordError('비밀번호가 일치하지 않습니다.');
