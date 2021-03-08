@@ -21,6 +21,7 @@ const InterestInfoContainer = () => {
   useEffect(() => {
     (async () => {
       const myPageData = await getMyPageData();
+      console.log(myPageData);
       saveLangHistory(myPageData.LangHistory);
       saveCertificateHistory(myPageData.CertificateHistory);
       saveAwardHistory(myPageData.AwardHistory);
@@ -29,9 +30,17 @@ const InterestInfoContainer = () => {
 
   return (
     <>
-      <CareerInfo type={'어학'} data={langHistory} />
-      <CareerInfo type={'자격증'} data={certificateHistory} />
-      <CareerInfo type={'수상 내역'} data={awardHistory} />
+      <CareerInfo type={'어학'} data={langHistory} saveData={saveLangHistory} />
+      <CareerInfo
+        type={'자격증'}
+        data={certificateHistory}
+        saveData={saveCertificateHistory}
+      />
+      <CareerInfo
+        type={'수상 내역'}
+        data={awardHistory}
+        saveData={saveAwardHistory}
+      />
     </>
   );
 };

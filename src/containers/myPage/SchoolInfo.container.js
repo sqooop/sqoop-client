@@ -100,7 +100,6 @@ const SchoolInfoContainer = ({ match }) => {
               src={Plus}
               alt=""
               onClick={() => {
-                console.log(education.length);
                 saveEducation(
                   education.concat({
                     school: '',
@@ -121,6 +120,7 @@ const SchoolInfoContainer = ({ match }) => {
               <div style={{ height: '36px', backgroundColor: 'white' }}></div>
             )}
             <SchoolInfo
+              key={edu.school}
               index={index}
               school={edu.school}
               major={edu.major}
