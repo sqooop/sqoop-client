@@ -1,9 +1,9 @@
 import axios from 'axios';
 const instance = axios.create({
-  baseURL: 'http://54.180.189.240:3000/',
+  baseURL: 'https://sqoop.ga/',
   timeout: 1000,
 });
 instance.defaults.headers.common = {
-  jwt: `${localStorage.getItem('token')}`,
+  jwt: `${sessionStorage.getItem('token')}`,
 };
 export default instance;

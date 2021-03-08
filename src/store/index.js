@@ -13,10 +13,16 @@ import filter from './modules/filter';
 import home from './modules/home';
 import month from './modules/month';
 import signIn from './modules/signIn';
+import signup from './modules/signup';
 import detail from './modules/detail';
 import paramsid from './modules/paramsid';
 import editButton from './modules/editButton';
 import myPage from './modules/myPage';
+import findEmail from './modules/findEmail';
+import findPassword from './modules/findPassword';
+import password from './modules/settings/password';
+import status from './modules/settings/status';
+import account from './modules/settings/account';
 
 const rootReducer = combineReducers({
   activity,
@@ -36,7 +42,13 @@ const rootReducer = combineReducers({
   detail,
   paramsid,
   editButton,
+  signup,
   myPage,
+  findEmail,
+  findPassword,
+  password,
+  status,
+  account,
 });
 
 export default rootReducer;

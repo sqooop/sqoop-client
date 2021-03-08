@@ -29,7 +29,7 @@ export function register(config) {
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
-          console.log('This web app is being served cache-first by a service ');
+          // console.log('This web app is being served cache-first by a service ');
         });
       } else {
         // Is not localhost. Just register service worker
@@ -66,7 +66,7 @@ function registerValidSW(swUrl, config) {
               // At this point, everything has been precached.
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
-              console.log('Content is cached for offline use.');
+              // console.log('Content is cached for offline use.');
 
               // Execute callback
               if (config && config.onSuccess) {

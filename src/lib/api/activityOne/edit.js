@@ -18,12 +18,12 @@ const editActivity = async detail => {
       }
     }
     const { data } = await axios.put(
-      `http://54.180.189.240:3000/activity/update`,
+      `https://sqoop.ga/activity/update`,
       formData,
       {
         headers: {
           'Content-type': 'multipart/form-data',
-          jwt: localStorage.getItem('token'),
+          jwt: sessionStorage.getItem('token'),
         },
       },
     );

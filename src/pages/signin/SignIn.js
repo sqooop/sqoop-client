@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Input from '../../containers/signIn/Input.container';
 import Button from '../../containers/signIn/Button.container';
@@ -12,10 +12,12 @@ const SignInWrap = styled.div`
   padding-left: 14.297vw;
   padding-right: 14.297vw;
   margin-top: 23.472222vh;
-  height: 55.5556vh;
   overflow: hidden;
 `;
 const SignIn = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <SignInWrap>
       <Logo />

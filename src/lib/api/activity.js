@@ -1,6 +1,6 @@
 import axios from 'axios';
 import instance from './instance';
-const baseURL = 'http://54.180.189.240:3000/';
+const baseURL = 'https://sqoop.ga/';
 
 export const createActivity = async activity => {
   try {
@@ -17,7 +17,7 @@ export const createActivity = async activity => {
     const { data } = await axios.post(`${baseURL}activity/create`, formData, {
       headers: {
         'Content-type': 'multipart/form-data',
-        jwt: localStorage.getItem('token'),
+        jwt: sessionStorage.getItem('token'),
       },
     });
     // console.log('[SUCCESS] CREATE ACTIVITY', data);

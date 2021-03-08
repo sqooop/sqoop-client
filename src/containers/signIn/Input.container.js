@@ -10,8 +10,6 @@ const GroupContainer = () => {
 
   const email = useSelector(state => state.signIn.email);
   const password = useSelector(state => state.signIn.password);
-  const emailWarning = useSelector(state => state.signIn.emailWarning);
-  const passwordWarning = useSelector(state => state.signIn.passwordWarning);
 
   const onChangeEmail = evt => {
     const value = evt.target.value;
@@ -28,14 +26,12 @@ const GroupContainer = () => {
         value={email}
         onChange={onChangeEmail}
         defaultValue=""
-        warning={emailWarning}
       />
       <Input
         content="비밀번호"
         value={password}
         onChange={onChangePassword}
         defaultValue=""
-        warning={passwordWarning}
       />
     </>
   );

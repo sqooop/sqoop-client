@@ -41,6 +41,11 @@ const ButtonActive = ({ index, month }) => {
         .filter(item => item.length !== 0)
         .forEach(item => dataSet.get(Math.floor(item / 100)).add(item % 100));
       dataSet.get(year);
+
+      if (dataSet.get(year) === undefined) {
+        return;
+      }
+
       const dataSetArray = Array.from(dataSet.get(year)); // 활동이 있는 월 배열로 바꿔줌
       const firstMonth = dataSetArray[0];
       const monthId = year * 100 + firstMonth;

@@ -1,4 +1,4 @@
-import { DatePicker, Space } from 'antd';
+import { DatePicker } from 'antd';
 import 'antd/dist/antd.css';
 import styled from 'styled-components';
 
@@ -20,13 +20,11 @@ const DateSelector = props => {
   const { startPlaceholer, endPlaceholer, onChange } = props;
   return (
     <DateSelectorWrap>
-      <Space direction="vertical" size={12}>
-        <StyledRangePicker
-          suffixIcon=""
-          placeholder={[startPlaceholer, endPlaceholer]}
-          onChange={onChange}
-        />
-      </Space>
+      <StyledRangePicker
+        suffixIcon=""
+        placeholder={[startPlaceholer, endPlaceholer]}
+        onChange={onChange}
+      />
     </DateSelectorWrap>
   );
 };

@@ -34,7 +34,6 @@ const Spacer = styled.div`
 
 const MainHeader = ({ history }) => {
   const dispatch = useDispatch();
-  const saveActivities = data => dispatch(setActivities(data));
   const saveModalActive = data => dispatch(setModalActive(data));
   const currentCard = useSelector(state => state.currentCard);
   const { notSaved, modalActive } = currentCard;
@@ -42,7 +41,18 @@ const MainHeader = ({ history }) => {
   return (
     <>
       <HeaderBlock>
-        <img src={logo} alt="logo" style={{}} />
+        <img
+          src={logo}
+          alt="logo"
+          style={{}}
+          onClick={() => {
+            if (notSaved) {
+              saveModalActive(true);
+            } else {
+              history.push('/');
+            }
+          }}
+        />
         <Wrapper>
           <li
             className="home"
@@ -50,7 +60,7 @@ const MainHeader = ({ history }) => {
               if (notSaved) {
                 saveModalActive(true);
               } else {
-                history.push('/home');
+                history.push('/');
               }
             }}
           >
@@ -83,6 +93,7 @@ const MainHeader = ({ history }) => {
         </Wrapper>
       </HeaderBlock>
       <Spacer />
+
       {modalActive && <SaveModal setModalActive={saveModalActive} />}
     </>
   );

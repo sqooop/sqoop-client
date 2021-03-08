@@ -15,20 +15,21 @@ const ButtonContainer = ({ history }) => {
   const onClick = async () => {
     try {
       const { data } = await signin({ email, password });
-      localStorage.setItem('token', data.data.accessToken);
+      sessionStorage.setItem('token', data.data.accessToken);
       saveToken(data.data.accessToken);
     } catch (e) {
       // console.log('[FAIL] SIGNIN', e);
       saveWarning('이메일 혹은 비밀번호를 확인해주세요');
       throw e;
     }
-    history.push('/home');
+    window.location.reload();
   };
   return (
     <>
       <Button
         onClick={onClick}
         color={email && password ? '#195bff' : '#a5a5a5'}
+        content="로그인"
       />
     </>
   );

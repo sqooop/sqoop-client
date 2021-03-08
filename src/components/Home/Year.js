@@ -1,4 +1,4 @@
-import { React, useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { setCardArray } from '../../store/modules/home';
@@ -18,6 +18,9 @@ const Year = ({ background, border, onClick }) => {
   const saveLastYear = number => dispatch(setLastYear(number));
   const firstYear = useSelector(state => state.home.firstYear);
   const lastYear = useSelector(state => state.home.lastYear);
+
+  const [dataSetArray, setDataSetArray] = useState('');
+
   useEffect(() => {
     (async () => {
       const data = await getMonthAPI();
@@ -32,8 +35,14 @@ const Year = ({ background, border, onClick }) => {
         .filter(item => item.length !== 0)
         .forEach(item => dataSet.get(Math.floor(item / 100)).add(item % 100));
 
-      dataSet.get(year);
-      const dataSetArray = Array.from(dataSet.get(year)); // 활동이 있는 월 배열로 바꿔줌
+      const dataMonth = dataSet.get(year);
+
+      // const dataSetArray = Array.from(dataSet.get(year)); // 활동이 있는 월 배열로 바꿔줌
+
+      if (dataMonth !== undefined) {
+        setDataSetArray(Array.from(dataMonth));
+      }
+
       const firstMonth = dataSetArray[0];
       const monthId = year * 100 + firstMonth;
       const cardData = await getCardAPI(monthId);
@@ -79,8 +88,8 @@ const Year = ({ background, border, onClick }) => {
     cursor: default;
   `;
   }; */
-  /*   // console.log('fyear : ', firstYear);
-  // console.log('lyear :', lastYear); */
+  /* console.log('fyear : ', firstYear);
+  console.log('lyear :', lastYear); */
   return (
     <YearTemplate>
       <div className="button">

@@ -25,12 +25,10 @@ const ActivityOneUserData = props => {
 
 const StyledUserData = styled.div`
   width: 41.6vw;
-  margin-top: 1vw;
 `;
 
 const StyledQuestionData = styled.div`
   margin-bottom: 0.9vw;
-  margin-left: 1.9vw;
   font-size: 1vw;
   font-weight: 700 !important;
   line-height: 150%;
@@ -39,13 +37,14 @@ const StyledQuestionData = styled.div`
 const StyledAnswerData = styled.div`
   .AnswerData {
     width: 39.1vw;
-    margin-left: 2.5vw;
+    margin-left: 8px;
     font-size: 0.8vw;
     font-weight: 400 !important;
     line-height: 150%;
     border: none;
     outline: none;
     resize: none;
+    margin-bottom: 2.5vw;
 
     :hover {
       background-color: #eeeeee;

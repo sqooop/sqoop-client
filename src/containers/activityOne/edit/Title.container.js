@@ -38,7 +38,9 @@ const TitleContainer = ({ userData }) => {
   };
   return (
     <StyledActivityOneTitle>
-      <input value={title} onChange={onChangeInputs}></input>
+      <span>
+        <input value={title} onChange={onChangeInputs}></input>
+      </span>
       <div style={{ display: 'flex' }}>
         {userFlag ? (
           <>
@@ -59,11 +61,11 @@ const StyledActivityOneTitle = styled.div`
   font-weight: bold !important;
   margin-top: 4.4vh;
 
-  & > input {
-    font-size: 2.5vw;
-    font-weight: 700;
-    line-height: 3.8vw;
+  input {
     border-style: none;
+    font-weight: bold;
+    font-size: 2.5vw;
+    line-height: 3.8vw;
 
     :focus {
       outline: none;
