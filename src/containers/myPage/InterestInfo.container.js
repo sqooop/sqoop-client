@@ -27,7 +27,7 @@ const InterestInfoContainer = () => {
       saveSkillBig(myPageData.skillBig);
       saveSkillSmall(myPageData.skillSmall);
     })();
-  }, []);
+  });
 
   return (
     <InterestInfo

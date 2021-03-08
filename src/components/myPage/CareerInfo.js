@@ -132,7 +132,7 @@ const CareerInfo = ({ type, data, match }) => {
                 placeholder={placeholder.score}
               />
             ) : (
-              <input type="text" value="" />
+              <input type="text" value="" readOnly={isReadOnly} />
             )}
           </div>
         </div>

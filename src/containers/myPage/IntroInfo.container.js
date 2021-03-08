@@ -15,7 +15,7 @@ const InterestInfoContainer = () => {
       const myPageData = await getMyPageData();
       saveIntroduce(myPageData.introduce);
     })();
-  }, []);
+  });
 
   return (
     <>

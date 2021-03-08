@@ -25,7 +25,7 @@ const InterestInfoContainer = () => {
       saveCertificateHistory(myPageData.CertificateHistory);
       saveAwardHistory(myPageData.AwardHistory);
     })();
-  }, []);
+  });
 
   return (
     <>

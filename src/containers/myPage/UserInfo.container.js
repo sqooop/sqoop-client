@@ -37,7 +37,7 @@ const UserInfoContainer = () => {
       saveEmail(myPageData.profileEmail);
       saveURL(myPageData.sns);
     })();
-  }, []);
+  });
 
   return (
     <>
@@ -48,6 +48,9 @@ const UserInfoContainer = () => {
           phone={phone}
           email={email}
           url={url}
+          savePhone={savePhone}
+          saveEmail={saveEmail}
+          saveURL={saveURL}
         />
       )}
     </>

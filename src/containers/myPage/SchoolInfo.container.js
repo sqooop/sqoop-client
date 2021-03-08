@@ -1,9 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { getMyPageData } from '../../lib/api/myPage';
 import { setEducation } from '../../store/modules/myPage';
 import SchoolInfo from '../../components/myPage/SchoolInfo';
 import Styled from 'styled-components';
+import Plus from '../../assets/icons/Plus.svg';
+import Minus from '../../assets/icons/Minus.svg';
+import MinusOff from '../../assets/icons/MinusOff.svg';
 
 const SchoolInfoContainerWrap = Styled.div`
   width: 730px;
@@ -13,21 +17,36 @@ const SchoolInfoContainerWrap = Styled.div`
 
   .info {
     &--title {
-      width: 28px;
       font-weight: bold;
       margin-bottom: 26px;
       display: flex;
       justify-content: left;
+      &__header {
+        width: 730px;
+        display: flex;
+        flex-direction: row;
+
+      }
+      &__empty {
+        flex: 1;
+      }
+      &__plus {
+        margin-left: 8px;
+      }
     }
   }
 `;
 
-const SchoolInfoContainer = () => {
+const SchoolInfoContainer = ({ match }) => {
+  const isReadOnly = match.path === '/mypage/profile' ? true : false;
+
+  const [currentTarget, setCurrentTarget] = useState('');
+  const [schoolIndex, setSchoolIndex] = useState('');
+
   const dispatch = useDispatch();
   const saveEducation = array => dispatch(setEducation(array));
 
-  const myPage = useSelector(state => state.myPage);
-  const education = myPage.education;
+  const education = useSelector(state => state.myPage.education);
 
   useEffect(() => {
     (async () => {
@@ -55,16 +74,85 @@ const SchoolInfoContainer = () => {
 
   return (
     <SchoolInfoContainerWrap>
-      <div className="info--title">학력</div>
+      <div className="info--title">
+        <div className="info--title__header">
+          <div>학력</div>
+          <div className="info--title__empty"></div>
+          {isReadOnly ||
+            (currentTarget === 'deleteSchool' ? (
+              <img
+                className="info--title__minus"
+                src={Minus}
+                alt=""
+                onClick={() => {
+                  const newEducation = education.filter((edu, idx) => {
+                    return idx !== schoolIndex;
+                  });
+                  saveEducation(newEducation);
+                }}
+              />
+            ) : (
+              <img className="info--title__minus" src={MinusOff} alt="" />
+            ))}
+          {isReadOnly || (
+            <img
+              className="info--title__plus"
+              src={Plus}
+              alt=""
+              onClick={() => {
+                console.log(education.length);
+                if (education.length === 0) {
+                  saveEducation(
+                    education.concat(
+                      {
+                        school: '',
+                        major: '',
+                        startDate: getLastMonth(),
+                        endDate: getCurrentMonth(),
+                      },
+                      {
+                        school: '',
+                        major: '',
+                        startDate: getLastMonth(),
+                        endDate: getCurrentMonth(),
+                      },
+                    ),
+                  );
+                } else {
+                  saveEducation(
+                    education.concat({
+                      school: '',
+                      major: '',
+                      startDate: getLastMonth(),
+                      endDate: getCurrentMonth(),
+                    }),
+                  );
+                }
+              }}
+            />
+          )}
+        </div>
+      </div>
       {education.length !== 0 ? (
-        education.map(edu => (
-          <SchoolInfo
-            key={edu.school}
-            school={edu.school}
-            major={edu.major}
-            startDate={edu.startDate}
-            endDate={edu.endDate}
-          />
+        education.map((edu, index) => (
+          <>
+            {index !== 0 && (
+              <div style={{ height: '36px', backgroundColor: 'white' }}></div>
+            )}
+            <SchoolInfo
+              index={index}
+              school={edu.school}
+              major={edu.major}
+              startDate={edu.startDate}
+              endDate={edu.endDate}
+              saveEducation={saveEducation}
+              education={education}
+              currentTarget={currentTarget}
+              setCurrentTarget={setCurrentTarget}
+              schoolIndex={schoolIndex}
+              setSchoolIndex={setSchoolIndex}
+            />
+          </>
         ))
       ) : (
         <SchoolInfo
@@ -72,10 +160,15 @@ const SchoolInfoContainer = () => {
           major={''}
           startDate={getLastMonth()}
           endDate={getCurrentMonth()}
+          saveEducation={saveEducation}
+          currentTarget={currentTarget}
+          setCurrentTarget={setCurrentTarget}
+          schoolIndex={schoolIndex}
+          setSchoolIndex={setSchoolIndex}
         />
       )}
     </SchoolInfoContainerWrap>
   );
 };
 
-export default SchoolInfoContainer;
+export default withRouter(SchoolInfoContainer);
