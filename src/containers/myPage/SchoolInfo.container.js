@@ -101,33 +101,14 @@ const SchoolInfoContainer = ({ match }) => {
               alt=""
               onClick={() => {
                 console.log(education.length);
-                if (education.length === 0) {
-                  saveEducation(
-                    education.concat(
-                      {
-                        school: '',
-                        major: '',
-                        startDate: getLastMonth(),
-                        endDate: getCurrentMonth(),
-                      },
-                      {
-                        school: '',
-                        major: '',
-                        startDate: getLastMonth(),
-                        endDate: getCurrentMonth(),
-                      },
-                    ),
-                  );
-                } else {
-                  saveEducation(
-                    education.concat({
-                      school: '',
-                      major: '',
-                      startDate: getLastMonth(),
-                      endDate: getCurrentMonth(),
-                    }),
-                  );
-                }
+                saveEducation(
+                  education.concat({
+                    school: '',
+                    major: '',
+                    startDate: getLastMonth(),
+                    endDate: getCurrentMonth(),
+                  }),
+                );
               }}
             />
           )}
@@ -155,17 +136,11 @@ const SchoolInfoContainer = ({ match }) => {
           </>
         ))
       ) : (
-        <SchoolInfo
-          school={''}
-          major={''}
-          startDate={getLastMonth()}
-          endDate={getCurrentMonth()}
-          saveEducation={saveEducation}
-          currentTarget={currentTarget}
-          setCurrentTarget={setCurrentTarget}
-          schoolIndex={schoolIndex}
-          setSchoolIndex={setSchoolIndex}
-        />
+        <div
+          style={{ color: '#A5A5A5', marginLeft: '14px', marginTop: '-12px' }}
+        >
+          추가해주세요
+        </div>
       )}
     </SchoolInfoContainerWrap>
   );

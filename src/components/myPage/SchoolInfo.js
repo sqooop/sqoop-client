@@ -15,7 +15,6 @@ const SchoolInfoWrap = Styled.div`
     height: 84px;
     margin-top: -10px;
     z-index: 1;
-    background-color: red;
   }
 
   .info {
