@@ -37,25 +37,49 @@ const Birth = props => {
   for (let i = 1; i <= 31; i++) {
     days.push(i);
   }
-  const { onChangeYear, onChangeMonth, onChangeDay } = props;
+  const { onChangeYear, onChangeMonth, onChangeDay, year, month, day } = props;
   return (
     <InputWrap>
       <StyledSpan>생년월일</StyledSpan>
-      <StyledSelect onChange={onChangeYear} placeholder="연도">
-        {years.map(item => (
-          <Option value={item}>{item}</Option>
-        ))}
-      </StyledSelect>
-      <StyledSelect onChange={onChangeMonth} placeholder="월">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(item => (
-          <Option value={item}>{item}</Option>
-        ))}
-      </StyledSelect>
-      <StyledSelect onChange={onChangeDay} placeholder="일">
-        {days.map(item => (
-          <Option value={item}>{item}</Option>
-        ))}
-      </StyledSelect>
+      {year ? (
+        <StyledSelect onChange={onChangeYear} defaultValue={year}>
+          {years.map(item => (
+            <Option value={item}>{item}</Option>
+          ))}
+        </StyledSelect>
+      ) : (
+        <StyledSelect onChange={onChangeYear} placeholder="연도">
+          {years.map(item => (
+            <Option value={item}>{item}</Option>
+          ))}
+        </StyledSelect>
+      )}
+      {month ? (
+        <StyledSelect onChange={onChangeMonth} defaultValue={month}>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(item => (
+            <Option value={item}>{item}</Option>
+          ))}
+        </StyledSelect>
+      ) : (
+        <StyledSelect onChange={onChangeMonth} placeholder="월">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(item => (
+            <Option value={item}>{item}</Option>
+          ))}
+        </StyledSelect>
+      )}
+      {day ? (
+        <StyledSelect onChange={onChangeDay} defaultValue={day}>
+          {days.map(item => (
+            <Option value={item}>{item}</Option>
+          ))}
+        </StyledSelect>
+      ) : (
+        <StyledSelect onChange={onChangeDay} placeholder="일">
+          {days.map(item => (
+            <Option value={item}>{item}</Option>
+          ))}
+        </StyledSelect>
+      )}
     </InputWrap>
   );
 };
