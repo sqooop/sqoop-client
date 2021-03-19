@@ -8,12 +8,6 @@ import styled from 'styled-components';
 const { Option } = Select;
 const TagSelectorWrap = styled.div``;
 const StyledSelect = styled(Select)`
-  /* 
-ant-select-selector : padding-left가 태그랑 입력창 전체
-.ant-select-selection-search : margin-left 음수로 해야해
-.ant-select-selection-placeholder : 얘는 placeholder, absolute라 padding이나 margin이 아니라 left로 지정
- */
-
   .ant-select-selector {
     padding-left: 0.6rem;
     border: none !important;

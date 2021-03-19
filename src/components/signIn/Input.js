@@ -37,7 +37,7 @@ const InputWrap = styled.div`
   }
 `;
 const Input = props => {
-  const { content, value, onChange } = props;
+  const { content, value, onChange, onKeyPress } = props;
   const onMouseDown = event => {
     event.target.parentNode.querySelector('input').type = 'text';
   };
@@ -49,7 +49,12 @@ const Input = props => {
       <StyledSpan>{content}</StyledSpan>
       {content === '비밀번호' || content === '비밀번호 확인' ? (
         <>
-          <StyledInput type="password" value={value} onChange={onChange} />
+          <StyledInput
+            type="password"
+            value={value}
+            onChange={onChange}
+            onKeyPress={onKeyPress}
+          />
           <ShowPassword onMouseDown={onMouseDown} onMouseUp={onMouseUp}>
             보기
           </ShowPassword>
