@@ -40,7 +40,12 @@ const BasicDataContainer = () => {
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="소속 단체" />
-        {detail.detailGroup ? (
+        {detail.detailGroup && detail.detailGroup.length > 14 ? (
+          <StyledBasic>{`${detail.detailGroup.substring(
+            0,
+            14,
+          )}...`}</StyledBasic>
+        ) : detail.detailGroup && detail.detailGroup.length <= 14 ? (
           <StyledBasic>{detail.detailGroup}</StyledBasic>
         ) : (
           ''
