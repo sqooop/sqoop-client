@@ -127,7 +127,6 @@ const StyledBasic = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  background-color: orange;
 
   img {
     position: absolute;
@@ -141,8 +140,12 @@ const StyledTag = styled.div`
   background: #195bff;
   color: white;
   font-size: 1.3rem;
-  padding: 0.0781vw 0.7813vw;
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin-right: 0.9375vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default BasicDataContainer;

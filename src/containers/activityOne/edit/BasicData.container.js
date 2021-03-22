@@ -30,7 +30,7 @@ const BasicDataContainer = () => {
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="관련 직무" isStar={true} />
-        <StyledBasic>
+        <StyledBasic style={{ display: 'flex', flexWrap: 'nowrap' }}>
           <JobTagSelector />
         </StyledBasic>
       </StyledContentWrap>
@@ -58,7 +58,6 @@ const BasicDataContainer = () => {
 
 const StyledBasicData = styled.div`
   width: 27.9688vw;
-
   margin-bottom: 6.1111vw;
 
   a {
@@ -74,12 +73,11 @@ const StyledContentWrap = styled.div`
 
 const StyledBasic = styled.div`
   width: 18.8vw;
+  height: 1.6vw;
   font-size: 1.1vw;
   font-weight: 400;
-  line-height: 1.6vw;
   display: flex;
   align-items: center;
-  margin-top: 0.48vw;
   position: relative;
 
   img {

@@ -17,7 +17,6 @@ const StyleDiv = styled.div`
   width: 6.3vw;
   height: 1.6vw;
   font-size: 1.1vw !important;
-  background-color: lightblue;
 `;
 
 export default DefaultData;
