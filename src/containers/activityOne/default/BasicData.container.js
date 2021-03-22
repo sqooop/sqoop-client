@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import EditList from '../../../components/activityOne/global/EditList';
@@ -23,6 +23,9 @@ const BasicDataContainer = () => {
 
   const fileUrl = detail.detailFileUrl;
   const fileName = detail.detailFilename;
+
+  const fileArr = fileName.split('.');
+  const fileExtension = fileArr[1];
 
   return (
     <StyledBasicData>
@@ -74,7 +77,9 @@ const BasicDataContainer = () => {
             <StyledBasic
               style={{ display: 'flex', justifyContent: 'space-between' }}
             >
-              {detail.detailFilename}
+              {detail.detailFilename.length > 14
+                ? `${detail.detailFilename.substring(0, 14)}...${fileExtension}`
+                : detail.detailFilename}
               <img src={Clip} alt="" />
             </StyledBasic>
           </a>
@@ -82,7 +87,6 @@ const BasicDataContainer = () => {
           <StyledBasic
             style={{ display: 'flex', justifyContent: 'space-between' }}
           >
-            {detail.detailFilename}
             <img src={Clip} alt="" />
           </StyledBasic>
         )}

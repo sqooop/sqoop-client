@@ -5,6 +5,9 @@ import Clip from '../../assets/icons/Clip.svg';
 const FileUpload = props => {
   const { onChange, previewFile } = props;
 
+  const previewFileArr = previewFile.split('.');
+  const previewFileExtension = previewFileArr[1];
+
   return (
     <>
       <StyledFileInput
@@ -20,7 +23,11 @@ const FileUpload = props => {
               활동 증빙 및 관련 자료 첨부 (doc, hwp, zip 등)
             </span>
           ) : (
-            <span>{previewFile}</span>
+            <span>
+              {previewFile.length > 16
+                ? `${previewFile.substring(0, 11)}...${previewFileExtension}`
+                : previewFile}
+            </span>
           )}
           <img src={Clip} alt="" />
         </label>
