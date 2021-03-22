@@ -25,15 +25,18 @@ const FileUpload = props => {
         <label htmlFor="FileUpload">
           {previewFile === null ? (
             <div>
-              {userFile.length > 11
-                ? `${userFile.substring(0, 11)}...${fileExtension}`
+              {fileArr[0].length > 12
+                ? `${fileArr[0].substring(0, 12)}...${fileExtension}`
                 : userFile}
               <img src={Clip} alt="" />
             </div>
           ) : (
             <div>
-              {previewFile.length > 11
-                ? `${previewFile.substring(0, 11)}...${previewFileExtension}`
+              {previewFileArr[0].length > 12
+                ? `${previewFileArr[0].substring(
+                    0,
+                    12,
+                  )}...${previewFileExtension}`
                 : previewFile}
               <img src={Clip} alt="" />
             </div>

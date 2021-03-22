@@ -24,8 +24,11 @@ const FileUpload = props => {
             </span>
           ) : (
             <span>
-              {previewFile.length > 16
-                ? `${previewFile.substring(0, 11)}...${previewFileExtension}`
+              {previewFileArr[0].length > 17
+                ? `${previewFileArr[0].substring(
+                    0,
+                    17,
+                  )}...${previewFileExtension}`
                 : previewFile}
             </span>
           )}

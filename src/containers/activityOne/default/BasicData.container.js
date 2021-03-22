@@ -40,12 +40,12 @@ const BasicDataContainer = () => {
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="소속 단체" />
-        {detail.detailGroup && detail.detailGroup.length > 14 ? (
+        {detail.detailGroup && detail.detailGroup.length > 16 ? (
           <StyledBasic>{`${detail.detailGroup.substring(
             0,
-            14,
+            16,
           )}...`}</StyledBasic>
-        ) : detail.detailGroup && detail.detailGroup.length <= 14 ? (
+        ) : detail.detailGroup && detail.detailGroup.length <= 16 ? (
           <StyledBasic>{detail.detailGroup}</StyledBasic>
         ) : (
           ''
@@ -82,8 +82,8 @@ const BasicDataContainer = () => {
             <StyledBasic
               style={{ display: 'flex', justifyContent: 'space-between' }}
             >
-              {detail.detailFilename.length > 14
-                ? `${detail.detailFilename.substring(0, 14)}...${fileExtension}`
+              {fileArr[0].length > 12
+                ? `${fileArr[0].substring(0, 12)}...${fileExtension}`
                 : detail.detailFilename}
               <img src={Clip} alt="" />
             </StyledBasic>
@@ -121,14 +121,13 @@ const StyledContentWrap = styled.div`
 
 const StyledBasic = styled.div`
   width: 18.8vw;
-  height: 3rem;
-  font-size: 14px;
+  height: 1.6vw;
+  font-size: 1.1vw !important;
   font-weight: 400;
-  line-height: 1.6vw;
   display: flex;
   align-items: center;
-  margin-top: 0.48vw;
   position: relative;
+  background-color: orange;
 
   img {
     position: absolute;
@@ -141,10 +140,9 @@ const StyledBasic = styled.div`
 const StyledTag = styled.div`
   background: #195bff;
   color: white;
-  font-size: 13px;
+  font-size: 1.3rem;
   padding: 0.0781vw 0.7813vw;
   margin-right: 0.9375vw;
-  margin-top: 0.9375vw;
 `;
 
 export default BasicDataContainer;

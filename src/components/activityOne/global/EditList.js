@@ -13,11 +13,11 @@ const DefaultData = props => {
 
 const StyleDiv = styled.div`
   display: flex;
+  align-items: center;
   width: 6.3vw;
   height: 1.6vw;
-  margin-top: 0.6vw;
   font-size: 1.1vw !important;
-  line-height: 150%;
+  background-color: lightblue;
 `;
 
 export default DefaultData;
