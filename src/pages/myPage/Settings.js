@@ -6,6 +6,8 @@ import Styled from 'styled-components';
 import ChangePassword from '../../containers/myPage/settings/ChangePassword.container';
 import AccountConfirm from '../../containers/myPage/settings/AccountConfirm.container';
 import Marketing from '../../containers/myPage/settings/Marketing.container';
+import Privacy from '../../components/myPage/settings/Privacy';
+import Terms from '../../components/myPage/settings/Terms';
 import { setStatus } from '../../store/modules/settings/status';
 const SettingsWrap = Styled.div`
   padding-left: 25.463vw;
@@ -22,11 +24,13 @@ const SettingsWrap = Styled.div`
   }
 `;
 const MaterialBox = Styled.div`
+background: skyblue;
   display: inline-block;
-  width: 700px;
+  width: 120px;
   height: 244px;
 `;
 const OneDiv = Styled.div`
+  background: pink;
   background: none;
   border: none;
   margin-bottom: 20px;
@@ -50,10 +54,11 @@ const NavbarWrap = Styled.div`
   justify-content: space-around;
 `;
 const MaterialWrap = Styled.div`
+background: ivory;
   float: left;
-  width: 416px;
+  width: 603px;
   display: block;
-  margin-left: 80px;
+  margin-left: 150px;
 `;
 
 const Settings = ({ history }) => {
@@ -115,6 +120,8 @@ const Settings = ({ history }) => {
             {status === '계정 정보 확인' ? <AccountConfirm /> : <></>}
             {status === '비밀번호 변경' ? <ChangePassword /> : <></>}
             {status === '마케팅 수신 설정' ? <Marketing /> : <></>}
+            {status === '개인정보처리방침' ? <Privacy /> : <></>}
+            {status === '이용약관' ? <Terms /> : <></>}
           </MaterialWrap>
         </MaterialBox>
         <div className="footer">

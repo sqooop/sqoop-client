@@ -88,12 +88,13 @@ const Year = ({ background, border, onClick }) => {
     cursor: default;
   `;
   }; */
-  /* console.log('fyear : ', firstYear);
-  console.log('lyear :', lastYear); */
+  console.log('fyear : ', firstYear);
+  console.log('lyear :', lastYear);
+  console.log(year);
   return (
     <YearTemplate>
       <div className="button">
-        {year > firstYear ? (
+        {firstYear != null && year > firstYear ? (
           <img
             className="button--left buttonOn"
             src={LeftButtonIconOn}
@@ -151,8 +152,6 @@ const YearTemplate = styled.div`
       border: none;
       &:focus {
         outline: none;
-      }
-      &:hover {
       }
     }
     &--right {

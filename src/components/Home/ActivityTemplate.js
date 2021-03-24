@@ -10,6 +10,7 @@ const ActivityTemplateBlock = styled.div`
   display: flex;
   width: 600px;
   overflow: auto;
+  background: ivory;
 `;
 
 const ActivityTemplate = ({ children }) => {
