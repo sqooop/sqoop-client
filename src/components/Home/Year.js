@@ -88,9 +88,9 @@ const Year = ({ background, border, onClick }) => {
     cursor: default;
   `;
   }; */
-  console.log('fyear : ', firstYear);
-  console.log('lyear :', lastYear);
-  console.log(year);
+  //console.log('fyear : ', firstYear);
+  //console.log('lyear :', lastYear);
+  //console.log(year);
   return (
     <YearTemplate>
       <div className="button">
@@ -153,6 +153,11 @@ const YearTemplate = styled.div`
       &:focus {
         outline: none;
       }
+<<<<<<< HEAD
+=======
+      &:hover {
+      }
+>>>>>>> 2451068b34357ce8ce7456a47d60c72242cb6ac6
     }
     &--right {
       width: 24px;

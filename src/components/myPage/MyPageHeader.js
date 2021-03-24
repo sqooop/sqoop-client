@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Styled from 'styled-components';
 import Edit from '../../assets/icons/Edit.svg';
+import Save from '../../assets/icons/Complete.svg';
 
 const MyPageHeaderWrap = Styled.div`
   display: flex;
@@ -38,6 +39,12 @@ const MyPageHeaderWrap = Styled.div`
     &--edit {
       width: 24px;
       height: 24px;
+<<<<<<< HEAD
+=======
+      &:hover {
+        cursor: pointer;
+      }
+>>>>>>> 2451068b34357ce8ce7456a47d60c72242cb6ac6
     }
 }
 
@@ -46,7 +53,9 @@ const MyPageHeaderWrap = Styled.div`
 }
 `;
 
-const MyPageHeader = ({ history, profileColor, settingsColor }) => {
+const MyPageHeader = ({ history, match, profileColor, settingsColor }) => {
+  const mode = match.path === '/mypage/profile' ? 'readOnly' : 'edit';
+
   return (
     <MyPageHeaderWrap>
       <button
@@ -64,7 +73,22 @@ const MyPageHeader = ({ history, profileColor, settingsColor }) => {
         계정 설정
       </button>
       <div className="empty" />
-      {profileColor && <img className="button--edit" src={Edit} alt="" />}
+      {profileColor && mode === 'readOnly' && (
+        <img
+          className="button--edit"
+          src={Edit}
+          alt=""
+          onClick={() => history.push('/mypage/profile/edit')}
+        />
+      )}
+      {profileColor && mode === 'edit' && (
+        <img
+          className="button--edit"
+          src={Save}
+          alt=""
+          onClick={() => history.push('/mypage/profile')}
+        />
+      )}
     </MyPageHeaderWrap>
   );
 };

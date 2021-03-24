@@ -15,7 +15,7 @@ const DeleteData = ({ history }) => {
   const [passwordError, setPasswordError] = useState('');
   const [submitModal, setSubmitModal] = useState('False');
 
-  console.log(history);
+  // console.log(history);
 
   useEffect(() => {
     (async () => {
