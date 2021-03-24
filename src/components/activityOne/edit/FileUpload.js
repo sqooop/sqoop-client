@@ -49,8 +49,8 @@ const FileUpload = props => {
 
 const StyledFileInput = styled.input`
   border-style: none;
-  width: 0.1px;
-  height: 0.1px;
+  width: 0px;
+  height: 0px;
   opacity: 0;
   z-index: -1;
 
@@ -65,17 +65,6 @@ const StyledFileInput = styled.input`
   }
 `;
 
-const StyledFilePreview = styled.div`
-  width: 18.8vw;
-  margin-top: 0.4vw;
-  position: relative;
-
-  img {
-    position: absolute;
-    top: 0.6rem;
-    right: 0.6rem;
-    cursor: pointer;
-  }
-`;
+const StyledFilePreview = styled.div``;
 
 export default FileUpload;

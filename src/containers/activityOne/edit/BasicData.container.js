@@ -18,31 +18,31 @@ const BasicDataContainer = () => {
       <PhotoUpload />
       <StyledContentWrap>
         <EditList text="활동 기간" isStar={true} />
-        <StyledBasic>
+        <StyledBasic style={{ height: '1.6vw' }}>
           <DateSelector />
         </StyledBasic>
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="소속 단체" />
-        <StyledBasic>
+        <StyledBasic style={{ height: '1.6vw' }}>
           <Group value={detail.detailGroup} />
         </StyledBasic>
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="관련 직무" isStar={true} />
-        <StyledBasic style={{ display: 'flex', flexWrap: 'nowrap' }}>
+        <StyledBasic style={{ height: '1.6vw' }}>
           <JobTagSelector />
         </StyledBasic>
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="핵심 역량" isStar={true} />
-        <StyledBasic>
+        <StyledBasic style={{ height: '1.6vw' }}>
           <SkillTagSelector />
         </StyledBasic>
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="파일 첨부" />
-        <StyledBasic>
+        <StyledBasic style={{ height: '1.6vw', cursor: 'pointer' }}>
           <FileUpload />
         </StyledBasic>
       </StyledContentWrap>
@@ -73,7 +73,6 @@ const StyledContentWrap = styled.div`
 
 const StyledBasic = styled.div`
   width: 18.8vw;
-  height: 1.6vw;
   font-size: 1.1vw;
   font-weight: 400;
   display: flex;
@@ -81,9 +80,11 @@ const StyledBasic = styled.div`
   position: relative;
 
   img {
+    width: 1.275vw;
+    height: 1.275vw;
     position: absolute;
-    top: 0.6rem;
-    right: 0.6rem;
+    top: 0.2344vw;
+    right: 0.2344vw;
     cursor: pointer;
   }
 `;

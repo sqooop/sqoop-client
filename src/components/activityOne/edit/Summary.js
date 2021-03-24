@@ -9,14 +9,17 @@ const TextArea = styled.textarea`
   height: 13.1986vh;
   resize: none;
   padding: 0px !important;
+  margin: 0px !important;
 
   &:hover {
     background-color: #eeeeee !important;
   }
+
   ::placeholder,
   ::-webkit-input-placeholder {
     color: #a5a5a5;
   }
+
   :-ms-input-placeholder {
     color: #a5a5a5;
   }

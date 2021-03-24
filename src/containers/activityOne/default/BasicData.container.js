@@ -129,9 +129,11 @@ const StyledBasic = styled.div`
   position: relative;
 
   img {
+    width: 1.275vw;
+    height: 1.275vw;
     position: absolute;
-    top: 0.6rem;
-    right: 0.6rem;
+    top: 0.2344vw;
+    right: 0.2344vw;
     cursor: pointer;
   }
 `;
@@ -143,6 +145,8 @@ const StyledTag = styled.div`
   padding-left: 1rem;
   padding-right: 1rem;
   margin-right: 0.9375vw;
+  margin-top: 0.1vw;
+  margin-bottom: 0.1vw;
   display: flex;
   justify-content: center;
   align-items: center;
