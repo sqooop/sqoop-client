@@ -9,7 +9,7 @@ import SaveModal from '../stepCard/SaveModal';
 
 const HeaderBlock = styled.div`
   display: flex;
-  margin: 0px 80px;
+  margin: 0px 85px;
   padding: 8px 0px;
   justify-content: space-between;
 `;
