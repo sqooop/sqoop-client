@@ -2,13 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TextInput = styled.input`
-  font-size: 1.4rem;
+  font-size: 1.1vw !important;
   border: none;
   outline: none;
+  padding: 0px !important;
   width: 18.8vw;
-  height: 3rem;
-  padding-left: 0.8rem;
-  margin-top: 0.4vw;
+  height: 1.6vw;
 
   &:hover {
     background-color: #eeeeee !important;

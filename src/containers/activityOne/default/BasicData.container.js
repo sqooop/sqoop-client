@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import EditList from '../../../components/activityOne/global/EditList';
@@ -24,6 +24,9 @@ const BasicDataContainer = () => {
   const fileUrl = detail.detailFileUrl;
   const fileName = detail.detailFilename;
 
+  const fileArr = fileName.split('.');
+  const fileExtension = fileArr[1];
+
   return (
     <StyledBasicData>
       <Photo imageUrl={detail.detailImageUrl} />
@@ -37,7 +40,12 @@ const BasicDataContainer = () => {
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="소속 단체" />
-        {detail.detailGroup ? (
+        {detail.detailGroup && detail.detailGroup.length > 16 ? (
+          <StyledBasic>{`${detail.detailGroup.substring(
+            0,
+            16,
+          )}...`}</StyledBasic>
+        ) : detail.detailGroup && detail.detailGroup.length <= 16 ? (
           <StyledBasic>{detail.detailGroup}</StyledBasic>
         ) : (
           ''
@@ -74,7 +82,9 @@ const BasicDataContainer = () => {
             <StyledBasic
               style={{ display: 'flex', justifyContent: 'space-between' }}
             >
-              {detail.detailFilename}
+              {fileArr[0].length > 12
+                ? `${fileArr[0].substring(0, 12)}...${fileExtension}`
+                : detail.detailFilename}
               <img src={Clip} alt="" />
             </StyledBasic>
           </a>
@@ -82,7 +92,6 @@ const BasicDataContainer = () => {
           <StyledBasic
             style={{ display: 'flex', justifyContent: 'space-between' }}
           >
-            {detail.detailFilename}
             <img src={Clip} alt="" />
           </StyledBasic>
         )}
@@ -112,19 +121,19 @@ const StyledContentWrap = styled.div`
 
 const StyledBasic = styled.div`
   width: 18.8vw;
-  height: 3rem;
-  font-size: 14px;
+  height: 1.6vw;
+  font-size: 1.1vw !important;
   font-weight: 400;
-  line-height: 1.6vw;
   display: flex;
   align-items: center;
-  margin-top: 0.48vw;
   position: relative;
 
   img {
+    width: 1.275vw;
+    height: 1.275vw;
     position: absolute;
-    top: 0.6rem;
-    right: 0.6rem;
+    top: 0.2344vw;
+    right: 0.2344vw;
     cursor: pointer;
   }
 `;
@@ -132,10 +141,15 @@ const StyledBasic = styled.div`
 const StyledTag = styled.div`
   background: #195bff;
   color: white;
-  font-size: 13px;
-  padding: 0.0781vw 0.7813vw;
+  font-size: 1.3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin-right: 0.9375vw;
-  margin-top: 0.9375vw;
+  margin-top: 0.1vw;
+  margin-bottom: 0.1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default BasicDataContainer;

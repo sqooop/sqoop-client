@@ -7,6 +7,12 @@ const FileUpload = props => {
   const { onChange, previewFile } = props;
   const userFile = useSelector(state => state.detail.detailFilename);
 
+  const previewFileArr = previewFile.split('.');
+  const previewFileExtension = previewFileArr[1];
+
+  const fileArr = userFile.split('.');
+  const fileExtension = fileArr[1];
+
   return (
     <div style={{ display: 'flex' }}>
       <StyledFileInput
@@ -19,12 +25,19 @@ const FileUpload = props => {
         <label htmlFor="FileUpload">
           {previewFile === null ? (
             <div>
-              {userFile}
+              {fileArr[0].length > 12
+                ? `${fileArr[0].substring(0, 12)}...${fileExtension}`
+                : userFile}
               <img src={Clip} alt="" />
             </div>
           ) : (
             <div>
-              {previewFile}
+              {previewFileArr[0].length > 12
+                ? `${previewFileArr[0].substring(
+                    0,
+                    12,
+                  )}...${previewFileExtension}`
+                : previewFile}
               <img src={Clip} alt="" />
             </div>
           )}
@@ -36,8 +49,8 @@ const FileUpload = props => {
 
 const StyledFileInput = styled.input`
   border-style: none;
-  width: 0.1px;
-  height: 0.1px;
+  width: 0px;
+  height: 0px;
   opacity: 0;
   z-index: -1;
 
@@ -52,17 +65,6 @@ const StyledFileInput = styled.input`
   }
 `;
 
-const StyledFilePreview = styled.div`
-  width: 18.8vw;
-  margin-top: 0.4vw;
-  position: relative;
-
-  img {
-    position: absolute;
-    top: 0.6rem;
-    right: 0.6rem;
-    cursor: pointer;
-  }
-`;
+const StyledFilePreview = styled.div``;
 
 export default FileUpload;

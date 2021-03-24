@@ -2,23 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TextArea = styled.textarea`
-  font-size: 1.4rem;
+  font-size: 1.1vw;
   border: none;
   outline: none;
   width: 18.8vw;
-  height: 5.2rem;
-  padding-left: 0.8rem;
-  padding-top: 0.5rem;
-  margin-top: 0.4vw;
+  height: 13.1986vh;
   resize: none;
+  padding: 0px !important;
+  margin: 0px !important;
 
   &:hover {
     background-color: #eeeeee !important;
   }
+
   ::placeholder,
   ::-webkit-input-placeholder {
     color: #a5a5a5;
   }
+
   :-ms-input-placeholder {
     color: #a5a5a5;
   }
