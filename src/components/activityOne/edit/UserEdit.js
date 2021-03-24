@@ -24,7 +24,11 @@ const ActivityOneUserData = props => {
 };
 
 const StyledUserData = styled.div`
+<<<<<<< HEAD
+  width: 41.6vw;
+=======
   width: 43.3vw;
+>>>>>>> 2451068b34357ce8ce7456a47d60c72242cb6ac6
 `;
 
 const StyledQuestionData = styled.div`
@@ -36,8 +40,13 @@ const StyledQuestionData = styled.div`
 
 const StyledAnswerData = styled.div`
   .AnswerData {
+<<<<<<< HEAD
+    width: 39.1vw;
+    margin-left: 8px;
+=======
     width: 43.3vw;
     padding-left: 8px;
+>>>>>>> 2451068b34357ce8ce7456a47d60c72242cb6ac6
     font-size: 0.8vw;
     font-weight: 400 !important;
     line-height: 150%;

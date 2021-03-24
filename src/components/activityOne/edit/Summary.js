@@ -14,12 +14,10 @@ const TextArea = styled.textarea`
   &:hover {
     background-color: #eeeeee !important;
   }
-
   ::placeholder,
   ::-webkit-input-placeholder {
     color: #a5a5a5;
   }
-
   :-ms-input-placeholder {
     color: #a5a5a5;
   }

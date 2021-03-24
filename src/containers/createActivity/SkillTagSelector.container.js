@@ -30,7 +30,6 @@ const JobTagSelectorContainer = () => {
     }
     saveName('');
   };
-
   const onChange = event => {
     saveSkill(event);
   };

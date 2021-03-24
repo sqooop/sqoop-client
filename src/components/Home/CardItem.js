@@ -58,7 +58,7 @@ const CardTemplateBlock = styled.div`
   width: 359px;
   height: 349px;
   display: block;
-  padding-top: 3px;
+  padding-top: 1px;
   &:hover {
     background-color: ${palette.grey01};
     cursor: pointer;
