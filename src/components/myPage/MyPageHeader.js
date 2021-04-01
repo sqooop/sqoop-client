@@ -39,12 +39,9 @@ const MyPageHeaderWrap = Styled.div`
     &--edit {
       width: 24px;
       height: 24px;
-<<<<<<< HEAD
-=======
       &:hover {
         cursor: pointer;
       }
->>>>>>> 2451068b34357ce8ce7456a47d60c72242cb6ac6
     }
 }
 
