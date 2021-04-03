@@ -10,30 +10,22 @@ import Privacy from '../../components/myPage/settings/Privacy';
 import Terms from '../../components/myPage/settings/Terms';
 import { setStatus } from '../../store/modules/settings/status';
 const SettingsWrap = Styled.div`
-  background: green;
   padding-left: 25.463vw;
   height: 560px;
   top: 0;
   .footer {
-    width: 730px;
+//    width: 730px;
     font-size: 14px;
     margin: 0 auto;
     margin-bottom: 40px;
   }
   .logout {
-    margin-top: 300px;
-   margin-bottom: 12px;
+    margin-top: 218px;
   }
 
 `;
-const MaterialBox = Styled.div`
-top: 0;
-background: skyblue;
-  width: 120px;
-  height: 244px;
-`;
+
 const OneDiv = Styled.div`
-  background: pink;
   background: none;
   border: none;
   margin-bottom: 20px;
@@ -48,7 +40,6 @@ const OneDiv = Styled.div`
   color: ${props => props.color};
 `;
 const NavbarWrap = Styled.div`
-  background: yellow;
   float: left;
   display: inline-block;
   width: 130px;
@@ -57,15 +48,20 @@ const NavbarWrap = Styled.div`
   justify-content: space-around;
 `;
 const MaterialWrap = Styled.div`
-  background: ivory;
-  width: 603px;
-  margin-left: 150px;
+  width: 600px;
+  margin-left: 79px;
 `;
 const ScrollWrapper = Styled.div`
-  background: blue;
-  width: 603px;
+  width: 800px;
   margin-left: 
   display: flex;
+  height: 560px;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
   
 `;
 
@@ -122,6 +118,9 @@ const Settings = ({ history }) => {
           >
             계정 삭제
           </OneDiv>
+          <div className="footer">
+            <div className="logout">로그아웃</div>
+          </div>
         </NavbarWrap>
         <ScrollWrapper>
           <MaterialWrap>
@@ -132,10 +131,6 @@ const Settings = ({ history }) => {
             {status === '이용약관' ? <Terms /> : <></>}
           </MaterialWrap>
         </ScrollWrapper>
-
-        <div className="footer">
-          <div className="logout">로그아웃</div>
-        </div>
       </SettingsWrap>
     </>
   );
