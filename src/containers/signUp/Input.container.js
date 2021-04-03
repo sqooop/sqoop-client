@@ -80,7 +80,7 @@ const InputContainer = () => {
     const test = value.search(
       /[a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi,
     );
-    if (test === -1) {
+    if (test === -1 && value.length <= 11) {
       savePhone(value);
     }
     savePhoneWarning('');
