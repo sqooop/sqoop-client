@@ -6,7 +6,7 @@ import {
   getCheckPassword,
   postDeleteAccount,
 } from '../../../lib/api/deleteAccount';
-import { ReactComponent as DeleteConfirm } from '../../../assets/icons/DeleteConfirm.svg';
+import DeleteButton from './Button';
 
 const DeleteData = ({ history }) => {
   const [userName, setUserName] = useState('');
@@ -88,9 +88,20 @@ const DeleteData = ({ history }) => {
           <Error>{passwordError}</Error>
         </div>
       </div>
-      <Button onClick={onClickCheck}>
-        <DeleteConfirm />
-      </Button>
+      {passwordData.length > 0 ? (
+        <DeleteButton
+          backgroundColor="#195BFF"
+          isAble={true}
+          onClick={onClickCheck}
+        />
+      ) : (
+        <DeleteButton
+          backgroundColor="#A5A5A5"
+          color="white"
+          border="none"
+          isAble={false}
+        />
+      )}
       <>
         <ModalBackgorundWrap visible={submitModal} />
         <ModalWrap visible={submitModal}>
@@ -169,21 +180,6 @@ const Error = styled.div`
   font-weight: normal;
   font-size: 10px;
   color: #ff1919;
-`;
-
-const Button = styled.div`
-  position: fixed;
-  right: 14.2969vw;
-  bottom: 6.6667vh;
-
-  :hover {
-    path {
-      fill: #195bff;
-    }
-
-    border-color: #195bff;
-    background-color: white;
-  }
 `;
 
 const ModalBackgorundWrap = styled.div`
