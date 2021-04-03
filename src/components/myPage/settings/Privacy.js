@@ -1,10 +1,14 @@
 import React from 'react';
 import Styled from 'styled-components';
 
+const Container = Styled.div`
+
+`;
+
 const SubTitle = Styled.div`
     font-weight: bold;
-    
-    `;
+`;
+
 const MaterialBox = Styled.div`
     .i{
       margin-left: 1em;
@@ -15,10 +19,20 @@ const MaterialBox = Styled.div`
     .iii{
       margin-left: 3em;
     }
+    .ti{
+      margin-left: 24px;
+    }
+    .tii{
+      margin-left: 52px;
+    }
+    .tti{
+      margin-left: 38px;
+    }
 `;
+
 const Privacy = () => {
   return (
-    <>
+    <Container>
       <SubTitle>개인정보 수집 및 이용</SubTitle>
       <br />
       sqoop (이하 '회사')은 당사에서 운영하는 sqoop 사이트 (https://sqoop.co.kr
@@ -32,9 +46,13 @@ const Privacy = () => {
         1. 개인정보 수집에 대한 동의
         <div className="i">
           - 회사는 이용자들이 회사의 개인정보 취급방침 또는 이용약관의 내용에
-          대하여 「동의」버튼을 클릭할 수 있는 절차를 마련하여, 「동의」버튼을
-          클릭하면 개인정보 수집에 대해 동의한 것으로 봅니다.
+          대하여 「동의」버튼을 클릭할 수 있는
         </div>
+        <div className="ti">
+          절차를 마련하여, 「동의」버튼을 클릭하면 개인정보 수집에 대해 동의한
+          것으로 봅니다.
+        </div>
+        <div className="i"></div>
         <br />
         2. 수집 및 이용목적
         <div className="i">
@@ -42,15 +60,17 @@ const Privacy = () => {
         </div>
         <div className="i">
           - 회원제 서비스이용에 따른 회원(사용자) 인증 및 양질의 서비스 제공을
-          위한 고객문의 응답, 새로운 정보소개 및 고지사항 전달
+          위한 고객문의 응답, 새로운 정보소
         </div>
+        <div className="ti">개 및 고지사항 전달</div>
         <div className="i">
           - 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금정산
         </div>
         <div className="i">
           - 본인인증, 컨텐츠 제공을 위한 개인식별, 구매 및 요금 결제, 물품 및
-          증빙발송, 부정 이용방지와 비인가 사용 방지
+          증빙발송, 부정 이용방지와 비인가 사
         </div>
+        <div className="ti">용 방지</div>
         <br />
         3. 수집항목
         <br />
@@ -68,12 +88,15 @@ const Privacy = () => {
           - IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
         </div>
         <div className="ii"> 3. 허위 정보 입력 시 회사의 조치 </div>
-        <p className="iii">
+        <div className="iii">
           - 고객은 자신의 정보에 대해 정확성 및 적법성을 보장해야 합니다. 만약
-          이를 위반하여 타인의 정보를 도 용 하는 등 각종 방법으로 허위 정보를
-          입력할 경우 회사는 해당 고객을 관계법령에 따라 신고할 수 있으 며 강제
-          탈퇴를 시킬 수도 있습니다.
-        </p>
+          이를 위반하여 타인의 정보를
+        </div>
+        <div className="tii">
+          도용 하는 등 각종 방법으로 허위 정보를 입력할 경우 회사는 해당 고객을
+          관계법령에 따라 신고할 수 있으며 강제 탈퇴를 시킬 수도 있습니다.
+        </div>
+        <div className="tii"></div>
         4. 개인정보 수집방법
         <br />
         <p className="i">
@@ -83,18 +106,23 @@ const Privacy = () => {
         5. 개인정보의 보유 및 이용기간
         <div className="i">
           - "회사"는 회원가입일로부터 서비스를 제공하는 기간 동안에 한하여
-          이용자의 개인정보를 보유 및 이용하게 됩니다. 회원탈퇴를 요청하거나
-          개인정보의 수집 및 이용에 대한 동의를 철회하는 경우, 수집 및
-          이용목적이 달성되거나 이용기간이 종료한 경우 개인정보를 지체 없이
-          파기합니다.단, 다음의 경우에 대해서는 각각 명 시한 이유와 기간 동안
-          보존합니다.
+          이용자의 개인정보를 보유 및 이용하게
+        </div>
+        <div className="ti">
+          됩니다. 회원탈퇴를 요청하거나 개인정보의 수집 및 이용에 대한 동의를
+          철회하는 경우, 수집 및 이용목적이 달성되거나 이용기간이 종료한 경우
+          개인정보를 지체 없이 파기합니다.단, 다음의 경우에 대해서는 각각 명시한
+          이유와 기간 동안 보존합니다.
         </div>
         <div className="i">
           - 상법 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 법령에서
-          규정한 보존기간 동안 거래내역과 최 소한의 기본정보를 보유합니다. 이
-          경우 회사는 보관하는 정보를 그 보관의 목적으로만 이용합니다.
+          규정한 보존기간 동안 거래내역과 최
         </div>{' '}
-        <div className="ii">- 계약 또는 청약철회 등에 관한 기록: 5년</div>
+        <div className="ti">
+          소한의 기본정보를 보유합니다. 이 경우 회사는 보관하는 정보를 그 보관의
+          목적으로만 이용합니다.
+        </div>
+        <div className="ii">- 계약 또는 청약철회 등에 관한88 기록: 5년</div>
         <div className="ii">- 대금결제 및 재화 등의 공급에 관한 기록: 5년</div>
         <div className="ii">- 소비자의 불만 또는 분쟁처리에 관한 기록: 3년</div>
         <div className="ii">- 부정이용 등에 관한 기록: 5년</div>
@@ -105,16 +133,20 @@ const Privacy = () => {
         6. 개인정보 파기절차 및 파기방법
         <div className="i">
           - 이용자의 개인정보는 원칙적으로 개인정보의 수집 및 이용목적이
-          달성되면 지체 없이 파기합니다. "회사"의 개인정보 파기절차 및 방법은
-          다음과 같습니다.
+          달성되면 지체 없이 파기합니다. "회
+        </div>
+        <div className="ti">
+          사"의 개인정보 파기절차 및 방법은 다음과 같습니다.
         </div>
         <div className="i">- 파기절차</div>
         <div className="ii">
           - 이용자가 회원가입 등을 위해 입력한 정보는 목적이 달성된 후 별도의
-          DB로 옮겨져 (종이의 경우 별도의 서류함) 내부 방침 및 기타 관련법령에
-          의해 정보보호 사유에 따라 일정 기간 저장된 후 파기됩니다.별도 DB로
-          옮겨진 개인정보는 법률에 의한 경우가 아니고서는 다른목적으로 이용되지
-          않습니다.
+          DB로 옮겨져 (종이의 경우 별도의
+        </div>
+        <div className="tti">
+          서류함) 내부 방침 및 기타 관련법령에 의해 정보보호 사유에 따라 일정
+          기간 저장된 후 파기됩니다.별도 DB로 옮겨진 개인정보는 법률에 의한
+          경우가 아니고서는 다른목적으로 이용되지 않습니다.
         </div>
         <div className="i"> -파기방법</div>
         <div className="ii">
@@ -230,7 +262,7 @@ const Privacy = () => {
           - 경찰청 사이버안전국 전화:182 / https://cyberbureau.police.go.kr
         </div>
       </MaterialBox>
-    </>
+    </Container>
   );
 };
 
