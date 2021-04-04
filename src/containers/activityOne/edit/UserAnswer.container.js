@@ -28,7 +28,14 @@ const UserAnswerContainer = () => {
         question={question[1]}
         index={order[1]}
         onChange={evt => {
+          const text = evt.target.value;
           saveUseranswer(evt.target.value, 1);
+
+          if (text.length > 1000) {
+            const slicedText = text.slice(0, 1000);
+            saveUseranswer(slicedText, 1);
+            alert('글자수 제한을 초과했습니다.');
+          }
         }}
       />
       <UserEdit
@@ -36,7 +43,14 @@ const UserAnswerContainer = () => {
         question={question[2]}
         index={order[2]}
         onChange={evt => {
+          const text = evt.target.value;
           saveUseranswer(evt.target.value, 2);
+
+          if (text.length > 1000) {
+            const slicedText = text.slice(0, 1000);
+            saveUseranswer(slicedText, 2);
+            alert('글자수 제한을 초과했습니다.');
+          }
         }}
       />
       <UserEdit
@@ -44,7 +58,14 @@ const UserAnswerContainer = () => {
         question={question[3]}
         index={order[3]}
         onChange={evt => {
+          const text = evt.target.value;
           saveUseranswer(evt.target.value, 3);
+
+          if (text.length > 1000) {
+            const slicedText = text.slice(0, 1000);
+            saveUseranswer(slicedText, 3);
+            alert('글자수 제한을 초과했습니다.');
+          }
         }}
       />
       <UserEdit
@@ -52,7 +73,14 @@ const UserAnswerContainer = () => {
         question={question[4]}
         index={order[4]}
         onChange={evt => {
+          const text = evt.target.value;
           saveUseranswer(evt.target.value, 4);
+
+          if (text.length > 1000) {
+            const slicedText = text.slice(0, 1000);
+            saveUseranswer(slicedText, 4);
+            alert('글자수 제한을 초과했습니다.');
+          }
         }}
       />
       <UserEdit
@@ -60,7 +88,14 @@ const UserAnswerContainer = () => {
         question={question[5]}
         index={order[5]}
         onChange={evt => {
+          const text = evt.target.value;
           saveUseranswer(evt.target.value, 5);
+
+          if (text.length > 1000) {
+            const slicedText = text.slice(0, 1000);
+            saveUseranswer(slicedText, 5);
+            alert('글자수 제한을 초과했습니다.');
+          }
         }}
       />
       <UserEdit
@@ -68,7 +103,14 @@ const UserAnswerContainer = () => {
         question={question[6]}
         index={order[6]}
         onChange={evt => {
+          const text = evt.target.value;
           saveUseranswer(evt.target.value, 6);
+
+          if (text.length > 1000) {
+            const slicedText = text.slice(0, 1000);
+            saveUseranswer(slicedText, 6);
+            alert('글자수 제한을 초과했습니다.');
+          }
         }}
       />
       <UserEdit
@@ -76,7 +118,14 @@ const UserAnswerContainer = () => {
         question={question[7]}
         index={order[7]}
         onChange={evt => {
+          const text = evt.target.value;
           saveUseranswer(evt.target.value, 7);
+
+          if (text.length > 1000) {
+            const slicedText = text.slice(0, 1000);
+            saveUseranswer(slicedText, 7);
+            alert('글자수 제한을 초과했습니다.');
+          }
         }}
       />
       <UserEdit
@@ -84,7 +133,14 @@ const UserAnswerContainer = () => {
         question={question[8]}
         index={order[8]}
         onChange={evt => {
+          const text = evt.target.value;
           saveUseranswer(evt.target.value, 8);
+
+          if (text.length > 1000) {
+            const slicedText = text.slice(0, 1000);
+            saveUseranswer(slicedText, 8);
+            alert('글자수 제한을 초과했습니다.');
+          }
         }}
       />
       <UserEdit
@@ -92,7 +148,14 @@ const UserAnswerContainer = () => {
         question={question[9]}
         index={order[9]}
         onChange={evt => {
+          const text = evt.target.value;
           saveUseranswer(evt.target.value, 9);
+
+          if (text.length > 1000) {
+            const slicedText = text.slice(0, 1000);
+            saveUseranswer(slicedText, 9);
+            alert('글자수 제한을 초과했습니다.');
+          }
         }}
       />
       <UserEdit
@@ -100,7 +163,14 @@ const UserAnswerContainer = () => {
         question={question[10]}
         index={order[10]}
         onChange={evt => {
+          const text = evt.target.value;
           saveUseranswer(evt.target.value, 10);
+
+          if (text.length > 1000) {
+            const slicedText = text.slice(0, 1000);
+            saveUseranswer(slicedText, 10);
+            alert('글자수 제한을 초과했습니다.');
+          }
         }}
       />
     </StyledAnswer>

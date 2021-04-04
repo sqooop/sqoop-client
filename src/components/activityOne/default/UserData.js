@@ -37,23 +37,22 @@ const StyledUserData = styled.div`
 `;
 
 const StyledQuestionData = styled.div`
-  margin-bottom: 0.9vw;
+  margin-bottom: 12px;
   font-size: 1vw;
   font-weight: 700 !important;
-  line-height: 150%;
 `;
 
 const StyledAnswerData = styled.div`
+  margin-bottom: 35px;
+
   .AnswerData {
     width: 43.3vw;
     padding-left: 8px;
     font-size: 0.8vw;
     font-weight: 400 !important;
-    line-height: 150%;
     border: none;
     outline: none;
     resize: none;
-    margin-bottom: 2.5vw;
   }
 `;
 
