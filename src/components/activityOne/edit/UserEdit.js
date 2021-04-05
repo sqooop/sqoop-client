@@ -86,7 +86,6 @@ const StyledAnswerData = styled.div`
 
 const StyledHoverData = styled.div`
   margin-bottom: 12px;
-  background-color: yellow;
 
   .AnswerData {
     width: 43.3vw;

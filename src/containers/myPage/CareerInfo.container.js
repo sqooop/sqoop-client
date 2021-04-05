@@ -21,7 +21,7 @@ const InterestInfoContainer = () => {
   useEffect(() => {
     (async () => {
       const myPageData = await getMyPageData();
-      console.log(myPageData);
+      // console.log(myPageData);
       saveLangHistory(myPageData.LangHistory);
       saveCertificateHistory(myPageData.CertificateHistory);
       saveAwardHistory(myPageData.AwardHistory);

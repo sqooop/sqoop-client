@@ -4,7 +4,7 @@ import 'antd/dist/antd.css';
 
 const TagRender = props => {
   const { label, closable, onClose } = props;
-  console.log(label);
+  // console.log(label);
   return (
     <Tag
       color={'#195BFF'}
