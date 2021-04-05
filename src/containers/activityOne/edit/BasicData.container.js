@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import PhotoUpload from './Image.container';
@@ -12,6 +12,16 @@ import FileUpload from './File.container';
 
 const BasicDataContainer = () => {
   const detail = useSelector(state => state.detail);
+
+  const [hoverItem, setHoverItem] = useState(true);
+
+  const hoverBackground = event => {
+    setHoverItem(false);
+  };
+
+  const unhoverBackground = event => {
+    setHoverItem(true);
+  };
 
   return (
     <StyledBasicData>
@@ -42,9 +52,30 @@ const BasicDataContainer = () => {
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="파일 첨부" />
-        <StyledBasic style={{ height: '1.6vw', cursor: 'pointer' }}>
-          <FileUpload />
-        </StyledBasic>
+        {hoverItem === true ? (
+          <StyledBasic
+            onMouseEnter={hoverBackground}
+            onMouseLeave={unhoverBackground}
+            style={{
+              height: '1.6vw',
+              cursor: 'pointer',
+            }}
+          >
+            <FileUpload />
+          </StyledBasic>
+        ) : (
+          <StyledBasic
+            onMouseEnter={hoverBackground}
+            onMouseLeave={unhoverBackground}
+            style={{
+              height: '1.6vw',
+              cursor: 'pointer',
+              backgroundColor: '#eeeeee',
+            }}
+          >
+            <FileUpload />
+          </StyledBasic>
+        )}
       </StyledContentWrap>
       <StyledContentWrap>
         <EditList text="한 줄 설명" />

@@ -24,7 +24,21 @@ const FileContainer = () => {
     }
     saveFile(file);
   };
-  return <File onChange={onChange} previewFile={previewFile} />;
+
+  const onClick = event => {
+    event.preventDefault();
+
+    onDelete();
+  };
+
+  const onDelete = () => {
+    saveFilename('');
+    saveFile('');
+  };
+
+  return (
+    <File onChange={onChange} previewFile={previewFile} onClick={onClick} />
+  );
 };
 
 export default FileContainer;
