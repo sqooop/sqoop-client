@@ -11,17 +11,16 @@ const SaveButtonWrap = Styled.div`
     box-sizing: border-box;
     width: 14.9rem;
     height: 4.8rem;
-    margin-right: 1.2rem;
-    padding-left: 3.2rem;
     font-weight: bold;
     font-size: 1.6rem;
     color: white;
     float: right;
+    padding-left: 1.5rem;
     border: 0.1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-
+    justify-content: center;
     &:focus {
       outline: none;
     }
@@ -80,7 +79,7 @@ const Button = ({ backgroundColor, color, onClick, border, isAble }) => {
           onMouseLeave={UnHovered}
         >
           {' '}
-          활동 저장
+          확인
           <img src={SaveIcon} alt="" />{' '}
         </button>
       ) : (
@@ -94,7 +93,7 @@ const Button = ({ backgroundColor, color, onClick, border, isAble }) => {
           onMouseLeave={Leaved}
         >
           {' '}
-          활동 저장
+          확인
           <img src={SaveIcon} alt="" />{' '}
         </button>
       )}
