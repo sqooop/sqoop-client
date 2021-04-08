@@ -9,6 +9,8 @@ const CareerContainerWrap = Styled.div`
       margin-left: 14px;
       display: grid;
       grid-template-columns: 1fr 1fr;
+      position: relative;
+      z-index: 2;
     }
   }
 
@@ -16,6 +18,8 @@ const CareerContainerWrap = Styled.div`
     box-sizing: border-box;
     width: 90px;
     display: inline-block;
+    position: relative;
+    z-index: 2;
   }
 
   .content {
@@ -27,6 +31,8 @@ const CareerContainerWrap = Styled.div`
     padding: 0;
     width: 200px;
     margin-right: 24px;
+    position: relative;
+    z-index: 2;
     &:focus {
       outline: none;
     }

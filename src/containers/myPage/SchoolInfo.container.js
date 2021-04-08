@@ -120,7 +120,7 @@ const SchoolInfoContainer = ({ match }) => {
               <div style={{ height: '36px', backgroundColor: 'white' }}></div>
             )}
             <SchoolInfo
-              key={edu.school}
+              key={index}
               index={index}
               school={edu.school}
               major={edu.major}

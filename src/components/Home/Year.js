@@ -173,8 +173,8 @@ const YearTemplate = styled.div`
 `;
 
 const StateWrapper = styled.div`
-  margin-left: 10px;
-  margin-right: 13px;
+  margin-left: 12px;
+  margin-right: 12px;
   flex: 1;
   font-weight: bold !important;
   font-size: 16px;
