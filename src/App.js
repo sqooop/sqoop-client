@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //import MainHeader from './components/common/MainHeader';
 import Home from './pages/home/home';
-import SignIn from './pages/signin/SignIn';
+import SignIn from './pages/signIn/SignIn';
 import SignUp from './pages/signUp/SignUp';
 import Notice from './pages/signUp/Notice';
 import Privacy from './pages/signUp/Privacy';

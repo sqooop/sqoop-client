@@ -64,7 +64,7 @@ const MyPageHeader = ({ history, match, profileColor, settingsColor }) => {
       </button>
       <button
         className="button--settings"
-        style={{ color: settingsColor }}
+        style={{ color: settingsColor, width: '90px' }}
         onClick={() => history.push('/mypage/settings')}
       >
         계정 설정

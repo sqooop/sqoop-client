@@ -15,6 +15,14 @@ const CareerInfoWrap = Styled.div`
   font-size: 14px;
   box-sizing: border-box;
 
+  .background {
+    position: absolute;
+    width: 730px;
+    height: 84px;
+    margin-top: 36px;
+    z-index: 1;
+  }
+
   .career {
     &--title {
       width: 730px;
@@ -24,6 +32,8 @@ const CareerInfoWrap = Styled.div`
 
       &__name {
         font-weight: bold;
+        position: relative;
+        z-index: 2;
       }
       &__empty {
         flex: 1;
@@ -52,10 +62,10 @@ const CareerInfo = ({ type, data, saveData, match }) => {
               src={Minus}
               alt=""
               onClick={() => {
-                // const newEducation = education.filter((edu, idx) => {
-                //   return idx !== schoolIndex;
-                // });
-                // saveEducation(newEducation);
+                const newCareer = data.filter((career, idx) => {
+                  return idx !== careerIndex;
+                });
+                saveData(newCareer);
               }}
             />
           ) : (
@@ -67,31 +77,49 @@ const CareerInfo = ({ type, data, saveData, match }) => {
             src={Plus}
             alt=""
             onClick={() => {
-              // console.log(data);
-              // saveData(
-              //   data.concat({
-              //     title: '',
-              //     date: '',
-              //     testName: '',
-              //     score: '',
-              //   }),
-              // );
+              console.log('data: ', data);
+              const typeNum = type === '어학' ? 1 : type === '자격증' ? 2 : 3;
+              const newData = data.concat({
+                title: '',
+                date: '',
+                testName: '',
+                score: '',
+                type: typeNum,
+              });
+              console.log('newData: ', newData);
+              saveData(newData);
             }}
           />
         )}
       </div>
       {data ? (
         data.map((career, index) => (
-          <CareerContainer
-            index={index}
-            key={career.title}
-            career={career}
-            type={type}
-            currentTarget={currentTarget}
-            setCurrentTarget={setCurrentTarget}
-            careerIndex={careerIndex}
-            setCareerIndex={setCareerIndex}
-          />
+          <>
+            <div
+              className="background"
+              onClick={() => {
+                isReadOnly
+                  ? setCurrentTarget('')
+                  : setCurrentTarget('deleteCareer');
+                setCareerIndex(index);
+              }}
+              style={
+                index === careerIndex && currentTarget === 'deleteCareer'
+                  ? { backgroundColor: '#EEEEEE' }
+                  : { backgroundColor: 'white' }
+              }
+            ></div>
+            <CareerContainer
+              index={index}
+              key={career.testName}
+              career={career}
+              type={type}
+              currentTarget={currentTarget}
+              setCurrentTarget={setCurrentTarget}
+              careerIndex={careerIndex}
+              setCareerIndex={setCareerIndex}
+            />
+          </>
         ))
       ) : (
         <CareerContainer
