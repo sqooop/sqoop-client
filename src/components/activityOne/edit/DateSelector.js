@@ -6,10 +6,10 @@ const { RangePicker } = DatePicker;
 const DateSelectorWrap = styled.div``;
 
 const StyledRangePicker = styled(RangePicker)`
-  height: 3rem;
+  height: 1.6vw;
   width: 18.8vw;
   border: none;
-  margin-top: 0.4vw;
+  padding: 0px !important;
 
   &:hover {
     background-color: #eeeeee !important;
@@ -24,6 +24,7 @@ const DateSelector = props => {
         suffixIcon=""
         placeholder={[startPlaceholer, endPlaceholer]}
         onChange={onChange}
+        style={{ fontSize: '1.1vw' }}
       />
     </DateSelectorWrap>
   );

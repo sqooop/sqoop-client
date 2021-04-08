@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Input from '../../containers/signUp/Input.container';
 import Button from '../../containers/signUp/Button.container';
 import Modal from '../../containers/signUp/Modal.container';
-import WarnMessage from '../../containers/signIn/WarnMessage.container';
 import Logo from '../../components/signIn/Logo';
 import Block from '../../components/signUp/Block';
 import { withRouter } from 'react-router-dom';

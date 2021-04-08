@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ActivityTemplateBlock = styled.div`
   margin-top: 100px;
-  right: 9.8rem;
+  right: 9rem;
   top: 1rem;
   height: 620px;
   position: absolute;

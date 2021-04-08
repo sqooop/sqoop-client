@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useEffect } from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import Title from '../../containers/createActivity/Title.container';
@@ -23,10 +23,10 @@ const ContentWrap = styled.div`
 `;
 const RightWrap = styled.div`
   padding-left: 8.2vw;
-  /* background-color: blue; */
   float: left;
 `;
 const LeftWrap = styled.div`
+  margin-top: 10px;
   float: left;
 `;
 const CreateActivity = () => {

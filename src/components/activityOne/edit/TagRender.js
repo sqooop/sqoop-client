@@ -4,6 +4,7 @@ import 'antd/dist/antd.css';
 
 const TagRender = props => {
   const { label, closable, onClose } = props;
+  // console.log(label);
   return (
     <Tag
       color={'#195BFF'}
@@ -11,7 +12,7 @@ const TagRender = props => {
       onClose={onClose}
       style={{ marginTop: 0 }}
     >
-      {label.length > 6 ? `${label.substring(0, 6)}...` : label}
+      {label.length > 4 ? `${label.substring(0, 4)}...` : label}
     </Tag>
   );
 };

@@ -15,25 +15,50 @@ ant-select-selector : padding-left가 태그랑 입력창 전체
  */
 
   .ant-select-selector {
-    padding-left: 0.6rem;
     border: none !important;
-    width: 18.8vw !important;
-    padding-top: 0rem !important;
-    margin-top: 0.4vw;
+    width: 18.8vw;
+    height: 1.6vw;
+    padding: 0px !important;
+    margin-top: 0rem !important;
+    font-size: 1.3rem;
 
     &:hover {
       background-color: #eeeeee !important;
     }
   }
 
+  .ant-select-selection-overflow {
+    margin: 0px !important;
+    padding: 0px !important;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .ant-select-selection-overflow-item {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+
   .ant-select-selection-search {
-    margin-left: -0.3rem !important;
+    /* margin-left: -0.3rem !important; */
   }
 
   .ant-select-selection-placeholder {
     right: 0rem !important;
     left: 0.8rem !important;
     color: #a5a5a5;
+  }
+
+  .ant-select-multiple.ant-select-show-arrow {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+
+  .ant-tag .ant-tag-has-color {
+    font-size: 1.3rem !important;
+    padding-left: 1rem !important;
   }
 `;
 
@@ -73,7 +98,7 @@ const TagSelector = props => {
               태그 생성 (최대 3개 선택)
             </span>
             {menu}
-            <Divider style={{ margin: '0.4rem 0' }} />
+            <Divider />
             <div
               style={{
                 display: 'flex',
@@ -112,7 +137,7 @@ const TagSelector = props => {
                   : true
                 : false
             }
-            style={{ fontSize: '1.4rem' }}
+            style={{ fontSize: '1.3rem' }}
           >
             {item}
           </Option>

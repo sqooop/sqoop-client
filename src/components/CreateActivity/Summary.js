@@ -8,6 +8,7 @@ const TextArea = styled.textarea`
   width: 20.156vw;
   height: 13.2rem;
   padding-left: 0.8rem;
+  padding-right: 0.8rem;
   padding-top: 0.5rem;
   resize: none;
   &:hover {

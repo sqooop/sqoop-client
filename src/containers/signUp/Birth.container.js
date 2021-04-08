@@ -39,6 +39,9 @@ const BirthContainer = () => {
         onChangeYear={onChangeYear}
         onChangeMonth={onChangeMonth}
         onChangeDay={onChangeDay}
+        year={year}
+        month={month}
+        day={day}
       />
     </>
   );
