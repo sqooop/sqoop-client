@@ -14,26 +14,29 @@ const FileContainer = () => {
 
   const onChange = e => {
     e.preventDefault();
+
     let reader = new FileReader();
     const file = e.target.files[0];
+
     if (file) {
       reader.readAsDataURL(file);
       saveFilename(file.name);
     } else {
       saveFilename(previewFile);
     }
+
     saveFile(file);
   };
 
   const onClick = event => {
     event.preventDefault();
 
-    onDelete();
-  };
-
-  const onDelete = () => {
     saveFilename('');
     saveFile('');
+
+    console.log(saveFilename);
+
+    console.log(previewFile);
   };
 
   return (

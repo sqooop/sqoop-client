@@ -16,7 +16,7 @@ const StyleDiv = styled.div`
   align-items: center;
   width: 6.3vw;
   height: 1.6vw;
-  font-size: 1.1vw !important;
+  font-size: 1vw !important;
 `;
 
 export default DefaultData;

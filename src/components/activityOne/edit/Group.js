@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TextInput = styled.input`
-  font-size: 1.1vw !important;
+  font-size: 1vw !important;
   border: none;
   outline: none;
   padding: 0px !important;

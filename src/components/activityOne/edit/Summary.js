@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TextArea = styled.textarea`
-  font-size: 1.1vw;
+  font-size: 1vw;
   border: none;
   outline: none;
   width: 18.8vw;
