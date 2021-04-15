@@ -8,13 +8,12 @@ import Button from './Button';
 import { setCardArray } from '../../store/modules/home';
 
 const MonthScrollWrapper = styled.div`
-  margin-top: 12px;
+  margin-top: 9px;
+  margin-left: 0;
+  text-align: left;
   display: block;
-  width: 50px;
+  width: 25px;
   height: 100%;
-  // background: ivory;
-  text-align: center;
-  //  background: skyblue;
 `;
 
 const MonthScroll = () => {

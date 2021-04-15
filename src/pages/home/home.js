@@ -11,8 +11,8 @@ import CardList from '../../components/home/CardList';
 import MainHeader from '../../components/common/MainHeader';
 
 const ScrollWrapper = styled.div`
-  display: flex;
-  width: 40px;
+  display: block;
+  width: 25px;
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -28,13 +28,6 @@ const CardScroll = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
-`;
-
-const MonthWrapper = styled.div`
-  margin-left: 32px;
-  height: 100%;
-  width: 47px;
-  display: flex;
 `;
 
 const GreetingWrap = styled.div`
@@ -59,12 +52,10 @@ const Home = match => {
       </GreetingWrap>
       <ActivityTemplate>
         <Year />
-        <MonthWrapper>
-          <ScrollWrapper>
-            <MonthScroll />
-          </ScrollWrapper>
-          <Line />
-        </MonthWrapper>
+        <ScrollWrapper>
+          <MonthScroll />
+        </ScrollWrapper>
+        <Line />
         <CardScroll>
           <CardList />
         </CardScroll>
