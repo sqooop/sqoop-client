@@ -9,7 +9,7 @@ const ButtonActiveWrap = Styled.div`
 text-align: center;
   margin: 0 auto;
   margin-top: 10px;
-  width: 40px;
+  width: 25px;
   height: 30px;
   font-size: 10px;
   font-weight: bold !important;

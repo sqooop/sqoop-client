@@ -10,9 +10,7 @@ const GroupContainer = () => {
   const group = useSelector(state => state.detail.detailGroup);
   const onChangeInputs = evt => {
     const value = evt.target.value;
-    if (value.length <= 18) {
-      saveGroup(value);
-    }
+    saveGroup(value);
   };
   return <Group onChangeInputs={onChangeInputs} text={group} />;
 };

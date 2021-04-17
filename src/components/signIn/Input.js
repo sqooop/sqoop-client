@@ -14,13 +14,16 @@ const StyledSpan = styled.span`
   margin-left: 2px;
   font-size: 12px;
   width: 92px;
-  width: 92px;
   display: inline-block;
 `;
 const StyledInput = styled.input`
   border: none;
   outline: none;
   font-size: 12px;
+  width: 240px;
+  ::placeholder {
+    color: #a5a5a5;
+  }
 `;
 const InputWrap = styled.div`
   margin: 0 auto;
@@ -34,7 +37,7 @@ const InputWrap = styled.div`
   }
 `;
 const Input = props => {
-  const { content, value, onChange } = props;
+  const { content, value, onChange, onKeyPress } = props;
   const onMouseDown = event => {
     event.target.parentNode.querySelector('input').type = 'text';
   };
@@ -46,13 +49,23 @@ const Input = props => {
       <StyledSpan>{content}</StyledSpan>
       {content === '비밀번호' || content === '비밀번호 확인' ? (
         <>
-          <StyledInput type="password" value={value} onChange={onChange} />
+          <StyledInput
+            type="password"
+            value={value}
+            onChange={onChange}
+            onKeyPress={onKeyPress}
+          />
           <ShowPassword onMouseDown={onMouseDown} onMouseUp={onMouseUp}>
             보기
           </ShowPassword>
         </>
       ) : (
-        <StyledInput type="text" value={value} onChange={onChange} />
+        <StyledInput
+          type="text"
+          value={value}
+          onChange={onChange}
+          placeholder={content === '휴대폰 번호' ? 'ex) 01012345678' : ''}
+        />
       )}
       <img
         style={{ marginTop: '0px', paddingTop: '0px' }}

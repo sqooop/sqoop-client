@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import inputLine from '../../assets/icons/InputLine.svg';
+import Close from '../../assets/icons/Close.svg';
 
 const ModalBackgorundWrap = styled.div`
   display: ${props => (props.visible ? 'block' : 'none')};
@@ -18,6 +19,7 @@ const ModalBackgorundWrap = styled.div`
 `;
 
 const ModalWrap = styled.div`
+  position: relative;
   display: ${props => (props.visible ? 'block' : 'none')};
   width: 52rem;
   height: 455px;
@@ -63,13 +65,27 @@ const ContentSpan = styled.span`
 const ListDiv = styled.div`
   margin-top: 32px;
 `;
-
+const Img = styled.img`
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  cursor: pointer;
+`;
 const Modal = props => {
-  const { visible, email, userName, birthday, phone, onClick } = props;
+  const {
+    visible,
+    email,
+    userName,
+    birthday,
+    phone,
+    onClick,
+    onClickClose,
+  } = props;
   return (
     <>
       <ModalBackgorundWrap visible={visible}></ModalBackgorundWrap>
       <ModalWrap visible={visible}>
+        <Img src={Close} alt="" onClick={onClickClose} />
         <ListDiv>
           <TitleSpan>이메일</TitleSpan>
           <ContentSpan>{email}</ContentSpan>

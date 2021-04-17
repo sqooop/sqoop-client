@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import NoImage from '../../../assets/icons/NoImage.svg';
 import { ReactComponent as ImageIcon } from '../../../assets/icons/PostImageIcon.svg';
