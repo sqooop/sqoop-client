@@ -27,7 +27,7 @@ align-items: center;
 
 const Button = ({ history }) => {
   const onClickFunc = () => {
-    history.push('/createActivity');
+    history.push('/create');
   };
   const hovered = event => {
     const image = event.target.querySelector('img');
@@ -56,7 +56,7 @@ const Button = ({ history }) => {
   return (
     <SaveButtonWrap>
       <AddButton
-        onClick={onClickFunc}
+        onClick={() => history.push('/create')}
         onMouseEnter={hovered}
         onMouseLeave={unhovered}
       >
@@ -75,4 +75,4 @@ const Button = ({ history }) => {
   );
 };
 
-export default Button;
+export default withRouter(Button);
