@@ -2,11 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import line from '../../assets/icons/Line 1.svg';
 const LineBlock = styled.div`
-  width: 30px;
+  width: 5px;
   top: 0;
   display: flex;
-  margin-left: 10px;
-  // background: pink;
+  margin-left: 27px;
 `;
 const Line = () => {
   return (

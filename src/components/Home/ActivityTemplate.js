@@ -8,7 +8,7 @@ const ActivityTemplateBlock = styled.div`
   height: 620px;
   position: absolute;
   display: flex;
-  width: 600px;
+  width: 614px;
   overflow: auto;
 `;
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import noImage from '../../assets/images/NoImage.svg';
 import palette from '../../lib/styles/palette';
@@ -55,19 +55,20 @@ const CardItem = ({ history, card }) => {
   );
 };
 const CardTemplateBlock = styled.div`
+  padding-top: 8px;
   width: 359px;
   height: 349px;
   display: block;
-  padding-top: 1px;
   &:hover {
     background-color: ${palette.grey01};
     cursor: pointer;
   }
 `;
 const ImageTemplate = styled.div`
+  margin-left: 8px;
+  display: inline-block;
   width: 343px;
   height: 195px;
-  margin: 8px 8px;
   img {
     object-fit: cover;
   }
@@ -75,26 +76,26 @@ const ImageTemplate = styled.div`
 const TitleTemplate = styled.div`
   width: 343px;
   height: 38px;
-  margin: 4px 8px;
+  margin: 4px 10px;
   font-size: 24px;
   font-weight: bold !important;
 `;
 const DateTemplate = styled.div`
   width: 343px;
   height: 20px;
-  margin: 4px 8px 6px 8px;
+  margin: 4px 10px 6px 10px;
   font-weight: normal;
 `;
 const JobTagTemplate = styled.div`
   // background: skyblue;
   width: 343px;
   height: 28px;
-  margin: 8px 8px 6px 8px;
+  margin: 8px 8px 6px 10px;
 `;
 const SkillTagTemplate = styled.div`
   // background: skyblue;
   width: 343px;
   height: 28px;
-  margin: 6px 8px 20px 8px;
+  margin: 6px 8px 20px 10px;
 `;
 export default withRouter(CardItem);
