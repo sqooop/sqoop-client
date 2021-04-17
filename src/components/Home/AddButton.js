@@ -8,46 +8,34 @@ import SaveIconBlue from '../../assets/icons/SaveIconBlue.svg';
 const AddButtonWrap = Styled.div`
   margin-left: 90px;
   margin-bottom: 53px;
-
   button {
     outline: none;
     border: none;
-    background: #195BFF;
+    background: white;
     width: 170px;
     height: 50px;
     color: white;
-    font-size: 16px;
-    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    &:hover{
-      background: ${palette.white};
-      color: ${palette.main};
-      border: solid 1px ${palette.main};
-      const icon= ${SaveIconBlue};
-      cursor: pointer;
-    }
+
   }
 
   img {
-    width: 24px;
-    height: 24px;
-    margin-left: 4px;
-    margin-right: 4px;
+    width: 160px;
+    height: 50px;
   } 
 `;
-const AddButton = ({ history }) => {
+const AddButton = ({ backgroundColor, color, onClick, border }) => {
   const hovered = event => {
     const img = event.target.querySelector('img');
     img && (img.src = SaveIconBlue);
     event.target.style.cssText = `
-    border: 1px solid ${palette.main};
-    background: ${palette.white};
+    border: 0.1rem solid #195BFF; 
+    background-color: white; 
+    color: #195BFF;
     cursor: pointer;
-    color: ${palette.main}
-    fill: ${palette.main}
     `;
   };
 
@@ -55,8 +43,9 @@ const AddButton = ({ history }) => {
     const img = event.target.querySelector('img');
     img && (img.src = SaveIcon);
     event.target.style.cssText = `
+    cursor: pointer;
     border: none;
-    background: ${palette.main};
+    background: #195BFF;
     color: white;
     `;
   };
@@ -64,14 +53,18 @@ const AddButton = ({ history }) => {
   return (
     <AddButtonWrap>
       <button
-        onClick={() => history.push('/create')}
+        style={{
+          backgroundColor: backgroundColor,
+          color: color,
+          border: border,
+        }}
+        onClick={onClick}
         onMouseEnter={hovered}
         onMouseLeave={unhovered}
       >
-        {''}
+        {' '}
         새 활동 추가
-        <img src={SaveIcon} alt="" />
-        {''}
+        <img src={SaveIcon} alt="" />{' '}
       </button>
     </AddButtonWrap>
   );

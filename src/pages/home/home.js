@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Greeting from '../../components/home/Greeting';
 import Question from '../../components/home/Question';
-import AddButton from '../../components/home/AddButton';
+import AddButton from '../../components/home/AddButtonn';
 import ActivityTemplate from '../../components/home/ActivityTemplate';
 import Year from '../../components/home/Year';
 import MonthScroll from '../../components/home/MonthScroll';

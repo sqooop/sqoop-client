@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import noImage from '../../assets/images/NoImage.svg';
 import palette from '../../lib/styles/palette';

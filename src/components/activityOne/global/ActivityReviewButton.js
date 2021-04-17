@@ -66,6 +66,7 @@ const ActivityReviewButton = ({ history }) => {
 };
 
 const StyledButton = styled.div`
+  background: pink;
   margin-top: 3.1vw;
   display: flex;
   justify-content: center;
@@ -73,6 +74,7 @@ const StyledButton = styled.div`
 `;
 
 const ReviewButton = styled.div`
+  background: blue;
   width: 13.5vw;
   height: 3.1vw;
   display: flex;
