@@ -68,8 +68,9 @@ export const setIntroduce = string => ({
 const initialState = {
   birthday: '20200101',
   phone: '',
-  email: '',
-  url: '',
+  profileEmail: '',
+  profileImg: '',
+  sns: '',
   education: '',
   jobBig: '',
   jobSmall: '',
@@ -90,10 +91,10 @@ export default function reducer(state = initialState, action) {
       state.phone = action.string;
       return state;
     case SET_EMAIL:
-      state.email = action.string;
+      state.profileEmail = action.string;
       return state;
     case SET_URL:
-      state.url = action.string;
+      state.sns = action.string;
       return state;
     case SET_EDUCATION:
       state.education = action.array;
