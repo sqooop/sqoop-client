@@ -8,7 +8,7 @@ const MyPageHeaderWrap = Styled.div`
   display: flex;
   flex-direction: row;
   width: 928px;
-  margin: 40px auto;
+  margin: 30px auto 40px auto;
   justify-content: center;
   align-items: center;
 

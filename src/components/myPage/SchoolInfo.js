@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import Styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 
@@ -54,6 +54,7 @@ const SchoolInfoWrap = Styled.div`
     width: 254px;
     border: none;
     position: relative;
+    text-align: left;
     z-index: 2;
     &:focus {
       outline: none;
@@ -101,6 +102,26 @@ const SchoolInfo = ({
   const [startMonth, setStartMonth] = useState(parseInt(startDate.slice(4, 6)));
   const [endYear, setEndYear] = useState(endDate.slice(0, 4));
   const [endMonth, setEndMonth] = useState(parseInt(endDate.slice(4, 6)));
+
+  useEffect(() => {
+    const fillZero = num => {
+      num = num + '';
+      if (num.length < 2) return '0' + num;
+      else return num;
+    };
+
+    const userInfo = {
+      school: userSchool,
+      major: userMajor,
+      startDate: startYear + fillZero(startMonth),
+      endDate: endYear + fillZero(endMonth),
+    };
+
+    const newEducation = education;
+    newEducation[index] = userInfo;
+    saveEducation(newEducation);
+    console.log(education);
+  }, [userSchool, userMajor, startYear, startMonth, endYear, endMonth]);
 
   return (
     <SchoolInfoWrap>

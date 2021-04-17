@@ -49,6 +49,7 @@ const MyPage = ({ history }) => {
             onClick={() => {
               sessionStorage.removeItem('token');
               history.push('/');
+              window.location.reload();
             }}
           >
             로그아웃

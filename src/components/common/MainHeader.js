@@ -12,6 +12,9 @@ const HeaderBlock = styled.div`
   margin: 0px 85px;
   padding: 8px 0px;
   justify-content: space-between;
+  img:hover {
+    cursor: pointer;
+  }
 `;
 
 const Wrapper = styled.div`

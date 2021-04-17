@@ -26,6 +26,7 @@ const CareerInfoWrap = Styled.div`
   .career {
     &--title {
       width: 730px;
+      height: 24px;
       display: flex;
       flex-direction: row;
       justify-content: left;
@@ -60,6 +61,7 @@ const CareerInfo = ({ type, data, saveData, match }) => {
             <img
               className="career--title__minus"
               src={Minus}
+              style={{ cursor: 'pointer' }}
               alt=""
               onClick={() => {
                 const newCareer = data.filter((career, idx) => {
@@ -69,15 +71,20 @@ const CareerInfo = ({ type, data, saveData, match }) => {
               }}
             />
           ) : (
-            <img className="career--title__minus" src={MinusOff} alt="" />
+            <img
+              className="career--title__minus"
+              src={MinusOff}
+              style={{ cursor: 'default' }}
+              alt=""
+            />
           ))}
         {isReadOnly || (
           <img
             className="career--title__plus"
             src={Plus}
+            style={{ cursor: 'pointer' }}
             alt=""
             onClick={() => {
-              console.log('data: ', data);
               const typeNum = type === '어학' ? 1 : type === '자격증' ? 2 : 3;
               const newData = data.concat({
                 title: '',
@@ -86,7 +93,6 @@ const CareerInfo = ({ type, data, saveData, match }) => {
                 score: '',
                 type: typeNum,
               });
-              console.log('newData: ', newData);
               saveData(newData);
             }}
           />

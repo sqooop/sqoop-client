@@ -19,6 +19,7 @@ const SchoolInfoContainerWrap = Styled.div`
     &--title {
       font-weight: bold;
       margin-bottom: 26px;
+      height: 24px;
       display: flex;
       justify-content: left;
       &__header {
@@ -83,6 +84,7 @@ const SchoolInfoContainer = ({ match }) => {
               <img
                 className="info--title__minus"
                 src={Minus}
+                style={{ cursor: 'pointer' }}
                 alt=""
                 onClick={() => {
                   const newEducation = education.filter((edu, idx) => {
@@ -92,12 +94,18 @@ const SchoolInfoContainer = ({ match }) => {
                 }}
               />
             ) : (
-              <img className="info--title__minus" src={MinusOff} alt="" />
+              <img
+                className="info--title__minus"
+                src={MinusOff}
+                style={{ cursor: 'default' }}
+                alt=""
+              />
             ))}
           {isReadOnly || (
             <img
               className="info--title__plus"
               src={Plus}
+              style={{ cursor: 'pointer' }}
               alt=""
               onClick={() => {
                 saveEducation(
