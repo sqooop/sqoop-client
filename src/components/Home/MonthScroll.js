@@ -8,7 +8,7 @@ import Button from './Button';
 import { setCardArray } from '../../store/modules/home';
 
 const MonthScrollWrapper = styled.div`
-  margin-top: 9px;
+  margin-top: 8px;
   margin-left: 0;
   text-align: left;
   display: block;

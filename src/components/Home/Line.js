@@ -4,6 +4,8 @@ import line from '../../assets/icons/Line 1.svg';
 const LineBlock = styled.div`
   width: 5px;
   top: 0;
+  height: 580px;
+  overflow: hidden;
   display: flex;
   margin-left: 27px;
 `;

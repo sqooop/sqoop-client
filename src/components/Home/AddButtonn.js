@@ -5,7 +5,7 @@ import SaveIcon from '../../assets/icons/SaveIconBlue.svg';
 import { withRouter } from 'react-router-dom';
 const SaveButtonWrap = Styled.div`
 margin-left: 90px;
-margin-bottom: 113px;
+margin-bottom: 53px;
   color: white;
   display: flex;
   align-items: center;
