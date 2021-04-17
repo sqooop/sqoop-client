@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Clip from '../../../assets/icons/Clip.svg';
+import Delete from '../../../assets/icons/DeleteFile.svg';
 
 const FileUpload = props => {
-  const { onChange, previewFile } = props;
+  const { onChange, previewFile, onClick } = props;
+
   const userFile = useSelector(state => state.detail.detailFilename);
 
   const previewFileArr = previewFile.split('.');
@@ -12,6 +14,18 @@ const FileUpload = props => {
 
   const fileArr = userFile.split('.');
   const fileExtension = fileArr[1];
+
+  const [hoverItem, setHoverItem] = useState(true);
+
+  const hoverBackground = event => {
+    setHoverItem(false);
+  };
+
+  const unhoverBackground = event => {
+    setHoverItem(true);
+  };
+
+  // console.log(fileArr);
 
   return (
     <div style={{ display: 'flex' }}>
@@ -21,28 +35,77 @@ const FileUpload = props => {
         name="FileUpload"
         onChange={onChange}
       />
-      <StyledFilePreview>
-        <label htmlFor="FileUpload">
-          {previewFile === null ? (
-            <div>
-              {fileArr[0].length > 12
-                ? `${fileArr[0].substring(0, 12)}...${fileExtension}`
-                : userFile}
-              <img src={Clip} alt="" />
-            </div>
-          ) : (
-            <div>
-              {previewFileArr[0].length > 12
-                ? `${previewFileArr[0].substring(
-                    0,
-                    12,
-                  )}...${previewFileExtension}`
-                : previewFile}
-              <img src={Clip} alt="" />
-            </div>
-          )}
-        </label>
-      </StyledFilePreview>
+      {hoverItem === true ? (
+        <StyledFilePreview>
+          <label htmlFor="FileUpload">
+            {previewFile === null ? (
+              <div>
+                {fileArr[0].length > 12
+                  ? `${fileArr[0].substring(0, 12)}...${fileExtension}`
+                  : userFile}
+                <img
+                  src={Clip}
+                  alt=""
+                  onMouseEnter={hoverBackground}
+                  onMouseLeave={unhoverBackground}
+                />
+              </div>
+            ) : (
+              <div>
+                {previewFileArr[0].length > 12
+                  ? `${previewFileArr[0].substring(
+                      0,
+                      12,
+                    )}...${previewFileExtension}`
+                  : previewFile}
+                <img
+                  src={Clip}
+                  alt=""
+                  onMouseEnter={hoverBackground}
+                  onMouseLeave={unhoverBackground}
+                />
+              </div>
+            )}
+          </label>
+        </StyledFilePreview>
+      ) : (
+        <StyledFilePreview>
+          <label htmlFor="FileUpload">
+            {previewFile === null ? (
+              <div>
+                {fileArr[0].length > 12
+                  ? `${fileArr[0].substring(0, 12)}...${fileExtension}`
+                  : userFile}
+                <img
+                  src={Delete}
+                  alt=""
+                  onClick={onClick}
+                  style={{ zIndex: '10' }}
+                  onMouseEnter={hoverBackground}
+                  onMouseLeave={unhoverBackground}
+                />
+              </div>
+            ) : (
+              <div>
+                {previewFileArr[0].length > 12
+                  ? `${previewFileArr[0].substring(
+                      0,
+                      12,
+                    )}...${previewFileExtension}`
+                  : previewFile}
+                <img
+                  src={Delete}
+                  alt=""
+                  onClick={onClick}
+                  style={{ zIndex: '10' }}
+                  onMouseEnter={hoverBackground}
+                  onMouseLeave={unhoverBackground}
+                />
+              </div>
+            )}
+          </label>
+        </StyledFilePreview>
+      )}
     </div>
   );
 };

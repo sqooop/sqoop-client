@@ -48,7 +48,6 @@ const MyPage = ({ history }) => {
             className="logout"
             onClick={() => {
               sessionStorage.removeItem('token');
-              window.history.replaceState(null, null, '/');
               history.push('/');
             }}
           >

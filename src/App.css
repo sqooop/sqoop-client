@@ -2,18 +2,21 @@
   font-family: 'Noto Sans CJK KR';
   font-style: normal;
   font-weight: normal;
-  src: url('./font/NotoSansKR-Regular.otf') format('otf');
+  src: url('./font/NotoSansCJKkr-Regular.otf') format('otf');
 }
 
 @font-face {
   font-family: 'Noto Sans CJK KR';
   font-style: normal;
   font-weight: bold;
-  src: url('./font/NotoSansKR-Bold.otf') format('otf');
+  src: url('./font/NotoSansCJKkr-Bold.otf') format('otf');
 }
 
 html {
   font-size: 10px;
+}
+
+body {
   font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: normal;
