@@ -25,7 +25,8 @@ const FileUpload = props => {
     setHoverItem(true);
   };
 
-  // console.log(fileArr);
+  // console.log(previewFile);
+  // console.log(userFile);
 
   return (
     <div style={{ display: 'flex' }}>
@@ -38,7 +39,8 @@ const FileUpload = props => {
       {hoverItem === true ? (
         <StyledFilePreview>
           <label htmlFor="FileUpload">
-            {previewFile === null ? (
+            {/* previewFile === null && userFile === null */}
+            {previewFile === '' ? (
               <div>
                 {fileArr[0].length > 12
                   ? `${fileArr[0].substring(0, 12)}...${fileExtension}`
@@ -71,7 +73,19 @@ const FileUpload = props => {
       ) : (
         <StyledFilePreview>
           <label htmlFor="FileUpload">
-            {previewFile === null ? (
+            {userFile === '' && previewFile === '' ? (
+              <div>
+                {fileArr[0].length > 12
+                  ? `${fileArr[0].substring(0, 12)}...${fileExtension}`
+                  : userFile}
+                <img
+                  src={Clip}
+                  alt=""
+                  onMouseEnter={hoverBackground}
+                  onMouseLeave={unhoverBackground}
+                />
+              </div>
+            ) : previewFile === '' ? (
               <div>
                 {fileArr[0].length > 12
                   ? `${fileArr[0].substring(0, 12)}...${fileExtension}`

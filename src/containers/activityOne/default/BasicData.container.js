@@ -122,7 +122,7 @@ const StyledContentWrap = styled.div`
 const StyledBasic = styled.div`
   width: 18.8vw;
   height: 1.6vw;
-  font-size: 1.1vw !important;
+  font-size: 1vw !important;
   font-weight: 400;
   display: flex;
   align-items: center;
