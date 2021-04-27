@@ -134,11 +134,12 @@ const Year = ({ background, border, onClick }) => {
 };
 
 const YearTemplate = styled.div`
+  margin-right: 45px;
   position: relative;
+  margin-left: 0;
+  padding-left: 0;
   width: 109px;
   display: flex;
-
-  margin: 0 auto;
 
   .button {
     display: flex;
