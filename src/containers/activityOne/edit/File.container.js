@@ -4,12 +4,14 @@ import {
   setDetailFile,
   setDetailFilename,
 } from '../../../store/modules/detail';
+import { setPreviewFile } from '../../../store/modules/preview';
 import File from '../../../components/activityOne/edit/FileUpload';
 
 const FileContainer = () => {
   const dispatch = useDispatch();
   const saveFile = data => dispatch(setDetailFile(data));
   const saveFilename = data => dispatch(setDetailFilename(data));
+  const savePreviewFile = data => dispatch(setPreviewFile(data));
   const previewFile = useSelector(state => state.detail.detailFilename);
 
   const onChange = e => {
@@ -33,10 +35,7 @@ const FileContainer = () => {
 
     saveFilename('');
     saveFile('');
-
-    console.log(saveFilename);
-
-    console.log(previewFile);
+    savePreviewFile('');
   };
 
   return (
