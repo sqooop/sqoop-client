@@ -24,7 +24,7 @@ const DateSelector = props => {
         suffixIcon=""
         placeholder={[startPlaceholer, endPlaceholer]}
         onChange={onChange}
-        style={{ fontSize: '1.1vw' }}
+        style={{ fontSize: '1vw' }}
       />
     </DateSelectorWrap>
   );
