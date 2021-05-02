@@ -1,6 +1,6 @@
 import axios from 'axios';
 const instance = axios.create({
-  baseURL: 'https://sqoop.ga/',
+  baseURL: 'https://sqoop.kro.kr/',
   timeout: 1000,
 });
 instance.defaults.headers.common = {

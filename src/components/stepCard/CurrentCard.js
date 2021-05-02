@@ -154,27 +154,35 @@ const CurrentCard = ({
   };
 
   const hovered = event => {
-    const image = event.target.querySelector('img');
-    image && (image.src = SaveIconOnHover);
-    image && (image.style.border = 'none');
     event.target.style.cssText = `
       border: 1px solid #195BFF; 
       background-color: white; 
       color: #195BFF;
       cursor: pointer;
     `;
+
+    const image = event.target.querySelector('img');
+    if (image) {
+      image.src = SaveIconOnHover;
+      image.style.border = 'none';
+      image.style.cursor = 'pointer';
+    }
   };
 
   const unhovered = event => {
-    const image = event.target.querySelector('img');
-    image && (image.src = SaveIconOn);
-    image && (image.style.border = 'none');
     event.target.style.cssText = `
       border: none;
       background-color: #195BFF;
       color: white;
       cursor: default;
     `;
+
+    const image = event.target.querySelector('img');
+    if (image) {
+      image.src = SaveIconOn;
+      image.style.border = 'none';
+      image.style.cursor = 'default';
+    }
   };
 
   return (

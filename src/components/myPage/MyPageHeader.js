@@ -8,7 +8,7 @@ const MyPageHeaderWrap = Styled.div`
   display: flex;
   flex-direction: row;
   width: 928px;
-  margin: 40px auto;
+  margin: 30px auto 40px auto;
   justify-content: center;
   align-items: center;
 
@@ -50,7 +50,13 @@ const MyPageHeaderWrap = Styled.div`
 }
 `;
 
-const MyPageHeader = ({ history, match, profileColor, settingsColor }) => {
+const MyPageHeader = ({
+  history,
+  match,
+  profileColor,
+  settingsColor,
+  setSaved,
+}) => {
   const mode = match.path === '/mypage/profile' ? 'readOnly' : 'edit';
 
   return (
@@ -83,7 +89,10 @@ const MyPageHeader = ({ history, match, profileColor, settingsColor }) => {
           className="button--edit"
           src={Save}
           alt=""
-          onClick={() => history.push('/mypage/profile')}
+          onClick={() => {
+            history.push('/mypage/profile');
+            setSaved(true);
+          }}
         />
       )}
     </MyPageHeaderWrap>

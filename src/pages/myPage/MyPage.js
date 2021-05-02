@@ -1,5 +1,5 @@
 import React from 'react';
-import MyPageHeader from '../../components/myPage/MyPageHeader';
+import MyPageHeaderContainer from '../../containers/myPage/MyPageHeader.container';
 import UserInfoContainer from '../../containers/myPage/UserInfo.container';
 import SchoolInfoContainer from '../../containers/myPage/SchoolInfo.container';
 import InterestInfoContainer from '../../containers/myPage/InterestInfo.container';
@@ -37,7 +37,7 @@ const MyPage = ({ history }) => {
     <>
       <MainHeader />
       <MyPageWrap>
-        <MyPageHeader profileColor={'black'} />
+        <MyPageHeaderContainer />
         <UserInfoContainer />
         <SchoolInfoContainer />
         <InterestInfoContainer />
@@ -49,6 +49,7 @@ const MyPage = ({ history }) => {
             onClick={() => {
               sessionStorage.removeItem('token');
               history.push('/');
+              window.location.reload();
             }}
           >
             로그아웃

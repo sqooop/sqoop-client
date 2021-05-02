@@ -55,9 +55,17 @@ const SaveButton = ({
         onMouseLeave={onMouseLeave}
       >
         {onClick ? (
-          <img src={SaveIconOn} style={{ border: 'none' }} alt="" />
+          <img
+            src={SaveIconOn}
+            style={{ border: 'none', backgroundColor: backgroundColor }}
+            alt=""
+          />
         ) : (
-          <img src={SaveIconOff} style={{ border: 'none' }} alt="" />
+          <img
+            src={SaveIconOff}
+            style={{ border: 'none', backgroundColor: backgroundColor }}
+            alt=""
+          />
         )}
         {text}
       </button>
