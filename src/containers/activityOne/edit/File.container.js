@@ -35,7 +35,6 @@ const FileContainer = () => {
 
     saveFilename('');
     saveFile('');
-    savePreviewFile('');
   };
 
   return (
