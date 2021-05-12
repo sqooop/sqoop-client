@@ -4,7 +4,6 @@ import Styled from 'styled-components';
 
 const ButtonWrap = Styled.div`
 //background: pink;
-text-align: left;
   margin: 0 auto;
   margin-top: 0px;
   width: 25px;
