@@ -23,7 +23,6 @@ const CurrentPasswrod = Styled.div`
   }
 `;
 
-
 const NewPassword = Styled.div`
   input {
     width: 266px;
