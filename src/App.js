@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-//import MainHeader from './components/common/MainHeader';
 import Home from './pages/home/home';
 import SignIn from './pages/signin/SignIn';
 import SignUp from './pages/signUp/SignUp';
@@ -20,10 +19,8 @@ import './App.css';
 function App() {
   const token = sessionStorage.getItem('token');
 
-  const onScrollHandle = e => {};
-
   return (
-    <div className="App" onScroll={onScrollHandle} onWheel={onScrollHandle}>
+    <div className="App">
       <BrowserRouter>
         {token === null ? (
           <Switch>

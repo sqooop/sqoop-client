@@ -11,7 +11,7 @@ const MyPageHeaderContainer = () => {
     saved &&
       (async () => {
         const result = updateMyPageData(myPageData);
-        console.log(result);
+        // console.log(result);
         setSaved(false);
       })();
   });
