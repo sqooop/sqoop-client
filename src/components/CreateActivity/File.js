@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Clip from '../../assets/icons/Clip.svg';
+import Delete from '../../assets/icons/DeleteFile.svg';
 
 const FileUpload = props => {
-  const { onChange, previewFile } = props;
+  const { onChange, previewFile, onClick } = props;
 
   const previewFileArr = previewFile.split('.');
   const previewFileExtension = previewFileArr[1];
+
+  const [hoverItem, setHoverItem] = useState(true);
+
+  const hoverBackground = event => {
+    setHoverItem(false);
+  };
+
+  const unhoverBackground = event => {
+    setHoverItem(true);
+  };
 
   return (
     <>
@@ -16,25 +27,69 @@ const FileUpload = props => {
         name="FileUpload"
         onChange={onChange}
       />
-      <StyledFilePreview>
-        <label htmlFor="FileUpload">
-          {previewFile === null ? (
-            <span style={{ color: '#A5A5A5' }}>
-              활동 증빙 및 관련 자료 첨부 (doc, hwp, zip 등)
-            </span>
-          ) : (
-            <span>
-              {previewFileArr[0].length > 17
-                ? `${previewFileArr[0].substring(
-                    0,
-                    17,
-                  )}...${previewFileExtension}`
-                : previewFile}
-            </span>
-          )}
-          <img src={Clip} alt="" />
-        </label>
-      </StyledFilePreview>
+      {hoverItem === false ? (
+        <StyledFilePreview>
+          <label htmlFor="FileUpload">
+            {previewFile === '' ? (
+              <div>
+                <img
+                  src={Clip}
+                  alt=""
+                  onMouseEnter={hoverBackground}
+                  onMouseLeave={unhoverBackground}
+                />
+              </div>
+            ) : (
+              <div>
+                {previewFileArr[0].length > 17
+                  ? `${previewFileArr[0].substring(
+                      0,
+                      17,
+                    )}...${previewFileExtension}`
+                  : previewFile}
+                <img
+                  src={Delete}
+                  alt=""
+                  onClick={onClick}
+                  style={{ zIndex: '10' }}
+                  onMouseEnter={hoverBackground}
+                  onMouseLeave={unhoverBackground}
+                />
+              </div>
+            )}
+          </label>
+        </StyledFilePreview>
+      ) : (
+        <StyledFilePreview>
+          <label htmlFor="FileUpload">
+            {previewFile === '' ? (
+              <div>
+                <img
+                  src={Clip}
+                  alt=""
+                  onMouseEnter={hoverBackground}
+                  onMouseLeave={unhoverBackground}
+                />
+              </div>
+            ) : (
+              <div>
+                {previewFileArr[0].length > 17
+                  ? `${previewFileArr[0].substring(
+                      0,
+                      17,
+                    )}...${previewFileExtension}`
+                  : previewFile}
+                <img
+                  src={Clip}
+                  alt=""
+                  onMouseEnter={hoverBackground}
+                  onMouseLeave={unhoverBackground}
+                />
+              </div>
+            )}
+          </label>
+        </StyledFilePreview>
+      )}
     </>
   );
 };
