@@ -9,7 +9,7 @@ const UserInfoWrap = Styled.div`
   margin: 0 auto;
   flex-direction: row;
   align-items: center;
-
+  
   .user {
     &--photo {
       display: flex;
@@ -47,7 +47,7 @@ const UserInfoWrap = Styled.div`
     text-align: left;
   }
 
-  input[type="text"] {
+  input {
     width: 254px;
     border: none;
     &:focus {
@@ -57,15 +57,32 @@ const UserInfoWrap = Styled.div`
       color: #AAAAAA;
     }
   }
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
-const UserInfo = ({ userName, birthday, phone, email, url, match }) => {
+const UserInfo = ({
+  userName,
+  birthday,
+  phone,
+  email,
+  url,
+  savePhone,
+  saveEmail,
+  saveURL,
+  match,
+}) => {
+  const [currentTarget, setCurrentTarget] = useState('');
+  const [userPhone, setUserPhone] = useState(phone);
+  const [userEmail, setUserEmail] = useState(email);
+  const [userUrl, setUserUrl] = useState(url);
+
   const userBirthday = `${birthday.slice(0, 4)}년    ${parseInt(
     birthday.slice(4, 6),
   )}월    ${parseInt(birthday.slice(6, 8))}일`;
-  const userPhone = phone
-    ? `${phone.slice(0, 3)} - ${phone.slice(3, 7)} - ${phone.slice(7, 11)}`
-    : '';
   const isReadOnly = match.path === '/mypage/profile' ? true : false;
 
   return (
@@ -76,37 +93,73 @@ const UserInfo = ({ userName, birthday, phone, email, url, match }) => {
       <div className="user--info">
         <div className="user--info__name">
           <span className="title">이름</span>
-          <input type="text" value={userName} readOnly={isReadOnly} />
+          <input type="text" value={userName} readOnly={true} />
         </div>
         <div className="user--info__birth">
           <span className="title">생년월일</span>
-          <input type="text" value={userBirthday} readOnly={isReadOnly} />
+          <input type="text" value={userBirthday} readOnly={true} />
         </div>
         <div className="user--info__phone">
           <span className="title">전화번호</span>
           <input
-            type="text"
+            type="number"
             value={userPhone}
             placeholder="입력해주세요"
             readOnly={isReadOnly}
+            onChange={event => {
+              setUserPhone(event.target.value);
+              savePhone(event.target.value);
+            }}
+            onClick={() => {
+              isReadOnly ? setCurrentTarget('') : setCurrentTarget('phone');
+            }}
+            style={
+              currentTarget === 'phone'
+                ? { backgroundColor: '#EEEEEE' }
+                : { backgroundColor: 'white' }
+            }
           />
         </div>
         <div className="user--info__email">
           <span className="title">이메일</span>
           <input
             type="text"
-            value={email}
+            value={userEmail}
             placeholder="입력해주세요"
             readOnly={isReadOnly}
+            onChange={event => {
+              setUserEmail(event.target.value);
+              saveEmail(event.target.value);
+            }}
+            onClick={() => {
+              isReadOnly ? setCurrentTarget('') : setCurrentTarget('email');
+            }}
+            style={
+              currentTarget === 'email'
+                ? { backgroundColor: '#EEEEEE' }
+                : { backgroundColor: 'white' }
+            }
           />
         </div>
         <div className="user--info__url">
           <span className="title">URL</span>
           <input
             type="text"
-            value={url}
+            value={userUrl}
             placeholder="입력해주세요"
             readOnly={isReadOnly}
+            onChange={event => {
+              setUserUrl(event.target.value);
+              saveURL(event.target.value);
+            }}
+            onClick={() => {
+              isReadOnly ? setCurrentTarget('') : setCurrentTarget('url');
+            }}
+            style={
+              currentTarget === 'url'
+                ? { backgroundColor: '#EEEEEE' }
+                : { backgroundColor: 'white' }
+            }
           />
         </div>
       </div>

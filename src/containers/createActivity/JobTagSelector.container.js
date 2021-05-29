@@ -31,7 +31,6 @@ const JobTagSelectorContainer = () => {
     }
     saveName('');
   };
-
   const onChange = event => {
     saveJob(event);
   };

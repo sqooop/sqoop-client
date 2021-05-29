@@ -15,7 +15,7 @@ const ActivityReviewButton = ({ history }) => {
   const onClickFunc = () => {
     saveID(id);
     const jsonID = JSON.stringify(id);
-    localStorage.setItem('activityID', jsonID);
+    sessionStorage.setItem('activityID', jsonID);
     history.push(`/steps/0`);
   };
 

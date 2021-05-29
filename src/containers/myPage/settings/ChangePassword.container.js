@@ -63,7 +63,7 @@ const ChangePassword = () => {
   };
   const onClick = async () => {
     try {
-      const data = await changePassword({
+      await changePassword({
         inputPW: password,
         newPW: newPassword,
       });

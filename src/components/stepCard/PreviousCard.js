@@ -13,7 +13,6 @@ const PreviousCardWrap = Styled.div`
     width: 266px;
     height: 355px;
     margin-right: 12px;
-    border: 1px solid #A5A5A5;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -222,6 +221,7 @@ const PreviousCard = ({
           onMouseEnter={hovered}
           onMouseLeave={unhovered}
           onClick={onClickFunc}
+          style={{ border: '1px solid #A5A5A5' }}
         >
           <div
             className="card--question"

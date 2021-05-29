@@ -34,7 +34,6 @@ const GreetingWrap = styled.div`
   height: 90vh;
   display: flex;
   flex-direction: column;
-
   .empty {
     flex: 1 1 auto;
   }

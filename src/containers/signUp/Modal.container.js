@@ -28,6 +28,9 @@ const ModalContainer = ({ history }) => {
       history.push('/');
     } catch (e) {}
   };
+  const onClickClose = () => {
+    saveVisible(false);
+  };
   return (
     <Modal
       visible={isVisible}
@@ -36,6 +39,7 @@ const ModalContainer = ({ history }) => {
       phone={phone}
       birthday={birthday}
       onClick={onClick}
+      onClickClose={onClickClose}
     />
   );
 };

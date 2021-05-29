@@ -7,6 +7,7 @@ import {
 } from '../../../store/modules/settings/account';
 import AccountConfirm from '../../../components/myPage/settings/AccountConfirm';
 import { getUserSetting } from '../../../lib/api/auth';
+
 const AccountConfirmContainer = () => {
   const dispatch = useDispatch();
   const email = useSelector(state => state.account.email);

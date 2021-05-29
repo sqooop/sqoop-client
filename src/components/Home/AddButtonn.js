@@ -8,7 +8,6 @@ import SaveIconBlue from '../../assets/icons/SaveIconBlue.svg';
 const AddButtonWrap = Styled.div`
   margin-left: 90px;
   margin-bottom: 53px;
-
   button {
     outline: none;
     border: none;
@@ -21,7 +20,6 @@ const AddButtonWrap = Styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
     &:hover{
       background: ${palette.white};
       color: ${palette.main};
@@ -30,7 +28,6 @@ const AddButtonWrap = Styled.div`
       cursor: pointer;
     }
   }
-
   img {
     width: 24px;
     height: 24px;

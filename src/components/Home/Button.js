@@ -4,10 +4,9 @@ import Styled from 'styled-components';
 
 const ButtonWrap = Styled.div`
 //background: pink;
-text-align: center;
   margin: 0 auto;
   margin-top: 0px;
-  width: 40px;
+  width: 25px;
   height: 30px;
   font-size: 10px;
   font-weight: bold !important;

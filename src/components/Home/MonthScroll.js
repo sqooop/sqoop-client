@@ -3,16 +3,18 @@ import styled from 'styled-components';
 import { getCardAPI, getMonthAPI } from '../../lib/api/home/cardAPI';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMonth } from '../../store/modules/month';
-import ButtonActive from '../../components/home/ButtonActive';
-import Button from '../../components/home/Button';
+import ButtonActive from './ButtonActive';
+import Button from './Button';
 import { setCardArray } from '../../store/modules/home';
 
 const MonthScrollWrapper = styled.div`
-  display: block;
-  width: 50px;
-  height: 100%;
-  // background: ivory;
+  //  background: skyblue;
+  margin-top: 8px;
+  margin-left: 0;
   text-align: center;
+  display: block;
+  width: 25px;
+  height: 100%;
 `;
 
 const MonthScroll = () => {

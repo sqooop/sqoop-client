@@ -1,13 +1,14 @@
 import React from 'react';
 import Styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 const IntroInfoWrap = Styled.div`
   width: 730px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  margin-top: 61px;
-  margin-bottom: 48px;
+  margin-top: 48px;
+  margin-bottom: 88px;
   font-size: 14px;
 
   .title {
@@ -31,13 +32,20 @@ const IntroInfoWrap = Styled.div`
   }
 `;
 
-const IntroInfo = () => {
+const IntroInfo = ({ introduce, match }) => {
+  const isReadOnly = match.path === '/mypage/profile' ? true : false;
+
   return (
     <IntroInfoWrap>
       <div className="title">자기 소개</div>
-      <textarea className="text" placeholder="입력해주세요" />
+      <textarea
+        className="text"
+        placeholder="입력해주세요"
+        readOnly={isReadOnly}
+        value={introduce}
+      />
     </IntroInfoWrap>
   );
 };
 
-export default IntroInfo;
+export default withRouter(IntroInfo);

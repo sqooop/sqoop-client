@@ -21,7 +21,7 @@ const UserInfoContainer = () => {
 
   const userName = useSelector(state => state.home.name);
   const myPage = useSelector(state => state.myPage);
-  const { birthday, phone, email, url } = myPage;
+  const { birthday, phone, profileEmail, sns } = myPage;
 
   useEffect(() => {
     (async () => {
@@ -37,7 +37,7 @@ const UserInfoContainer = () => {
       saveEmail(myPageData.profileEmail);
       saveURL(myPageData.sns);
     })();
-  }, [myPage]);
+  });
 
   return (
     <>
@@ -46,8 +46,11 @@ const UserInfoContainer = () => {
           userName={userName}
           birthday={birthday}
           phone={phone}
-          email={email}
-          url={url}
+          email={profileEmail}
+          url={sns}
+          savePhone={savePhone}
+          saveEmail={saveEmail}
+          saveURL={saveURL}
         />
       )}
     </>

@@ -88,12 +88,13 @@ const Year = ({ background, border, onClick }) => {
     cursor: default;
   `;
   }; */
-  /*   // console.log('fyear : ', firstYear);
-  // console.log('lyear :', lastYear); */
+  //console.log('fyear : ', firstYear);
+  //console.log('lyear :', lastYear);
+  //console.log(year);
   return (
     <YearTemplate>
       <div className="button">
-        {year > firstYear ? (
+        {firstYear != null && year > firstYear ? (
           <img
             className="button--left buttonOn"
             src={LeftButtonIconOn}
@@ -133,11 +134,12 @@ const Year = ({ background, border, onClick }) => {
 };
 
 const YearTemplate = styled.div`
+  margin-right: 45px;
   position: relative;
+  margin-left: 0;
+  padding-left: 0;
   width: 109px;
   display: flex;
-
-  margin: 0 auto;
 
   .button {
     display: flex;
@@ -173,8 +175,8 @@ const YearTemplate = styled.div`
 `;
 
 const StateWrapper = styled.div`
-  margin-left: 10px;
-  margin-right: 13px;
+  margin-left: 12px;
+  margin-right: 12px;
   flex: 1;
   font-weight: bold !important;
   font-size: 16px;
