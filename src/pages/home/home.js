@@ -11,8 +11,9 @@ import CardList from '../../components/home/CardList';
 import MainHeader from '../../components/common/MainHeader';
 
 const ScrollWrapper = styled.div`
+  // background: blue;
   display: block;
-  width: 25px;
+  width: 30px;
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
