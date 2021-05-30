@@ -7,14 +7,18 @@ import { getCardAPI } from '../../lib/api/home/cardAPI';
 
 const CardList = () => {
   const dispatch = useDispatch();
-  const saveCards = data => dispatch(setCardArray(data));
+  const cards = useSelector(state => state.home.cards);
+  //const month = useSelector(state => state.home.month);
+  const monthArr = useSelector(state => state.month.month);
   useEffect(() => {
     (async () => {
-      const data = await getCardAPI();
+      const saveCards = data => dispatch(setCardArray(data));
+      const data = await getCardAPI(monthArr);
       saveCards(data);
+      console.log(monthArr);
+      console.log(cards);
     })();
   }, []);
-  const cards = useSelector(state => state.home.cards);
   return (
     <CardListBlock>
       {/* 배열의 길이 만큼 CardItem*/}

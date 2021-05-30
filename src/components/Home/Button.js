@@ -6,7 +6,7 @@ const ButtonWrap = Styled.div`
 //background: pink;
   margin: 0 auto;
   margin-top: 0px;
-  width: 25px;
+  width: 30px;
   height: 30px;
   font-size: 10px;
   font-weight: bold !important;
