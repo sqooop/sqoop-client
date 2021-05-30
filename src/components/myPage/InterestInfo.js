@@ -45,7 +45,17 @@ const InterestInfoWrap = Styled.div`
   }
 `;
 
-const InterestInfo = ({ jobBig, jobSmall, skillBig, skillSmall, match }) => {
+const InterestInfo = ({
+  jobBig,
+  jobSmall,
+  skillBig,
+  skillSmall,
+  saveJobBig,
+  saveJobSmall,
+  saveSkillBig,
+  saveSkillSmall,
+  match,
+}) => {
   const jobBigList = [
     '경영/사무',
     '마케팅/무역/유통',
@@ -214,16 +224,22 @@ const InterestInfo = ({ jobBig, jobSmall, skillBig, skillSmall, match }) => {
   const handleJobBigChange = value => {
     setJobB(value);
     setJobS(jobSmallList[value][0]);
+    saveJobBig(value);
+    saveJobSmall(jobSmallList[value][0]);
   };
   const handleSkillBigChange = value => {
     setSkillB(value);
     setSkillS(skillSmallList[value][0]);
+    saveSkillBig(value);
+    saveSkillSmall(skillSmallList[value][0]);
   };
   const onJobSmallChange = value => {
     setJobS(value);
+    saveJobSmall(value);
   };
   const onSkillSmallChange = value => {
     setSkillS(value);
+    saveSkillSmall(value);
   };
 
   return (

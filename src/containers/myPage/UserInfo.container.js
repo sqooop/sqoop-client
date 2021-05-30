@@ -8,6 +8,7 @@ import {
   setPhone,
   setEmail,
   setURL,
+  setProfileImg,
 } from '../../store/modules/myPage';
 import UserInfo from '../../components/myPage/UserInfo';
 
@@ -18,10 +19,11 @@ const UserInfoContainer = () => {
   const savePhone = string => dispatch(setPhone(string));
   const saveEmail = string => dispatch(setEmail(string));
   const saveURL = string => dispatch(setURL(string));
+  const saveProfileImg = string => dispatch(setProfileImg(string));
 
   const userName = useSelector(state => state.home.name);
   const myPage = useSelector(state => state.myPage);
-  const { birthday, phone, profileEmail, sns } = myPage;
+  const { birthday, phone, profileEmail, sns, profileImg } = myPage;
 
   useEffect(() => {
     (async () => {
@@ -36,8 +38,9 @@ const UserInfoContainer = () => {
       savePhone(myPageData.phone);
       saveEmail(myPageData.profileEmail);
       saveURL(myPageData.sns);
+      saveProfileImg(myPageData.profileImg);
     })();
-  });
+  }, []);
 
   return (
     <>
@@ -48,9 +51,11 @@ const UserInfoContainer = () => {
           phone={phone}
           email={profileEmail}
           url={sns}
+          profileImg={profileImg}
           savePhone={savePhone}
           saveEmail={saveEmail}
           saveURL={saveURL}
+          saveProfileImg={saveProfileImg}
         />
       )}
     </>

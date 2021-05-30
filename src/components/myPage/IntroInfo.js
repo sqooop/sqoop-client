@@ -30,19 +30,35 @@ const IntroInfoWrap = Styled.div`
       color: #A5A5A5;
     }
   }
+  .focusing {
+    border: none;
+    box-sizing: border-box;
+    padding: 14px;
+    width: inherit;
+    height: 108px;
+    resize: none;
+    &:focus {
+      outline: none;
+      background-color: #EEEEEE ;
+    }
+    &::placeholder {
+      color: #A5A5A5;
+    }
+  }
 `;
 
-const IntroInfo = ({ introduce, match }) => {
+const IntroInfo = ({ introduce, handleChange, match }) => {
   const isReadOnly = match.path === '/mypage/profile' ? true : false;
 
   return (
     <IntroInfoWrap>
       <div className="title">자기 소개</div>
       <textarea
-        className="text"
+        className={isReadOnly ? 'text' : 'focusing'}
         placeholder="입력해주세요"
         readOnly={isReadOnly}
         value={introduce}
+        onChange={handleChange}
       />
     </IntroInfoWrap>
   );
