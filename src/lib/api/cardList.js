@@ -1,6 +1,6 @@
 import axios from 'axios';
 import client from './client';
-const url = 'https://sqoop.ga/';
+const url = 'https://sqoop.kro.kr/';
 
 const getCard = async () => {
   try {
