@@ -13,7 +13,7 @@ import MainHeader from '../../components/common/MainHeader';
 const ScrollWrapper = styled.div`
   // background: blue;
   display: block;
-  width: 50px;
+  width: 30px;
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -23,7 +23,9 @@ const ScrollWrapper = styled.div`
 `;
 
 const CardScroll = styled.div`
-  //background: ivory;
+  margin-left: 0;
+  align-items: left;
+  // background: ivory;
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
