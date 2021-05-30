@@ -23,9 +23,6 @@ const ScrollWrapper = styled.div`
 `;
 
 const CardScroll = styled.div`
-  margin-left: 0;
-  align-items: left;
-  // background: ivory;
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -38,7 +35,6 @@ const GreetingWrap = styled.div`
   height: 90vh;
   display: flex;
   flex-direction: column;
-
   .empty {
     flex: 1 1 auto;
   }

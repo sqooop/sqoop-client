@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import UserPhoto from '../../assets/icons/UserPhoto.svg';
 import Styled from 'styled-components';
+import PhotoUpload from './PhotoUpload';
 
 const UserInfoWrap = Styled.div`
   width: 730px;
@@ -11,15 +12,6 @@ const UserInfoWrap = Styled.div`
   align-items: center;
   
   .user {
-    &--photo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 151px;
-      height: 192px;
-      background-color: white;
-      border: 1px solid black;
-    }
     &--info {
       margin-left: 47px;
       display: flex;
@@ -70,26 +62,53 @@ const UserInfo = ({
   phone,
   email,
   url,
+  profileImg,
   savePhone,
   saveEmail,
   saveURL,
+  saveProfileImg,
   match,
 }) => {
   const [currentTarget, setCurrentTarget] = useState('');
   const [userPhone, setUserPhone] = useState(phone);
   const [userEmail, setUserEmail] = useState(email);
   const [userUrl, setUserUrl] = useState(url);
+  const [userImg, setUserImg] = useState({
+    file: profileImg,
+    preview: null,
+  });
 
   const userBirthday = `${birthday.slice(0, 4)}년    ${parseInt(
     birthday.slice(4, 6),
   )}월    ${parseInt(birthday.slice(6, 8))}일`;
   const isReadOnly = match.path === '/mypage/profile' ? true : false;
 
+  const handleChangeFile = event => {
+    let reader = new FileReader();
+    const data = event.target.files[0];
+
+    if (data) {
+      reader.readAsDataURL(data);
+    }
+
+    reader.onloadend = () => {
+      setUserImg({
+        file: data,
+        preview: reader.result,
+      });
+      saveProfileImg(data);
+      console.log(data);
+    };
+  };
+
   return (
     <UserInfoWrap>
-      <div className="user--photo">
-        <img src={UserPhoto} alt="" />
-      </div>
+      <PhotoUpload
+        isReadOnly={isReadOnly}
+        profileImg={userImg}
+        photoIcon={UserPhoto}
+        onChangeFunc={handleChangeFile}
+      />
       <div className="user--info">
         <div className="user--info__name">
           <span className="title">이름</span>

@@ -1,36 +1,99 @@
 import React from 'react';
 import styled from 'styled-components';
-import UserPhoto from '../../assets/icons/UserPhoto.svg';
 
-const PhotoUpload = props => {
-  const { onChange, image, user } = props;
-
-  <>
-    <StyledPhotoInput
-      type="file"
-      id="ImageUpload"
-      name="ImageUpload"
-      accept="image/*"
-      onChange={onChange}
-    />
-    <label htmlFor="ImageUpload">
-      {image === '' && user === '' ? (
+const PhotoUpload = ({ isReadOnly, onChangeFunc, profileImg, photoIcon }) => {
+  return (
+    <>
+      {isReadOnly && (
         <StyledPhotoPreview>
-          {user}
-          <img className="noImage" src={UserPhoto} alt="noImage"></img>
-        </StyledPhotoPreview>
-      ) : image === '' && user !== '' ? (
-        <StyledPhotoPreview>
-          <img className="existImage" src={user} alt="previewImg"></img>
-        </StyledPhotoPreview>
-      ) : (
-        <StyledPhotoPreview>
-          <img className="existImage" src={image} alt="previewImg"></img>
+          <div className="photo">
+            {profileImg.file ? (
+              <img className="photo__uploaded" src={profileImg.file} alt="" />
+            ) : (
+              <img className="photo__empty" src={photoIcon} alt="" />
+            )}
+          </div>
         </StyledPhotoPreview>
       )}
-    </label>
-  </>;
+      {!isReadOnly && (
+        <StyledPhotoInput
+          type="file"
+          id="ImageUpload"
+          name="ImageUpload"
+          accept="image/*"
+          onChange={onChangeFunc}
+        />
+      )}
+      {!isReadOnly && (
+        <label htmlFor="ImageUpload">
+          <StyledPhotoPreview>
+            <div className="photo">
+              {profileImg.file ? (
+                profileImg.preview ? (
+                  <img
+                    className="photo__uploaded"
+                    src={profileImg.preview}
+                    alt=""
+                  />
+                ) : (
+                  <img
+                    className="photo__uploaded"
+                    src={profileImg.file}
+                    alt=""
+                  />
+                )
+              ) : (
+                <img className="photo__empty" src={photoIcon} alt="" />
+              )}
+              {profileImg.file ? (
+                ''
+              ) : (
+                <div className="photo__upload">
+                  <p>사진 첨부</p>
+                </div>
+              )}
+            </div>
+          </StyledPhotoPreview>
+        </label>
+      )}
+    </>
+  );
 };
+
+const StyledPhotoPreview = styled.div`
+  .photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 151px;
+    height: 192px;
+    background-color: white;
+    border: 1px solid black;
+  }
+  .photo__uploaded {
+    width: 151px;
+    height: 192px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .photo__upload {
+    position: absolute;
+    z-index: 1;
+    width: 151px;
+    height: 192px;
+    background-color: rgba(0, 0, 0, 0.07);
+    font-size: 12px;
+    & > p {
+      margin-top: 145px;
+      margin-left: 45px;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+`;
+
 const StyledPhotoInput = styled.input`
   border-style: none;
   width: 1px;
@@ -38,6 +101,7 @@ const StyledPhotoInput = styled.input`
   opacity: 0;
   z-index: -1;
   outline: none;
+  position: absolute;
 
   :focus {
     outline: none;
@@ -46,53 +110,6 @@ const StyledPhotoInput = styled.input`
 
   & + label {
     outline: none;
-  }
-`;
-
-const StyledPhotoPreview = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25.2vw;
-  height: 14.2vw;
-  border: 1px solid #000000;
-  cursor: pointer;
-
-  .iconImg {
-    width: 82px;
-    margin: 0 auto;
-    margin-top: 2px;
-  }
-
-  .existImage {
-    border-style: 'none';
-    display: block;
-    opacity: 1;
-    width: 25.2vw;
-    height: 14.2vw;
-    background-color: black;
-    object-fit: contain;
-  }
-
-  .hoverImg {
-    position: absolute;
-    top: 60px;
-    opacity: 0;
-    background-color: #eeeeee 90%;
-  }
-
-  :hover img {
-    opacity: 0.3;
-  }
-
-  :hover .hoverImg {
-    height: 20px;
-    opacity: 1;
-  }
-  .noImage {
-    width: 44px;
-    height: 44px;
   }
 `;
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MyPageHeaderContainer from '../../containers/myPage/MyPageHeader.container';
 import UserInfoContainer from '../../containers/myPage/UserInfo.container';
 import SchoolInfoContainer from '../../containers/myPage/SchoolInfo.container';
@@ -33,15 +33,17 @@ const MyPageWrap = Styled.div`
 `;
 
 const MyPage = ({ history }) => {
+  const [saved, setSaved] = useState(false);
+
   return (
     <>
       <MainHeader />
       <MyPageWrap>
-        <MyPageHeaderContainer />
+        <MyPageHeaderContainer saved={saved} setSaved={setSaved} />
         <UserInfoContainer />
         <SchoolInfoContainer />
         <InterestInfoContainer />
-        <CareerInfoContainer />
+        <CareerInfoContainer saved={saved} />
         <IntroInfoContainer />
         <div className="footer">
           <div

@@ -8,12 +8,12 @@ import closeImg from '../../assets/icons/Close.svg';
 
 const { Option } = Select;
 const StyledSelect = styled(Select)`
-  width: 260px;
+  width: 300px;
   font-size: 32px;
   font-weight: 700;
   .ant-select-selector {
     padding-top: 10px !important;
-    height: 48px !important;
+    height: 52px !important;
     border: none !important;
     outline: none !important;
     padding-right: 20px !important;

@@ -120,7 +120,6 @@ const SchoolInfo = ({
     const newEducation = education;
     newEducation[index] = userInfo;
     saveEducation(newEducation);
-    console.log(education);
   }, [userSchool, userMajor, startYear, startMonth, endYear, endMonth]);
 
   return (

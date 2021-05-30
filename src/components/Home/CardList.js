@@ -8,7 +8,6 @@ import { getCardAPI } from '../../lib/api/home/cardAPI';
 const CardList = () => {
   const dispatch = useDispatch();
   const cards = useSelector(state => state.home.cards);
-  //const month = useSelector(state => state.home.month);
   const monthArr = useSelector(state => state.month.month);
   useEffect(() => {
     (async () => {

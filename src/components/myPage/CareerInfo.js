@@ -15,14 +15,6 @@ const CareerInfoWrap = Styled.div`
   font-size: 14px;
   box-sizing: border-box;
 
-  .background {
-    position: absolute;
-    width: 730px;
-    height: 84px;
-    margin-top: 36px;
-    z-index: 1;
-  }
-
   .career {
     &--title {
       width: 730px;
@@ -43,10 +35,14 @@ const CareerInfoWrap = Styled.div`
         margin-left: 8px;
       }
     }
+    &__empty {
+      margin: 12px;
+      color: #A5A5A5;
+    }
   }
 `;
 
-const CareerInfo = ({ type, data, saveData, match }) => {
+const CareerInfo = ({ type, data, origin, saveData, match }) => {
   const isReadOnly = match.path === '/mypage/profile' ? true : false;
   const [currentTarget, setCurrentTarget] = useState('');
   const [careerIndex, setCareerIndex] = useState('');
@@ -67,7 +63,13 @@ const CareerInfo = ({ type, data, saveData, match }) => {
                 const newCareer = data.filter((career, idx) => {
                   return idx !== careerIndex;
                 });
-                saveData(newCareer);
+                const typeName =
+                  type === '어학'
+                    ? 'langHistory'
+                    : type === '자격증'
+                    ? 'certificateHistory'
+                    : 'awardHistory';
+                saveData({ ...origin, [typeName]: newCareer });
               }}
             />
           ) : (
@@ -93,33 +95,28 @@ const CareerInfo = ({ type, data, saveData, match }) => {
                 score: '',
                 type: typeNum,
               });
-              saveData(newData);
+              const typeName =
+                type === '어학'
+                  ? 'langHistory'
+                  : type === '자격증'
+                  ? 'certificateHistory'
+                  : 'awardHistory';
+              saveData({ ...origin, [typeName]: newData });
             }}
           />
         )}
       </div>
-      {data ? (
+      {data.length > 0 ? (
         data.map((career, index) => (
           <>
-            <div
-              className="background"
-              onClick={() => {
-                isReadOnly
-                  ? setCurrentTarget('')
-                  : setCurrentTarget('deleteCareer');
-                setCareerIndex(index);
-              }}
-              style={
-                index === careerIndex && currentTarget === 'deleteCareer'
-                  ? { backgroundColor: '#EEEEEE' }
-                  : { backgroundColor: 'white' }
-              }
-            ></div>
             <CareerContainer
               index={index}
-              key={career.testName}
+              key={index}
               career={career}
+              saveData={saveData}
               type={type}
+              origin={origin}
+              data={data}
               currentTarget={currentTarget}
               setCurrentTarget={setCurrentTarget}
               careerIndex={careerIndex}
@@ -128,15 +125,7 @@ const CareerInfo = ({ type, data, saveData, match }) => {
           </>
         ))
       ) : (
-        <CareerContainer
-          key={''}
-          career={''}
-          type={type}
-          currentTarget={currentTarget}
-          setCurrentTarget={setCurrentTarget}
-          careerIndex={careerIndex}
-          setCareerIndex={setCareerIndex}
-        />
+        <p className="career__empty">추가해주세요</p>
       )}
     </CareerInfoWrap>
   );
