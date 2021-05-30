@@ -40,6 +40,15 @@ const CareerContainerWrap = Styled.div`
       color: #A5A5A5;
     }
   }
+
+  .background {
+    position: absolute;
+    width: 730px;
+    height: 84px;
+    z-index: 1;
+    top: -14px;
+    left: -14px;
+  }
 `;
 
 const getDefault = (placeholder, title, type) => {
@@ -88,6 +97,9 @@ const CareerContainer = ({
   setCurrentTarget,
   careerIndex,
   setCareerIndex,
+  saveData,
+  origin,
+  data,
   match,
 }) => {
   const isReadOnly = match.path === '/mypage/profile' ? true : false;
@@ -95,106 +107,138 @@ const CareerContainer = ({
   const title = { title: '', date: '', testName: '', score: '' };
   getDefault(placeholder, title, type);
 
-  const [userTitle, setUserTitle] = useState(career.title);
-  const [userDate, setUserDate] = useState(career.date);
-  const [userTestName, setUserTestName] = useState(career.testName);
-  const [userScore, setUserScore] = useState(career.score);
+  const [userInfo, setUserInfo] = useState(career);
+
+  const typeName =
+    type === '어학'
+      ? 'langHistory'
+      : type === '자격증'
+      ? 'certificateHistory'
+      : 'awardHistory';
 
   return (
     <CareerContainerWrap>
       <div className="career--container">
-        <div className="career--container__title content">
-          <span className="title">{title.title}</span>
-          <input
-            type="text"
-            readOnly={isReadOnly}
-            value={userTitle}
-            placeholder={placeholder.title}
-            onChange={event => {
-              setUserTitle(event.target.value);
-            }}
+        <>
+          <div
+            className="background"
             onClick={() => {
-              isReadOnly ? setCurrentTarget('') : setCurrentTarget('title');
+              isReadOnly
+                ? setCurrentTarget('')
+                : setCurrentTarget('deleteCareer');
               setCareerIndex(index);
             }}
             style={
-              index === careerIndex &&
-              (currentTarget === 'title' || currentTarget === 'deleteCareer')
+              index === careerIndex && currentTarget === 'deleteCareer'
                 ? { backgroundColor: '#EEEEEE' }
                 : { backgroundColor: 'white' }
             }
-          />
-        </div>
-        <div className="career--container__date content">
-          <span className="title">{title.date}</span>
-          <input
-            type="text"
-            readOnly={isReadOnly}
-            value={userDate}
-            placeholder={getToday()}
-            onChange={event => {
-              setUserDate(event.target.value);
-            }}
-            onClick={() => {
-              isReadOnly ? setCurrentTarget('') : setCurrentTarget('date');
-              setCareerIndex(index);
-            }}
-            style={
-              index === careerIndex &&
-              (currentTarget === 'date' || currentTarget === 'deleteCareer')
-                ? { backgroundColor: '#EEEEEE' }
-                : { backgroundColor: 'white' }
-            }
-          />
-        </div>
-        <div className="career--container__testName content">
-          <span className="title">{title.testName}</span>
-          <input
-            type="text"
-            readOnly={isReadOnly}
-            value={userTestName}
-            placeholder={placeholder.testName}
-            onChange={event => {
-              setUserTestName(event.target.value);
-            }}
-            onClick={() => {
-              isReadOnly ? setCurrentTarget('') : setCurrentTarget('testName');
-              setCareerIndex(index);
-            }}
-            style={
-              index === careerIndex &&
-              (currentTarget === 'testName' || currentTarget === 'deleteCareer')
-                ? { backgroundColor: '#EEEEEE' }
-                : { backgroundColor: 'white' }
-            }
-          />
-        </div>
-        <div className="career--container__score content">
-          <span className="title">{title.score}</span>
-          {type === '어학' ? (
+          ></div>
+          <div className="career--container__title content">
+            <span className="title">{title.title}</span>
             <input
               type="text"
               readOnly={isReadOnly}
-              value={userScore}
-              placeholder={placeholder.score}
+              value={userInfo.title}
+              placeholder={placeholder.title}
               onChange={event => {
-                setUserScore(event.target.value);
+                setUserInfo({ ...userInfo, title: event.target.value });
+                data[index] = { ...userInfo, title: event.target.value };
+                saveData({ ...origin, [typeName]: data });
               }}
               onClick={() => {
-                isReadOnly ? setCurrentTarget('') : setCurrentTarget('score');
+                isReadOnly ? setCurrentTarget('') : setCurrentTarget('title');
                 setCareerIndex(index);
               }}
               style={
                 index === careerIndex &&
-                (currentTarget === 'score' || currentTarget === 'deleteCareer')
+                (currentTarget === 'title' || currentTarget === 'deleteCareer')
                   ? { backgroundColor: '#EEEEEE' }
                   : { backgroundColor: 'white' }
               }
             />
-          ) : (
-            <div></div>
-          )}
-        </div>
+          </div>
+          <div className="career--container__date content">
+            <span className="title">{title.date}</span>
+            <input
+              type="text"
+              readOnly={isReadOnly}
+              value={userInfo.date}
+              placeholder={getToday()}
+              onChange={event => {
+                setUserInfo({ ...userInfo, date: event.target.value });
+                data[index] = { ...userInfo, date: event.target.value };
+                saveData({ ...origin, [typeName]: data });
+              }}
+              onClick={() => {
+                isReadOnly ? setCurrentTarget('') : setCurrentTarget('date');
+                setCareerIndex(index);
+              }}
+              style={
+                index === careerIndex &&
+                (currentTarget === 'date' || currentTarget === 'deleteCareer')
+                  ? { backgroundColor: '#EEEEEE' }
+                  : { backgroundColor: 'white' }
+              }
+            />
+          </div>
+          <div className="career--container__testName content">
+            <span className="title">{title.testName}</span>
+            <input
+              type="text"
+              readOnly={isReadOnly}
+              value={userInfo.testName}
+              placeholder={placeholder.testName}
+              onChange={event => {
+                setUserInfo({ ...userInfo, testName: event.target.value });
+                data[index] = { ...userInfo, testName: event.target.value };
+                saveData({ ...origin, [typeName]: data });
+              }}
+              onClick={() => {
+                isReadOnly
+                  ? setCurrentTarget('')
+                  : setCurrentTarget('testName');
+                setCareerIndex(index);
+              }}
+              style={
+                index === careerIndex &&
+                (currentTarget === 'testName' ||
+                  currentTarget === 'deleteCareer')
+                  ? { backgroundColor: '#EEEEEE' }
+                  : { backgroundColor: 'white' }
+              }
+            />
+          </div>
+          <div className="career--container__score content">
+            <span className="title">{title.score}</span>
+            {type === '어학' ? (
+              <input
+                type="text"
+                readOnly={isReadOnly}
+                value={userInfo.score}
+                placeholder={placeholder.score}
+                onChange={event => {
+                  setUserInfo({ ...userInfo, score: event.target.value });
+                  data[index] = { ...userInfo, score: event.target.value };
+                  saveData({ ...origin, [typeName]: data });
+                }}
+                onClick={() => {
+                  isReadOnly ? setCurrentTarget('') : setCurrentTarget('score');
+                  setCareerIndex(index);
+                }}
+                style={
+                  index === careerIndex &&
+                  (currentTarget === 'score' ||
+                    currentTarget === 'deleteCareer')
+                    ? { backgroundColor: '#EEEEEE' }
+                    : { backgroundColor: 'white' }
+                }
+              />
+            ) : (
+              <div></div>
+            )}
+          </div>
+        </>
       </div>
     </CareerContainerWrap>
   );

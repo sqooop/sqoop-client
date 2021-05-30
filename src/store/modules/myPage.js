@@ -11,6 +11,7 @@ const SET_LANG_HISTORY = 'MYPAGE/LANG_HISTORY';
 const SET_CERTIFICATE_HISTORY = 'MYPAGE/CERTIFICATE_HISTORY';
 const SET_AWARD_HISTORY = 'MYPAGE/SET_AWARD_HISTORY';
 const SET_INTRODUCE = 'MYPAGE/SET_INTRODUCE';
+const SET_PROFILE_IMG = 'MYPAGE/SET_PROFILE_IMG';
 
 export const setBirthday = string => ({
   type: SET_BIRTHDAY,
@@ -62,6 +63,10 @@ export const setAwardHistory = object => ({
 });
 export const setIntroduce = string => ({
   type: SET_INTRODUCE,
+  string,
+});
+export const setProfileImg = string => ({
+  type: SET_PROFILE_IMG,
   string,
 });
 
@@ -122,6 +127,9 @@ export default function reducer(state = initialState, action) {
       return state;
     case SET_INTRODUCE:
       state.introduce = action.string;
+      return state;
+    case SET_PROFILE_IMG:
+      state.profileImg = action.string;
       return state;
     default:
       return state;

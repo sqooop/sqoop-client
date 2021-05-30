@@ -27,7 +27,7 @@ const InterestInfoContainer = () => {
       saveSkillBig(myPageData.skillBig);
       saveSkillSmall(myPageData.skillSmall);
     })();
-  });
+  }, []);
 
   return (
     <InterestInfo
@@ -35,6 +35,10 @@ const InterestInfoContainer = () => {
       jobSmall={jobSmall}
       skillBig={skillBig}
       skillSmall={skillSmall}
+      saveJobBig={saveJobBig}
+      saveJobSmall={saveJobSmall}
+      saveSkillBig={saveSkillBig}
+      saveSkillSmall={saveSkillSmall}
     />
   );
 };
