@@ -1,5 +1,5 @@
 // 리덕스 적용완료
-import { React, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 import ModifyIconOff from '../../assets/icons/ModifyIconOff.svg';
 import ModifyIconOn from '../../assets/icons/ModifyIconOn.svg';
 import { withRouter } from 'react-router-dom';
@@ -127,26 +127,22 @@ const PreviousCard = ({
   modalActive,
   saveModalActive,
   savePrevIndex,
-  classNameLeft,
-  saveClassNameLeft,
-  classNameShrink,
-  saveClassNameShrink,
-  saveClassNameS,
-  saveClassNameGrow,
-  saveClassNameRight,
   history,
   match,
 }) => {
   const currentIndex = parseInt(match.params.id);
+  const [className, setClassName] = useState('card');
 
   useEffect(() => {
     if (prevIndex < currentIndex && currentIndex - index === 1) {
-      saveClassNameShrink('card shrinkRight');
+      setClassName('shrinkRight');
+      setTimeout(() => setClassName(null), 1600);
     } else if (prevIndex < currentIndex && currentIndex - index === 2) {
-      saveClassNameLeft('card rightToLeft');
+      setClassName('rightToLeft');
+      setTimeout(() => setClassName(null), 1600);
     } else {
-      saveClassNameShrink('card leftToRight');
-      saveClassNameLeft('card leftToRight');
+      setClassName('leftToRight');
+      setTimeout(() => setClassName(null), 1600);
     }
   }, [index]);
 
@@ -201,20 +197,13 @@ const PreviousCard = ({
         card = card.parentNode;
       }
       savePrevIndex(match.params.id);
-      saveClassNameLeft('card');
-      saveClassNameShrink('card');
-      saveClassNameS('card');
-      saveClassNameGrow('card');
-      saveClassNameRight('card');
       history.push(`/steps/${card.id}`);
     }
   };
 
   return (
     <PreviousCardWrap>
-      <div
-        className={currentIndex - index === 2 ? classNameLeft : classNameShrink}
-      >
+      <div className={className}>
         <div
           className="card"
           id={index}

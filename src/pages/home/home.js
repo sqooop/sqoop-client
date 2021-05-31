@@ -11,8 +11,9 @@ import CardList from '../../components/home/CardList';
 import MainHeader from '../../components/common/MainHeader';
 
 const ScrollWrapper = styled.div`
+  // background: blue;
   display: block;
-  width: 25px;
+  width: 30px;
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -34,7 +35,6 @@ const GreetingWrap = styled.div`
   height: 90vh;
   display: flex;
   flex-direction: column;
-
   .empty {
     flex: 1 1 auto;
   }

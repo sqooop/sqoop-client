@@ -53,11 +53,6 @@ const StepHeader = ({
   modalActive,
   saveModalActive,
   savePrevIndex,
-  saveClassNameLeft,
-  saveClassNameGrow,
-  saveClassNameShrink,
-  saveClassNameRight,
-  saveClassNameShrinkRight,
   history,
   match,
 }) => {
@@ -83,11 +78,6 @@ const StepHeader = ({
     } else {
       event.stopPropagation();
       if (answers[index - 1]) {
-        saveClassNameLeft('card');
-        saveClassNameGrow('card');
-        saveClassNameShrink('card');
-        saveClassNameRight('card');
-        saveClassNameShrinkRight('card');
         savePrevIndex(index);
         history.push(`/steps/${index - 1}`);
       }
@@ -99,11 +89,6 @@ const StepHeader = ({
     } else {
       event.stopPropagation();
       if (answers[index]) {
-        saveClassNameLeft('card');
-        saveClassNameGrow('card');
-        saveClassNameShrink('card');
-        saveClassNameRight('card');
-        saveClassNameShrinkRight('card');
         savePrevIndex(index);
         history.push(`/steps/${index + 1}`);
       }

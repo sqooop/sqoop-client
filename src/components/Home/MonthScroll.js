@@ -8,11 +8,12 @@ import Button from './Button';
 import { setCardArray } from '../../store/modules/home';
 
 const MonthScrollWrapper = styled.div`
+  //background: skyblue;
   margin-top: 8px;
   margin-left: 0;
-  text-align: left;
+  text-align: center;
   display: block;
-  width: 25px;
+  width: 30px;
   height: 100%;
 `;
 
@@ -29,7 +30,7 @@ const MonthScroll = () => {
 
   useEffect(() => {
     (async () => {
-      const data = await getMonthAPI();
+      const data = await getMonthAPI(monthArr);
       for (let i = data.firstYear; i <= data.lastYear; i++) {
         dataSet.set(i, new Set());
       }

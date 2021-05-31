@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseURL = 'https://sqoop.ga/';
+const baseURL = 'https://sqoop.kro.kr/';
 
 export const postDeleteAccount = async ({ reasonData, passwordData }) => {
   // console.log(reasonData);
