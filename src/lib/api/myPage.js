@@ -12,8 +12,13 @@ export const getMyPageData = async () => {
 
 export const updateMyPageData = async myPageData => {
   try {
-    const { data } = await instance.put('/mypage/update', myPageData);
-    // console.log('[SUCCESS] PUT My Page Data');
+    const { data } = await instance.put('/mypage/update', myPageData, {
+      headers: {
+        'Content-type': 'multipart/form-data',
+        jwt: sessionStorage.getItem('token'),
+      },
+    });
+    console.log('[SUCCESS] PUT My Page Data');
     return data.data;
   } catch (error) {
     console.log('[FAIL] PUT My Page Data', error);

@@ -15,51 +15,56 @@ const CareerInfoContainer = ({ saved }) => {
     dispatch(setCertificateHistory(object));
   const saveAwardHistory = object => dispatch(setAwardHistory(object));
 
-  const myPage = useSelector(state => state.myPage);
-  const { langHistory, certificateHistory, awardHistory } = myPage;
-
-  const [careerInfo, setCareerInfo] = useState({
-    langHistory,
-    certificateHistory,
-    awardHistory,
-  });
+  const [careerInfo, setCareerInfo] = useState(null);
 
   useEffect(() => {
-    (async () => {
+    const getInitialData = async () => {
       const myPageData = await getMyPageData();
-      saveLangHistory(myPageData.LangHistory);
-      saveCertificateHistory(myPageData.CertificateHistory);
-      saveAwardHistory(myPageData.AwardHistory);
+      const { LangHistory, CertificateHistory, AwardHistory } = myPageData;
+      const newData = {
+        langHistory: LangHistory,
+        certificateHistory: CertificateHistory,
+        awardHistory: AwardHistory,
+      };
+      return newData;
+    };
+    (async () => {
+      const result = await getInitialData();
+      setCareerInfo(result);
     })();
   }, []);
 
   useEffect(() => {
-    saveLangHistory(careerInfo.langHistory);
-    saveCertificateHistory(careerInfo.certificateHistory);
-    saveAwardHistory(careerInfo.awardHistory);
+    if (careerInfo) {
+      saveLangHistory(careerInfo.langHistory);
+      saveCertificateHistory(careerInfo.certificateHistory);
+      saveAwardHistory(careerInfo.awardHistory);
+    }
   }, [careerInfo]);
 
   return (
-    <>
-      <CareerInfo
-        type={'어학'}
-        data={careerInfo.langHistory}
-        origin={careerInfo}
-        saveData={setCareerInfo}
-      />
-      <CareerInfo
-        type={'자격증'}
-        data={careerInfo.certificateHistory}
-        origin={careerInfo}
-        saveData={setCareerInfo}
-      />
-      <CareerInfo
-        type={'수상 내역'}
-        data={careerInfo.awardHistory}
-        origin={careerInfo}
-        saveData={setCareerInfo}
-      />
-    </>
+    careerInfo && (
+      <>
+        <CareerInfo
+          type={'어학'}
+          data={careerInfo.langHistory}
+          origin={careerInfo}
+          saveData={setCareerInfo}
+        />
+        <CareerInfo
+          type={'자격증'}
+          data={careerInfo.certificateHistory}
+          origin={careerInfo}
+          saveData={setCareerInfo}
+        />
+        <CareerInfo
+          type={'수상 내역'}
+          data={careerInfo.awardHistory}
+          origin={careerInfo}
+          saveData={setCareerInfo}
+        />
+      </>
+    )
   );
 };
 

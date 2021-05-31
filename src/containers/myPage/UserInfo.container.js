@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserName } from '../../lib/api/home/userAPI';
 import { getMyPageData } from '../../lib/api/myPage';
@@ -24,6 +24,7 @@ const UserInfoContainer = () => {
   const userName = useSelector(state => state.home.name);
   const myPage = useSelector(state => state.myPage);
   const { birthday, phone, profileEmail, sns, profileImg } = myPage;
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -39,12 +40,13 @@ const UserInfoContainer = () => {
       saveEmail(myPageData.profileEmail);
       saveURL(myPageData.sns);
       saveProfileImg(myPageData.profileImg);
+      setIsReady(true);
     })();
   }, []);
 
   return (
     <>
-      {userName && (
+      {isReady && userName && (
         <UserInfo
           userName={userName}
           birthday={birthday}

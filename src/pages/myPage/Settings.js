@@ -21,6 +21,10 @@ const SettingsWrap = Styled.div`
   }
   .logout {
     margin-top: 218px;
+    &:hover {
+      font-weight: bold;
+      cursor: pointer;
+    }
   }
 
 `;
@@ -119,7 +123,16 @@ const Settings = ({ history }) => {
             계정 삭제
           </OneDiv>
           <div className="footer">
-            <div className="logout">로그아웃</div>
+            <div
+              className="logout"
+              onClick={() => {
+                sessionStorage.removeItem('token');
+                history.push('/');
+                window.location.reload();
+              }}
+            >
+              로그아웃
+            </div>
           </div>
         </NavbarWrap>
         <ScrollWrapper>

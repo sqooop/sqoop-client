@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   setTitle,
@@ -30,6 +30,8 @@ const CardWrap = Styled.div`
 `;
 
 const StepCard = ({ history, match }) => {
+  const [isReady, setIsReady] = useState(false);
+
   const dispatch = useDispatch();
   const saveCurrentIndex = idx => dispatch(setCurrentIndex(idx));
   const saveTitle = string => dispatch(setTitle(string));
@@ -73,6 +75,7 @@ const StepCard = ({ history, match }) => {
           return 0;
         });
       }
+      setIsReady(true);
     })();
   }, [match.path]);
 
@@ -80,34 +83,36 @@ const StepCard = ({ history, match }) => {
   const currentIndex = useSelector(state => state.cardIndex.currentIndex);
 
   return (
-    <>
-      <MainHeader />
-      <StepHeaderContainer />
-      <CardWrap>
-        {questions[currentIndex - 2] ? (
-          <PreviousCardContainer index={currentIndex - 2} />
-        ) : (
-          <EmptyCard marginRight={'12px'} />
-        )}
-        {questions[currentIndex - 1] ? (
-          <PreviousCardContainer index={currentIndex - 1} />
-        ) : (
-          <EmptyCard marginRight={'12px'} />
-        )}
-        {currentIndex < 10 ? <CurrentCardContainer /> : <LastCardContainer />}
-        {questions[currentIndex + 1] ? (
-          <NextCardContainer index={currentIndex + 1} />
-        ) : (
-          <EmptyCard marginLeft={'12px'} />
-        )}
-        {questions[currentIndex + 2] ? (
-          <NextCardContainer index={currentIndex + 2} zindex={-1} />
-        ) : (
-          <EmptyCard marginLeft={'12px'} />
-        )}
-      </CardWrap>
-      <ProgressContainer />
-    </>
+    isReady && (
+      <>
+        <MainHeader />
+        <StepHeaderContainer />
+        <CardWrap>
+          {questions[currentIndex - 2] ? (
+            <PreviousCardContainer index={currentIndex - 2} />
+          ) : (
+            <EmptyCard marginRight={'12px'} />
+          )}
+          {questions[currentIndex - 1] ? (
+            <PreviousCardContainer index={currentIndex - 1} />
+          ) : (
+            <EmptyCard marginRight={'12px'} />
+          )}
+          {currentIndex < 10 ? <CurrentCardContainer /> : <LastCardContainer />}
+          {questions[currentIndex + 1] ? (
+            <NextCardContainer index={currentIndex + 1} />
+          ) : (
+            <EmptyCard marginLeft={'12px'} />
+          )}
+          {questions[currentIndex + 2] ? (
+            <NextCardContainer index={currentIndex + 2} zindex={-1} />
+          ) : (
+            <EmptyCard marginLeft={'12px'} />
+          )}
+        </CardWrap>
+        <ProgressContainer />
+      </>
+    )
   );
 };
 

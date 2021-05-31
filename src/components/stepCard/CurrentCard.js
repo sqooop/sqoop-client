@@ -1,5 +1,5 @@
 // 리덕스 적용완료
-import React from 'react';
+import React, { useState } from 'react';
 import SaveButton from './SaveButton';
 import Styled from 'styled-components';
 import { useEffect } from 'react';
@@ -111,23 +111,25 @@ const CurrentCard = ({
   textLimit,
   saveTextLimit,
   guide,
-  className,
-  saveClassName,
   onClickFunc,
+  className,
+  setClassName,
 }) => {
   useEffect(() => {
     saveTextValue(answer);
     saveNotSaved(false);
     saveTextLimit(answer.length);
-
-    if (index > prevIndex) {
-      saveClassName('card rightToLeft');
-    } else if (index < prevIndex) {
-      saveClassName('card leftToRight');
-    } else {
-      saveClassName('card');
-    }
   }, [answer]);
+
+  useEffect(() => {
+    if (index > prevIndex) {
+      setClassName('rightToLeft');
+      setTimeout(() => setClassName(null), 1600);
+    } else {
+      setClassName('leftToRight');
+      setTimeout(() => setClassName(null), 1600);
+    }
+  }, [index]);
 
   const onChangeFunc = event => {
     const text = event.target.value;
@@ -188,37 +190,39 @@ const CurrentCard = ({
   return (
     <CurrentCardWrap>
       <div className={className}>
-        <div className="card--question">
-          <span className="card--question__number">
-            sqoop {index + 1}.<br />
-          </span>
-          {question}
+        <div className="card">
+          <div className="card--question">
+            <span className="card--question__number">
+              sqoop {index + 1}.<br />
+            </span>
+            {question}
+          </div>
+          <hr className="card--hr" />
+          <textarea
+            className="card--text"
+            placeholder={guide}
+            value={textValue}
+            onChange={onChangeFunc}
+          />
+          <div className="card--textLimit">{textLimit}/1000</div>
+          {textValue ? (
+            <SaveButton
+              backgroundColor="#195BFF"
+              onClick={onClickFunc}
+              onMouseEnter={hovered}
+              onMouseLeave={unhovered}
+              text={'스쿱 저장'}
+            />
+          ) : (
+            <SaveButton
+              backgroundColor="#A5A5A5"
+              color="white"
+              border="none"
+              text={'스쿱 저장'}
+            />
+          )}
+          {saved && <SaveConfirm setSaved={saveSaved} />}
         </div>
-        <hr className="card--hr" />
-        <textarea
-          className="card--text"
-          placeholder={guide}
-          value={textValue}
-          onChange={onChangeFunc}
-        />
-        <div className="card--textLimit">{textLimit}/1000</div>
-        {textValue ? (
-          <SaveButton
-            backgroundColor="#195BFF"
-            onClick={onClickFunc}
-            onMouseEnter={hovered}
-            onMouseLeave={unhovered}
-            text={'스쿱 저장'}
-          />
-        ) : (
-          <SaveButton
-            backgroundColor="#A5A5A5"
-            color="white"
-            border="none"
-            text={'스쿱 저장'}
-          />
-        )}
-        {saved && <SaveConfirm setSaved={saveSaved} />}
       </div>
     </CurrentCardWrap>
   );

@@ -1,5 +1,5 @@
 // 리덕스 적용완료
-import { React, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import LockedIcon from '../../assets/icons/LockedIcon.svg';
 import Styled from 'styled-components';
@@ -95,52 +95,43 @@ const NextCardWrap = Styled.div`
   }
 `;
 
-const NextCard = ({
-  questions,
-  index,
-  zindex,
-  prevIndex,
-  classNameShrink,
-  classNameRight,
-  saveClassNameShrink,
-  saveClassNameRight,
-  match,
-}) => {
+const NextCard = ({ questions, index, zindex, prevIndex, match }) => {
   const currentIndex = parseInt(match.params.id);
+  const [className, setClassName] = useState('card');
 
   useEffect(() => {
     if (prevIndex > currentIndex && currentIndex - index === -2) {
-      saveClassNameRight('card leftToRight');
+      setClassName('leftToRight');
+      setTimeout(() => setClassName(null), 1600);
     } else if (prevIndex > currentIndex && currentIndex - index === -1) {
-      saveClassNameShrink('card shrinkLeft');
+      setClassName('shrinkLeft');
+      setTimeout(() => setClassName(null), 1600);
     } else {
-      saveClassNameRight('card rightToLeft');
-      saveClassNameShrink('card rightToLeft');
+      setClassName('rightToLeft');
+      setTimeout(() => setClassName(null), 1600);
     }
   }, [index]);
 
   return (
     <NextCardWrap style={{ zIndex: zindex }}>
-      <div
-        className={
-          currentIndex - index === -2 ? classNameRight : classNameShrink
-        }
-      >
-        <div className="card--question">
-          <span className="card--question__number">
-            sqoop {index + 1}.<br />
-          </span>
-          {(index === 3 || index === 9) && (
-            <span className="card--question__long">{questions[index]}</span>
-          )}
-          {index === 3 || index === 9 || (
-            <span className="card--question__short">{questions[index]}</span>
-          )}
-        </div>
-        <div className="card--empty"></div>
-        <div className="card--locked">
-          <img className="card--locked__icon" src={LockedIcon} alt="" />
-          잠긴 스쿱
+      <div className={className}>
+        <div className="card">
+          <div className="card--question">
+            <span className="card--question__number">
+              sqoop {index + 1}.<br />
+            </span>
+            {(index === 3 || index === 9) && (
+              <span className="card--question__long">{questions[index]}</span>
+            )}
+            {index === 3 || index === 9 || (
+              <span className="card--question__short">{questions[index]}</span>
+            )}
+          </div>
+          <div className="card--empty"></div>
+          <div className="card--locked">
+            <img className="card--locked__icon" src={LockedIcon} alt="" />
+            잠긴 스쿱
+          </div>
         </div>
       </div>
     </NextCardWrap>
