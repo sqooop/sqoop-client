@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMyPageData } from '../../lib/api/myPage';
 import {
@@ -16,6 +16,8 @@ const InterestInfoContainer = () => {
   const saveSkillBig = string => dispatch(setSkillBig(string));
   const saveSkillSmall = string => dispatch(setSkillSmall(string));
 
+  const [isReady, setIsReady] = useState(false);
+
   const myPage = useSelector(state => state.myPage);
   const { jobBig, jobSmall, skillBig, skillSmall } = myPage;
 
@@ -26,20 +28,23 @@ const InterestInfoContainer = () => {
       saveJobSmall(myPageData.jobSmall);
       saveSkillBig(myPageData.skillBig);
       saveSkillSmall(myPageData.skillSmall);
+      setIsReady(true);
     })();
   }, []);
 
   return (
-    <InterestInfo
-      jobBig={jobBig}
-      jobSmall={jobSmall}
-      skillBig={skillBig}
-      skillSmall={skillSmall}
-      saveJobBig={saveJobBig}
-      saveJobSmall={saveJobSmall}
-      saveSkillBig={saveSkillBig}
-      saveSkillSmall={saveSkillSmall}
-    />
+    isReady && (
+      <InterestInfo
+        jobBig={jobBig}
+        jobSmall={jobSmall}
+        skillBig={skillBig}
+        skillSmall={skillSmall}
+        saveJobBig={saveJobBig}
+        saveJobSmall={saveJobSmall}
+        saveSkillBig={saveSkillBig}
+        saveSkillSmall={saveSkillSmall}
+      />
+    )
   );
 };
 

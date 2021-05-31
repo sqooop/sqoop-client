@@ -8,7 +8,15 @@ const PhotoUpload = ({ isReadOnly, onChangeFunc, profileImg, photoIcon }) => {
         <StyledPhotoPreview>
           <div className="photo">
             {profileImg.file ? (
-              <img className="photo__uploaded" src={profileImg.file} alt="" />
+              profileImg.preview ? (
+                <img
+                  className="photo__uploaded"
+                  src={profileImg.preview}
+                  alt=""
+                />
+              ) : (
+                <img className="photo__uploaded" src={profileImg.file} alt="" />
+              )
             ) : (
               <img className="photo__empty" src={photoIcon} alt="" />
             )}

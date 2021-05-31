@@ -1,31 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateMyPageData } from '../../lib/api/myPage';
+import { getMyPageData } from '../../lib/api/myPage';
 import MyPageHeader from '../../components/myPage/MyPageHeader';
+import { setProfileImg } from '../../store/modules/myPage';
 
 const MyPageHeaderContainer = ({ saved, setSaved }) => {
   const myPageData = useSelector(state => state.myPage);
+  const dispatch = useDispatch();
+  const saveProfileImg = string => dispatch(setProfileImg(string));
 
   useEffect(() => {
     saved &&
       (async () => {
-        // let formData = new FormData();
-        // formData.append('awardHistory', myPageData.awardHistory);
-        // formData.append('certificateHistory', myPageData.certificateHistory);
-        // formData.append('langHistory', myPageData.langHistory);
-        // formData.append('birthday', myPageData.birthday);
-        // formData.append('profileEmail', myPageData.profileEmail);
-        // formData.append('profileImg', myPageData.profileImg);
-        // formData.append('phone', myPageData.phone);
-        // formData.append('sns', myPageData.sns);
-        // formData.append('jobBig', myPageData.jobBig);
-        // formData.append('jobSmall', myPageData.jobSmall);
-        // formData.append('skillBig', myPageData.skillBig);
-        // formData.append('skillSmall', myPageData.skillSmall);
-        // formData.append('introduce', myPageData.introduce);
-        // formData.append('education', myPageData.education);
-        const result = updateMyPageData(myPageData);
+        let formData = new FormData();
+        for (let key in myPageData) {
+          if (
+            key === 'education' ||
+            key === 'langHistory' ||
+            key === 'certificateHistory' ||
+            key === 'awardHistory'
+          ) {
+            for (let i = 0; i < myPageData[key].length; i++) {
+              for (let key_ in myPageData[key][i]) {
+                formData.append(
+                  `${key}[${i}][${key_}]`,
+                  myPageData[key][i][key_],
+                );
+              }
+            }
+          } else {
+            formData.append(key, myPageData[key]);
+          }
+        }
+        const result = await updateMyPageData(formData);
         console.log(result);
+        const newData = await getMyPageData();
+        saveProfileImg(newData.profileImg);
         setSaved(false);
       })();
   });

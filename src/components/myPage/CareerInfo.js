@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import Plus from '../../assets/icons/Plus.svg';

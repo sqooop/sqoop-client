@@ -43,6 +43,7 @@ const SchoolInfoContainer = ({ match }) => {
 
   const [currentTarget, setCurrentTarget] = useState('');
   const [schoolIndex, setSchoolIndex] = useState('');
+  const [isReady, setIsReady] = useState(false);
 
   const dispatch = useDispatch();
   const saveEducation = array => dispatch(setEducation(array));
@@ -53,6 +54,7 @@ const SchoolInfoContainer = ({ match }) => {
     (async () => {
       const myPageData = await getMyPageData();
       saveEducation(myPageData.Education);
+      setIsReady(true);
     })();
   }, []);
 
@@ -74,83 +76,85 @@ const SchoolInfoContainer = ({ match }) => {
   }
 
   return (
-    <SchoolInfoContainerWrap>
-      <div className="info--title">
-        <div className="info--title__header">
-          <div>학력</div>
-          <div className="info--title__empty"></div>
-          {isReadOnly ||
-            (currentTarget === 'deleteSchool' ? (
+    isReady && (
+      <SchoolInfoContainerWrap>
+        <div className="info--title">
+          <div className="info--title__header">
+            <div>학력</div>
+            <div className="info--title__empty"></div>
+            {isReadOnly ||
+              (currentTarget === 'deleteSchool' ? (
+                <img
+                  className="info--title__minus"
+                  src={Minus}
+                  style={{ cursor: 'pointer' }}
+                  alt=""
+                  onClick={() => {
+                    const newEducation = education.filter((edu, idx) => {
+                      return idx !== schoolIndex;
+                    });
+                    saveEducation(newEducation);
+                  }}
+                />
+              ) : (
+                <img
+                  className="info--title__minus"
+                  src={MinusOff}
+                  style={{ cursor: 'default' }}
+                  alt=""
+                />
+              ))}
+            {isReadOnly || (
               <img
-                className="info--title__minus"
-                src={Minus}
+                className="info--title__plus"
+                src={Plus}
                 style={{ cursor: 'pointer' }}
                 alt=""
                 onClick={() => {
-                  const newEducation = education.filter((edu, idx) => {
-                    return idx !== schoolIndex;
-                  });
-                  saveEducation(newEducation);
+                  saveEducation(
+                    education.concat({
+                      school: '',
+                      major: '',
+                      startDate: getLastMonth(),
+                      endDate: getCurrentMonth(),
+                    }),
+                  );
                 }}
               />
-            ) : (
-              <img
-                className="info--title__minus"
-                src={MinusOff}
-                style={{ cursor: 'default' }}
-                alt=""
-              />
-            ))}
-          {isReadOnly || (
-            <img
-              className="info--title__plus"
-              src={Plus}
-              style={{ cursor: 'pointer' }}
-              alt=""
-              onClick={() => {
-                saveEducation(
-                  education.concat({
-                    school: '',
-                    major: '',
-                    startDate: getLastMonth(),
-                    endDate: getCurrentMonth(),
-                  }),
-                );
-              }}
-            />
-          )}
-        </div>
-      </div>
-      {education.length !== 0 ? (
-        education.map((edu, index) => (
-          <>
-            {index !== 0 && (
-              <div style={{ height: '36px', backgroundColor: 'white' }}></div>
             )}
-            <SchoolInfo
-              key={index}
-              index={index}
-              school={edu.school}
-              major={edu.major}
-              startDate={edu.startDate}
-              endDate={edu.endDate}
-              saveEducation={saveEducation}
-              education={education}
-              currentTarget={currentTarget}
-              setCurrentTarget={setCurrentTarget}
-              schoolIndex={schoolIndex}
-              setSchoolIndex={setSchoolIndex}
-            />
-          </>
-        ))
-      ) : (
-        <div
-          style={{ color: '#A5A5A5', marginLeft: '14px', marginTop: '-12px' }}
-        >
-          추가해주세요
+          </div>
         </div>
-      )}
-    </SchoolInfoContainerWrap>
+        {education.length !== 0 ? (
+          education.map((edu, index) => (
+            <>
+              {index !== 0 && (
+                <div style={{ height: '36px', backgroundColor: 'white' }}></div>
+              )}
+              <SchoolInfo
+                key={index}
+                index={index}
+                school={edu.school}
+                major={edu.major}
+                startDate={edu.startDate}
+                endDate={edu.endDate}
+                saveEducation={saveEducation}
+                education={education}
+                currentTarget={currentTarget}
+                setCurrentTarget={setCurrentTarget}
+                schoolIndex={schoolIndex}
+                setSchoolIndex={setSchoolIndex}
+              />
+            </>
+          ))
+        ) : (
+          <div
+            style={{ color: '#A5A5A5', marginLeft: '14px', marginTop: '-12px' }}
+          >
+            추가해주세요
+          </div>
+        )}
+      </SchoolInfoContainerWrap>
+    )
   );
 };
 

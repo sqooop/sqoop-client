@@ -121,7 +121,7 @@ const UserInfo = ({
         <div className="user--info__phone">
           <span className="title">전화번호</span>
           <input
-            type="number"
+            type="text"
             value={userPhone}
             placeholder="입력해주세요"
             readOnly={isReadOnly}

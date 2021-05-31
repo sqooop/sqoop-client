@@ -10,12 +10,14 @@ const InterestInfoContainer = () => {
 
   const introduce = useSelector(state => state.myPage.introduce);
   const [introText, setIntroText] = useState(introduce);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     (async () => {
       const myPageData = await getMyPageData();
       saveIntroduce(myPageData.introduce);
-      setIntroText(introduce);
+      setIntroText(myPageData.introduce);
+      setIsReady(true);
     })();
   }, []);
 
@@ -25,9 +27,11 @@ const InterestInfoContainer = () => {
   };
 
   return (
-    <>
-      <IntroInfo introduce={introText} handleChange={handleChange} />
-    </>
+    isReady && (
+      <>
+        <IntroInfo introduce={introText} handleChange={handleChange} />
+      </>
+    )
   );
 };
 

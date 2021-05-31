@@ -28,6 +28,7 @@ const SchoolInfoWrap = Styled.div`
         width: 28px;
         margin-left: 14px;
         margin-right: 53px;
+        padding-top: 2px;
       }
       &__time {
         position: relative;
