@@ -29,8 +29,10 @@ const BirthContainer = () => {
     saveDay(evt);
   };
   if (year !== '' && month !== '' && day !== '') {
-    let m = month.length >= 2 ? month : '0' + month;
-    let d = day.length >= 2 ? day : '0' + day;
+    let m = month + '';
+    let d = day + '';
+    m = m.length >= 2 ? m : '0' + m;
+    d = d.length >= 2 ? d : '0' + d;
     saveBirth(year + m + d);
   }
   return (
