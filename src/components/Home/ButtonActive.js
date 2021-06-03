@@ -10,6 +10,8 @@ text-align: center;
   margin: 0 auto;
   margin-top: 10px;
   width: 30px;
+  white-space: nowrap;
+  text-align: center;
   height: 30px;
   font-size: 10px;
   font-weight: bold !important;
@@ -18,7 +20,7 @@ text-align: center;
   outline: 0;
   cursor: pointer;
   :hover {
-    font-size: 15px;
+    font-size: 14.9px;
     color: ${palette.main};
   }
 `;
