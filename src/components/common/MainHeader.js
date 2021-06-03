@@ -35,11 +35,12 @@ const Spacer = styled.div`
   height: 1rem;
 `;
 
-const MainHeader = ({ history }) => {
+const MainHeader = ({ history, match }) => {
   const dispatch = useDispatch();
   const saveModalActive = data => dispatch(setModalActive(data));
   const currentCard = useSelector(state => state.currentCard);
   const { notSaved, modalActive } = currentCard;
+  const url = match.path;
 
   return (
     <>
@@ -66,6 +67,7 @@ const MainHeader = ({ history }) => {
                 history.push('/');
               }
             }}
+            style={{ fontWeight: url === '/' ? 'bold' : 'normal' }}
           >
             홈
           </li>
@@ -78,6 +80,12 @@ const MainHeader = ({ history }) => {
                 history.push('/activities');
               }
             }}
+            style={{
+              fontWeight:
+                url === '/activities' || url === '/detail/:id'
+                  ? 'bold'
+                  : 'normal',
+            }}
           >
             모아보기
           </li>
@@ -89,6 +97,12 @@ const MainHeader = ({ history }) => {
               } else {
                 history.push('/mypage/profile');
               }
+            }}
+            style={{
+              fontWeight:
+                url === '/mypage/profile' || url === '/mypage/settings'
+                  ? 'bold'
+                  : 'normal',
             }}
           >
             마이페이지
