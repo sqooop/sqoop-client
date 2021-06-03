@@ -43,9 +43,6 @@ const CardList = () => {
       saveCards(cardData);
       const data = await getCardAPI(monthId);
       saveCards(data);
-
-      console.log(year);
-      console.log(monthId);
     })();
   }, []);
   return (

@@ -24,7 +24,7 @@ const UserInfoWrap = Styled.div`
       &__url > input {
         color: #A5A5A5;
       } */
-      &__sns > span {
+      &__url > span {
         margin-bottom: 0px;
       }
     }
