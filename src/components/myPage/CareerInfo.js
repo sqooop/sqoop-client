@@ -42,10 +42,16 @@ const CareerInfoWrap = Styled.div`
   }
 `;
 
-const CareerInfo = ({ type, data, origin, saveData, match }) => {
+const CareerInfo = ({ type, data, origin, saveData, saved, match }) => {
   const isReadOnly = match.path === '/mypage/profile' ? true : false;
   const [currentTarget, setCurrentTarget] = useState('');
   const [careerIndex, setCareerIndex] = useState('');
+
+  useEffect(() => {
+    if (saved) {
+      setCurrentTarget('');
+    }
+  }, [saved]);
 
   return (
     <CareerInfoWrap>

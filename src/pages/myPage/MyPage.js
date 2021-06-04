@@ -41,7 +41,7 @@ const MyPage = ({ history }) => {
       <MyPageWrap>
         <MyPageHeaderContainer saved={saved} setSaved={setSaved} />
         <UserInfoContainer />
-        <SchoolInfoContainer />
+        <SchoolInfoContainer saved={saved} />
         <InterestInfoContainer />
         <CareerInfoContainer saved={saved} />
         <IntroInfoContainer />

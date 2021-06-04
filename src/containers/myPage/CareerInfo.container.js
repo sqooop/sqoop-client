@@ -50,18 +50,21 @@ const CareerInfoContainer = ({ saved }) => {
           data={careerInfo.langHistory}
           origin={careerInfo}
           saveData={setCareerInfo}
+          saved={saved}
         />
         <CareerInfo
           type={'자격증'}
           data={careerInfo.certificateHistory}
           origin={careerInfo}
           saveData={setCareerInfo}
+          saved={saved}
         />
         <CareerInfo
           type={'수상 내역'}
           data={careerInfo.awardHistory}
           origin={careerInfo}
           saveData={setCareerInfo}
+          saved={saved}
         />
       </>
     )
