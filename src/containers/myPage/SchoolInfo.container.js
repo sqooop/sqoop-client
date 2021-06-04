@@ -38,7 +38,7 @@ const SchoolInfoContainerWrap = Styled.div`
   }
 `;
 
-const SchoolInfoContainer = ({ match }) => {
+const SchoolInfoContainer = ({ saved, match }) => {
   const isReadOnly = match.path === '/mypage/profile' ? true : false;
 
   const [currentTarget, setCurrentTarget] = useState('');
@@ -57,6 +57,12 @@ const SchoolInfoContainer = ({ match }) => {
       setIsReady(true);
     })();
   }, []);
+
+  useEffect(() => {
+    if (saved) {
+      setCurrentTarget('');
+    }
+  }, [saved]);
 
   function getLastMonth() {
     const date = new Date();

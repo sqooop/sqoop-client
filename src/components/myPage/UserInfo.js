@@ -54,6 +54,10 @@ const UserInfoWrap = Styled.div`
     -webkit-appearance: none;
     margin: 0;
   }
+  input[type="text"]:focus,
+  input[type="email"]:focus {
+    background-color: #EEEEEE;
+  }
 `;
 
 const UserInfo = ({
@@ -132,17 +136,12 @@ const UserInfo = ({
             onClick={() => {
               isReadOnly ? setCurrentTarget('') : setCurrentTarget('phone');
             }}
-            style={
-              currentTarget === 'phone'
-                ? { backgroundColor: '#EEEEEE' }
-                : { backgroundColor: 'white' }
-            }
           />
         </div>
         <div className="user--info__email">
           <span className="title">이메일</span>
           <input
-            type="text"
+            type="email"
             value={userEmail}
             placeholder="입력해주세요"
             readOnly={isReadOnly}
@@ -153,11 +152,6 @@ const UserInfo = ({
             onClick={() => {
               isReadOnly ? setCurrentTarget('') : setCurrentTarget('email');
             }}
-            style={
-              currentTarget === 'email'
-                ? { backgroundColor: '#EEEEEE' }
-                : { backgroundColor: 'white' }
-            }
           />
         </div>
         <div className="user--info__url">
@@ -174,11 +168,6 @@ const UserInfo = ({
             onClick={() => {
               isReadOnly ? setCurrentTarget('') : setCurrentTarget('url');
             }}
-            style={
-              currentTarget === 'url'
-                ? { backgroundColor: '#EEEEEE' }
-                : { backgroundColor: 'white' }
-            }
           />
         </div>
       </div>
