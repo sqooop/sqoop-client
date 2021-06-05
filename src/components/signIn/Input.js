@@ -46,10 +46,13 @@ const Input = props => {
   };
   return (
     <InputWrap>
-      <StyledSpan>{content}</StyledSpan>
+      <StyledSpan>
+        <label for={content}>{content}</label>
+      </StyledSpan>
       {content === '비밀번호' || content === '비밀번호 확인' ? (
         <>
           <StyledInput
+            id={content}
             type="password"
             value={value}
             onChange={onChange}
@@ -61,6 +64,7 @@ const Input = props => {
         </>
       ) : (
         <StyledInput
+          id={content}
           type="text"
           value={value}
           onChange={onChange}
