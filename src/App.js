@@ -6,7 +6,7 @@ import Notice from './pages/signUp/Notice';
 import Privacy from './pages/signUp/Privacy';
 import Email from './pages/findInformation/Email';
 import Password from './pages/findInformation/Password';
-import CreateActivity from './pages/createActivity/CreateActivity';
+import CreateActivity from './pages/CreateActivity/CreateActivity';
 import StepCard from './pages/stepCard/StepCard';
 import FilterActivities from './pages/filterActivities/FilterActivities';
 import ActivityOneDefault from './pages/activityOne/ActivityOneDefault';
