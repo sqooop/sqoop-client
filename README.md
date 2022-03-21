@@ -10,7 +10,7 @@
 
 #### **SOPT 27TH APP JAM__WEB PART**
 ##### **PROJECT PERIOD**
-#### 2020.12.28 ~ 2021.01.16
+#### 2020.12.28 ~ 2021.06.08
 ##### **TEAM CORE VALUE**
 ###### "EASY" "MOTIVATIVE" "DETAIL"
 
@@ -23,7 +23,7 @@
 | :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: |
 | <img src="https://avatars3.githubusercontent.com/u/70877186?s=460&u=b80382a7a0abb0acbf147217eb41720a9d3e0a38&v=4" alt="profile" width="200" height="200"> | <img src="https://avatars1.githubusercontent.com/u/55863806?s=460&u=c65fa17d24b3d8c5603a24ea7c561879be7983ae&v=4" alt="profile" width="200" height="200"> | <img src="https://avatars3.githubusercontent.com/u/55784772?s=460&u=3b15b3f7c5ac71e8d20b5dbb6d34e00c89fc2f0a&v=4" alt="profile" width="200" height="200"> | <img src="https://avatars1.githubusercontent.com/u/48766355?s=460&u=0419d273d1a31539ee4f1151cdacb6fefd45dacc&v=4" alt="profile" width="200" height="200">
 |                                             [sohee-K](https://github.com/sohee-K)                                             |                                          [Hyun-juhee](https://github.com/Hyun-juhee)                                          |                                            [yezgoget](https://github.com/yezgoget)                                            |                                              [mnxmnz](https://github.com/mnxmnz)                                              |
-|                                                         활동 돌아보기 <br /> 마이페이지(~ing)                                                         |                                                         새 활동 추가<br /> 활동 모아보기<br /> 로그인                                                          |                                                            메인 홈                                                            |                                                        개별 활동 보기                                                         |
+|                                                         활동 돌아보기 <br /> 마이페이지                                                         |                                                         새 활동 추가<br /> 활동 모아보기<br /> 로그인                                                          |                                                            메인 홈                                                            |                                                        개별 활동 보기                                                         |
 |                        git branch <br />[[step-card]](https://github.com/sqooop/sqoop-client/tree/step-card) <br /> [[my-page]](https://github.com/sqooop/sqoop-client/tree/my-page)                       |                   git branch <br />[[createActivity]](https://github.com/sqooop/sqoop-client/tree/createActivity)                   |                             git branch <br /> [[home]](https://github.com/sqooop/sqoop-client/tree/home)                             |                     git branch <br />[[activity-one]](https://github.com/sqooop/sqoop-client/tree/activity-one)                     |
 
 
